@@ -1,0 +1,23 @@
+<project name="RST" default="dist" basedir=".">
+
+	<description>
+        Robotics Systems Types library with common wire schemas
+    </description>
+
+	<path id="classpath">
+		<pathelement location="@PROTOBUF_JAVA_LIBRARY@" />
+	</path>
+
+	<target name="compile" description="compile the source ">
+		<mkdir dir="classes" />
+		<javac srcdir="@CMAKE_CURRENT_BINARY_DIR@" destdir="classes" debug="on" deprecation="on">
+			<compilerarg value="-Xlint" />
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+	<target name="dist" depends="compile" description="generate the distribution">
+		<jar jarfile="@JAR_FILE@" basedir="classes" />
+	</target>
+
+</project>
