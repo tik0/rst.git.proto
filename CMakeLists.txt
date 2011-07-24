@@ -24,11 +24,17 @@ ENDIF()
 
 # --- protocol ---
 
-SET(RSTFILES 
-  ${CMAKE_CURRENT_SOURCE_DIR}/rst/ImageProcessing.proto
-  ${CMAKE_CURRENT_SOURCE_DIR}/rst/SoundProcessing.proto
-  ${CMAKE_CURRENT_SOURCE_DIR}/rst/XOPData.proto
+SET(PROTO_FILES 
+  rst/ImageProcessing.proto
+  rst/SoundProcessing.proto
+  rst/XOPData.proto
 )
+
+# --- make absolute paths from PROTO_FILES ---
+FOREACH(FILE ${PROTO_FILES})
+    GET_FILENAME_COMPONENT(ABS_FILE ${FILE} ABSOLUTE)
+	 SET(RSTFILES ${RSTFILES} ${ABS_FILE})
+ENDFOREACH()
 
 ADD_SUBDIRECTORY(cpp)
 ADD_SUBDIRECTORY(java)
