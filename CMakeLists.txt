@@ -24,19 +24,17 @@ ENDIF()
 
 # --- protocol ---
 
-SET(RSTFILES "${CMAKE_CURRENT_SOURCE_DIR}/rst/ImageProcessing.proto"
-             "${CMAKE_CURRENT_SOURCE_DIR}/rst/SoundProcessing.proto")
+SET(RSTFILES 
+  ${CMAKE_CURRENT_SOURCE_DIR}/rst/ImageProcessing.proto
+  ${CMAKE_CURRENT_SOURCE_DIR}/rst/SoundProcessing.proto
+  ${CMAKE_CURRENT_SOURCE_DIR}/rst/XOPData.proto
+)
 
 ADD_SUBDIRECTORY(cpp)
 ADD_SUBDIRECTORY(java)
 ADD_SUBDIRECTORY(python)
 
 # --- install protocol anyways for backwards compatibility ---
-
-SET(RSTFILES 
-    rst/ImageProcessing.proto
-    rst/SoundProcessing.proto
-)
 
 MACRO(INSTALL_FILES_WITH_DIRECTORY FILE_LIST)
 

@@ -1,0 +1,23 @@
+package rsb.xml;
+
+message Attachment {
+  // url of attachment
+  optional	string		 url							= 1;
+  
+  // optional attachment data: only one item is used
+  optional	bytes			 bytes 			 			= 2;
+  optional	string		 string						= 3;
+  repeated	double		 double						= 4;
+  repeated	float			 float						= 5;
+  repeated	sint32		 int							= 6;
+}
+
+message XOPData {
+  // XML string (utf-8 encoded)
+  optional	string			xml						= 1;
+
+  // set of url-value attachments
+  repeated	Attachment		attachments				= 2;
+}
+
+
