@@ -25,9 +25,10 @@ ENDIF()
 # --- protocol ---
 
 SET(PROTO_FILES 
-  rst/ImageProcessing.proto
-  rst/SoundProcessing.proto
-  rst/XOPData.proto
+  rst/ImageMessage.proto
+  rst/SoundMessage.proto
+  rst/ViconData.proto
+  rsb/xml/XOPData.proto
 )
 
 # --- make absolute paths from PROTO_FILES ---
@@ -51,7 +52,7 @@ MACRO(INSTALL_FILES_WITH_DIRECTORY FILE_LIST)
 
 ENDMACRO()
 
-INSTALL_FILES_WITH_DIRECTORY(RSTFILES)
+INSTALL_FILES_WITH_DIRECTORY(PROTO_FILES)
 
 # --- cmake configuration file ---
 

@@ -7,9 +7,9 @@ message Attachment {
   // optional attachment data: only one item is used
   optional	bytes			 bytes 			 			= 2;
   optional	string		 string						= 3;
-  repeated	double		 double						= 4;
-  repeated	float			 float						= 5;
-  repeated	sint32		 int							= 6;
+  repeated	double		 double						= 4 [packed = true];
+  repeated	float			 float						= 5 [packed = true];
+  repeated	sint32		 int							= 6 [packed = true];
 }
 
 message XOPData {
