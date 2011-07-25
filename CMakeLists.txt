@@ -24,17 +24,14 @@ ENDIF()
 
 # --- protocol ---
 
-SET(PROTO_FILES 
-  rst/ImageMessage.proto
-  rst/SoundMessage.proto
-  rst/ViconData.proto
-  rsb/xml/XOPData.proto
-)
+FILE(GLOB_RECURSE PROTO_FILES
+     RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}"
+     "${CMAKE_CURRENT_SOURCE_DIR}/*.proto")
 
 # --- make absolute paths from PROTO_FILES ---
 FOREACH(FILE ${PROTO_FILES})
     GET_FILENAME_COMPONENT(ABS_FILE ${FILE} ABSOLUTE)
-	 SET(RSTFILES ${RSTFILES} ${ABS_FILE})
+    SET(RSTFILES ${RSTFILES} ${ABS_FILE})
 ENDFOREACH()
 
 ADD_SUBDIRECTORY(cpp)
