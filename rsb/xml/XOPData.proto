@@ -1,11 +1,13 @@
 package rsb.xml;
 
+option java_outer_classname = "XOPProcessing";
+
 message Attachment {
   // url of attachment
   optional	string		 url							= 1;
-  
+
   // optional attachment data: only one item is used
-  optional	bytes			 bytes 			 			= 2;
+  optional	bytes			 bytes						= 2;
   optional	string		 string						= 3;
   repeated	double		 double						= 4 [packed = true];
   repeated	float			 float						= 5 [packed = true];
@@ -19,5 +21,3 @@ message XOPData {
   // set of url-value attachments
   repeated	Attachment		attachments				= 2;
 }
-
-

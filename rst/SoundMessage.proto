@@ -1,7 +1,9 @@
 package rst;
 
+option java_outer_classname = "SoundProcessing";
+
 message SoundMessage {
-    
+
     enum SampleType {
         SAMPLE_S8 = 0;
         SAMPLE_U8 = 1;
@@ -10,7 +12,7 @@ message SoundMessage {
         SAMPLE_S24 = 8;
         SAMPLE_U24 = 16;
     }
-    
+
     enum EndianNess {
         ENDIAN_LITTLE = 0;
         ENDIAN_BIG = 1;
@@ -18,12 +20,12 @@ message SoundMessage {
 
     required bytes data = 1;
     required uint32 sample_count = 2;
-    
+
     optional uint32 channels = 3 [default = 1];
     optional uint32 rate = 4 [default = 44100];
     optional SampleType sample_type = 5 [default = SAMPLE_S16];
     optional EndianNess endianness = 6 [default = ENDIAN_LITTLE];
-    
+
     // TODO: interleaving type?
-    
+
 }

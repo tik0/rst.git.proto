@@ -1,5 +1,7 @@
 package rst;
 
+option java_outer_classname = "ViconProcessing";
+
 message ViconTimecode{
         required uint32 hour = 1;
         required uint32 minute = 2;
@@ -9,15 +11,15 @@ message ViconTimecode{
 }
 
 message ViconTranslation {
-        required double x = 1;  
-        required double y = 2;  
-        required double z = 4;  
+        required double x = 1;
+        required double y = 2;
+        required double z = 4;
 }
 
 message ViconOrientation {
-        required double euler_x = 1;  
-        required double euler_y = 2;  
-        required double euler_z = 4;  
+        required double euler_x = 1;
+        required double euler_y = 2;
+        required double euler_z = 4;
 }
 
 message ViconSegment{

@@ -1,5 +1,7 @@
 package running.example;
 
+option java_outer_classname = "RunningExample";
+
 message MetaData {
   required string key   = 1;
   required string value = 2;
