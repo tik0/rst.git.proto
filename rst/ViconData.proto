@@ -1,0 +1,38 @@
+package rst;
+
+message ViconTimecode{
+        required uint32 hour = 1;
+        required uint32 minute = 2;
+        required uint32 second = 3;
+        required uint32 frame = 4;
+        required uint32 subFrames = 5;
+}
+
+message ViconTranslation {
+        required double x = 1;  
+        required double y = 2;  
+        required double z = 4;  
+}
+
+message ViconOrientation {
+        required double euler_x = 1;  
+        required double euler_y = 2;  
+        required double euler_z = 4;  
+}
+
+message ViconSegment{
+        required string name = 1;
+        required ViconTranslation translation = 2;
+        required ViconOrientation orientation = 4;
+        repeated ViconSegment subSegments = 8;
+}
+
+message ViconSubject {
+        required string name = 1;
+        required ViconSegment rootSegment = 2;
+}
+
+message ViconData {
+        required ViconTimecode timecode = 1;
+        repeated ViconSubject subjects = 2;
+}
