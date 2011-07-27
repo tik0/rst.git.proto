@@ -26,7 +26,9 @@ ENDIF()
 
 FILE(GLOB_RECURSE PROTO_FILES
      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}"
-     "${CMAKE_CURRENT_SOURCE_DIR}/*.proto")
+     "${CMAKE_CURRENT_SOURCE_DIR}/proto/[^.]*.proto")
+
+MESSAGE(${PROTO_FILES})
 
 # --- make absolute paths from PROTO_FILES ---
 FOREACH(FILE ${PROTO_FILES})
