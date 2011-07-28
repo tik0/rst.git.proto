@@ -1,6 +1,13 @@
 
 INCLUDE(PedanticCompilerWarnings)
 
+# Configure and install pkg-config module file
+CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/${CPP_NAME}.pc.in"
+               "${CMAKE_CURRENT_BINARY_DIR}/${CPP_NAME}.pc"
+	       @ONLY)
+INSTALL(FILES       "${CMAKE_CURRENT_BINARY_DIR}/${CPP_NAME}.pc"
+        DESTINATION lib/pkgconfig)
+
 PROTOBUF_GENERATE(CPP CPP_PROTO_SOURCES CPP_PROTO_HEADERS
                   EXPORT_MACRO RST_EXPORT
                   PROTOFILES ${RSTFILES}
