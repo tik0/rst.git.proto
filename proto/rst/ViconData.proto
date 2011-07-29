@@ -2,7 +2,7 @@ package rst;
 
 option java_outer_classname = "ViconProcessing";
 
-message ViconTimecode{
+message ViconTimecode {
         required uint32 hour = 1;
         required uint32 minute = 2;
         required uint32 second = 3;
@@ -26,15 +26,23 @@ message ViconSegment{
         required string name = 1;
         required ViconTranslation translation = 2;
         required ViconOrientation orientation = 4;
-        repeated ViconSegment subSegments = 8;
+        repeated MarkerData marker = 16;
+        repeated ViconSegment subSegments = 8;        
 }
 
 message ViconSubject {
-        required string name = 1;
+        required string navme = 1;
         required ViconSegment rootSegment = 2;
 }
+
 
 message ViconData {
         required ViconTimecode timecode = 1;
         repeated ViconSubject subjects = 2;
+}
+
+message MarkerData {
+        required string name = 1;
+        required bool occluded = 2;
+        repeated ViconTranslation translation = 4;
 }
