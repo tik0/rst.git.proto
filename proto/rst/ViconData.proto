@@ -27,11 +27,11 @@ message ViconSegment{
         required ViconTranslation translation = 2;
         required ViconOrientation orientation = 4;
         repeated MarkerData marker = 16;
-        repeated ViconSegment subSegments = 8;        
+        repeated ViconSegment subSegments = 8;
 }
 
 message ViconSubject {
-        required string navme = 1;
+        required string name = 1;
         required ViconSegment rootSegment = 2;
 }
 
