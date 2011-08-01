@@ -2,27 +2,23 @@
 FIND_PACKAGE(PythonInterp)
 
 IF(PYTHONINTERP_FOUND)
-
     
-    SET(EGG_FOLDER "rst.egg-info")
+    SET(EGG_FOLDER "proto/rst.egg-info")
 
     PROTOBUF_GENERATE(PYTHON PYTHON_PROTO_FILES
                       PROTOFILES ${RSTFILES}
                       PROTOROOT ${CMAKE_SOURCE_DIR}
                       OUTPATH ${CMAKE_CURRENT_BINARY_DIR})
                       
-    # to have a valid python package, an __init__.py must be present
-    SET(PACKAGE_FILE "${CMAKE_CURRENT_BINARY_DIR}/rst/__init__.py")
-    ADD_CUSTOM_COMMAND(OUTPUT ${PACKAGE_FILE}
-                       COMMAND ${CMAKE_COMMAND} -E touch ${PACKAGE_FILE}
-                       DEPENDS ${PYTHON_PROTO_FILES}
-                       COMMENT "Fixing python package")
-
-    CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/setup.py.in" "${CMAKE_CURRENT_BINARY_DIR}/setup.py" @ONLY)
+    CONFIGURE_FILE(CreatePythonPackages.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/CreatePythonPackages.cmake" @ONLY)
+    CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/setup.py.in" "${CMAKE_CURRENT_BINARY_DIR}/proto/setup.py" @ONLY)
     
     ADD_CUSTOM_COMMAND(OUTPUT ${EGG_FOLDER}
+                       # to have a valid python package, an __init__.py must be present for every directory
+                       COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/CreatePythonPackages.cmake"
                        COMMAND ${PYTHON_EXECUTABLE} setup.py bdist_egg -d ${CMAKE_CURRENT_BINARY_DIR}
-                       DEPENDS ${PYTHON_PROTO_FILES} ${PACKAGE_FILE}
+                       DEPENDS ${PYTHON_PROTO_FILES}
+                       WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/proto"
                        COMMENT "Creating python egg")
     ADD_CUSTOM_TARGET(python ALL DEPENDS ${EGG_FOLDER})
 
@@ -37,7 +33,7 @@ IF(PYTHONINTERP_FOUND)
             PATTERN "CMake*" EXCLUDE
             PATTERN "build" EXCLUDE
             PATTERN "${EGG_FOLDER}" EXCLUDE
-            PATTERN "rst" EXCLUDE)
+            PATTERN "proto" EXCLUDE)
 
 ELSE()
     MESSAGE(STATUS "Python not found. Not installing python bindings.")

@@ -1,0 +1,33 @@
+
+SET(ROOT_FOLDER "@CMAKE_CURRENT_BINARY_DIR@/proto")
+
+# first, search for python files so we know which folder need to be packages
+FILE(GLOB_RECURSE PY_FILES "${ROOT_FOLDER}/*.py")
+
+# for each file, deduce the hierarchy of directories that needs to be fixed
+SET(FIX_DIRECTORIES)
+
+FOREACH(PY_FILE ${PY_FILES})
+    
+    GET_FILENAME_COMPONENT(FOLDER ${PY_FILE} PATH)
+    LIST(APPEND FIX_DIRECTORIES ${FOLDER})
+    
+    # traverse up the hierarchy
+    FILE(RELATIVE_PATH REL_FOLDER ${ROOT_FOLDER} ${FOLDER})
+    STRING(REPLACE "/" ";" FOLDER_LIST "${REL_FOLDER}")
+    
+    SET(CURRENT ${ROOT_FOLDER})
+    FOREACH(F ${FOLDER_LIST})
+        SET(CURRENT "${CURRENT}/${F}")
+        LIST(APPEND FIX_DIRECTORIES ${CURRENT})
+    ENDFOREACH()
+
+ENDFOREACH()
+
+# remove potential duplicates
+LIST(REMOVE_DUPLICATES FIX_DIRECTORIES)
+
+# create the package files
+FOREACH(DIR ${FIX_DIRECTORIES})
+    FILE(WRITE "${DIR}/__init__.py" "")
+ENDFOREACH()
