@@ -1,0 +1,15 @@
+package rst;
+
+option java_outer_classname = "JointDataContainer";
+
+// A message that contains data about one joint of a robot.
+message JointData {
+    // ASCII name of the joint
+    required bytes name = 1;
+    // A value representing the joint's position
+    required float value = 2;
+    // A stiffness value for the joint for 0 to 1
+    optional float stiffness = 3;
+    // The value sent as the last command
+    optional float command = 4;
+}

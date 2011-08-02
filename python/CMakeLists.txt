@@ -7,8 +7,8 @@ IF(PYTHONINTERP_FOUND)
 
     PROTOBUF_GENERATE(PYTHON PYTHON_PROTO_FILES
                       PROTOFILES ${RSTFILES}
-                      PROTOROOT ${CMAKE_SOURCE_DIR}
-                      OUTPATH ${CMAKE_CURRENT_BINARY_DIR})
+                      PROTOROOT ${PROTO_ROOT}
+                      OUTPATH "${CMAKE_CURRENT_BINARY_DIR}/proto")
                       
     CONFIGURE_FILE(CreatePythonPackages.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/CreatePythonPackages.cmake" @ONLY)
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/setup.py.in" "${CMAKE_CURRENT_BINARY_DIR}/proto/setup.py" @ONLY)
@@ -16,7 +16,7 @@ IF(PYTHONINTERP_FOUND)
     ADD_CUSTOM_COMMAND(OUTPUT ${EGG_FOLDER}
                        # to have a valid python package, an __init__.py must be present for every directory
                        COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/CreatePythonPackages.cmake"
-                       COMMAND ${PYTHON_EXECUTABLE} setup.py bdist_egg -d ${CMAKE_CURRENT_BINARY_DIR}
+                       COMMAND ${PYTHON_EXECUTABLE} "${CMAKE_CURRENT_BINARY_DIR}/proto/setup.py" bdist_egg -d "${CMAKE_CURRENT_BINARY_DIR}"
                        DEPENDS ${PYTHON_PROTO_FILES}
                        WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/proto"
                        COMMENT "Creating python egg")

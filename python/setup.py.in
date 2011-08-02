@@ -28,6 +28,6 @@ setup(name='rst',
       license="GPLv2",
       url="https://code.cor-lab.org/projects/rsb",
 
-      packages=find_packages(),
+      packages=find_packages(exclude=['build/*.py']),
 
       )
