@@ -1,4 +1,3 @@
-
 SET(ROOT_FOLDER "@CMAKE_CURRENT_BINARY_DIR@/proto")
 
 # first, search for python files so we know which folder need to be packages
@@ -12,24 +11,24 @@ FOREACH(PY_FILE ${PY_FILES})
     # ensure that we do not instrument the build folder of setuptools, otherwise
     # the build folder will also end up in the library
     STRING(REPLACE "@CMAKE_CURRENT_BINARY_DIR@/proto/build" "" BUILD_REPLACED ${PY_FILE})
-    
+
     # if replacing the build prefix did not change anything, this is a file
     # outside the build tree
     IF(${BUILD_REPLACED} STREQUAL ${PY_FILE})
-    
+
         GET_FILENAME_COMPONENT(FOLDER ${PY_FILE} PATH)
         LIST(APPEND FIX_DIRECTORIES ${FOLDER})
-        
+
         # traverse up the hierarchy
         FILE(RELATIVE_PATH REL_FOLDER ${ROOT_FOLDER} ${FOLDER})
         STRING(REPLACE "/" ";" FOLDER_LIST "${REL_FOLDER}")
-        
+
         SET(CURRENT ${ROOT_FOLDER})
         FOREACH(F ${FOLDER_LIST})
             SET(CURRENT "${CURRENT}/${F}")
             LIST(APPEND FIX_DIRECTORIES ${CURRENT})
         ENDFOREACH()
-        
+
     ENDIF()
 
 ENDFOREACH()

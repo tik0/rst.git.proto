@@ -1,18 +1,17 @@
-
 FIND_PACKAGE(PythonInterp)
 
 IF(PYTHONINTERP_FOUND)
-    
+
     SET(EGG_FOLDER "proto/rst.egg-info")
 
     PROTOBUF_GENERATE(PYTHON PYTHON_PROTO_FILES
                       PROTOFILES ${RSTFILES}
                       PROTOROOT ${PROTO_ROOT}
                       OUTPATH "${CMAKE_CURRENT_BINARY_DIR}/proto")
-                      
+
     CONFIGURE_FILE(CreatePythonPackages.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/CreatePythonPackages.cmake" @ONLY)
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/setup.py.in" "${CMAKE_CURRENT_BINARY_DIR}/proto/setup.py" @ONLY)
-    
+
     ADD_CUSTOM_COMMAND(OUTPUT ${EGG_FOLDER}
                        # to have a valid python package, an __init__.py must be present for every directory
                        COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/CreatePythonPackages.cmake"
@@ -26,7 +25,7 @@ IF(PYTHONINTERP_FOUND)
     EXECUTE_PROCESS(COMMAND ${PYTHON_EXECUTABLE} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(prefix='')" OUTPUT_VARIABLE EGG_INSTALL_FOLDER)
     STRING(STRIP ${EGG_INSTALL_FOLDER} EGG_INSTALL_FOLDER)
     MESSAGE(STATUS "Python egg install folder: ${EGG_INSTALL_FOLDER}")
-    
+
     INSTALL(DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/."
             DESTINATION ${EGG_INSTALL_FOLDER}
             FILES_MATCHING PATTERN "*.egg"
