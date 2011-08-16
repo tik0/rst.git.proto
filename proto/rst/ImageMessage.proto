@@ -2,6 +2,11 @@ package rst;
 
 option java_outer_classname = "ImageProcessing";
 
+// Interpretation of RSB timestamps
+//
+// create:
+//         image grab time (to be more precisely defined. e.g. what
+//         does this mean for rolling shutter cameras?)
 message ImageMessage {
 
     // reflecting the definitions from OpenCV's IplImage

@@ -2,6 +2,12 @@ package rst;
 
 option java_outer_classname = "SoundProcessing";
 
+// Interpretation of RSB timestamps
+//
+// create:
+//         Capture time of the audio buffer. More precisely, the
+//         timestamp should correspond to the first sample contained
+//         in the buffer.
 message SoundMessage {
 
     enum SampleType {
