@@ -7,18 +7,17 @@ message ImageMessage {
     // reflecting the definitions from OpenCV's IplImage
     enum Depth {
         DEPTH_8U = 8;
-      DEPTH_16U = 16; /* Comment */
+        DEPTH_16U = 16;
     }
 
-  /**/
     enum ColorMode {
         COLOR_GRAYSCALE = 0;
         COLOR_RGB = 1;
         COLOR_BGR = 2;
         COLOR_YUV = 4;
         COLOR_YUV422 = 8;
-	}
-  /*Don't get confused*/
+    }
+
     enum DataOrder {
         // separate planes
         DATA_SEPARATE = 0;
