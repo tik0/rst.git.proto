@@ -12,4 +12,6 @@ message JointData {
     optional float stiffness = 3;
     // The value sent as the last command
     optional float command = 4;
+    // The temperature of the joint in degree Celsius
+    optional float temperature = 5;
 }
