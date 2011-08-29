@@ -26,6 +26,10 @@ IF(PYTHONINTERP_FOUND)
     STRING(STRIP ${EGG_INSTALL_FOLDER} EGG_INSTALL_FOLDER)
     MESSAGE(STATUS "Python egg install folder: ${EGG_INSTALL_FOLDER}")
 
+    # first, install using python to have a valid egg registration
+    INSTALL(CODE "EXECUTE_PROCESS(COMMAND \"${PYTHON_EXECUTABLE}\" \"${CMAKE_CURRENT_BINARY_DIR}/proto/setup.py\" install \"--prefix=${CMAKE_INSTALL_PREFIX}\" -f WORKING_DIRECTORY \"${CMAKE_CURRENT_BINARY_DIR}/proto\")")
+
+    # second, also pseudo-install using cmake for the generated cmake package
     INSTALL(DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/."
             DESTINATION ${EGG_INSTALL_FOLDER}
             FILES_MATCHING PATTERN "*.egg"
