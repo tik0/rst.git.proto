@@ -4,7 +4,7 @@ INCLUDE(PedanticCompilerWarnings)
 # Configure and install pkg-config module file
 CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/${CPP_NAME}.pc.in"
                "${CMAKE_CURRENT_BINARY_DIR}/${CPP_NAME}.pc"
-	       @ONLY)
+	           @ONLY)
 INSTALL(FILES       "${CMAKE_CURRENT_BINARY_DIR}/${CPP_NAME}.pc"
         DESTINATION lib/pkgconfig)
 
