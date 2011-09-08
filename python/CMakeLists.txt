@@ -1,6 +1,18 @@
 FIND_PACKAGE(PythonInterp)
 
-IF(PYTHONINTERP_FOUND)
+# also check that setuptools is available
+IF(PYTHONINTERP_FOUND AND NOT SETUPTOOLS_FOUND)
+    MESSAGE(STATUS "Checking wether setuptools for python is available")
+    EXECUTE_PROCESS(COMMAND ${PYTHON_EXECUTABLE} -c "import setuptools" RESULT_VARIABLE SETUPTOOLS_RESULT)
+    IF(SETUPTOOLS_RESULT EQUAL 0)
+        SET(SETUPTOOLS_FOUND TRUE CACHE BOOL "Indicates wether python can run setuptools" FORCE)
+    ELSE()
+        SET(SETUPTOOLS_FOUND FALSE CACHE BOOL "Indicates wether python can run setuptools")
+    ENDIF()
+    MESSAGE(STATUS "setuptools available: ${SETUPTOOLS_FOUND}")
+ENDIF()
+
+IF(PYTHONINTERP_FOUND AND SETUPTOOLS_FOUND)
 
     SET(EGG_FOLDER "proto/rst.egg-info")
 
@@ -39,5 +51,5 @@ IF(PYTHONINTERP_FOUND)
             PATTERN "proto" EXCLUDE)
 
 ELSE()
-    MESSAGE(STATUS "Python not found. Not installing python bindings.")
+    MESSAGE(STATUS "Python not found or setuptools not available. Not installing python bindings.")
 ENDIF()
