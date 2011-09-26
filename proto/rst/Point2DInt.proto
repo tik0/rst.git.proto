@@ -1,0 +1,13 @@
+package rst;
+
+option java_outer_classname = "Point2DIntProcessing";
+
+// A message representing a 2D Point
+// x, y: coordinates for the 2D Point
+
+message Point2DInt {
+
+	required int32 x = 1;
+	required int32 y = 2;
+
+}

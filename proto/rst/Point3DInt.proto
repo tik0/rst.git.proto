@@ -1,0 +1,14 @@
+package rst;
+
+option java_outer_classname = "Point3DIntProcessing";
+
+// A message representing a 3D Point
+// x, y, z: coordinates for the 3D Point
+
+message Point3DInt {
+
+	required int32 x = 1;
+	required int32 y = 2;
+	required int32 z = 3;
+
+}

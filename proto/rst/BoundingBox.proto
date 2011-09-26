@@ -1,0 +1,16 @@
+package rst;
+
+import "rst/Point2DInt.proto";
+
+option java_outer_classname = "BoundingBoxProcessing";
+
+// An arbitrary bounding box
+// x, y: top left corner coordinates
+// width, height: size
+message BoundingBox {
+
+	required Point2DInt topLeft = 1;
+	required uint32 width = 2;
+	required uint32 height = 3;
+
+}
