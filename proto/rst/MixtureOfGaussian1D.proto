@@ -1,0 +1,17 @@
+package rst;
+
+import "rst/Gaussian1D.proto";
+
+option java_outer_classname = "MixtureOfGaussian1DProcessing";
+
+message MixtureOfGaussian1D {
+
+	message GaussianComponent1D {
+		required Gaussian1D gaussian = 1;
+		required float weight = 2;
+		optional float probabilityState = 3;
+	}
+
+	repeated GaussianComponent1D components = 1;
+
+}

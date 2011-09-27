@@ -1,0 +1,10 @@
+package rst;
+
+option java_outer_classname = "Gaussian1DProcessing";
+
+message Gaussian1D {
+
+	required float mean = 1;
+	required float variance = 2;
+
+}
