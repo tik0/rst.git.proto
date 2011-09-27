@@ -1,0 +1,14 @@
+package rst;
+
+import "rst/CameraMatrix3x4.proto";
+
+option java_outer_classname = "CalibrationMatricesProcessing";
+
+// A message representing a pair of 2D Points
+
+message CalibrationMatrices {
+
+	required CameraMatrix3x4 left = 1;
+	required CameraMatrix3x4 right = 2;
+
+}
