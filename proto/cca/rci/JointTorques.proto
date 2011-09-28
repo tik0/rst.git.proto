@@ -1,0 +1,6 @@
+package cca.rci;
+
+// A message that contains joint torques in N*cm
+message JointTorques {
+    repeated float angles = 1 [packed=true];
+}

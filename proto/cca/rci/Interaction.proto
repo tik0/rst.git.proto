@@ -1,0 +1,11 @@
+package cca.rci;
+
+import "cca/rci/Forces.proto";
+import "cca/rci/Torques.proto";
+
+// A message that contains interaction force, composed of cartesian
+// translatory forces in Newton and cartesian rotatory forces (moments) in N*cm.
+message Interaction {
+    required Forces forces = 1;
+    required Torques torques = 2;
+}

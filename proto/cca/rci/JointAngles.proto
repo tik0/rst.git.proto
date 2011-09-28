@@ -1,0 +1,6 @@
+package cca.rci;
+
+// A message that contains joint angles in rad
+message JointAngles {
+    repeated float angles = 1 [packed=true];
+}

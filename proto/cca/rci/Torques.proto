@@ -1,0 +1,7 @@
+package cca.rci;
+
+// A message that representing an interaction cartesian rotatory forces
+// (moments) in N*cm
+message Torques {
+    repeated float torques = 1 [packed=true];
+}

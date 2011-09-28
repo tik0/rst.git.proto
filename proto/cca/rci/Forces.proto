@@ -1,0 +1,6 @@
+package cca.rci;
+
+// A message that contains cartesian translatory forces in newton
+message Forces {
+    repeated float forces = 1 [packed=true];
+}
