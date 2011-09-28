@@ -1,5 +1,7 @@
 package cca.rci;
 
+option java_outer_classname = "JointTorquesContainer";
+
 // A message that contains joint torques in N*cm
 message JointTorques {
     repeated float angles = 1 [packed=true];

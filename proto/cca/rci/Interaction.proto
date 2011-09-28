@@ -3,6 +3,8 @@ package cca.rci;
 import "cca/rci/Forces.proto";
 import "cca/rci/Torques.proto";
 
+option java_outer_classname = "InteractionContainer";
+
 // A message that contains interaction force, composed of cartesian
 // translatory forces in Newton and cartesian rotatory forces (moments) in N*cm.
 message Interaction {

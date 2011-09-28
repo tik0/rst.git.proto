@@ -1,5 +1,7 @@
 package cca.rci;
 
+option java_outer_classname = "ForcesContainer";
+
 // A message that contains cartesian translatory forces in newton
 message Forces {
     repeated float forces = 1 [packed=true];
