@@ -5,5 +5,7 @@ option java_outer_classname = "TorquesContainer";
 // A message that representing an interaction cartesian rotatory forces
 // (moments) in N*cm
 message Torques {
-    repeated float torques = 1 [packed=true];
+    required float a = 1;
+    required float b = 2;
+    required float c = 3;
 }

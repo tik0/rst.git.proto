@@ -4,5 +4,7 @@ option java_outer_classname = "ForcesContainer";
 
 // A message that contains cartesian translatory forces in newton
 message Forces {
-    repeated float forces = 1 [packed=true];
+    required float x = 1;
+    required float y = 2;
+    required float z = 3;
 }
