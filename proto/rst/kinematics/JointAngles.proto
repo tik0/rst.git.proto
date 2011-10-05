@@ -4,5 +4,5 @@ option java_outer_classname = "JointAnglesContainer";
 
 // A message that contains joint angles in rad
 message JointAngles {
-    repeated float angle = 1 [packed=true];
+    repeated float angles = 1 [packed=true];
 }
