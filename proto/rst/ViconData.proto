@@ -1,4 +1,4 @@
-package motion;
+package rst;
 
 option java_outer_classname = "MotionProcessing";
 
