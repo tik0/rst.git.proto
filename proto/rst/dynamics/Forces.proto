@@ -1,4 +1,4 @@
-package cca.rci;
+package rst.dynamics;
 
 option java_outer_classname = "ForcesContainer";
 
