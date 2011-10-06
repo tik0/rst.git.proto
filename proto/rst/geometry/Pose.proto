@@ -1,0 +1,12 @@
+package rst.geometry;
+
+import "rst/geometry/Translation.proto";
+import "rst/geometry/Rotation.proto";
+
+option java_outer_classname = "PoseContainer";
+
+// A message for pose data (camera, robot, ...)
+message Pose {
+    required Translation translation = 1;
+    required Rotation rotation = 2;
+}

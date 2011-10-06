@@ -1,0 +1,11 @@
+package rst.geometry;
+
+option java_outer_classname = "TranslationContainer";
+
+// A message for pose data (camera, robot, ...)
+// x, y, z:        position in world coordinates
+message Translation {
+    required double x = 1;
+    required double y = 2;
+    required double z = 3;
+}
