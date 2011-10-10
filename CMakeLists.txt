@@ -85,6 +85,6 @@ SET (CPACK_DEBIAN_PACKAGE_DESCRIPTION "Type specifications for Robotics and Cogn
 SET (CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
 SET (CPACK_DEBIAN_PACKAGE_SECTION "devel")
 SET (CPACK_DEBIAN_ARCHITECTURE ${CMAKE_SYSTEM_PROCESSOR})
-SET (CPACK_DEBIAN_PACKAGE_DEPENDS "libprotoc-dev, cmake-data, cmake")
+SET (CPACK_DEBIAN_PACKAGE_DEPENDS "libprotoc-dev, protobuf-compiler, cmake-data, cmake")
 
 INCLUDE(CPack)
