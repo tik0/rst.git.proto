@@ -9,9 +9,9 @@ message TaskState {
     // Client submits specification with INITIATED state
     // Server accepts or rejects task and publishes specification with
     // ACCEPTED or REJECTED state accordingly.
-    INITIATED        = 1;
-    ACCEPTED         = 2;
-    REJECTED         = 3;
+    INITIATED        = 0;
+    ACCEPTED         = 1;
+    REJECTED         = 2;
 
     // Updated of an accepted task:
     // Applicable in states: ACCEPTED
@@ -19,27 +19,33 @@ message TaskState {
     // Server accepts or rejects the update and publishes
     // specification with ACCEPTED or UPDATE_REJECTED state
     // accordingly.
-    UPDATE           = 4;
-    UPDATE_REJECTED  = 5;
+    UPDATE           = 3;
+    UPDATE_REJECTED  = 4;
 
     // Aborting an accepted task:
     // Applicable in states: ACCEPTED
-    ABORT            = 6;
-    ABORTED          = 7;
-    ABORT_FAILED     = 8;
+    ABORT            = 5;
+    ABORTED          = 6;
+    ABORT_FAILED     = 7;
 
     // Final states.
-    RESULT_AVAILABLE = 9;
-    COMPLETED        = 10;
-    FAILED           = 11;
+    RESULT_AVAILABLE = 8;
+    COMPLETED        = 9;
+    FAILED           = 10;
   }
 
-  required State  state      = 1;
-  required uint32 serial     = 2;
+  enum Origin {
+    SUBMITTER = 0;
+    HANDLER   = 1;
+  }
+
+  required Origin origin     = 1;
+  required State  state      = 2;
+  required uint32 serial     = 3;
 
   // Payload blob and its type. These are intended to be processed by
   // a (de)serialization mechanism that decodes/encodes the payload
   // blob according to the type information in wireSchema.
-  required bytes  wireSchema = 3;
-  required bytes  payload    = 4;
+  required bytes  wireSchema = 4;
+  required bytes  payload    = 5;
 }
