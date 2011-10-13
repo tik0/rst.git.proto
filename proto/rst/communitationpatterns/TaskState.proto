@@ -1,0 +1,45 @@
+package rst;
+
+option java_outer_classname = "TaskStateProcessing";
+
+message TaskState {
+  enum State {
+    // Initial task submission:
+    // Applicable in states: none (since initial submission)
+    // Client submits specification with INITIATED state
+    // Server accepts or rejects task and publishes specification with
+    // ACCEPTED or REJECTED state accordingly.
+    INITIATED        = 1;
+    ACCEPTED         = 2;
+    REJECTED         = 3;
+
+    // Updated of an accepted task:
+    // Applicable in states: ACCEPTED
+    // Client publishes (modified) specification with UPDATE state.
+    // Server accepts or rejects the update and publishes
+    // specification with ACCEPTED or UPDATE_REJECTED state
+    // accordingly.
+    UPDATE           = 4;
+    UPDATE_REJECTED  = 5;
+
+    // Aborting an accepted task:
+    // Applicable in states: ACCEPTED
+    ABORT            = 6;
+    ABORTED          = 7;
+    ABORT_FAILED     = 8;
+
+    // Final states.
+    RESULT_AVAILABLE = 9;
+    COMPLETED        = 10;
+    FAILED           = 11;
+  }
+
+  required State  state      = 1;
+  required uint32 serial     = 2;
+
+  // Payload blob and its type. These are intended to be processed by
+  // a (de)serialization mechanism that decodes/encodes the payload
+  // blob according to the type information in wireSchema.
+  required bytes  wireSchema = 3;
+  required bytes  payload    = 4;
+}
