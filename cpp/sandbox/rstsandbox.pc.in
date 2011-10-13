@@ -2,9 +2,9 @@ prefix=@CMAKE_INSTALL_PREFIX@
 libdir=${prefix}/lib
 includedir=${prefix}/include
 
-Name: Robotics Systems Types
+Name: Robotics Systems Types - Sandbox
 Description: Type specifications for Robotics and Cognitive Systems specified in Google Protocol Buffer's IDL format.
 Version: @RST_VERSION@
-Requires: protobuf
-Libs: -L${libdir} -l@STABLE_NAME@
-Cflags: -I${includedir} -DRST_EXPORT=''
+Requires: protobuf rst
+Libs: -L${libdir} -l@SANDBOX_NAME@
+Cflags: -I${includedir}
