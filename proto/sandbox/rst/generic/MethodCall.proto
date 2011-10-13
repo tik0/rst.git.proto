@@ -1,0 +1,12 @@
+package rst.generic;
+
+option java_outer_classname = "MethodCallContainer";
+
+import "rst/generic/Value.proto";
+
+// A message that wraps a generic method call
+message MethodCall {
+    // ASCII name of the method to call.
+    required bytes name = 1;
+    repeated Value arguments = 2;
+}

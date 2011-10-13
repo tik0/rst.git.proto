@@ -1,0 +1,28 @@
+package rst.generic;
+
+option java_outer_classname = "ValueContainer";
+
+// A message that wraps one single argument with it's type.
+message Value {
+
+    // Each value is typed.
+    enum Type {
+        VOID = 1;
+        INT = 2;
+        DOUBLE = 3;
+        STRING = 4;
+        BOOL = 5;
+        BINARY = 6;
+        ARRAY = 7;
+    }
+    required Type type = 1;
+
+    // along with the specified type, one of these fields need to be filled
+    optional int64 int = 2;
+    optional double double = 3;
+    optional string string = 4;
+    optional bool bool = 5;
+    optional bytes binary = 6;
+    repeated Value array = 7;
+
+}

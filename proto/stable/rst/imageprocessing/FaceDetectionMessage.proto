@@ -1,0 +1,18 @@
+package rst.imageprocessing;
+
+import "rst/geometry/BoundingBox.proto";
+
+option java_outer_classname = "FaceDetectionProcessing";
+
+message FaceDetectionMessage {
+
+	// A message representing one detected face
+	// box: bounding box for the detection
+	// confidence: detection confidence factor
+	message FaceBox {
+		required geometry.BoundingBox box = 1;
+		required double confidence = 2;
+	}
+
+	repeated FaceBox detections = 1;
+}

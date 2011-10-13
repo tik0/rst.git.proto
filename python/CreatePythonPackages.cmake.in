@@ -1,42 +1,47 @@
-SET(ROOT_FOLDER "@CMAKE_CURRENT_BINARY_DIR@/proto")
+GET_FILENAME_COMPONENT(PWD ${CMAKE_CURRENT_LIST_FILE} PATH)
+SET(ROOT_FOLDERS ${PWD})
 
-# first, search for python files so we know which folder need to be packages
-FILE(GLOB_RECURSE PY_FILES "${ROOT_FOLDER}/*.py")
+FOREACH(ROOT_FOLDER ${ROOT_FOLDERS})
 
-# for each file, deduce the hierarchy of directories that needs to be fixed
-SET(FIX_DIRECTORIES)
+    # first, search for python files so we know which folder need to be packages
+    FILE(GLOB_RECURSE PY_FILES "${ROOT_FOLDER}/*.py")
 
-FOREACH(PY_FILE ${PY_FILES})
+    # for each file, deduce the hierarchy of directories that needs to be fixed
+    SET(FIX_DIRECTORIES)
 
-    # ensure that we do not instrument the build folder of setuptools, otherwise
-    # the build folder will also end up in the library
-    STRING(REPLACE "@CMAKE_CURRENT_BINARY_DIR@/proto/build" "" BUILD_REPLACED ${PY_FILE})
+    FOREACH(PY_FILE ${PY_FILES})
 
-    # if replacing the build prefix did not change anything, this is a file
-    # outside the build tree
-    IF(${BUILD_REPLACED} STREQUAL ${PY_FILE})
+        # ensure that we do not instrument the build folder of setuptools, otherwise
+        # the build folder will also end up in the library
+        STRING(REPLACE "${ROOT_FOLDER}/build" "" BUILD_REPLACED ${PY_FILE})
 
-        GET_FILENAME_COMPONENT(FOLDER ${PY_FILE} PATH)
-        LIST(APPEND FIX_DIRECTORIES ${FOLDER})
+        # if replacing the build prefix did not change anything, this is a file
+        # outside the build tree
+        IF(${BUILD_REPLACED} STREQUAL ${PY_FILE})
 
-        # traverse up the hierarchy
-        FILE(RELATIVE_PATH REL_FOLDER ${ROOT_FOLDER} ${FOLDER})
-        STRING(REPLACE "/" ";" FOLDER_LIST "${REL_FOLDER}")
+            GET_FILENAME_COMPONENT(FOLDER ${PY_FILE} PATH)
+            LIST(APPEND FIX_DIRECTORIES ${FOLDER})
 
-        SET(CURRENT ${ROOT_FOLDER})
-        FOREACH(F ${FOLDER_LIST})
-            SET(CURRENT "${CURRENT}/${F}")
-            LIST(APPEND FIX_DIRECTORIES ${CURRENT})
-        ENDFOREACH()
+            # traverse up the hierarchy
+            FILE(RELATIVE_PATH REL_FOLDER ${ROOT_FOLDER} ${FOLDER})
+            STRING(REPLACE "/" ";" FOLDER_LIST "${REL_FOLDER}")
 
-    ENDIF()
+            SET(CURRENT ${ROOT_FOLDER})
+            FOREACH(F ${FOLDER_LIST})
+                SET(CURRENT "${CURRENT}/${F}")
+                LIST(APPEND FIX_DIRECTORIES ${CURRENT})
+            ENDFOREACH()
 
-ENDFOREACH()
+        ENDIF()
 
-# remove potential duplicates
-LIST(REMOVE_DUPLICATES FIX_DIRECTORIES)
+    ENDFOREACH()
 
-# create the package files
-FOREACH(DIR ${FIX_DIRECTORIES})
-    FILE(WRITE "${DIR}/__init__.py" "")
+    # remove potential duplicates
+    LIST(REMOVE_DUPLICATES FIX_DIRECTORIES)
+
+    # create the package files
+    FOREACH(DIR ${FIX_DIRECTORIES})
+        FILE(WRITE "${DIR}/__init__.py" "")
+    ENDFOREACH()
+
 ENDFOREACH()

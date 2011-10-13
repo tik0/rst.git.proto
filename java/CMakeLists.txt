@@ -1,22 +1,31 @@
-SET(JAR_FILE "${CMAKE_CURRENT_BINARY_DIR}/rst.jar")
+SET(STABLE_JAR_FILE "${CMAKE_CURRENT_BINARY_DIR}/rst.jar" )
+SET(SANDBOX_JAR_FILE "${CMAKE_CURRENT_BINARY_DIR}/rstsandbox.jar")
+SET(JAR_FILES ${STABLE_JAR_FILE} ${SANDBOX_JAR_FILE})
 
 FIND_PROGRAM(ANT_EXECUTABLE ant)
 IF(ANT_EXECUTABLE AND PROTOBUF_JAVA_LIBRARY)
 
-    PROTOBUF_GENERATE(JAVA JAVA_PROTO_FILES
-                      PROTOFILES ${RSTFILES}
-                      PROTOROOT ${PROTO_ROOT}
-                      OUTPATH ${CMAKE_CURRENT_BINARY_DIR})
+    SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "classes-stable;classes-sandbox;stable;sandbox")
+
+    PROTOBUF_GENERATE(JAVA STABLE_PROTO_FILES
+                      PROTOFILES ${STABLE_PROTOS}
+                      PROTOROOT ${STABLE_ROOT}
+                      OUTPATH "${CMAKE_CURRENT_BINARY_DIR}/stable")
+    PROTOBUF_GENERATE(JAVA SANDBOX_PROTO_FILES
+                      PROTOFILES ${SANDBOX_PROTOS}
+                      PROTOROOT ${SANDBOX_ROOT}
+                      INCLUDES ${STABLE_ROOT}
+                      OUTPATH "${CMAKE_CURRENT_BINARY_DIR}/sandbox")
 
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/build.xml.in" "${CMAKE_CURRENT_BINARY_DIR}/build.xml" @ONLY)
 
-    ADD_CUSTOM_COMMAND(OUTPUT ${JAR_FILE}
+    ADD_CUSTOM_COMMAND(OUTPUT ${JAR_FILES}
                        COMMAND ${ANT_EXECUTABLE} dist
-                       DEPENDS ${JAVA_PROTO_FILES}
-                       COMMENT "Creating jar file")
-    ADD_CUSTOM_TARGET(java ALL DEPENDS ${JAR_FILE})
+                       DEPENDS ${STABLE_PROTO_FILES} ${SANDBOX_PROTO_FILES}
+                       COMMENT "Creating jar files")
+    ADD_CUSTOM_TARGET(java ALL DEPENDS ${JAR_FILES})
 
-    INSTALL(FILES ${JAR_FILE} DESTINATION share/java)
+    INSTALL(FILES ${JAR_FILES} DESTINATION share/java)
 
 ELSE()
     MESSAGE(STATUS "ant not found or protobuf java library not available. Java bindings will not be created")

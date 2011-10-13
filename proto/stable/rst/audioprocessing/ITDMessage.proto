@@ -1,0 +1,10 @@
+package rst.audioprocessing;
+
+option java_outer_classname = "ITDProcessing";
+
+// ITD
+message ITDMessage {
+
+    required float value = 1;
+
+}

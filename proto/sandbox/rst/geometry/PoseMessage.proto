@@ -1,0 +1,19 @@
+package rst.geometry;
+
+option java_outer_classname = "PoseProcessing";
+
+// A message for pose data (camera, robot, ...)
+// x, y, z:        position in world coordinates
+// qw, qx, qy, qz: orientation as a unit quaternion (optional)
+//                 all-zero quaternion denotes an invalid pose
+message PoseMessage {
+
+    required double x = 1;
+    required double y = 2;
+    required double z = 3;
+    optional double qw = 4;
+    optional double qx = 5;
+    optional double qy = 6;
+    optional double qz = 7;
+
+}

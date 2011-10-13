@@ -1,0 +1,10 @@
+package rst;
+
+option java_outer_classname = "ProprioceptionDataContainer";
+
+import "rst/kinematics/JointData.proto";
+
+// A message for proprioceptive data of a robot.
+message ProprioceptionData {
+    repeated JointData joints = 1;
+}

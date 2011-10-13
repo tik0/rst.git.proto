@@ -1,0 +1,13 @@
+package rst.geometry;
+
+option java_outer_classname = "Point2DFloatProcessing";
+
+// A message representing a 2D Point
+// x, y: coordinates for the 2D Point
+
+message Point2DFloat {
+
+	required float x = 1;
+	required float y = 2;
+
+}
