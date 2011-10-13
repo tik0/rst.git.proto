@@ -29,14 +29,14 @@ IF(PYTHONINTERP_FOUND AND SETUPTOOLS_FOUND)
                       INCLUDES ${STABLE_ROOT}
                       OUTPATH "${CMAKE_CURRENT_BINARY_DIR}/sandbox")
 
-    CONFIGURE_FILE(CreatePythonPackages.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/CreatePythonPackagesStable.cmake" @ONLY)
-    CONFIGURE_FILE(CreatePythonPackages.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/CreatePythonPackagesSandbox.cmake" @ONLY)
+    CONFIGURE_FILE(CreatePythonPackages.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/stable/CreatePythonPackagesStable.cmake" @ONLY)
+    CONFIGURE_FILE(CreatePythonPackages.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/sandbox/CreatePythonPackagesSandbox.cmake" @ONLY)
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/setup-stable.py.in" "${CMAKE_CURRENT_BINARY_DIR}/stable/setup.py" @ONLY)
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/setup-sandbox.py.in" "${CMAKE_CURRENT_BINARY_DIR}/sandbox/setup.py" @ONLY)
 
     ADD_CUSTOM_COMMAND(OUTPUT ${STABLE_EGG_FOLDER}
                        # to have a valid python package, an __init__.py must be present for every directory
-                       COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/CreatePythonPackagesStable.cmake"
+                       COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/stable/CreatePythonPackagesStable.cmake"
                        COMMAND ${PYTHON_EXECUTABLE} "${CMAKE_CURRENT_BINARY_DIR}/stable/setup.py" bdist_egg -d "${CMAKE_CURRENT_BINARY_DIR}"
                        DEPENDS ${PYTHON_STABLE_FILES}
                        WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/stable"
@@ -47,7 +47,7 @@ IF(PYTHONINTERP_FOUND AND SETUPTOOLS_FOUND)
                        # to have a valid python package, an __init__.py must be present for every directory
                        COMMAND ${CMAKE_COMMAND} -E remove_directory rstsandbox
                        COMMAND ${CMAKE_COMMAND} -E copy_directory rst rstsandbox
-                       COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/CreatePythonPackagesSandbox.cmake"
+                       COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/sandbox/CreatePythonPackagesSandbox.cmake"
                        COMMAND ${PYTHON_EXECUTABLE} "${CMAKE_CURRENT_BINARY_DIR}/sandbox/setup.py" bdist_egg -d "${CMAKE_CURRENT_BINARY_DIR}"
                        DEPENDS ${PYTHON_SANDBOX_FILES}
                        WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/sandbox"
