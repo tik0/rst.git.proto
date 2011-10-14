@@ -10,10 +10,10 @@ message Faces {
 	// box: bounding box for the detection
 	// confidence: detection confidence factor
 	message Face {
-		required geometry.BoundingBox box = 1;
+		required geometry.BoundingBox region = 1;
 		optional double confidence = 2;
 	}
 
-	repeated Face detections = 1;
+	repeated Face faces = 1;
 
 }

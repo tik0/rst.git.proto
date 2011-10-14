@@ -35,7 +35,7 @@ message Image {
     required uint32 height = 3;
     optional uint32 channels = 4 [default = 3];
     optional Depth depth = 5 [default = DEPTH_8U];
-    optional ColorMode colorMode = 6 [default = COLOR_RGB];
-    optional DataOrder dataOrder = 7 [default = DATA_SEPARATE];
+    optional ColorMode color_mode = 6 [default = COLOR_RGB];
+    optional DataOrder data_order = 7 [default = DATA_SEPARATE];
 
 }

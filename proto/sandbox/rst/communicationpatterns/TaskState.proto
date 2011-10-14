@@ -46,6 +46,6 @@ message TaskState {
   // Payload blob and its type. These are intended to be processed by
   // a (de)serialization mechanism that decodes/encodes the payload
   // blob according to the type information in wireSchema.
-  required bytes  wireSchema = 4;
+  required bytes  wire_schema = 4;
   required bytes  payload    = 5;
 }
