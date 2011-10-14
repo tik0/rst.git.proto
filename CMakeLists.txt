@@ -57,17 +57,8 @@ ADD_SUBDIRECTORY(python)
 
 # --- install protocol anyways for backwards compatibility ---
 
-#MACRO(INSTALL_FILES_WITH_DIRECTORY FILE_LIST)
-#
-#    FOREACH(HEADER ${${FILE_LIST}})
-#        STRING(REGEX MATCH "(.*)[/\\]" DIR ${HEADER})
-#        INSTALL(FILES ${HEADER} DESTINATION share/rst/${DIR})
-#    ENDFOREACH(HEADER)
-#
-#ENDMACRO()
-#
-#INSTALL_FILES_WITH_DIRECTORY(STABLE_PROTOS)
-#
+ADD_SUBDIRECTORY(proto)
+
 ## --- package ---
 #SET(CPACK_GENERATOR "STGZ;TGZ;TZ")
 #SET(CPACK_PACKAGE_VENDOR "CoR-Lab Bielefeld University")

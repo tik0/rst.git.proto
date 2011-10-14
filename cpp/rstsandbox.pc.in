@@ -7,4 +7,4 @@ Description: Type specifications for Robotics and Cognitive Systems specified in
 Version: @RST_VERSION@
 Requires: protobuf rst
 Libs: -L${libdir} -l@SANDBOX_NAME@
-Cflags: -I${includedir}/rstsandbox
+Cflags: -I${includedir}/rst/sandbox

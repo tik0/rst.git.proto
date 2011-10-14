@@ -31,7 +31,7 @@ IF(NOT RST_CONFIG_PROCESSED)
         MESSAGE(FATAL_ERROR "protobuf library not found")
     ENDIF()
 
-    SET(RST_INCLUDE_DIRS "${RST_CONFIG_DIR}/../../include/rst" ${RSC_INCLUDE_DIRS} ${PROTOBUF_INCLUDE_DIR})
+    SET(RST_INCLUDE_DIRS "${RST_CONFIG_DIR}/../../include/rst/stable" ${RSC_INCLUDE_DIRS} ${PROTOBUF_INCLUDE_DIR})
     SET(RST_RUNTIME_LIBRARY_DIRS "${RST_CONFIG_DIR}/../../bin" ${RSC_RUNTIME_LIBRARY_DIRS} ${PROTOBUF_RUNTIME_LIBRARY_DIRS})
 
     # Expose rst library as an imported target (from the point of view
@@ -42,7 +42,7 @@ IF(NOT RST_CONFIG_PROCESSED)
 
     # sandbox additions
     IF(USE_SANDBOX)
-        LIST(APPEND RST_INCLUDE_DIRS "${RST_CONFIG_DIR}/../../include/rstsandbox")
+        LIST(APPEND RST_INCLUDE_DIRS "${RST_CONFIG_DIR}/../../include/rst/sandbox")
         LIST(APPEND RST_LIBRARIES @SANDBOX_NAME@)
     ENDIF()
 
