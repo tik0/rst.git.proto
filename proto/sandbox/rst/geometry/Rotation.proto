@@ -2,7 +2,7 @@ package rst.geometry;
 
 option java_outer_classname = "RotationType";
 
-// A message for pose data (camera, robot, ...)
+// A rotation as quaternion
 // qw, qx, qy, qz: orientation as a unit quaternion (optional)
 //                 all-zero quaternion denotes an invalid pose
 message Rotation {
