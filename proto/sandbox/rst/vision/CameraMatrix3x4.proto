@@ -1,4 +1,4 @@
-package rst.imageprocessing;
+package rst.vision;
 
 option java_outer_classname = "CameraMatrix3x4Processing";
 

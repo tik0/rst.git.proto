@@ -1,4 +1,4 @@
-package rst.imageprocessing;
+package rst.vision;
 
 import "rst/vision/CameraMatrix3x4.proto";
 

@@ -1,4 +1,4 @@
-package rst;
+package rst.audition;
 
 option java_outer_classname = "SoundProcessing";
 
