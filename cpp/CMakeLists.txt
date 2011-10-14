@@ -20,5 +20,22 @@ ADD_DEFINITIONS(${RST_CFLAGS})
 ADD_SUBDIRECTORY(stable)
 ADD_SUBDIRECTORY(sandbox)
 
+# --- pkgconfig files ---
+
+CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/${STABLE_NAME}.pc.in"
+               "${CMAKE_CURRENT_BINARY_DIR}/${STABLE_NAME}.pc"
+               @ONLY)
+CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/${SANDBOX_NAME}.pc.in"
+               "${CMAKE_CURRENT_BINARY_DIR}/${SANDBOX_NAME}.pc"
+               @ONLY)
+INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/${STABLE_NAME}.pc"
+              "${CMAKE_CURRENT_BINARY_DIR}/${SANDBOX_NAME}.pc"
+        DESTINATION lib/pkgconfig)
+
+# --- cmake export ---
+
+CONFIGURE_FILE(RSTConfig.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/RSTConfig.cmake" @ONLY)
+INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/RSTConfig.cmake" DESTINATION share/rst)
+
 INSTALL(EXPORT RSTDepends
         DESTINATION "share/rst")
