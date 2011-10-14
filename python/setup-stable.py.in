@@ -17,6 +17,28 @@
 
 from setuptools import setup
 from setuptools import find_packages
+from setuptools import Command
+
+class PrintOutputs(Command):
+    """
+    Prints out the generated output names.
+
+    @author: jwienke
+    """
+
+    user_options = []
+    description = "Prints the generated output names."
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        c = self.get_finalized_command('bdist_egg')
+        for o in c.get_outputs():
+            print("##### %s" % o)
 
 setup(name='rst',
       version='@RST_VERSION@',
@@ -29,5 +51,7 @@ setup(name='rst',
       url="https://code.cor-lab.org/projects/rst",
 
       packages=find_packages(exclude=['build/*.py']),
+
+      cmdclass={'print_outputs' : PrintOutputs},
 
       )
