@@ -27,7 +27,7 @@ IF(NOT RSTSANDBOX_CONFIG_PROCESSED)
 
     # Expose rst library as an imported target (from the point of view
     # of the downstream project)
-    INCLUDE("${RSTSANDBOX_CONFIG_DIR}/RSTSandboxDepends.cmake")
+    INCLUDE("${RSTSANDBOX_CONFIG_DIR}/../RSTDepends.cmake")
     SET(RSTSANDBOX_LIBRARIES @SANDBOX_NAME@)
     SET(RSTSANDBOX_CFLAGS "@RST_CFLAGS@")
 
