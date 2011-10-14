@@ -1,6 +1,6 @@
 package rst;
 
-option java_outer_classname = "InstantaneousPhaseContainer";
+option java_outer_classname = "InstantaneousPhaseType";
 
 // A message representing an instantaneous phase, the time-variant angle or its
 // modulo value of a wave.
