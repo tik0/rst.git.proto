@@ -1,4 +1,4 @@
-package rst;
+package rst.kinematics;
 
 option java_outer_classname = "JointPositionDataContainer";
 

@@ -1,4 +1,4 @@
-package rsb.xml;
+package rst.rsb.xml;
 
 option java_outer_classname = "XOPProcessing";
 
