@@ -1,6 +1,6 @@
 package rst.imageprocessing;
 
-import "rst/imageprocessing/CameraMatrix3x4.proto";
+import "rst/vision/CameraMatrix3x4.proto";
 
 option java_outer_classname = "CalibrationMatricesProcessing";
 
