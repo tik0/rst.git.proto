@@ -1,6 +1,6 @@
 package rst;
 
-option java_outer_classname = "MotionProcessing";
+option java_outer_classname = "ViconDataType";
 
 message Timecode{
   required uint32 hours = 1;
@@ -41,7 +41,7 @@ message Subject {
   repeated Marker markers = 3;
 }
 
-message Data {
+message ViconData {
   required uint64 frame = 1;
   optional Timecode timecode = 2;
   repeated Subject subjects = 3;
