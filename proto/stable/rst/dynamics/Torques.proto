@@ -2,7 +2,7 @@ package rst.dynamics;
 
 option java_outer_classname = "TorquesType";
 
-// A message that representing an interaction cartesian rotatory forces
+// A message that representing an interaction Cartesian rotational forces
 // (moments) in N*cm
 message Torques {
     required float a = 1;
