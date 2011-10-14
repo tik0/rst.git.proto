@@ -3,7 +3,7 @@ package rst.dynamics;
 import "rst/dynamics/Forces.proto";
 import "rst/dynamics/Torques.proto";
 
-option java_outer_classname = "WrenchContainer";
+option java_outer_classname = "WrenchType";
 
 // A message that contains interaction force, composed of cartesian
 // translatory forces in Newton and cartesian rotatory forces (moments) in N*cm.

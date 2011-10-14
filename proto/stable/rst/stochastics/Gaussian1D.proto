@@ -1,6 +1,6 @@
 package rst.stochastics;
 
-option java_outer_classname = "Gaussian1DProcessing";
+option java_outer_classname = "Gaussian1DType";
 
 message Gaussian1D {
 

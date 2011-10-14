@@ -2,7 +2,7 @@ package rst.geometry;
 
 import "rst/geometry/Point2DFloat.proto";
 
-option java_outer_classname = "PointPairProcessing";
+option java_outer_classname = "PointPairType";
 
 // A message representing a pair of 2D Points
 

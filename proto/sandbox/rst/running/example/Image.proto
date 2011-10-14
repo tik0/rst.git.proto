@@ -1,6 +1,6 @@
 package rst.running.example;
 
-option java_outer_classname = "RunningExample";
+option java_outer_classname = "ImageType";
 
 message MetaData {
   required string key   = 1;

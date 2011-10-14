@@ -1,6 +1,6 @@
 package rst.dynamics;
 
-option java_outer_classname = "TorquesContainer";
+option java_outer_classname = "TorquesType";
 
 // A message that representing an interaction cartesian rotatory forces
 // (moments) in N*cm

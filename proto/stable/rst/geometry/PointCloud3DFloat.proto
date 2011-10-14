@@ -1,6 +1,6 @@
 package rst.geometry;
 
-option java_outer_classname = "PointCloud3DFloatProcessing";
+option java_outer_classname = "PointCloud3DFloatType";
 
 import "rst/geometry/Point3DFloat.proto";
 

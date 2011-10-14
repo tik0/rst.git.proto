@@ -1,6 +1,6 @@
 package rst.kinematics;
 
-option java_outer_classname = "ProprioceptionDataContainer";
+option java_outer_classname = "ProprioceptionDataType";
 
 import "rst/kinematics/JointData.proto";
 

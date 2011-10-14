@@ -2,7 +2,7 @@ package rst.vision;
 
 import "rst/geometry/BoundingBox.proto";
 
-option java_outer_classname = "FaceDetectionProcessing";
+option java_outer_classname = "FaceDetectionMessageType";
 
 message FaceDetectionMessage {
 

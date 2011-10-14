@@ -1,6 +1,6 @@
 package rst.communicationpatterns;
 
-option java_outer_classname = "TaskStateProcessing";
+option java_outer_classname = "TaskStateType";
 
 message TaskState {
   enum State {

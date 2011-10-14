@@ -1,6 +1,6 @@
 package rst.geometry;
 
-option java_outer_classname = "Point3DIntProcessing";
+option java_outer_classname = "Point3DIntType";
 
 // A message representing a 3D Point
 // x, y, z: coordinates for the 3D Point

@@ -2,7 +2,7 @@ package rst.vision;
 
 import "rst/vision/CameraMatrix3x4.proto";
 
-option java_outer_classname = "CalibrationMatricesProcessing";
+option java_outer_classname = "CalibrationMatricesType";
 
 // A message representing a pair of 2D Points
 

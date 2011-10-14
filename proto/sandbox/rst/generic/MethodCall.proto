@@ -1,6 +1,6 @@
 package rst.generic;
 
-option java_outer_classname = "MethodCallContainer";
+option java_outer_classname = "MethodCallType";
 
 import "rst/generic/Value.proto";
 

@@ -3,7 +3,7 @@ package rst.geometry;
 import "rst/geometry/Translation.proto";
 import "rst/geometry/Rotation.proto";
 
-option java_outer_classname = "PoseContainer";
+option java_outer_classname = "PoseType";
 
 // A message for pose data (camera, robot, ...)
 message Pose {

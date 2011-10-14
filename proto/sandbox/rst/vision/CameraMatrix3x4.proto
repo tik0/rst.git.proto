@@ -1,6 +1,6 @@
 package rst.vision;
 
-option java_outer_classname = "CameraMatrix3x4Processing";
+option java_outer_classname = "CameraMatrix3x4Type";
 
 // Matrix for Camera Matrix Parameters K(R, t)
 message CameraMatrix3x4 {

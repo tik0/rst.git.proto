@@ -1,6 +1,6 @@
 package rst.rsb.xml;
 
-option java_outer_classname = "XOPProcessing";
+option java_outer_classname = "XOPDataType";
 
 message Attachment {
   // url of attachment

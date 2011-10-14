@@ -1,6 +1,6 @@
 package rst.generic;
 
-option java_outer_classname = "ValueContainer";
+option java_outer_classname = "ValueType";
 
 // A message that wraps one single argument with it's type.
 message Value {

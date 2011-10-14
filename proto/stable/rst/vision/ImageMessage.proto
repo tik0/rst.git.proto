@@ -1,6 +1,6 @@
 package rst.vision;
 
-option java_outer_classname = "ImageProcessing";
+option java_outer_classname = "ImageMessageType";
 
 // Interpretation of RSB timestamps
 //

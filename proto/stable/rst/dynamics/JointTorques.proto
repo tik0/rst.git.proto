@@ -1,6 +1,6 @@
 package rst.dynamics;
 
-option java_outer_classname = "JointTorquesContainer";
+option java_outer_classname = "JointTorquesType";
 
 // A message that contains joint torques in N*cm
 message JointTorques {

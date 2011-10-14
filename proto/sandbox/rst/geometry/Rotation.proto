@@ -1,6 +1,6 @@
 package rst.geometry;
 
-option java_outer_classname = "RotationContainer";
+option java_outer_classname = "RotationType";
 
 // A message for pose data (camera, robot, ...)
 // qw, qx, qy, qz: orientation as a unit quaternion (optional)

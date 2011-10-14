@@ -1,6 +1,6 @@
 package rst.dynamics;
 
-option java_outer_classname = "ForcesContainer";
+option java_outer_classname = "ForcesType";
 
 // A message that contains cartesian translatory forces in newton
 message Forces {

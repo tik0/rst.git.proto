@@ -1,6 +1,6 @@
 package rst.geometry;
 
-option java_outer_classname = "PoseProcessing";
+option java_outer_classname = "PoseMessageType";
 
 // A message for pose data (camera, robot, ...)
 // x, y, z:        position in world coordinates

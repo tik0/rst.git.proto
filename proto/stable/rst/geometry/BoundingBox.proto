@@ -2,7 +2,7 @@ package rst.geometry;
 
 import "rst/geometry/Point2DInt.proto";
 
-option java_outer_classname = "BoundingBoxProcessing";
+option java_outer_classname = "BoundingBoxType";
 
 // An arbitrary bounding box
 // x, y: top left corner coordinates

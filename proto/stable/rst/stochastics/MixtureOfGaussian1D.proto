@@ -2,7 +2,7 @@ package rst.stochastics;
 
 import "rst/stochastics/Gaussian1D.proto";
 
-option java_outer_classname = "MixtureOfGaussian1DProcessing";
+option java_outer_classname = "MixtureOfGaussian1DType";
 
 message MixtureOfGaussian1D {
 

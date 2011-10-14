@@ -1,6 +1,6 @@
 package rst.kinematics;
 
-option java_outer_classname = "JointPositionDataContainer";
+option java_outer_classname = "JointPositionDataType";
 
 import "rst/kinematics/JointData.proto";
 

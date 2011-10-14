@@ -1,6 +1,6 @@
 package rst.audition;
 
-option java_outer_classname = "SoundProcessing";
+option java_outer_classname = "SoundMessageType";
 
 // Interpretation of RSB timestamps
 //

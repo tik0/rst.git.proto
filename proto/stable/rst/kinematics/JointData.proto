@@ -1,6 +1,6 @@
 package rst.kinematics;
 
-option java_outer_classname = "JointDataContainer";
+option java_outer_classname = "JointDataType";
 
 // A message that contains data about one joint of a robot.
 message JointData {

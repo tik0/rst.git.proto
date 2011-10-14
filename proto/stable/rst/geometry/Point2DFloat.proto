@@ -1,6 +1,6 @@
 package rst.geometry;
 
-option java_outer_classname = "Point2DFloatProcessing";
+option java_outer_classname = "Point2DFloatType";
 
 // A message representing a 2D Point
 // x, y: coordinates for the 2D Point
