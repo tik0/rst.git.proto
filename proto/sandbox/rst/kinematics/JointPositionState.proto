@@ -1,0 +1,10 @@
+package rst.kinematics;
+
+option java_outer_classname = "JointPositionStateType";
+
+import "rst/kinematics/JointState.proto";
+
+// A message for joint position data of a robot seen from its head.
+message JointPositionState {
+    repeated JointState joints = 1;
+}

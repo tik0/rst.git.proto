@@ -1,13 +1,13 @@
 package rst.vision;
 
-option java_outer_classname = "ImageMessageType";
+option java_outer_classname = "ImageType";
 
 // Interpretation of RSB timestamps
 //
 // create:
 //         image grab time (to be more precisely defined. e.g. what
 //         does this mean for rolling shutter cameras?)
-message ImageMessage {
+message Image {
 
     // reflecting the definitions from OpenCV's IplImage
     enum Depth {

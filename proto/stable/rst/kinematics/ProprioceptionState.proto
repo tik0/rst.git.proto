@@ -1,0 +1,10 @@
+package rst.kinematics;
+
+option java_outer_classname = "ProprioceptionStateType";
+
+import "rst/kinematics/JointState.proto";
+
+// A message for proprioceptive data of a robot.
+message ProprioceptionState {
+    repeated JointState joints = 1;
+}

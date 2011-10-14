@@ -1,9 +1,9 @@
 package rst.kinematics;
 
-option java_outer_classname = "JointDataType";
+option java_outer_classname = "JointStateType";
 
 // A message that contains data about one joint of a robot.
-message JointData {
+message JointState {
     // ASCII name of the joint
     required bytes name = 1;
     // A value representing the joint's position

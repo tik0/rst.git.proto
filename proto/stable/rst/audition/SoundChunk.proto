@@ -1,6 +1,6 @@
 package rst.audition;
 
-option java_outer_classname = "SoundMessageType";
+option java_outer_classname = "SoundChunkType";
 
 // Interpretation of RSB timestamps
 //
@@ -8,7 +8,7 @@ option java_outer_classname = "SoundMessageType";
 //         Capture time of the audio buffer. More precisely, the
 //         timestamp should correspond to the first sample contained
 //         in the buffer.
-message SoundMessage {
+message SoundChunk {
 
     enum SampleType {
         SAMPLE_S8 = 0;
