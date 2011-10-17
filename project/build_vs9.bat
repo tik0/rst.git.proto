@@ -30,11 +30,11 @@ IF %ERRORLEVEL% NEQ 0 (
 	goto :error
 )
 
-echo [installing project]
+echo [packaging project]
 
-nmake install
+cpack -G ZIP
 IF %ERRORLEVEL% NEQ 0 (
-	echo [install error]
+	echo [package error]
 	goto :error
 )
 
