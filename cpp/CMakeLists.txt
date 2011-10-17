@@ -7,7 +7,10 @@ SET(SANDBOX_NAME "rstsandbox")
 
 INCLUDE_DIRECTORIES(BEFORE SYSTEM ${PROTOBUF_INCLUDE_DIRS})
 
-# decide on export macros
+ADD_SUBDIRECTORY(stable)
+ADD_SUBDIRECTORY(sandbox)
+
+# --- decide on export macros for config files ---
 
 IF(WIN32)
     SET(RST_CFLAGS "/DRST_EXPORT=__declspec(dllimport)")
@@ -16,11 +19,6 @@ ELSE()
     SET(RST_CFLAGS "-DRST_EXPORT=")
     SET(RSTSANDBOX_CFLAGS "-DRSTSANDBOX_EXPORT=")
 ENDIF()
-
-ADD_DEFINITIONS(${RST_CFLAGS} ${RSTSANDBOX_CFLAGS})
-
-ADD_SUBDIRECTORY(stable)
-ADD_SUBDIRECTORY(sandbox)
 
 # --- pkgconfig files ---
 
