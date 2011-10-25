@@ -1,9 +1,5 @@
 echo off
 
-echo Common tools directory: %VS90COMNTOOLS%
-
-call "%VS90COMNTOOLS%/vsvars32.bat"
-
 echo [cleaning build tree]
 rd /S /Q build
 mkdir build
@@ -30,12 +26,17 @@ IF %ERRORLEVEL% NEQ 0 (
 	goto :error
 )
 
-echo [packaging project]
+echo [running tests]
+ctest -V
+
+echo [build successful and tests executed]
+
+echo [creating package]
 
 cpack -G ZIP
 IF %ERRORLEVEL% NEQ 0 (
-	echo [package error]
-	goto :error
+    echo [package error]
+    goto :error
 )
 
 cd ..
