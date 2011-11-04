@@ -9,6 +9,7 @@ option java_outer_classname = "ImageType";
 //         does this mean for rolling shutter cameras?)
 message Image {
 
+	// Depth of one color channel
     // reflecting the definitions from OpenCV's IplImage
     enum Depth {
         DEPTH_8U = 8;
@@ -19,7 +20,9 @@ message Image {
         COLOR_GRAYSCALE = 0;
         COLOR_RGB = 1;
         COLOR_BGR = 2;
+        // YUVYUV layout
         COLOR_YUV = 4;
+        // YUYV layout
         COLOR_YUV422 = 8;
     }
 
