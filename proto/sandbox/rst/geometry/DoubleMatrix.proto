@@ -1,0 +1,22 @@
+package rst.geometry;
+
+option java_outer_classname = "DoubleMatrixType";
+
+// A message representing a double matrix of MxN entries
+message DoubleMatrix {
+
+	// A message defining the size of the matrix
+	message Size {
+		required uint32 M = 1;
+		required uint32 N = 2;
+	}
+
+	// A message carrying the data of the matrix
+	// NOTE: data is represented COLUMNWISE
+	message Data {
+		repeated double value = 1 [packed=true];
+	}
+
+	required Size size = 1;
+	required Data data = 2;
+}
