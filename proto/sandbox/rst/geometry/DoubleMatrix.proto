@@ -12,7 +12,7 @@ message DoubleMatrix {
 	}
 
 	// A message carrying the data of the matrix
-	// NOTE: data is represented COLUMNWISE
+	// NOTE: data is represented ROWWISE
 	message Data {
 		repeated double value = 1 [packed=true];
 	}
