@@ -1,7 +1,6 @@
 package rst.devices.mocap;
 
 import "rst/math/Vec3DDouble.proto";
-import "rst/math/Mat3x3Double.proto";
 
 option java_outer_classname = "ViconType";
 
