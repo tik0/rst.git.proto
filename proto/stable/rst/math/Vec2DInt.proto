@@ -1,0 +1,13 @@
+package rst.math;
+
+option java_outer_classname = "Vec2DIntType";
+
+// A message representing a 2D vector
+// x, y: coordinates for the 2D vector
+
+message Vec2DInt {
+
+	required int32 x = 1 [default = 0];
+	required int32 y = 2 [default = 0];
+
+}

@@ -1,0 +1,14 @@
+package rst.math;
+
+option java_outer_classname = "Vec3DFloatType";
+
+// A message representing a 3D vector
+// x, y, z: coordinates for the 3D vector
+
+message Vec3DFloat {
+
+	required float x = 1 [default = 0];
+	required float y = 2 [default = 0];
+	required float z = 3 [default = 0];
+
+}

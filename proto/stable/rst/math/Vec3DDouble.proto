@@ -1,0 +1,13 @@
+package rst.math;
+
+option java_outer_classname = "Vec3DDoubleType";
+
+// A message representing a 3D vector
+// x, y, z: coordinates for the 3D vector
+message Vec3DDouble {
+
+	required double x = 1 [default = 0];
+	required double y = 2 [default = 0];
+	required double z = 3 [default = 0];
+
+}
