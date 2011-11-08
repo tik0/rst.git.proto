@@ -1,0 +1,9 @@
+package rst;
+
+option java_outer_classname = "ModuleDataType";
+
+
+message ModuleData {
+	repeated string modules = 1;
+	repeated string frameManagerModules = 2;
+}
