@@ -1,4 +1,4 @@
-package rst.geometry;
+package rst.math;
 
 option java_outer_classname = "DoubleMatrixType";
 
