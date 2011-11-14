@@ -61,18 +61,26 @@ ADD_SUBDIRECTORY(proto)
 
 
 # --- package ---
-INCLUDE(CheckLSBTypes)
 
-SET(CPACK_PACKAGE_VERSION_MAJOR ${RST_VERSION_MAJOR})
-SET(CPACK_PACKAGE_VERSION_MINOR ${RST_VERSION_MINOR})
-SET(CPACK_PACKAGE_VERSION_PATCH ${RST_VERSION_PATCH})
-SET(VERSION_SUFFIX "${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}")
+# backwards-compatibility with older RSC versions
+IF(${RSC_VERSION} VERSION_GREATER "0.5.0" OR ${RSC_VERSION} VERSION_EQUAL "0.5.0")
 
-# --------------------------------------------------------------------
-# !!! Do not change these two lines !!!
-SET(CPACK_PACKAGE_VERSION   "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}")
-SET(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}${VERSION_SUFFIX}-${CPACK_PACKAGE_VERSION}_${LSB_CODENAME}_${LSB_PROCESSOR_ARCH}")
-# --------------------------------------------------------------------
+    INCLUDE(CheckLSBTypes)
+
+    SET(CPACK_PACKAGE_VERSION_MAJOR ${RST_VERSION_MAJOR})
+    SET(CPACK_PACKAGE_VERSION_MINOR ${RST_VERSION_MINOR})
+    SET(CPACK_PACKAGE_VERSION_PATCH ${RST_VERSION_PATCH})
+    SET(VERSION_SUFFIX "${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}")
+
+    # --------------------------------------------------------------------
+    # !!! Do not change these two lines !!!
+    SET(CPACK_PACKAGE_VERSION   "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}")
+    SET(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}${VERSION_SUFFIX}-${CPACK_PACKAGE_VERSION}_${LSB_CODENAME}_${LSB_PROCESSOR_ARCH}")
+    # --------------------------------------------------------------------
+
+ELSE()
+    MESSAGE(STATUS "Skipping standardizes package name because RSC is too old.")
+ENDIF()
 
 SET(CPACK_GENERATOR "TGZ")
 SET(CPACK_PACKAGE_VENDOR "CoR-Lab Bielefeld University")
