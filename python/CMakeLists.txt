@@ -57,7 +57,7 @@ IF(PYTHONINTERP_FOUND AND SETUPTOOLS_FOUND)
                        # to have a valid python package, an __init__.py must be present for every directory
                        COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/stable/CreatePythonPackagesStable.cmake"
                        COMMAND ${PYTHON_EXECUTABLE} "${CMAKE_CURRENT_BINARY_DIR}/stable/setup.py" bdist_egg
-                       DEPENDS ${PYTHON_STABLE_FILES}
+                       DEPENDS ${PYTHON_STABLE_FILES} "${CMAKE_CURRENT_BINARY_DIR}/stable/setup.py"
                        WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/stable"
                        COMMENT "Creating stable python egg")
     ADD_CUSTOM_TARGET(python-stable ALL DEPENDS ${STABLE_EGG})
@@ -68,7 +68,7 @@ IF(PYTHONINTERP_FOUND AND SETUPTOOLS_FOUND)
                        COMMAND ${CMAKE_COMMAND} -E copy_directory rst rstsandbox
                        COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/sandbox/CreatePythonPackagesSandbox.cmake"
                        COMMAND ${PYTHON_EXECUTABLE} "${CMAKE_CURRENT_BINARY_DIR}/sandbox/setup.py" bdist_egg
-                       DEPENDS ${PYTHON_SANDBOX_FILES}
+                       DEPENDS ${PYTHON_SANDBOX_FILES} "${CMAKE_CURRENT_BINARY_DIR}/sandbox/setup.py"
                        WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/sandbox"
                        COMMENT "Creating sandbox python egg")
     ADD_CUSTOM_TARGET(python-sandbox ALL DEPENDS ${SANDBOX_EGG})
