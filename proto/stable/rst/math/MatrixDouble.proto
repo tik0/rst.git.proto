@@ -1,9 +1,9 @@
 package rst.math;
 
-option java_outer_classname = "DoubleMatrixType";
+option java_outer_classname = "MatrixDoubleType";
 
 // A message representing a double matrix of MxN entries
-message DoubleMatrix {
+message MatrixDouble {
 
 	// A message defining the size of the matrix
 	message Size {
