@@ -4,7 +4,6 @@ includedir=${prefix}/include
 
 Name: Robotics Systems Types - Sandbox
 Description: Type specifications for Robotics and Cognitive Systems specified in Google Protocol Buffer's IDL format.
-Version: @RST_VERSION@
 Requires: protobuf rst
 Libs: -L${libdir} -l@SANDBOX_NAME@
 Cflags: -I${includedir}/rst/sandbox @RSTSANDBOX_CFLAGS@
