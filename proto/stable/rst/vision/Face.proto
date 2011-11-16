@@ -1,0 +1,13 @@
+package rst.vision;
+
+import "rst/geometry/BoundingBox.proto";
+
+option java_outer_classname = "FaceType";
+
+// A message representing one detected face
+// box: bounding box for the detection
+// confidence: detection confidence factor
+message Face {
+    required geometry.BoundingBox region = 1;
+    optional double confidence = 2;
+}
