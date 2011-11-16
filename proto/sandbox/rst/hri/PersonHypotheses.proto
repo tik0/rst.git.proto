@@ -1,0 +1,12 @@
+package rst.hri;
+
+import "rst/hri/PersonHypothesis.proto";
+
+option java_outer_classname = "PersonHypothesesType";
+
+// Multiple persons
+message PersonHypotheses {
+
+    repeated PersonHypothesis persons = 1;
+
+}
