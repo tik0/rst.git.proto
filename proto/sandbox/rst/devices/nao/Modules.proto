@@ -1,4 +1,4 @@
-package rst;
+package rst.nao;
 
 option java_outer_classname = "ModuleDataType";
 

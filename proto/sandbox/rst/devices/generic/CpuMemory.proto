@@ -1,4 +1,4 @@
-package rst;
+package rst.devices;
 
 option java_outer_classname = "CpuMemoryDataType";
 
