@@ -4,7 +4,7 @@ option java_outer_classname = "BatteryDataType";
 
 
 message BatteryData {
-	required uint32 batteryStatus = 1;
+	required float batteryStatus = 1;
 	required float batteryCharge = 2;
 	optional float batteryTemperature = 3;
 }
