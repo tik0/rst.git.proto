@@ -1,4 +1,4 @@
-package rst.nao;
+package rst.devices.nao;
 
 option java_outer_classname = "AdditionalTemperatureDataType";
 

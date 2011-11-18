@@ -1,9 +1,13 @@
-package rst.nao;
+package rst.devices.nao;
 
 option java_outer_classname = "ModuleDataType";
 
 
 message ModuleData {
-	repeated string modules = 1;
-	repeated string frameManagerModules = 2;
+	repeated Module modules = 1;
+	repeated Module frameManagerModules = 2;
+}
+
+message Module {
+	required string name = 1;
 }
