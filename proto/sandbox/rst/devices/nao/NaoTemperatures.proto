@@ -1,0 +1,16 @@
+package rst.devices.nao;
+
+option java_outer_classname = "NaoTemperaturesType";
+
+
+message NaoTemperatures {
+	optional float board = 1;
+	optional float head = 2;
+
+	repeated JointTemperature joints = 3;
+}
+
+message JointTemperature {
+	required string name = 1;
+	required float temperature = 2;
+}

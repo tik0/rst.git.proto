@@ -1,9 +1,0 @@
-package rst.devices.nao;
-
-option java_outer_classname = "AdditionalTemperatureDataType";
-
-
-message AdditionalTemperatureData {
-	required float boardTemp = 1;
-	required float headTemp = 2;
-}
