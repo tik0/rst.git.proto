@@ -1,0 +1,11 @@
+package rst.vision;
+
+import "rst/vision/Image.proto";
+
+option java_outer_classname = "ImagesType";
+
+message Images {
+
+	repeated Image images = 1;
+
+}
