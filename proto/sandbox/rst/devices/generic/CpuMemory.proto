@@ -1,12 +1,12 @@
 package rst.devices.generic;
 
-option java_outer_classname = "CpuMemoryDataType";
+option java_outer_classname = "CpuMemoryType";
 
 
-message CpuMemoryData {
-	required uint32 memoryFree = 1;
-	required uint32 memoryTotal = 2;
-	required uint32 memoryUsed = 3;
+message CpuMemory {
+	required float memoryFree = 1;
+	required float memoryTotal = 2;
+	required float memoryUsed = 3;
 	required float cpuOne = 4;
 	optional float cpuTwo = 5;
 	optional float cpuThree = 6;

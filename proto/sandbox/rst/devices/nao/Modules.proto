@@ -1,9 +1,9 @@
 package rst.devices.nao;
 
-option java_outer_classname = "ModuleDataType";
+option java_outer_classname = "ModulesType";
 
 
-message ModuleData {
+message Modules {
 	repeated Module modules = 1;
 	repeated Module frameManagerModules = 2;
 }
