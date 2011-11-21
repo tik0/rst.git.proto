@@ -1,12 +1,16 @@
-
 import logging
 import sys
 import glob
 import os
 import os.path
 import re
+import xml.dom.minidom
 
 logger = logging.getLogger("RSTcodeCheck")
+
+# TODOS
+# - checkstyle-compatible output
+# check for enum names
 
 # checks
 
@@ -18,7 +22,7 @@ class Check(object):
         self.fileNameFromRoot = fileNameFromRoot
         self.errorHandler = errorHandler
 
-        # generate the name of primary message from file name
+        # generate the name of the primary message from file name
         fileName = os.path.basename(self.fileNameFromRoot)
         assert(fileName[-6:] == ".proto")
         self.primaryMessageNameFromFileName = fileName[:-6]
@@ -96,6 +100,91 @@ class CheckMessageMatchesFileName(Check):
 
         self.errorHandler.addError(description="No declared message name (found %s) matches the primary message name %s defined through the file name" % (declaredMessages, self.primaryMessageNameFromFileName))
 
+class CheckVariableNames(Check):
+
+    variableRegEx = re.compile('(required|optional|repeated)( +)(\w+)( +)(\w+)( +)=( +)(\d+);');
+
+    def check(self):
+        declaredVariables = self.variableRegEx.findall(self.fileContents)
+
+        for decl in declaredVariables:
+            name = decl[4]
+            if name.lower() != name:
+                self.errorHandler.addError(description="Variable name '%s' does not meet a_test_variable style of coding with lower-case names and underscore separation." % name)
+
+class CheckImportsAbsolute(Check):
+
+    importRegEx = re.compile('import "(\S+)";');
+
+    def check(self):
+
+        declaredImports = self.importRegEx.findall(self.fileContents)
+
+        for imp in declaredImports:
+
+            if imp[-6:] != ".proto":
+                self.errorHandler.addError(description="Import '%s' must import a file ending with .proto" % imp)
+
+            if imp[:3] != "rst":
+                self.errorHandler.addError(description="Imports must be absolute starting with 'rst/' from one of the protocol roots. Import '%s' violates this rule." % imp)
+
+class CheckIndentation(Check):
+
+    lineStartRegEx = re.compile("^( +)")
+
+    def check(self):
+
+        for lineNumber in range(1, len(self.fileLines) + 1):
+            line = self.fileLines[lineNumber - 1]
+
+            if '\t' in line:
+                self.errorHandler.addError(line=lineNumber, description="Illegal indentation with tabs")
+
+            starts = self.lineStartRegEx.findall(line)
+            for s in starts:
+                if len(s) % 4 != 0:
+                    self.errorHandler.addError(line=lineNumber, description="Illegal indentation depth %i not based on 4." % len(s))
+
+class CheckNewlineAtEof(Check):
+
+    def check(self):
+        if self.fileContents[-1] != "\n":
+            self.errorHandler.addError(line=len(self.fileLines), description="Missing newline at EOF.")
+
+class CheckTrailingSpaces(Check):
+
+    trailingRegEx = re.compile("(\s*)$")
+
+    def check(self):
+
+        for lineNumber in range(1, len(self.fileLines) + 1):
+            line = self.fileLines[lineNumber - 1]
+            spaces = self.trailingRegEx.findall(line)
+            for space in spaces:
+                if len(space) > 0:
+                    self.errorHandler.addError(line=lineNumber, description="Line has trailing spaces")
+
+class CheckPackageDeclarationFirst(Check):
+
+    def check(self):
+
+        if self.fileLines[0][:len("package")] != "package":
+            self.errorHandler.addError(description="Package declaration required on first line")
+
+class CheckNoSpaceBeforeFileSettings(Check):
+
+    keywordsRegEx = re.compile('^(\s*)(package|option|import)\s+')
+
+    def check(self):
+
+        for lineNumber in range(1, len(self.fileLines) + 1):
+            line = self.fileLines[lineNumber - 1]
+
+            keywordSpaces = self.keywordsRegEx.findall(line)
+            for space in keywordSpaces:
+                if len(space[0]) > 0:
+                    self.errorHandler.addError(line=lineNumber, description="No space before file-level keywords allowed.")
+
 
 # utility stuff
 
@@ -112,36 +201,100 @@ def getProtoFilesRecursive(folder):
 
     return protoFiles
 
-class FileErrorHandler:
+class FileErrorHandler(object):
     def __init__(self, fileName):
         self.__fileName = fileName
 
     def addError(self, line=None, description=None):
         print("[ERROR] %s(%s): %s" % (self.__fileName, line, description))
 
-def checkFile(file, root):
+    def done(self):
+        pass
+
+class ErrorHandler(object):
+
+    def createFileErrorHandler(self, fileName):
+        return FileErrorHandler(fileName)
+
+    def done(self):
+        pass
+
+class CheckstyleXmlFileErrorHandler(FileErrorHandler):
+    def __init__(self, fileName, document, checkstyleElement):
+        self.__fileName = fileName
+        self.__document = document
+        self.__fileElement = document.createElement("file")
+        self.__fileElement.setAttribute("name", fileName)
+        checkstyleElement.appendChild(self.__fileElement)
+
+    def addError(self, line=0, description=None):
+        print("[ERROR] %s(%s): %s" % (self.__fileName, line, description))
+        errorElement = self.__document.createElement("error")
+        errorElement.setAttribute("line", str(line))
+        errorElement.setAttribute("message", description)
+        errorElement.setAttribute("source", "RST check")
+        errorElement.setAttribute("severity", "error")
+        self.__fileElement.appendChild(errorElement)
+
+    def done(self):
+        pass
+
+class CheckstyleXmlErrorHandler(ErrorHandler):
+
+    def __init__(self, fileName):
+        self.__fileName = fileName
+        self.__document = xml.dom.minidom.Document()
+        self.__checkstyleElement = self.__document.createElement("checkstyle")
+        self.__document.appendChild(self.__checkstyleElement)
+        self.__checkstyleElement.setAttribute("version", "5.5")
+
+    def createFileErrorHandler(self, fileName):
+        return CheckstyleXmlFileErrorHandler(fileName, self.__document, self.__checkstyleElement)
+
+    def done(self):
+        #print(self.__document.toprettyxml())
+        f = open(self.__fileName, 'w')
+        f.write(self.__document.toprettyxml())
+        f.close()
+
+def checkFile(file, root, errorHandler, additionalCheckClasses=[]):
 
     f = open(file, 'r')
     contents = f.read()
     f.close()
 
-    lines = contents.split()
+    lines = contents.splitlines()
     relPath = os.path.relpath(file, root)
-    errorHandler = FileErrorHandler(file)
 
-    CheckPackageMatchFolder(contents, lines, relPath, errorHandler).check()
-    CheckJavaOuterClassname(contents, lines, relPath, errorHandler).check()
-    CheckMessageMatchesFileName(contents, lines, relPath, errorHandler).check()
+    fileErrorHandler = errorHandler.createFileErrorHandler(file)
+    def executeCheck(checkClass):
+        checkClass(contents, lines, relPath, fileErrorHandler).check();
 
-def checkFilesInFolder(folder):
+    executeCheck(CheckPackageMatchFolder)
+    executeCheck(CheckJavaOuterClassname)
+    executeCheck(CheckMessageMatchesFileName)
+    executeCheck(CheckVariableNames)
+    executeCheck(CheckImportsAbsolute)
+    executeCheck(CheckIndentation)
+    executeCheck(CheckNewlineAtEof)
+    executeCheck(CheckTrailingSpaces)
+    executeCheck(CheckPackageDeclarationFirst)
+    executeCheck(CheckNoSpaceBeforeFileSettings)
+
+    for check in additionalCheckClasses:
+        executeCheck(check)
+
+    fileErrorHandler.done()
+
+def checkFilesInFolder(folder, errorHandler, additionalCheckClasses=[]):
 
     logger.info("Checking all files in folder %s", folder)
 
     protoFiles = getProtoFilesRecursive(folder)
     for f in protoFiles:
-        checkFile(f, folder)
+        checkFile(f, folder, errorHandler, additionalCheckClasses)
 
-def checkFilesInMultipleRoots(rootFolder):
+def checkFilesInMultipleRoots(rootFolder, errorHandler):
 
     logger.info("Searching for RST roots in %s", rootFolder)
 
@@ -154,10 +307,12 @@ def checkFilesInMultipleRoots(rootFolder):
     logger.info("Found RST roots %s", roots)
 
     for root in roots:
-        checkFilesInFolder(root)
+        checkFilesInFolder(root, errorHandler)
 
 if __name__ == '__main__':
 
     logging.basicConfig(level=logging.DEBUG)
 
-    checkFilesInMultipleRoots(sys.argv[1])
+    errorHandler = CheckstyleXmlErrorHandler("/tmp/foo.xml")
+    checkFilesInMultipleRoots(sys.argv[1], errorHandler)
+    errorHandler.done()
