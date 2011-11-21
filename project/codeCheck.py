@@ -5,6 +5,7 @@ import os
 import os.path
 import re
 import xml.dom.minidom
+import optparse
 
 logger = logging.getLogger("RSTcodeCheck")
 
@@ -185,6 +186,32 @@ class CheckNoSpaceBeforeFileSettings(Check):
                 if len(space[0]) > 0:
                     self.errorHandler.addError(line=lineNumber, description="No space before file-level keywords allowed.")
 
+class CheckLeftCurlyBraces(Check):
+
+    braceRegEx = re.compile('^(\s*)\\{')
+
+    def check(self):
+
+        for lineNumber in range(1, len(self.fileLines) + 1):
+            line = self.fileLines[lineNumber - 1]
+
+            newlineBraces = self.braceRegEx.findall(line)
+            if len(newlineBraces) > 0:
+                self.errorHandler.addError(line=lineNumber, description="Left curly braces must be on the same line with the introductory statement.")
+
+class CheckRightCurlyBraces(Check):
+
+    braceRegEx = re.compile('^(.*)\\}')
+
+    def check(self):
+
+        for lineNumber in range(1, len(self.fileLines) + 1):
+            line = self.fileLines[lineNumber - 1]
+
+            rightBraces = self.braceRegEx.findall(line)
+            for brace in rightBraces:
+                if re.match('^\s*$', brace) == None:
+                    self.errorHandler.addError(line=lineNumber, description="Right curly braces must be on a new empty line.")
 
 # utility stuff
 
@@ -280,6 +307,8 @@ def checkFile(file, root, errorHandler, additionalCheckClasses=[]):
     executeCheck(CheckTrailingSpaces)
     executeCheck(CheckPackageDeclarationFirst)
     executeCheck(CheckNoSpaceBeforeFileSettings)
+    executeCheck(CheckLeftCurlyBraces)
+    executeCheck(CheckRightCurlyBraces)
 
     for check in additionalCheckClasses:
         executeCheck(check)
@@ -313,6 +342,22 @@ if __name__ == '__main__':
 
     logging.basicConfig(level=logging.DEBUG)
 
-    errorHandler = CheckstyleXmlErrorHandler("/tmp/foo.xml")
-    checkFilesInMultipleRoots(sys.argv[1], errorHandler)
+    parser = optparse.OptionParser()
+    parser.add_option("-o", "--output", dest="filename", default="./rst-checks.xml",
+                      help="write report to FILE", metavar="FILE")
+    parser.add_option("-f", "--format",
+                      dest="format", default="plain",
+                      help="Format to use for reporting errors", metavar="(plain|xml)")
+    parser.add_option("-r", "--root", dest="root", default="../proto",
+                      help="Different RST roots like stable and sandbox are located here", metavar="DIR")
+
+    (options, args) = parser.parse_args()
+
+    # decide on output
+    errorHandler = ErrorHandler()
+    if options.format == "xml":
+        errorHandler = CheckstyleXmlErrorHandler(options.filename)
+
+    checkFilesInMultipleRoots(options.root, errorHandler)
+
     errorHandler.done()
