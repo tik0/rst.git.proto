@@ -4,10 +4,10 @@ option java_outer_classname = "ModulesType";
 
 
 message Modules {
-	repeated Module modules = 1;
-	repeated Module frameManagerModules = 2;
+    repeated Module modules = 1;
+    repeated Module frameManagerModules = 2;
 }
 
 message Module {
-	required string name = 1;
+    required string name = 1;
 }

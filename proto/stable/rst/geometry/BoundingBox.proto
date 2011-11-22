@@ -9,8 +9,8 @@ option java_outer_classname = "BoundingBoxType";
 // width, height: size
 message BoundingBox {
 
-	required math.Vec2DInt top_left = 1;
-	required uint32 width = 2;
-	required uint32 height = 3;
+    required math.Vec2DInt top_left = 1;
+    required uint32 width = 2;
+    required uint32 height = 3;
 
 }

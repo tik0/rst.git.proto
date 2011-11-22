@@ -4,7 +4,7 @@ option java_outer_classname = "Gaussian1DType";
 
 message Gaussian1D {
 
-	required float mean = 1;
-	required float variance = 2;
+    required float mean = 1;
+    required float variance = 2;
 
 }

@@ -6,12 +6,12 @@ option java_outer_classname = "MixtureOfGaussian1DType";
 
 message MixtureOfGaussian1D {
 
-	message GaussianComponent1D {
-		required Gaussian1D gaussian = 1;
-		required float weight = 2;
-		optional float probability_state = 3;
-	}
+    message GaussianComponent1D {
+        required Gaussian1D gaussian = 1;
+        required float weight = 2;
+        optional float probability_state = 3;
+    }
 
-	repeated GaussianComponent1D components = 1;
+    repeated GaussianComponent1D components = 1;
 
 }

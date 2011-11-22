@@ -6,5 +6,5 @@ import "rst/math/Vec3DFloat.proto";
 
 // A message representing a 3D Point cloud
 message PointCloud3DFloat {
-	repeated math.Vec3DFloat points = 1;
+    repeated math.Vec3DFloat points = 1;
 }

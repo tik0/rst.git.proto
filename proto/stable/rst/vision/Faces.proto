@@ -6,6 +6,6 @@ option java_outer_classname = "FacesType";
 
 message Faces {
 
-	repeated Face faces = 1;
+    repeated Face faces = 1;
 
 }

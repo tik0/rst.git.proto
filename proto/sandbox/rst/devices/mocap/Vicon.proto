@@ -6,40 +6,40 @@ option java_outer_classname = "ViconType";
 
 message Vicon {
 
-  message Timecode{
-    required uint32 hours = 1;
-    required uint32 minutes = 2;
-    required uint32 seconds = 3;
-    optional uint32 frames = 4 [default = 0];
-    optional uint32 sub_frame = 5 [default = 0];
-  }
-
-  message Segment{
-
-    message Marker {
-
-      required string name = 1;
-      required math.Vec3DDouble translation = 2;
-
+    message Timecode{
+        required uint32 hours = 1;
+        required uint32 minutes = 2;
+        required uint32 seconds = 3;
+        optional uint32 frames = 4 [default = 0];
+        optional uint32 sub_frame = 5 [default = 0];
     }
 
-    required string name = 1;
-    repeated Marker markers = 2;
-    optional math.Vec3DDouble translation = 3;
-    optional math.Vec3DDouble euler_orientation = 4;
-    optional math.Vec3DDouble helical_orientation = 5;
-    optional math.Vec3DDouble quaternionen_orientation = 6;
-    //TODO: Add special matrix data/idl type specification
-    //optional math.Mat3x3Double rotation_matrix = 7;
-  }
+    message Segment{
 
-  message Subject {
-    required string name = 1;
-    repeated Segment segments = 2;
-  }
+        message Marker {
 
-  required uint64 frame = 1;
-  optional Timecode timecode = 2;
-  repeated Subject subject = 3;
+            required string name = 1;
+            required math.Vec3DDouble translation = 2;
+
+        }
+
+        required string name = 1;
+        repeated Marker markers = 2;
+        optional math.Vec3DDouble translation = 3;
+        optional math.Vec3DDouble euler_orientation = 4;
+        optional math.Vec3DDouble helical_orientation = 5;
+        optional math.Vec3DDouble quaternionen_orientation = 6;
+        //TODO: Add special matrix data/idl type specification
+        //optional math.Mat3x3Double rotation_matrix = 7;
+    }
+
+    message Subject {
+        required string name = 1;
+        repeated Segment segments = 2;
+    }
+
+    required uint64 frame = 1;
+    optional Timecode timecode = 2;
+    repeated Subject subject = 3;
 
 }

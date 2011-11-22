@@ -5,18 +5,18 @@ option java_outer_classname = "MatrixDoubleType";
 // A message representing a double matrix of MxN entries
 message MatrixDouble {
 
-	// A message defining the size of the matrix
-	message Size {
-		required uint32 M = 1;
-		required uint32 N = 2;
-	}
+    // A message defining the size of the matrix
+    message Size {
+        required uint32 m = 1;
+        required uint32 n = 2;
+    }
 
-	// A message carrying the data of the matrix
-	// NOTE: data is represented ROWWISE
-	message Data {
-		repeated double value = 1 [packed=true];
-	}
+    // A message carrying the data of the matrix
+    // NOTE: data is represented ROWWISE
+    message Data {
+        repeated double value = 1 [packed=true];
+    }
 
-	required Size size = 1;
-	required Data data = 2;
+    required Size size = 1;
+    required Data data = 2;
 }

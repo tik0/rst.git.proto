@@ -7,7 +7,7 @@ option java_outer_classname = "Vec2DFloatType";
 
 message Vec2DFloat {
 
-	required float x = 1 [default = 0];
-	required float y = 2 [default = 0];
+    required float x = 1 [default = 0];
+    required float y = 2 [default = 0];
 
 }

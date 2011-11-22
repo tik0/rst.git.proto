@@ -4,11 +4,11 @@ option java_outer_classname = "CpuMemoryType";
 
 
 message CpuMemory {
-	required float memoryFree = 1;
-	required float memoryTotal = 2;
-	required float memoryUsed = 3;
-	required float cpuOne = 4;
-	optional float cpuTwo = 5;
-	optional float cpuThree = 6;
-	optional float cpuFour = 7;
+    required float memoryFree = 1;
+    required float memoryTotal = 2;
+    required float memoryUsed = 3;
+    required float cpuOne = 4;
+    optional float cpuTwo = 5;
+    optional float cpuThree = 6;
+    optional float cpuFour = 7;
 }

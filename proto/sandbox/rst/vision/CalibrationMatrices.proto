@@ -8,7 +8,7 @@ option java_outer_classname = "CalibrationMatricesType";
 
 message CalibrationMatrices {
 
-	required CameraMatrix3x4 left = 1;
-	required CameraMatrix3x4 right = 2;
+    required CameraMatrix3x4 left = 1;
+    required CameraMatrix3x4 right = 2;
 
 }

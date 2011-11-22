@@ -7,7 +7,7 @@ option java_outer_classname = "PointPairType";
 // A message representing a pair of 2D Points
 message PointPair {
 
-	required math.Vec2DFloat first = 1;
-	required math.Vec2DFloat second = 2;
+    required math.Vec2DFloat first = 1;
+    required math.Vec2DFloat second = 2;
 
 }
