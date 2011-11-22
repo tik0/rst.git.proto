@@ -14,7 +14,7 @@ def addSandboxToRST():
     # + Packages which do not have a corresponding package relative to
     #   the rst package. E.g. rstsandbox.communicationpatterns when
     #   there is no rst.communicationpatterns
-    def findModules(root):
+    def findModules(root, errorList = []):
         def existsInRST(name):
             try:
                 __import__('rst.' + '.'.join(name.split('.')[1:]))
@@ -33,10 +33,11 @@ def addSandboxToRST():
                 logger.debug('  Loaded %s', loaded)
                 if ispkg and existsInRST(name):
                     logger.debug('  Is a package and exists in RST')
-                    result.extend(findModules(loaded))
+                    result.extend(findModules(loaded, errors))
                 else:
                     result.append(loaded)
             except Exception, e:
+                errorList.append(name)
                 logger.debug('  Warning: failed to load %s', modname)
         return result
 
@@ -44,7 +45,8 @@ def addSandboxToRST():
     # but not in the stable section:
     # + Add package or module to respective parent package
     # + Add to sys.modules
-    for module in findModules(rstsandbox):
+    errors = []
+    for module in findModules(rstsandbox, errors):
         try:
             components = module.__name__.split('.')
             rstPackage = __import__('rst.' + '.'.join(components[1:-1]), fromlist = [ '__dict__' ])
@@ -56,6 +58,12 @@ def addSandboxToRST():
         except Exception, e:
             logger.debug('warning: failed to copy %s', module)
 
+    return errors
+
 # We need multiple iterations to resolve dependencies ...
-for i in xrange(3):
-    addSandboxToRST()
+initial = addSandboxToRST()
+while len(initial) > 0:
+    new = addSandboxToRST()
+    if len(new) == len(initial):
+        logger.error("Unable to instal modules %s in rst namespace" % new)
+    initial = new
