@@ -47,6 +47,7 @@ SET(SANDBOX_ROOT "${CMAKE_SOURCE_DIR}/proto/sandbox")
 ADD_SUBDIRECTORY(cpp)
 ADD_SUBDIRECTORY(java)
 ADD_SUBDIRECTORY(python)
+ADD_SUBDIRECTORY(matlab)
 
 # --- install protocol anyways for backwards compatibility ---
 
