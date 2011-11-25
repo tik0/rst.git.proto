@@ -336,7 +336,7 @@ def checkFilesInMultipleRoots(rootFolder, errorHandler):
     logger.info("Found RST roots %s", roots)
 
     for root in roots:
-        checkFilesInFolder(root, errorHandler)
+        checkFilesInFolder(os.path.abspath(root), errorHandler)
 
 if __name__ == '__main__':
 
