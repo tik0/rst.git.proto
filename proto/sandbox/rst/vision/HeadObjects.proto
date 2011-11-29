@@ -1,0 +1,11 @@
+package rst.vision;
+
+import "rst/vision/HeadObject.proto";
+
+option java_outer_classname = "HeadObjectsType";
+
+// A head object list
+
+message HeadObjects {
+    repeated vision.HeadObject = 1;
+}

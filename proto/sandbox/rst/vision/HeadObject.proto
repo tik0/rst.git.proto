@@ -1,0 +1,21 @@
+package rst.vision;
+
+import "rst/geometry/BoundingBox.proto";
+
+option java_outer_classname = "HeadObjectType";
+
+// A head object represented by its ID, location in the image and
+// head rotation angles
+// id    : head object identifier
+// region: head location in the input image
+// pan   : pan head rotation angle
+// tilt  : tilt head rotation angle
+// roll  : roll head rotation angle
+
+message HeadObject {
+    required uint32 id = 1;
+    required geometry.BoundingBox region = 2;
+    required float pan = 3;
+    required float tilt = 4;
+    required float roll = 5;
+}
