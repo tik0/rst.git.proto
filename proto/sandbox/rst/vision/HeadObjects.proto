@@ -7,5 +7,5 @@ option java_outer_classname = "HeadObjectsType";
 // A head object list
 
 message HeadObjects {
-    repeated vision.HeadObject = 1;
+    repeated vision.HeadObject head_objects = 1;
 }
