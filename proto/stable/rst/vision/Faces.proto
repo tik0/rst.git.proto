@@ -7,5 +7,7 @@ option java_outer_classname = "FacesType";
 message Faces {
 
     repeated Face faces = 1;
+    required uint32 width = 2;
+    required uint32 height = 3;
 
 }
