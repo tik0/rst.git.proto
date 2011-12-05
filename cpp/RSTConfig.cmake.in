@@ -26,6 +26,20 @@ ENDFOREACH()
 IF(NOT RST_CONFIG_PROCESSED)
     SET(RST_CONFIG_PROCESSED TRUE)
 
+    IF(EXISTS "${RST_CONFIG_DIR}/../CMakeCache.txt")
+        INCLUDE("${RST_CONFIG_DIR}/RSTBuildTreeSettings.cmake")
+    ELSE()
+
+        SET(RST_INCLUDE_DIRS "${RST_CONFIG_DIR}/../../include/rst/stable")
+        SET(RST_RUNTIME_LIBRARY_DIRS "${RST_CONFIG_DIR}/../../bin")
+
+        # sandbox additions
+        IF(USE_SANDBOX)
+            LIST(APPEND RST_INCLUDE_DIRS "${RST_CONFIG_DIR}/../../include/rst/sandbox")
+        ENDIF()
+
+    ENDIF()
+
     SET(RSC_DIR "@RSC_DIR@" CACHE PATH "RSC location")
     FIND_PACKAGE(RSC REQUIRED)
     SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${RSC_CMAKE_MODULE_PATH}")
@@ -36,8 +50,8 @@ IF(NOT RST_CONFIG_PROCESSED)
         MESSAGE(FATAL_ERROR "protobuf library not found")
     ENDIF()
 
-    SET(RST_INCLUDE_DIRS "${RST_CONFIG_DIR}/../../include/rst/stable" ${RSC_INCLUDE_DIRS} ${PROTOBUF_INCLUDE_DIR})
-    SET(RST_RUNTIME_LIBRARY_DIRS "${RST_CONFIG_DIR}/../../bin" ${RSC_RUNTIME_LIBRARY_DIRS} ${PROTOBUF_RUNTIME_LIBRARY_DIRS})
+    LIST(APPEND RST_INCLUDE_DIRS ${RSC_INCLUDE_DIRS} ${PROTOBUF_INCLUDE_DIR})
+    LIST(APPEND RST_RUNTIME_LIBRARY_DIRS ${RSC_RUNTIME_LIBRARY_DIRS} ${PROTOBUF_RUNTIME_LIBRARY_DIRS})
 
     # Expose rst library as an imported target (from the point of view
     # of the downstream project)
@@ -45,9 +59,8 @@ IF(NOT RST_CONFIG_PROCESSED)
     SET(RST_LIBRARIES @STABLE_NAME@)
     SET(RST_CFLAGS "@RST_CFLAGS@")
 
-    # sandbox additions
+    # invariant sandbox additions
     IF(USE_SANDBOX)
-        LIST(APPEND RST_INCLUDE_DIRS "${RST_CONFIG_DIR}/../../include/rst/sandbox")
         LIST(APPEND RST_LIBRARIES "@SANDBOX_NAME@")
         LIST(APPEND RST_CFLAGS "@RSTSANDBOX_CFLAGS@")
     ENDIF()
