@@ -9,11 +9,13 @@ logger = logging.getLogger("rstsandbox")
 
 def addSandboxToRST():
     def importIt(designator, error = True):
+        logger.debug("importIt called with '%s'" % designator)
         if hasattr(designator, '__iter__'):
             name = '.'.join(designator)
         else:
             name = designator
         try:
+            logger.debug("Really importing name '%s'" % name)
             return __import__(name, fromlist = [ '__dict__' ]) # WT?
         except Exception, e:
             if error:
@@ -29,21 +31,24 @@ def addSandboxToRST():
     # We record errors caused by dependency problems so the caller can
     # trigger additional iterations to resolve dependencies.
     def findModules(root):
-        result, errors = [], []
+        result = []
+        errors = []
         for _, name, ispkg in pkgutil.iter_modules(root.__path__):
             fullname = root.__name__ + '.' + name
             if ispkg:
                 kind = 'package'
             else:
                 kind = 'module'
-            logger.debug("Processing %s %s.%s", kind, root, name)
+            logger.debug("Processing %s %s.%s", kind, root.__name__, name)
             logger.debug('Importing %s', fullname)
             try:
-                loaded = importIt(name)
+                loaded = importIt(fullname)
                 logger.debug('Loaded %s', loaded)
-                if ispkg and importIt([ 'rst' ] + name.split('.')[1:], error = False):
+                proposedRstName = [ 'rst' ] + fullname.split('.')[1:]
+                logger.debug("Checking whether %s in rst exists" % proposedRstName)
+                if ispkg and importIt(proposedRstName, error = False):
                     logger.debug('%s is a package which also exists under rst', fullname)
-                    subresult, suberrors = findModules(loaded, errors)
+                    subresult, suberrors = findModules(loaded)
                     result.extend(subresult)
                     errors.extend(suberrors)
                 else:
@@ -61,14 +66,19 @@ def addSandboxToRST():
     #   section.
     # + Add to sys.modules
     modules, errors = findModules(rstsandbox)
+    logger.debug("Found modules %s and errors %s" % (modules, errors))
     for module in modules:
+
+        logger.debug("Processing module or package %s" % module)
+
         components = module.__name__.split('.')
-        rstPackage = importIt([ 'rst' ] + components[1:-1])
         rstName    = 'rst.' + '.'.join(components[1:])
         logger.debug('Mounting %s -> %s', module.__name__, rstName)
 
         sys.modules[rstName] = module
+        rstPackage = importIt([ 'rst' ] + components[1:-1])
         rstPackage.__dict__[components[-1]] = module
+
 
     return modules, errors
 
@@ -77,8 +87,10 @@ def addSandboxToRST():
 # modules in a dependency-respecting order, some modules may initially
 # fail to load but succeed later, after their dependencies have been
 # loaded.
+logger.debug("---- ITERATION ----")
 _, initial = addSandboxToRST()
 while len(initial) > 0:
+    logger.debug("---- ITERATION ----")
     _, new = addSandboxToRST()
     if len(new) == len(initial):
         raise RuntimeError, "Unable to install modules/packages %s in rst namespace" \
