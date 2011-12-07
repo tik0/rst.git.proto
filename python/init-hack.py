@@ -8,62 +8,79 @@ import logging
 logger = logging.getLogger("rstsandbox")
 
 def addSandboxToRST():
-    # Find two things within the sandbox
+    def importIt(designator, error = True):
+        if hasattr(designator, '__iter__'):
+            name = '.'.join(designator)
+        else:
+            name = designator
+        try:
+            return __import__(name, fromlist = [ '__dict__' ]) # WT?
+        except Exception, e:
+            if error:
+                raise e
+
+    # Find two things within the sandbox:
     # + All Modules (since there should be no duplicates between rst
     #   and rstsandbox)
     # + Packages which do not have a corresponding package relative to
-    #   the rst package. E.g. rstsandbox.communicationpatterns when
-    #   there is no rst.communicationpatterns
-    def findModules(root, errorList = []):
-        def existsInRST(name):
+    #   the rst package.
+    #   E.g. rstsandbox.communicationpatterns when there is no
+    #   rst.communicationpatterns
+    # We record errors caused by dependency problems so the caller can
+    # trigger additional iterations to resolve dependencies.
+    def findModules(root):
+        result, errors = [], []
+        for _, name, ispkg in pkgutil.iter_modules(root.__path__):
+            fullname = root.__name__ + '.' + name
+            if ispkg:
+                kind = 'package'
+            else:
+                kind = 'module'
+            logger.debug("Processing %s %s.%s", kind, root, name)
+            logger.debug('Importing %s', fullname)
             try:
-                __import__('rst.' + '.'.join(name.split('.')[1:]))
-                return True
-            except:
-                return False
-        result = []
-        for importer, modname, ispkg in pkgutil.iter_modules(root.__path__):
-            if root.__name__ == modname:
-                continue
-            logger.debug("Processing %s.%s (package: %s)", root, modname, ispkg)
-            logger.debug('  Importing %s', root.__name__ + '.' + modname)
-            try:
-                name = root.__name__ + '.' + modname
-                loaded = __import__(name, fromlist = [ '__dict__' ]) # WTF?
-                logger.debug('  Loaded %s', loaded)
-                if ispkg and existsInRST(name):
-                    logger.debug('  Is a package and exists in RST')
-                    result.extend(findModules(loaded, errors))
+                loaded = importIt(name)
+                logger.debug('Loaded %s', loaded)
+                if ispkg and importIt([ 'rst' ] + name.split('.')[1:], error = False):
+                    logger.debug('%s is a package which also exists under rst', fullname)
+                    subresult, suberrors = findModules(loaded, errors)
+                    result.extend(subresult)
+                    errors.extend(suberrors)
                 else:
                     result.append(loaded)
             except Exception, e:
-                errorList.append(name)
-                logger.debug('  Warning: failed to load %s', modname)
-        return result
+                errors.append(name)
+                logger.warn('Failed to load %s: %s', name, e)
+        return result, errors
 
-    # process packages and modules that are present in the sandbox,
+    # Process packages and modules that are present in the sandbox,
     # but not in the stable section:
-    # + Add package or module to respective parent package
+    # + Add package or module to respective parent package. This
+    #   corresponds to "mounting" the entire module tree rooted at the
+    #   particular package under the parent package in the stable
+    #   section.
     # + Add to sys.modules
-    errors = []
-    for module in findModules(rstsandbox, errors):
-        try:
-            components = module.__name__.split('.')
-            rstPackage = __import__('rst.' + '.'.join(components[1:-1]), fromlist = [ '__dict__' ])
-            rstName = 'rst.' + '.'.join(components[1:])
-            logger.debug('Adding %s -> %s ; RST Package: %s', module.__name__, rstName, rstPackage)
+    modules, errors = findModules(rstsandbox)
+    for module in modules:
+        components = module.__name__.split('.')
+        rstPackage = importIt([ 'rst' ] + components[1:-1])
+        rstName    = 'rst.' + '.'.join(components[1:])
+        logger.debug('Mounting %s -> %s', module.__name__, rstName)
 
-            sys.modules[rstName] = module
-            rstPackage.__dict__[components[-1]] = module
-        except Exception, e:
-            logger.debug('warning: failed to copy %s', module)
+        sys.modules[rstName] = module
+        rstPackage.__dict__[components[-1]] = module
 
-    return errors
+    return modules, errors
 
-# We need multiple iterations to resolve dependencies ...
-initial = addSandboxToRST()
+# We need multiple iterations to resolve dependencies since sandbox
+# types may depend on each other. Since we do not attempt to load the
+# modules in a dependency-respecting order, some modules may initially
+# fail to load but succeed later, after their dependencies have been
+# loaded.
+_, initial = addSandboxToRST()
 while len(initial) > 0:
-    new = addSandboxToRST()
+    _, new = addSandboxToRST()
     if len(new) == len(initial):
-        logger.error("Unable to instal modules %s in rst namespace" % new)
+        raise RuntimeError, "Unable to install modules/packages %s in rst namespace" \
+            % ', '.join(new)
     initial = new
