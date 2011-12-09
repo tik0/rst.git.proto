@@ -5,6 +5,8 @@ option java_outer_classname = "ITDType";
 // Interaural Time Difference
 message ITD {
 
-    required float value = 1;
+    repeated float value = 1;
+    required float frame_shift = 2;
+    required float time_window = 3;
 
 }
