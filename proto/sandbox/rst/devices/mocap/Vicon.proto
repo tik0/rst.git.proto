@@ -6,6 +6,13 @@ option java_outer_classname = "ViconType";
 
 message Vicon {
 
+    message UnlabeledMarker {
+
+        required string name = 1;
+        required math.Vec3DDouble translation = 2;
+
+    }
+
     message Timecode{
         required uint32 hours = 1;
         required uint32 minutes = 2;
@@ -29,6 +36,7 @@ message Vicon {
         optional math.Vec3DDouble euler_orientation = 4;
         optional math.Vec3DDouble helical_orientation = 5;
         optional math.Vec3DDouble quaternionen_orientation = 6;
+
         //TODO: Add special matrix data/idl type specification
         //optional math.Mat3x3Double rotation_matrix = 7;
     }
@@ -41,5 +49,6 @@ message Vicon {
     required uint64 frame = 1;
     optional Timecode timecode = 2;
     repeated Subject subject = 3;
+    repeated UnlabeledMarker unlabeledMarker = 4;
 
 }
