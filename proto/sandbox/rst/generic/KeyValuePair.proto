@@ -1,0 +1,11 @@
+package rst.generic;
+
+import "rst/generic/Value.proto";
+
+option java_outer_classname = "KeyValuePairType";
+
+// A message that wraps one single argument with it's type.
+message KeyValuePair {
+    required string key = 1;
+    required Value value = 2;
+}

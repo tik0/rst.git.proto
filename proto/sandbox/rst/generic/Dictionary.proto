@@ -1,0 +1,10 @@
+package rst.generic;
+
+option java_outer_classname = "DictionaryType";
+
+import "rst/generic/KeyValuePair.proto";
+
+// A message that wraps one single argument with it's type.
+message Dictionary {
+    repeated KeyValuePair entries = 1;
+}
