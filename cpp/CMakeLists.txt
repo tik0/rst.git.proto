@@ -20,6 +20,10 @@ ELSE()
     SET(RSTSANDBOX_CFLAGS "-DRSTSANDBOX_EXPORT=")
 ENDIF()
 
+# dummy version information due to compatibility issues:
+# pkg_check_modules (with cmake) requires a version information to find package properly
+SET(RST_VERSION "1.0")
+
 # --- pkgconfig files ---
 
 CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/${STABLE_NAME}.pc.in"
