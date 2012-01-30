@@ -1,0 +1,8 @@
+package rst.timing;
+
+option java_outer_classname = "TimestampType";
+
+// A message that wraps one single argument with it's type.
+message Timestamp {
+    required uint64 time = 1;
+}

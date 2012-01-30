@@ -1,0 +1,10 @@
+package rst.timing;
+
+option java_outer_classname = "Point2DTimeseriesType";
+
+import "rst/timing/Point2DTimestampPair.proto";
+
+// A message that wraps one single argument with it's type.
+message Point2DTimeseries {
+    repeated Point2DTimestampPair entry = 1;
+}
