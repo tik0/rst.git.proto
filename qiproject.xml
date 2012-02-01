@@ -1,0 +1,3 @@
+<project name="rst">
+	<depends buildtime="true" name="rsc"/>
+</project>
