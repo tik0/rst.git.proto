@@ -1,4 +1,4 @@
-package rst.rsb.xml;
+package rst.xml;
 
 option java_outer_classname = "XOPDataType";
 
