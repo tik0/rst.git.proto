@@ -2,7 +2,9 @@ package rst.kinematics;
 
 option java_outer_classname = "JointStateType";
 
-// A message that contains data about one joint of a robot.
+/// A message that contains data about one joint of a robot.
+// @deprecated: This type has been deprecated in favor of
+// rst.kinematics.JointAngles and rst.devices.**
 message JointState {
     // ASCII name of the joint
     required bytes name = 1;
