@@ -1,6 +1,6 @@
 package rst.audition;
 
-option java_outer_classname = "ITDType";
+option java_outer_classname = "InterauralTimeDifferenceType";
 
 message InterauralTimeDifference {
 
