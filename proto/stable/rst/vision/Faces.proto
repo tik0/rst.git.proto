@@ -4,6 +4,7 @@ import "rst/vision/Face.proto";
 
 option java_outer_classname = "FacesType";
 
+// The values of width and height are in pixels.
 message Faces {
 
     repeated Face faces = 1;

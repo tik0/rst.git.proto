@@ -4,6 +4,7 @@ option java_outer_classname = "InstantaneousPhaseType";
 
 // A message representing an instantaneous phase, the time-variant angle or its
 // modulo value of a wave.
+// The phase is specified in radians.
 message InstantaneousPhase {
     required float phase = 1;
 }

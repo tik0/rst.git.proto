@@ -7,6 +7,7 @@ option java_outer_classname = "BoundingBoxType";
 // An arbitrary bounding box
 // x, y: top left corner coordinates
 // width, height: size
+// All values are in pixels.
 message BoundingBox {
 
     required math.Vec2DInt top_left = 1;

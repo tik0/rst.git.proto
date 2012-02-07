@@ -2,6 +2,8 @@ package rst.vision;
 
 option java_outer_classname = "ImageType";
 
+// The values of width and height are measured in pixels.
+//
 // Interpretation of RSB timestamps
 //
 // create:

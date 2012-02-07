@@ -2,8 +2,10 @@ package rst.geometry;
 
 option java_outer_classname = "TranslationType";
 
-// A message for pose data (camera, robot, ...)
-// x, y, z:        position in world coordinates
+// A message for position data (e.g. of an object such as camera,
+// robot, ...)
+// x, y, z: position in world coordinates
+//          all values are in meters
 message Translation {
     required double x = 1;
     required double y = 2;
