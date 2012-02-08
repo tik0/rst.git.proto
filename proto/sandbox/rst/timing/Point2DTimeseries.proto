@@ -4,7 +4,8 @@ option java_outer_classname = "Point2DTimeseriesType";
 
 import "rst/timing/Point2DTimestampPair.proto";
 
-// A message that wraps one single argument with it's type.
+// A list of pairs consisting assembled from a 2D point and a timestamp.
+
 message Point2DTimeseries {
     repeated Point2DTimestampPair entry = 1;
 }
