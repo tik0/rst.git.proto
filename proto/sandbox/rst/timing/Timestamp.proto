@@ -1,9 +1,0 @@
-package rst.timing;
-
-option java_outer_classname = "TimestampType";
-
-// Holds a timestamp in microseconds.
-
-message Timestamp {
-    required uint64 time = 1;
-}
