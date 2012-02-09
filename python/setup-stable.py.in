@@ -41,7 +41,7 @@ class PrintOutputs(Command):
             print("##### %s" % o)
 
 setup(name='rst',
-      #version='@RST_VERSION@',
+      version='@RST_VERSION@',
       description='''
                   Robotics Systems Types
                   ''',
