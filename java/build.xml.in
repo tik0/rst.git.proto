@@ -28,8 +28,8 @@
 	</target>
 
 	<target name="dist" depends="compile" description="generate the distribution">
-		<jar jarfile="@STABLE_JAR_FILE@" basedir="classes-stable" />
-		<jar jarfile="@SANDBOX_JAR_FILE@" basedir="classes-sandbox" />
+		<jar jarfile="@STABLE_JAR_FILE@" basedir="classes-stable" manifest="MANIFEST.MF" />
+		<jar jarfile="@SANDBOX_JAR_FILE@" basedir="classes-sandbox" manifest="MANIFEST.MF" />
 	</target>
 
 </project>
