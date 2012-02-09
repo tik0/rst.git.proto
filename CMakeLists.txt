@@ -4,6 +4,11 @@ PROJECT("RST")
 
 SET(CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS TRUE)
 
+SET(RST_VERSION_MAJOR 1)
+SET(RST_VERSION_MINOR 0)
+SET(RST_VERSION_PATCH 0)
+SET(RST_VERSION "${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}.${RST_VERSION_PATCH}")
+
 # --- dependency handling ---
 
 FIND_PACKAGE(RSC REQUIRED)
@@ -52,7 +57,6 @@ ADD_SUBDIRECTORY(matlab)
 # --- install protocol anyways for backwards compatibility ---
 
 ADD_SUBDIRECTORY(proto)
-
 
 # --- package ---
 
