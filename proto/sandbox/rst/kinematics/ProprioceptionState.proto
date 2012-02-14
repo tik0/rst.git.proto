@@ -7,6 +7,6 @@ import "rst/kinematics/JointState.proto";
 // A message for proprioceptive data of a robot.
 // @deprecated: This type has been deprecated in favor of
 // rst.kinematics.JointAngles and rst.devices.**
-message ProprioceptionState {
+  message ProprioceptionState {
     repeated JointState joints = 1;
 }
