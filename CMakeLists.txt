@@ -72,7 +72,7 @@ IF(${RSC_VERSION} VERSION_GREATER "0.5.0" OR ${RSC_VERSION} VERSION_EQUAL "0.5.0
     # --------------------------------------------------------------------
 
 ELSE()
-    MESSAGE(STATUS "Skipping standardizes package name because RSC is too old.")
+    MESSAGE(STATUS "Skipping standardized package name because RSC is too old.")
 ENDIF()
 
 SET(CPACK_GENERATOR "TGZ")
