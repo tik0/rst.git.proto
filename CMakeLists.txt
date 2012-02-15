@@ -67,7 +67,6 @@ IF(${RSC_VERSION} VERSION_GREATER "0.5.0" OR ${RSC_VERSION} VERSION_EQUAL "0.5.0
 
     # --------------------------------------------------------------------
     # !!! Do not change these two lines !!!
-    # jwienke: I did ;)
     SET(CPACK_PACKAGE_VERSION   "trunk")
     SET(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${LSB_CODENAME}_${LSB_PROCESSOR_ARCH}")
     # --------------------------------------------------------------------
