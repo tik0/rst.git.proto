@@ -22,7 +22,7 @@ ENDIF()
 
 # --- user options ---
 
-OPTION(CMAKE_PACKAGE_CACHE "Disabled/Enable CMake Package Cache for RST" OFF)
+OPTION(EXPORT_TO_CMAKE_PAKAGE_REGISTRY "If set to ON, RST will be exported to the CMake user package registry so that downstream projects automatically find the workspace location in find_package calls." OFF)
 
 # --- pkgconfig files ---
 
@@ -38,10 +38,10 @@ INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/${STABLE_NAME}.pc"
 
 # --- cmake export ---
 
-IF(CMAKE_PACKAGE_CACHE)
-    MESSAGE(STATUS "Exported RST to CMake Package Cache")
+IF(EXPORT_TO_CMAKE_PAKAGE_REGISTRY)
+    MESSAGE(STATUS "Exported RST to CMake package registry")
     EXPORT(PACKAGE RST)
-ENDIF(CMAKE_PACKAGE_CACHE)
+ENDIF()
 
 CONFIGURE_FILE(RSTBuildTreeSettings.cmake.in
                "${CMAKE_CURRENT_BINARY_DIR}/RSTBuildTreeSettings.cmake" @ONLY)
