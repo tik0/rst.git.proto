@@ -20,6 +20,10 @@ ELSE()
     SET(RSTSANDBOX_CFLAGS "-DRSTSANDBOX_EXPORT=")
 ENDIF()
 
+# --- user options ---
+
+OPTION(CMAKE_PACKAGE_CACHE "Disabled/Enable CMake Package Cache for RST" OFF)
+
 # --- pkgconfig files ---
 
 CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/${STABLE_NAME}.pc.in"
@@ -34,7 +38,10 @@ INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/${STABLE_NAME}.pc"
 
 # --- cmake export ---
 
-EXPORT(PACKAGE RST)
+IF(CMAKE_PACKAGE_CACHE)
+    MESSAGE(STATUS "Exported RST to CMake Package Cache")
+    EXPORT(PACKAGE RST)
+ENDIF(CMAKE_PACKAGE_CACHE)
 
 CONFIGURE_FILE(RSTBuildTreeSettings.cmake.in
                "${CMAKE_CURRENT_BINARY_DIR}/RSTBuildTreeSettings.cmake" @ONLY)
