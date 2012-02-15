@@ -9,4 +9,4 @@ import "rst/kinematics/JointState.proto";
 // rst.kinematics.JointAngles and rst.devices.**
 message ProprioceptionState {
     repeated JointState joints = 1;
-  }
+}
