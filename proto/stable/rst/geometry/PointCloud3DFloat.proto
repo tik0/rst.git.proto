@@ -3,8 +3,11 @@ package rst.geometry;
 option java_outer_classname = "PointCloud3DFloatType";
 
 import "rst/math/Vec3DFloat.proto";
+import "rst/vision/Face.proto";
 
 // A message representing a 3D Point cloud
 message PointCloud3DFloat {
     repeated math.Vec3DFloat points = 1;
+    repeated vision.Face left = 2;
+    repeated vision.Face right = 3;
 }
