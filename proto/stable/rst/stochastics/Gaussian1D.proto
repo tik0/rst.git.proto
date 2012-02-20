@@ -1,6 +1,6 @@
 package rst.stochastics;
 
-import "rst/vision/Face.proto";
+
 
 option java_outer_classname = "Gaussian1DType";
 
@@ -8,7 +8,6 @@ message Gaussian1D {
 
     required float mean = 1;
     required float variance = 2;
-    required vision.Face left = 3;
-    required vision.Face right = 4;
+
 
 }
