@@ -2,6 +2,11 @@ package rst.audition;
 
 option java_outer_classname = "InterauralTimeDifferenceType";
 
+// Interaural time difference measurements.
+// value       : ITD values (in seconds)
+// frame_shift : frame shift between time windows (in seconds)
+// time_window : length of the time window (in seconds) to compute an ITD value
+
 message InterauralTimeDifference {
 
     repeated float value = 1;
