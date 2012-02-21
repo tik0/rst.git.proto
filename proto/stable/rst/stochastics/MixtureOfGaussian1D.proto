@@ -11,8 +11,8 @@ message MixtureOfGaussian1D {
         required Gaussian1D gaussian = 1;
         required float weight = 2;
         optional float probability_state = 3;
-        required vision.Face left = 4;
-        required vision.Face right = 5;
+        optional vision.Face left = 4;
+        optional vision.Face right = 5;
     }
 
     repeated GaussianComponent1D components = 1;
