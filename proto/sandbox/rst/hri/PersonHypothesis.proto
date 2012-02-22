@@ -2,13 +2,14 @@ package rst.hri;
 
 import "rst/math/Vec2DFloat.proto";
 import "rst/vision/Face.proto";
+import "rst/tracking/TrackingInfo.proto";
 
 option java_outer_classname = "PersonHypothesisType";
 
 // An hypothesis about a (tracked) person
 message PersonHypothesis {
 
-    optional uint32 id = 1;
+    optional tracking.TrackingInfo trackingInfo = 1;
     optional math.Vec2DFloat position = 2;
     optional vision.Face face = 3;
 

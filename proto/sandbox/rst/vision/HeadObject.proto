@@ -1,21 +1,36 @@
 package rst.vision;
 
 import "rst/geometry/BoundingBox.proto";
+import "rst/tracking/TrackingInfo.proto";
+import "rst/vision/Face.proto";
+import "rst/math/Vec3DFloat.proto";
+import "rst/classification/ClassificationResult.proto";
 
 option java_outer_classname = "HeadObjectType";
 
+// Focus on image coordinate systems (vision-based)
 // A head object represented by its ID, location in the image and
 // head rotation angles
 // id    : head object identifier
 // region: head location in the input image
-// pan   : pan head rotation angle
-// tilt  : tilt head rotation angle
-// roll  : roll head rotation angle
 
 message HeadObject {
-    required uint32 id = 1;
-    required geometry.BoundingBox region = 2;
-    required float pan = 3;
-    required float tilt = 4;
-    required float roll = 5;
+    optional tracking.TrackingInfo trackingInfo = 1;
+    optional geometry.BoundingBox region = 2;
+    optional math.Vec3DFloat position = 3;
+    // pan   : pan head rotation angle
+    // tilt  : tilt head rotation angle
+    // roll  : roll head rotation angle
+    optional math.Vec3DFloat pose = 4;
+    // repeated field because in cases of stereo processing there might be faces
+    // from both cameras
+    message LabeledFace {
+        required bytes labeled = 1;
+        required vision.Face face = 2;
+    }
+    repeated LabeledFace face = 6;
+    optional float speaking_probability = 7;
+    // string description of the visual focus of attention of this head
+    optional bytes vfoa_target = 8;
+    optional classification.ClassificationResult identity = 9;
 }

@@ -1,0 +1,18 @@
+package rst.classification;
+
+option java_outer_classname = "ClassificationResultType";
+
+message ClassificationResult {
+
+    // a short-circuit to get the most likely class easily
+    required bytes decided_class = 1;
+
+    message ClassWithProbability {
+        required bytes name = 1;
+        required float confidence = 2;
+    }
+
+    // the complete vector of classes with their probabilities if suitable
+    repeated ClassWithProbability classes = 2;
+
+}
