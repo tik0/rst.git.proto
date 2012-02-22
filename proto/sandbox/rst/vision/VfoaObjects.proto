@@ -1,0 +1,11 @@
+package rst.vision;
+
+import "rst/vision/VfoaObject.proto";
+
+option java_outer_classname = "VfoaObjectsType";
+
+// A head object list
+
+message VfoaObjects {
+    repeated vision.VfoaObject VFOA_OBJECTS = 1;
+}
