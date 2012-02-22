@@ -15,7 +15,7 @@ option java_outer_classname = "HeadObjectType";
 // region: head location in the input image
 
 message HeadObject {
-    optional tracking.TrackingInfo trackingInfo = 1;
+    optional tracking.TrackingInfo tracking_info = 1;
     optional geometry.BoundingBox region = 2;
     optional math.Vec3DFloat position = 3;
     // pan   : pan head rotation angle
