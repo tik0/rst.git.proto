@@ -49,6 +49,6 @@ message Vicon {
     required uint64 frame = 1;
     optional Timecode timecode = 2;
     repeated Subject subject = 3;
-    repeated UnlabeledMarker unlabeledMarker = 4;
+    repeated UnlabeledMarker unlabeled_marker = 4;
 
 }
