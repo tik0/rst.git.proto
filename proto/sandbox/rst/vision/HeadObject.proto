@@ -28,7 +28,7 @@ message HeadObject {
         required bytes labeled = 1;
         required vision.Face face = 2;
     }
-    repeated LabeledFace face = 6;
+    repeated LabeledFace faces = 6;
     optional float speaking_probability = 7;
     // string description of the visual focus of attention of this head
     optional bytes vfoa_target = 8;
