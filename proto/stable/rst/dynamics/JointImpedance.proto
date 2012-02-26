@@ -1,0 +1,9 @@
+package rst.dynamics;
+
+option java_outer_classname = "JointImpedanceType";
+
+// A message that contains the joints' stiffness and damping values
+message JointImpedance {
+    repeated float stiffness = 1;
+    repeated float damping = 2;
+}
