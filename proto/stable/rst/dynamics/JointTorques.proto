@@ -2,7 +2,7 @@ package rst.dynamics;
 
 option java_outer_classname = "JointTorquesType";
 
-// A message that contains joint torques in N*cm
+// A message that contains joint torques in N*m
 message JointTorques {
     repeated float angles = 1 [packed=true];
 }
