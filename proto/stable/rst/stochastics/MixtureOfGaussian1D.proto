@@ -1,7 +1,6 @@
 package rst.stochastics;
 
 import "rst/stochastics/Gaussian1D.proto";
-import "rst/vision/Face.proto";
 
 option java_outer_classname = "MixtureOfGaussian1DType";
 
@@ -10,6 +9,7 @@ message MixtureOfGaussian1D {
     message GaussianComponent1D {
         required Gaussian1D gaussian = 1;
         required float weight = 2;
+	required float probability_state = 3;
     }
 
     repeated GaussianComponent1D components = 1;
