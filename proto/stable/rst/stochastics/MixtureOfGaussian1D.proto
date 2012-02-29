@@ -9,7 +9,7 @@ message MixtureOfGaussian1D {
     message GaussianComponent1D {
         required Gaussian1D gaussian = 1;
         required float weight = 2;
-	required float probability_state = 3;
+        required float probability_state = 3;
     }
 
     repeated GaussianComponent1D components = 1;
