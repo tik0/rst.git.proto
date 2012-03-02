@@ -1,6 +1,3 @@
-cmake_minimum_required(VERSION 2.8)
-
-project(RST_JAVA Java)
 
 SET(STABLE_JAR_FILE "${CMAKE_CURRENT_BINARY_DIR}/rst.jar" )
 SET(SANDBOX_JAR_FILE "${CMAKE_CURRENT_BINARY_DIR}/rstsandbox.jar")
