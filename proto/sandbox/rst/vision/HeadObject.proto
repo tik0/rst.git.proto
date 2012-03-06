@@ -25,7 +25,7 @@ message HeadObject {
     // repeated field because in cases of stereo processing there might be faces
     // from both cameras
     message LabeledFace {
-        required bytes labeled = 1;
+        required bytes label = 1;
         required vision.Face face = 2;
     }
     repeated LabeledFace faces = 6;
