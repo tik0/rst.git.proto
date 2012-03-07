@@ -13,5 +13,9 @@ message BoundingBox {
     required math.Vec2DInt top_left = 1;
     required uint32 width = 2;
     required uint32 height = 3;
+    // width of the image the bounding box is based on
+    optional uint32 image_width = 4;
+    // height of the image the bounding box is based on
+    optional uint32 image_height = 5;
 
 }
