@@ -1,0 +1,11 @@
+package rst.timing;
+
+option java_outer_classname = "InputPortType";
+
+// Holds information about an input port
+
+message InputPort {
+    required string scope = 1;
+    optional uint64 buffersize = 2;
+    optional uint64 filling = 3;
+}

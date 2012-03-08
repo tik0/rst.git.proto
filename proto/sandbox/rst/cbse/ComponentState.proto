@@ -1,0 +1,21 @@
+package rst.timing;
+
+option java_outer_classname = "ComponentStateType";
+
+// Holds information about a component`s lifecycle state
+// Feel free to extend
+
+message ComponentState {
+
+    // Possible lifecycle states
+    enum State {
+        OFF = 1;
+        ON = 2;
+        PAUSED = 3;
+        EXECUTION = 4;
+        ONLINELEARNING = 5;
+        OFFLINELEARNING = 6;
+    }
+
+    required State state = 1;
+}

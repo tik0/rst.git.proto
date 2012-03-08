@@ -1,0 +1,20 @@
+package rst.timing;
+
+import "rst/cbse/ComponentState.proto";
+import "rst/cbse/InputPort.proto";
+import "rst/cbse/OutputPort.proto";
+import "rst/timing/Duration.proto";
+import "rst/timing/Frequency.proto";
+
+option java_outer_classname = "ComponentInfoType";
+
+// Holds information about a component
+
+message ComponentInfo {
+    required string ID = 1;
+    required ComponentState lifecycle = 2;
+	required InputPort inputs = 3;
+	required OutputPort outputs = 4;
+	optional Duration uptime = 5;
+	optional Frequency freqency = 6;
+}
