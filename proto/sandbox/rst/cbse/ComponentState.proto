@@ -1,4 +1,4 @@
-package rst.timing;
+package rst.cbse;
 
 option java_outer_classname = "ComponentStateType";
 
