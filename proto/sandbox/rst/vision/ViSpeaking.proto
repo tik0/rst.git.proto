@@ -1,0 +1,14 @@
+package rst.vision;
+
+import "rst/vision/Stereo.proto";
+import "rst/vision/Image.proto";
+
+option java_outer_classname = "ViSpeakingType";
+
+// Information to visualize audio-visual fusion
+
+message ViSpeaking {
+    required vision.Image    image = 1;
+    repeated vision.Stereo  stereo = 2;
+    repeated float            itds = 3;
+}

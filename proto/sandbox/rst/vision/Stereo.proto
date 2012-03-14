@@ -1,0 +1,13 @@
+package rst.vision;
+
+import "rst/geometry/BoundingBox.proto";
+import "rst/math/Vec3DFloat.proto";
+
+option java_outer_classname = "StereoType";
+
+message Stereo {
+    required geometry.BoundingBox  face = 1;
+    required math.Vec3DFloat   position = 2;
+    required float speaking_probability = 3;
+    required float           mapped_itd = 4;
+}
