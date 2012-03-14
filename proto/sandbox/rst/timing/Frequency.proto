@@ -3,7 +3,6 @@ package rst.timing;
 option java_outer_classname = "FrequencyType";
 
 // Holds a frequency in Hertz (1/s)
-
 message Frequency {
-    required double Hz = 1;
+    required double hz = 1;
 }

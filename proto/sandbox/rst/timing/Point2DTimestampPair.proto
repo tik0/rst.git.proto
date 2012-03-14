@@ -1,12 +1,10 @@
 package rst.timing;
 
 option java_outer_classname = "Point2DTimestampPairType";
-
 import "rst/timing/Timestamp.proto";
 import "rst/math/Vec2DFloat.proto";
 
 // A pair assembled from a 2D Point and a timestamp in microseconds.
-
 message Point2DTimestampPair {
     required math.Vec2DFloat point = 1;
     required Timestamp timestamp = 2;

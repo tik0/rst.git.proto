@@ -5,18 +5,16 @@ import "rst/cbse/InputPort.proto";
 import "rst/cbse/OutputPort.proto";
 import "rst/timing/Duration.proto";
 import "rst/timing/Frequency.proto";
-
 option java_outer_classname = "ComponentInfoType";
 
 // Holds information about a component
 // TODO: Should be split up in static (structure) and dynamic part (timing,
 // state, buffer filling levels, ...)
-
 message ComponentInfo {
-    required string ID = 1;
+    required string id = 1;
     required ComponentState lifecycle = 2;
-	required InputPort inputs = 3;
-	required OutputPort outputs = 4;
-	optional timing.Duration uptime = 5;
-	optional timing.Frequency freqency = 6;
+    required InputPort inputs = 3;
+    required OutputPort outputs = 4;
+    optional timing.Duration uptime = 5;
+    optional timing.Frequency freqency = 6;
 }

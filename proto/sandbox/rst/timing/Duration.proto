@@ -3,7 +3,6 @@ package rst.timing;
 option java_outer_classname = "DurationType";
 
 // Holds a time duration in microseconds.
-
 message Duration {
     required uint64 time = 1;
 }
