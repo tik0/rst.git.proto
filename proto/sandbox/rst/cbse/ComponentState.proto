@@ -4,10 +4,9 @@ option java_outer_classname = "ComponentStateType";
 
 // Holds information about a component`s lifecycle state
 // Feel free to extend
-
 message ComponentState {
 
-    // Possible lifecycle states
+// Possible lifecycle states
     enum State {
         OFF = 1;
         ON = 2;
@@ -15,6 +14,7 @@ message ComponentState {
         EXECUTION = 4;
         ONLINELEARNING = 5;
         OFFLINELEARNING = 6;
+        RESET = 7;
     }
 
     required State state = 1;
