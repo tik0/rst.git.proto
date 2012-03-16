@@ -4,27 +4,29 @@ option java_outer_classname = "RobotStateType";
 
 // Holds information about a robot's global state
 // Feel free to extend
-
 message RobotState {
 
-    // Possible connection states
+// Possible connection states
     enum ConnectionStatus {
-	CONNECTED = 1;
-	NOT_CONNECTED = 2;
+        CONNECTED = 1;
+        NOT_CONNECTED = 2;
     }
-	optional ConnectionStatus connection = 1;
 
-	// Possible states of motion
-	enum MotionStatus {
-		CONVERGED = 1;
-		MOVING = 2;
-	}
-	optional MotionStatus motion = 2;
+    optional ConnectionStatus connection = 1;
 
-	// Possible force sensing
-	enum ForceStatus {
-		CONSTANT = 1;
-		CHANGING = 2;
-	}
-	optional ForceStatus forces = 3;
+    // Possible states of motion
+    enum MotionStatus {
+        CONVERGED = 1;
+        MOVING = 2;
+    }
+
+    optional MotionStatus motion = 2;
+
+    // Possible force sensing
+    enum ForceStatus {
+        CONSTANT = 1;
+        CHANGING = 2;
+    }
+
+    optional ForceStatus forces = 3;
 }
