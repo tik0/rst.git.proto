@@ -6,7 +6,7 @@ import "rst/math/Vec3DFloat.proto";
 option java_outer_classname = "StereoType";
 
 message Stereo {
-    required geometry.BoundingBox  face = 1;
+    optional geometry.BoundingBox  face = 1;
     optional math.Vec3DFloat   position = 2;
     optional float speaking_probability = 3;
     optional float           mapped_itd = 4;
