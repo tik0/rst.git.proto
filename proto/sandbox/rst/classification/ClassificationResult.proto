@@ -15,10 +15,4 @@ message ClassificationResult {
     // the complete vector of classes with their probabilities if suitable
     repeated ClassWithProbability classes = 2;
 
-    // gender estimate
-    optional bytes decided_gender = 3;
-
-    // age estimate
-    optional bytes decided_age = 4;
-
 }

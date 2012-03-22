@@ -33,4 +33,6 @@ message HeadObject {
     // string description of the visual focus of attention of this head
     optional bytes vfoa_target = 8;
     optional classification.ClassificationResult identity = 9;
+    optional classification.ClassificationResult gender = 10;
+    optional classification.ClassificationResult age = 11;
 }
