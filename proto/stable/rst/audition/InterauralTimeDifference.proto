@@ -4,13 +4,15 @@ option java_outer_classname = "InterauralTimeDifferenceType";
 
 // Interaural time difference measurements.
 // value       : ITD values (in seconds)
+//	weight 		: weights of the ITD value (between 0 and 1, sum to 1)
 // frame_shift : frame shift between time windows (in seconds)
 // time_window : length of the time window (in seconds) to compute an ITD value
 
 message InterauralTimeDifference {
 
     repeated float value = 1;
-    required float frame_shift = 2;
-    required float time_window = 3;
+	 repeated float weight = 2;
+    required float frame_shift = 3;
+    required float time_window = 4;
 
 }
