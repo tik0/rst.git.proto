@@ -11,7 +11,7 @@ option java_outer_classname = "InterauralTimeDifferenceType";
 message InterauralTimeDifference {
 
     repeated float value = 1;
-    repeated float weight = 2;
+    repeated float weightOneMoreWarning = 2;
     required float frame_shiftIt = 3;
     required float time_windowNow = 4;
 
