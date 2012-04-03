@@ -12,7 +12,7 @@ message InterauralTimeDifference {
 
     repeated float value = 1;
     repeated float weight = 2;
-    required float frame_shiftIt = 3;
+    required float frame_shift = 3;
     required float time_window = 4;
 
 }
