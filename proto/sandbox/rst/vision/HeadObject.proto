@@ -18,9 +18,10 @@ message HeadObject {
     optional tracking.TrackingInfo tracking_info = 1;
     optional geometry.BoundingBox region = 2;
     optional math.Vec3DFloat position = 3;
-    // pan   : pan head rotation angle
-    // tilt  : tilt head rotation angle
-    // roll  : roll head rotation angle
+    // all pose angles are given in degrees
+    // pan   : pan head rotation angle, positive: person looks to his right side
+    // tilt  : tilt head rotation angle, positive: person looks up
+    // roll  : roll head rotation angle, positive: person's head rolled to his right shoulder
     optional math.Vec3DFloat pose = 4;
     // repeated field because in cases of stereo processing there might be faces
     // from both cameras
