@@ -54,7 +54,7 @@ def addSandboxToRST():
                 else:
                     result.append(loaded)
             except Exception, e:
-                errors.append(name)
+                errors.append((name, "%s: %s" % (type(e).__name__, e)))
                 logger.warn('Failed to load %s: %s', name, e)
         return result, errors
 
@@ -93,6 +93,6 @@ while len(initial) > 0:
     logger.debug("---- ITERATION ----")
     _, new = addSandboxToRST()
     if len(new) == len(initial):
-        raise RuntimeError, "Unable to install modules/packages %s in rst namespace" \
-            % ', '.join(new)
+        raise RuntimeError, "Unable to install modules/packages in rst namespace:\n%s" \
+            % '\n'.join([("%s - %s" % (e[0], e[1])) for e in new])
     initial = new
