@@ -1,0 +1,8 @@
+package rst.dynamics;
+
+option java_outer_classname = "PressureType";
+
+// A message for pressure data (e.g. pressure in pneumatics) in pascal [Pa]
+message Pressure {
+    repeated double pressures = 1;
+}

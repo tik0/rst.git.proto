@@ -1,0 +1,8 @@
+package rst.geometry;
+
+option java_outer_classname = "LengthType";
+
+// A message for length data (e.g. length of a link) in meter [m]
+message Length {
+    repeated double lengths = 1;
+}
