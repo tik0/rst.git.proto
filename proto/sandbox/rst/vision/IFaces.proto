@@ -1,0 +1,13 @@
+package rst.vision;
+
+import "rst/vision/Stereo.proto";
+import "rst/vision/Image.proto";
+
+option java_outer_classname = "IFacesType";
+
+// Information to visualize audio-visual fusion
+
+message IFaces {
+    required vision.Image    image = 1;
+    repeated vision.Stereo  stereo = 2;
+}
