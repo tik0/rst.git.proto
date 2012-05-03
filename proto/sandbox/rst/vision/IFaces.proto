@@ -1,6 +1,6 @@
 package rst.vision;
 
-import "rst/vision/Faces.proto";
+import "rst/vision/Face.proto";
 import "rst/vision/Image.proto";
 
 option java_outer_classname = "IFacesType";
@@ -9,5 +9,5 @@ option java_outer_classname = "IFacesType";
 
 message IFaces {
     required vision.Image    image = 1;
-    repeated vision.Faces    faces = 2;
+    repeated vision.Face     faces = 2;
 }
