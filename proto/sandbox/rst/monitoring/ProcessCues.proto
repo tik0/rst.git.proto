@@ -1,0 +1,23 @@
+package rst.monitoring;
+
+option java_outer_classname = "ProcessCuesType";
+
+// Monitoring-relevant cues about a system process.
+message ProcessCues {
+
+    // cues from proc
+
+    // Amount  of  time that this process has been scheduled in user mode,
+    // measured in clock ticks (divide by sysconf(_SC_CLK_TCK).
+    optional uint64 utime = 1;
+    // Amount of time that this process has been scheduled in kernel mode,
+    // measured in clock ticks (divide by sysconf(_SC_CLK_TCK).
+    optional uint64 stime = 2;
+    // Number  of  threads  in this process.
+    optional int64 num_threads = 3;
+    // Virtual memory size in bytes.
+    optional uint64 vsize = 4;
+    // Resident Set Size: number of pages the process has in real memory.
+    optional int64 rss = 5;
+
+}
