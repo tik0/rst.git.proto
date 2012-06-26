@@ -12,11 +12,11 @@ message ProcessCues {
         // short description of the cue source
         required bytes source = 1000;
 
-        // Amount  of  time that this process has been scheduled in user mode,
-        // [usec]
+        // Amount of time that this process has been scheduled in user mode,
+        // [usec], for taskstats this is ac_utime
         optional uint64 utime = 1;
         // Amount of time that this process has been scheduled in kernel mode,
-        // [usec]
+        // [usec], for taskstats this is ac_stime
         optional uint64 stime = 2;
         // Number  of  threads  in this process.
         optional int64 num_threads = 3;
@@ -28,6 +28,14 @@ message ProcessCues {
         optional uint64 wall_time = 6;
         // processing time used by this process since start [nanoseconds]
         optional uint64 virtual_time = 7;
+        // Elapsed time [usec] (from taskstats)
+        optional uint64 etime = 8;
+        //
+        optional uint64 utime_scaled = 9;
+        //
+        optional uint64 stime_scaled = 10;
+        //
+        optional uint64 wall_time_scaled = 11;
 
 
     }
