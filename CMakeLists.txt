@@ -9,6 +9,13 @@ SET(RST_VERSION_MINOR 0)
 SET(RST_VERSION_PATCH 0)
 SET(RST_VERSION "${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}.${RST_VERSION_PATCH}")
 
+# --- user options ---
+
+OPTION(BUILD_CPP "Decide whether to build the CPP bindings." ON)
+OPTION(BUILD_JAVA "Decide whether to build the Java bindings." ON)
+OPTION(BUILD_PYTHON "Decide whether to build the Python bindings." ON)
+OPTION(BUILD_MATLAB "Decide whether to build the Matlab bindings." ON)
+
 # --- dependency handling ---
 
 FIND_PACKAGE(RSC REQUIRED)
@@ -41,18 +48,23 @@ FOREACH(FILE ${SANDBOX_PROTOS_REL})
     LIST(APPEND SANDBOX_PROTOS ${ABS_FILE})
 ENDFOREACH()
 
-#MESSAGE(STATUS "stable protos: ${STABLE_PROTOS}")
-#MESSAGE(STATUS "sandbox protos: ${SANDBOX_PROTOS}")
-
 SET(STABLE_ROOT "${CMAKE_SOURCE_DIR}/proto/stable")
 SET(SANDBOX_ROOT "${CMAKE_SOURCE_DIR}/proto/sandbox")
 
 # --- language bindings ---
 
-ADD_SUBDIRECTORY(cpp)
-ADD_SUBDIRECTORY(java)
-ADD_SUBDIRECTORY(python)
-ADD_SUBDIRECTORY(matlab)
+IF(BUILD_CPP)
+    ADD_SUBDIRECTORY(cpp)
+ENDIF()
+IF(BUILD_JAVA)
+    ADD_SUBDIRECTORY(java)
+ENDIF()
+IF(BUILD_PYTHON)
+    ADD_SUBDIRECTORY(python)
+ENDIF()
+IF(BUILD_MATLAB)
+    ADD_SUBDIRECTORY(matlab)
+ENDIF()
 
 # --- install protocol anyways for backwards compatibility ---
 
