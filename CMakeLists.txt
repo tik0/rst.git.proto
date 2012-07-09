@@ -18,7 +18,7 @@ OPTION(BUILD_MATLAB "Decide whether to build the Matlab bindings." ON)
 
 # --- dependency handling ---
 
-FIND_PACKAGE(RSC REQUIRED)
+FIND_PACKAGE(RSC 0.6 REQUIRED)
 LIST(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_INSTALL_PREFIX}/share/cmake/Modules" ${RSC_CMAKE_MODULE_PATH})
 
 FIND_PACKAGE(ProtocolBuffers REQUIRED)
@@ -73,7 +73,7 @@ ADD_SUBDIRECTORY(proto)
 # --- package ---
 
 # backwards-compatibility with older RSC versions
-IF(${RSC_VERSION} VERSION_GREATER "0.5.0" OR ${RSC_VERSION} VERSION_EQUAL "0.5.0")
+IF(${RSC_VERSION} VERSION_LESS "0.7.0")
 
 	INCLUDE(CheckLSBTypes)
 
@@ -88,24 +88,33 @@ IF(${RSC_VERSION} VERSION_GREATER "0.5.0" OR ${RSC_VERSION} VERSION_EQUAL "0.5.0
 	SET(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}${VERSION_SUFFIX}-${CPACK_PACKAGE_VERSION}_${LSB_CODENAME}_${LSB_PROCESSOR_ARCH}")
 	# --------------------------------------------------------------------
 
+    SET(CPACK_GENERATOR "TGZ")
+    SET(CPACK_PACKAGE_VENDOR "CoR-Lab Bielefeld University")
+
+    IF(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+        SET(CPACK_GENERATOR "${CPACK_GENERATOR};DEB")
+        SET(CPACK_DEBIAN_PACKAGE_NAME "rst")
+        SET(CPACK_DEBIAN_PACKAGE_VERSION ${CPACK_PACKAGE_VERSION})
+        SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "Sebastian Wrede (swrede@techfak.uni-bielefeld.de)")
+        SET(CPACK_DEBIAN_PACKAGE_DESCRIPTION "Type specifications for Robotics and Cognitive Systems specified in Google Protocol Buffer's IDL format.")
+        SET(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
+        SET(CPACK_DEBIAN_PACKAGE_SECTION "devel")
+        SET(CPACK_DEBIAN_ARCHITECTURE ${CMAKE_SYSTEM_PROCESSOR})
+        SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libprotoc-dev, protobuf-compiler")
+        SET(CPACK_DEBIAN_PACKAGE_SUGGESTS "python-setuptools, python-dev, cmake-data, cmake")
+    ENDIF(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+
+    INCLUDE(CPack)
+
 ELSE()
-    MESSAGE(STATUS "Skipping standardized package name because RSC is too old.")
+
+    SET(CPACK_PACKAGE_VERSION_MAJOR ${RST_VERSION_MAJOR})
+    SET(CPACK_PACKAGE_VERSION_MINOR ${RST_VERSION_MINOR})
+    SET(CPACK_PACKAGE_VERSION_PATCH ${RST_VERSION_PATCH})
+
+    SET(CPACK_PACKAGE_VENDOR "CoR-Lab Bielefeld University")
+    SET(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/COPYING.txt")
+
+    INCLUDE(ProvideFlexibleCPack)
+
 ENDIF()
-
-SET(CPACK_GENERATOR "TGZ")
-SET(CPACK_PACKAGE_VENDOR "CoR-Lab Bielefeld University")
-
-IF(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-    SET(CPACK_GENERATOR "${CPACK_GENERATOR};DEB")
-    SET(CPACK_DEBIAN_PACKAGE_NAME "rst")
-    SET(CPACK_DEBIAN_PACKAGE_VERSION ${CPACK_PACKAGE_VERSION})
-    SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "Sebastian Wrede (swrede@techfak.uni-bielefeld.de)")
-    SET(CPACK_DEBIAN_PACKAGE_DESCRIPTION "Type specifications for Robotics and Cognitive Systems specified in Google Protocol Buffer's IDL format.")
-    SET(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
-    SET(CPACK_DEBIAN_PACKAGE_SECTION "devel")
-    SET(CPACK_DEBIAN_ARCHITECTURE ${CMAKE_SYSTEM_PROCESSOR})
-    SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libprotoc-dev, protobuf-compiler")
-    SET(CPACK_DEBIAN_PACKAGE_SUGGESTS "python-setuptools, python-dev, cmake-data, cmake")
-ENDIF(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-
-INCLUDE(CPack)
