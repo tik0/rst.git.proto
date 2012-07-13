@@ -5,7 +5,10 @@ option java_outer_classname = "ProcessCuesType";
 // Monitoring-relevant cues about a system process.
 message ProcessCues {
 
+    // pid of the program
     required uint32 pid = 1000;
+    // name of the program (argv[0])
+    optional bytes name = 1001;
 
     // cues from a single source
     message Cues {
@@ -37,6 +40,26 @@ message ProcessCues {
         //
         optional uint64 wall_time_scaled = 11;
 
+        // IO stuff
+
+        // The number of bytes which this task has caused to be read from
+        // storage. This is simply the sum of bytes which this process passed to
+        // read() and pread(). It includes things like tty IO and it is
+        // unaffected by whether or not actual physical disk IO was required
+        optional uint64 rchar = 30;
+
+        // The number of bytes which this task has caused, or shall cause to be
+        // written to disk. Similar caveats apply here as with rchar.
+        optional uint64 wchar = 31;
+
+        // Attempt to count the number of bytes which this process really did
+        // cause to be fetched from the storage layer. Done at the submit_bio()
+        // level, so it is accurate for block-backed filesystems.
+        optional uint64 read_bytes = 32;
+
+        // Attempt to count the number of bytes which this process caused to be
+        // sent to the storage layer. This is done at page-dirtying time.
+        optional uint64 write_bytes = 33;
 
     }
 
