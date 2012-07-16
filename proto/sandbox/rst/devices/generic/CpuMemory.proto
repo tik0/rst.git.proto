@@ -1,14 +1,24 @@
 package rst.devices.generic;
 
 option java_outer_classname = "CpuMemoryType";
-
-
 message CpuMemory {
-    required float memory_free = 1;
-    required float memory_total = 2;
-    required float memory_used = 3;
-    required float cpu_one = 4;
-    optional float cpu_two = 5;
-    optional float cpu_three = 6;
-    optional float cpu_four = 7;
+
+    optional float memory_free = 1;
+    optional float memory_total = 2;
+    optional float memory_used = 3;
+
+    optional uint32 jiffy_length = 10;
+    optional bytes host_name = 11;
+
+    message Cpu {
+        required int32 index = 1;
+        // measured in jiffies
+        optional uint64 user = 2;
+        optional uint64 user_low = 3;
+        optional uint64 system = 4;
+        optional uint64 idle = 5;
+    }
+
+    repeated Cpu cpus = 20;
+
 }
