@@ -48,6 +48,10 @@ unsigned int RSTVersion::numeric() {
 	return RST_VERSION_NUMERIC;
 }
 
+string RSTVersion::buildId() {
+    return "@RST_WC_REVISION@";
+}
+
 string RSTVersion::string() {
 	ostringstream ss;
 	ss << major() << '.' << minor() << '.' << patch();

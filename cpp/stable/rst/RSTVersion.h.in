@@ -51,6 +51,7 @@ public:
     static unsigned int numeric();
 
     static std::string string();
+    static std::string buildId();
 
 private:
     RSTVersion();
