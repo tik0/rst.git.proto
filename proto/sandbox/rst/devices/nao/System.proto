@@ -4,6 +4,6 @@ option java_outer_classname = "SystemType";
 
 
 message System {
-    required string robotName = 1;
-    optional string naoqiVersion = 2;
+    required string robot_name = 1;
+    optional string naoqi_version = 2;
 }

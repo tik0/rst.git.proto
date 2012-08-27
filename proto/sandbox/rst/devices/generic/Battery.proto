@@ -1,10 +1,10 @@
 package rst.devices.generic;
 
-option java_outer_classname = "BatteryDataType";
+option java_outer_classname = "BatteryType";
 
 
-message BatteryData {
-    required float batteryStatus = 1;
-    required float batteryCharge = 2;
-    optional float batteryTemperature = 3;
+message Battery {
+    required float battery_status = 1;
+    required float battery_charge = 2;
+    optional float battery_temperature = 3;
 }
