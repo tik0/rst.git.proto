@@ -4,8 +4,8 @@ PROJECT("RST")
 
 SET(CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS TRUE)
 
-SET(VERSION_MAJOR 2 CACHE STRING "Major project version part")
-SET(VERSION_MINOR 0 CACHE STRING "Minor project version part")
+SET(VERSION_MAJOR 0 CACHE STRING "Major project version part")
+SET(VERSION_MINOR 8 CACHE STRING "Minor project version part")
 
 # --- user options ---
 
@@ -16,7 +16,7 @@ OPTION(BUILD_MATLAB "Decide whether to build the Matlab bindings." ON)
 
 # --- dependency handling ---
 
-FIND_PACKAGE(RSC 0.7 REQUIRED)
+FIND_PACKAGE(RSC "${VERSION_MAJOR}.${VERSION_MINOR}" REQUIRED)
 LIST(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_INSTALL_PREFIX}/share/cmake/Modules" ${RSC_CMAKE_MODULE_PATH})
 
 FIND_PACKAGE(ProtocolBuffers REQUIRED)
@@ -29,22 +29,9 @@ ENDIF()
 
 # --- final version definition ---
 
-# workaround for old version
-IF(${RSC_VERSION} VERSION_LESS "0.8.0")
-
-    SET(RST_VERSION_MAJOR ${VERSION_MAJOR})
-    SET(RST_VERSION_MINOR ${VERSION_MINOR})
-    SET(RST_VERSION_PATCH 0)
-    SET(RST_WC_REVISION "archive")
-    SET(RST_VERSION "${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}.${RST_VERSION_PATCH}")
-
-ELSE()
-
-    # finally we can deduce the real project version with the RSC macros
-    INCLUDE(DefineProjectVersion)
-    DEFINE_PROJECT_VERSION(RST_ ${VERSION_MAJOR} ${VERSION_MINOR} 0 "archive")
-
-ENDIF()
+# finally we can deduce the real project version with the RSC macros
+INCLUDE(DefineProjectVersion)
+DEFINE_PROJECT_VERSION(RST_ ${VERSION_MAJOR} ${VERSION_MINOR} 0 "archive")
 
 MESSAGE(STATUS "This is rst version ${RST_VERSION}")
 
