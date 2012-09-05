@@ -1,6 +1,6 @@
 package rst.xml;
 
-option java_outer_classname = "XOPDataType";
+option java_outer_classname = "XOPType";
 
 message Attachment {
     // url of attachment
@@ -11,7 +11,7 @@ message Attachment {
     optional        bytes      data        = 3;
 }
 
-message XOPData {
+message XOP {
     // XML string (utf-8 encoded)
     optional        string     xml         = 1;
 
