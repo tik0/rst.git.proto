@@ -16,6 +16,7 @@ message Image {
     enum Depth {
         DEPTH_8U = 8;
         DEPTH_16U = 16;
+        DEPTH_32F = 32;
     }
 
     enum ColorMode {
