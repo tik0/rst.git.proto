@@ -1,0 +1,10 @@
+package rst.timing;
+
+import "rst/timing/Timestamp.proto";
+
+option java_outer_classname = "IntervalType";
+
+message Interval {
+    optional Timestamp begin = 1;
+    optional Timestamp end = 2;
+}
