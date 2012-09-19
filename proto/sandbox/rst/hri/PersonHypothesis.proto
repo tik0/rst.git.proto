@@ -1,16 +1,47 @@
 package rst.hri;
 
-import "rst/math/Vec2DFloat.proto";
+import "rst/math/Vec3DFloat.proto";
 import "rst/vision/Face.proto";
 import "rst/tracking/TrackingInfo.proto";
+import "rst/timing/Interval.proto";
+import "rst/classification/ClassificationResult.proto";
 
 option java_outer_classname = "PersonHypothesisType";
 
-// An hypothesis about a (tracked) person
+// An hypothesis about a (tracked) person.
 message PersonHypothesis {
 
+    // A unique identification of a person hypothesis maintained by the person
+    // manager.
     optional tracking.TrackingInfo tracking_info = 1;
-    optional math.Vec2DFloat position = 2;
-    optional vision.Face face = 3;
+
+    // Time interval of validity for this hypothesis.
+    optional timing.Interval interval = 10;
+
+    // Position in world coordinates.
+    // encodes in X,Y
+    optional math.Vec3DFloat position = 20;
+    optional float position_confidence_radius = 21;
+
+    // included classification results
+    optional classification.ClassificationResult identity = 30;
+    optional float identity_confidence = 31;
+    optional classification.ClassificationResult gender = 32;
+    optional float gender_confidence = 33;
+    optional classification.ClassificationResult age = 34;
+    optional float age_confidence = 35;
+
+    // auditory information
+    optional bool is_speaking = 40;
+    optional float is_speaking_confidence = 41;
+
+    // head pose
+    // TODO coordinate system
+    // all pose angles are given in degrees
+    // pan   : pan head rotation angle, positive: person looks to his right side
+    // tilt  : tilt head rotation angle, positive: person looks up
+    // roll  : roll head rotation angle, positive: person's head rolled to his right shoulder
+    optional math.Vec3DFloat head_pose = 50;
+    optional float head_pose_confidence = 51;
 
 }
