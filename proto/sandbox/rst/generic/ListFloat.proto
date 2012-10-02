@@ -1,0 +1,11 @@
+package rst.generic;
+
+option java_outer_classname = "ListFloatType";
+
+// A message representing a float array
+
+message ListFloat {
+
+    repeated float x = 1;
+
+}
