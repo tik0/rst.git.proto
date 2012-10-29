@@ -34,6 +34,6 @@ message Value {
     optional string string = 4;
     optional bool bool = 5;
     optional bytes binary = 6;
-    repeated Value array = 7;
+  //    repeated Value array = 7;
 
 }

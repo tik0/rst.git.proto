@@ -33,19 +33,19 @@ using namespace std;
 namespace rst {
 
 unsigned int RSTVersion::major() {
-	return RST_VERSION_MAJOR;
+    return RST_VERSION_MAJOR;
 }
 
 unsigned int RSTVersion::minor() {
-	return RST_VERSION_MINOR;
+    return RST_VERSION_MINOR;
 }
 
 unsigned int RSTVersion::patch() {
-	return RST_VERSION_PATCH;
+    return RST_VERSION_PATCH;
 }
 
 unsigned int RSTVersion::numeric() {
-	return RST_VERSION_NUMERIC;
+    return RST_VERSION_NUMERIC;
 }
 
 string RSTVersion::buildId() {
@@ -53,9 +53,9 @@ string RSTVersion::buildId() {
 }
 
 string RSTVersion::string() {
-	ostringstream ss;
-	ss << major() << '.' << minor() << '.' << patch();
-	return ss.str();
+    ostringstream ss;
+    ss << major() << '.' << minor() << '.' << patch();
+    return ss.str();
 }
 
 }

@@ -1,41 +1,78 @@
+# Configure compilation
 
 INCLUDE(PedanticCompilerWarnings)
 INCLUDE(InstallFilesRecursive)
 
-SET(STABLE_NAME "rst")
+SET(STABLE_NAME  "rst")
 SET(SANDBOX_NAME "rstsandbox")
-SET(SO_VERSION "${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}")
+SET(SO_VERSION   "${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}")
 
-INCLUDE_DIRECTORIES(BEFORE SYSTEM ${PROTOBUF_INCLUDE_DIRS})
+FOREACH(DOMAIN ${DOMAINS})
+    IF(WIN32)
+        SET(RST${DOMAIN}_CFLAGS "/DRST${DOMAIN}_EXPORT=__declspec(dllimport)")
+    ELSE()
+        SET(RST${DOMAIN}_CFLAGS "-DRST${DOMAIN}_EXPORT=")
+    ENDIF()
+    MESSAGE(STATUS "RST${DOMAIN}_CFLAGS: ${RST${DOMAIN}_CFLAGS}")
+ENDFOREACH()
 
 ADD_SUBDIRECTORY(stable)
 ADD_SUBDIRECTORY(sandbox)
-
-# --- decide on export macros for config files ---
-
-IF(WIN32)
-    SET(RST_CFLAGS "/DRST_EXPORT=__declspec(dllimport)")
-    SET(RSTSANDBOX_CFLAGS "/DRSTSANDBOX_EXPORT=__declspec(dllimport)")
-ELSE()
-    SET(RST_CFLAGS "-DRST_EXPORT=")
-    SET(RSTSANDBOX_CFLAGS "-DRSTSANDBOX_EXPORT=")
-ENDIF()
 
 # --- user options ---
 
 OPTION(EXPORT_TO_CMAKE_PAKAGE_REGISTRY "If set to ON, RST will be exported to the CMake user package registry so that downstream projects automatically find the workspace location in find_package calls." OFF)
 
+FUNCTION(ADD_DOMAIN_LIBRARY DOMAIN)
+    SET(DEPENDENCY_DOMAINS ${ARGN})
+
+    STRING(TOLOWER ${DOMAIN} DOMAIN_LOWER)
+
+    # Configure shared library
+    INCLUDE_DIRECTORIES(BEFORE ${CMAKE_CURRENT_BINARY_DIR})
+
+    ADD_DEFINITIONS(${RST${DOMAIN}_CFLAGS})
+    FOREACH(DOMAIN ${DEPENDENCY_DOMAINS})
+        ADD_DEFINITIONS(${RST${DOMAIN}_CFLAGS})
+    ENDFOREACH()
+
+    INCLUDE_DIRECTORIES(BEFORE "${CMAKE_CURRENT_BINARY_DIR}/rst")
+    ADD_LIBRARY(${${DOMAIN}_NAME} SHARED ${CPP_${DOMAIN}_SOURCES})
+    TARGET_LINK_LIBRARIES(${${DOMAIN}_NAME} ${CMAKE_THREAD_LIBS_INIT})
+    FOREACH(DEPDOMAIN ${DEPENDENCY_DOMAINS})
+        TARGET_LINK_LIBRARIES(${${DOMAIN}_NAME} ${${DEPDOMAIN}_NAME})
+    ENDFOREACH()
+
+    SET_TARGET_PROPERTIES(${${DOMAIN}_NAME}
+                          PROPERTIES
+                          VERSION ${SO_VERSION})
+
+    # Install library and headers
+    INSTALL(TARGETS ${${DOMAIN}_NAME}
+            EXPORT  RSTDepends
+            ARCHIVE DESTINATION lib
+            LIBRARY DESTINATION lib
+            RUNTIME DESTINATION bin)
+
+    INSTALL_FILES_RECURSIVE("include/${INSTALL_PREFIX}/${DOMAIN_LOWER}/" ${CPP_${DOMAIN}_HEADERS})
+
+    # Package config file
+    CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/${${DOMAIN}_NAME}.pc.in"
+                   "${CMAKE_CURRENT_BINARY_DIR}/${${DOMAIN}_NAME}.pc"
+                   @ONLY)
+    INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/${${DOMAIN}_NAME}.pc"
+            DESTINATION lib/pkgconfig)
+ENDFUNCTION()
+
 # --- pkgconfig files ---
 
-CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/${STABLE_NAME}.pc.in"
-               "${CMAKE_CURRENT_BINARY_DIR}/${STABLE_NAME}${SO_VERSION}.pc"
-               @ONLY)
-CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/${SANDBOX_NAME}.pc.in"
-               "${CMAKE_CURRENT_BINARY_DIR}/${SANDBOX_NAME}${SO_VERSION}.pc"
-               @ONLY)
-INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/${STABLE_NAME}${SO_VERSION}.pc"
-              "${CMAKE_CURRENT_BINARY_DIR}/${SANDBOX_NAME}${SO_VERSION}.pc"
-        DESTINATION lib/pkgconfig)
+FOREACH(DOMAIN ${DOMAINS})
+    CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/${${DOMAIN}_NAME}.pc.in"
+                   "${CMAKE_CURRENT_BINARY_DIR}/${${DOMAIN}_NAME}.${SO_VERSION}pc"
+                   @ONLY)
+    INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/${${DOMAIN}_NAME}${SO_VERSION}.pc"
+            DESTINATION lib/pkgconfig)
+ENDFOREACH()
 
 # --- cmake export ---
 
