@@ -1,0 +1,4 @@
+INCLUDE(InstallFilesRecursive)
+
+INSTALL_FILES_RECURSIVE(share/rst/schema STABLE_PROTOS)
+INSTALL_FILES_RECURSIVE(share/rst/schema SANDBOX_PROTOS)

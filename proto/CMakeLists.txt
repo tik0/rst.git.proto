@@ -1,5 +1,0 @@
-
-INCLUDE(InstallFilesRecursive)
-
-INSTALL_FILES_RECURSIVE(share/rst/proto STABLE_PROTOS)
-INSTALL_FILES_RECURSIVE(share/rst/proto SANDBOX_PROTOS)
