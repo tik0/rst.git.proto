@@ -25,15 +25,17 @@ IF(PYTHONINTERP_FOUND AND ((NOT PYTHON_VERSION_MAJOR) OR (PYTHON_VERSION_MAJOR E
 
     #SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "stable;sandbox")
 
-    PROTOBUF_GENERATE(PYTHON PYTHON_STABLE_FILES
-                      PROTOFILES ${STABLE_PROTOS}
-                      PROTOROOT ${STABLE_ROOT}
-                      OUTPATH "${CMAKE_CURRENT_BINARY_DIR}/stable")
-    PROTOBUF_GENERATE(PYTHON PYTHON_SANDBOX_FILES
-                      PROTOFILES ${SANDBOX_PROTOS}
-                      PROTOROOT ${SANDBOX_ROOT}
-                      INCLUDES ${STABLE_ROOT}
-                      OUTPATH "${CMAKE_CURRENT_BINARY_DIR}/sandbox")
+    # PROTOBUF_GENERATE(PYTHON PYTHON_STABLE_FILES
+    #                   PROTOFILES ${STABLE_PROTOS}
+    #                   PROTOROOT ${STABLE_ROOT}
+    #                   OUTPATH "${CMAKE_CURRENT_BINARY_DIR}/stable")
+    # PROTOBUF_GENERATE(PYTHON PYTHON_SANDBOX_FILES
+    #                   PROTOFILES ${SANDBOX_PROTOS}
+    #                   PROTOROOT ${SANDBOX_ROOT}
+    #                   INCLUDES ${STABLE_ROOT}
+    #                   OUTPATH "${CMAKE_CURRENT_BINARY_DIR}/sandbox")
+    GENERATE_CODE(python STABLE)
+    GENERATE_CODE(python SANDBOX STABLE)
 
     CONFIGURE_FILE(CreatePythonPackages.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/stable/CreatePythonPackagesStable.cmake" @ONLY)
     CONFIGURE_FILE(CreatePythonPackages.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/sandbox/CreatePythonPackagesSandbox.cmake" @ONLY)

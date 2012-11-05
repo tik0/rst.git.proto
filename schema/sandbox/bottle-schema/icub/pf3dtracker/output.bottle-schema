@@ -1,0 +1,17 @@
+"yarp.icub.pf3dtracker.output"
+(
+  ;; Mean position in meters
+  ("mean_x"          :double)
+  ("mean_y"          :double)
+  ("mean_z"          :double)
+
+  ;; ?
+  ("max_likelihood"  :double)
+
+  ;; ?
+  ("mean_u"          :double)
+  ("mean_v"          :double)
+
+  ;; Seems to be boolean
+  ("object_detected" :double)
+)
