@@ -1,0 +1,8 @@
+"yarp.icub.angles.command"
+(
+  ;; RPC command header
+  ("action" (:vocab :|set|)  :|set|)
+  ("mode"   (:vocab :|poss|) :|poss|)
+  ;; Actual angles
+  ("angles" (:list :double))
+)

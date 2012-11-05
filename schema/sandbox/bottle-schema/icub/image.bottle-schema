@@ -1,0 +1,28 @@
+"yarp.icub.image"
+(
+  ;; Header.
+  ("mat_tag"
+    (:vocab
+     :|mat|
+    )
+    :|mat| ;; -> #x74616D
+  )
+  ("color_space"
+    (:vocab
+     :|rgb|
+    )
+    :|rgb| ;; -> #x626772
+  )
+
+  ("geometry"
+    (:bottle
+      ("channels"  :int)
+      ("num_bytes" :int)
+      ("depth"     :int)
+      ("width"     :int)
+      ("height"    :int))
+  )
+
+  ;; Pixels
+  ("pixels"      :blob)
+)
