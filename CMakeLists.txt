@@ -95,20 +95,19 @@ FUNCTION(GENERATE_CODE LANGUAGE DOMAIN)
     ENDFOREACH()
 
     LIST(LENGTH FILES COUNT)
-    ADD_CUSTOM_TARGET(${LANGUAGE_SAFE}-${DOMAIN_LOWER} ALL
-                      COMMAND "${ROSETTA_COMPILER}"
-                              --load "/homes/jmoringe/code/cor-lab/rosetta/cl/rosetta/src/model/language/python.lisp"
-                              --load "/homes/jmoringe/code/cor-lab/rosetta/cl/rosetta/src/model/language/java.lisp"
-                              --language         "${LANGUAGE}"
-                              --mechanism        ros-msg
-                              --output-directory "${OUTPUT_DIR}"
-                              ${INCLUDES}
-                              ${FILES} > /dev/null
-                      SOURCES ${FILES}
-                      COMMENT "Generating ${LANGUAGE}/${DOMAIN_LOWER} (${FORMATS}, ${COUNT} files)")
+    # ADD_CUSTOM_TARGET(${LANGUAGE_SAFE}-${DOMAIN_LOWER} ALL
+    #                   COMMAND "${ROSETTA_COMPILER}"
+    #                           --load "/homes/jmoringe/code/cor-lab/rosetta/cl/rosetta/src/model/language/python.lisp"
+    #                           --load "/homes/jmoringe/code/cor-lab/rosetta/cl/rosetta/src/model/language/java.lisp"
+    #                           --language         "${LANGUAGE}"
+    #                           --mechanism        ros-msg
+    #                           --output-directory "${OUTPUT_DIR}"
+    #                           ${INCLUDES}
+    #                           ${FILES} > /dev/null
+    #                   SOURCES ${FILES}
+    #                   COMMENT "Generating ${LANGUAGE}/${DOMAIN_LOWER} (${FORMATS}, ${COUNT} files)")
 
     FILE(GLOB_RECURSE TEMP "${OUTPUT_DIR}/*.pb.cc")
-    MESSAGE(STATUS "${OUTPUT_DIR} ${TEMP}")
     SET(${LANGUAGE_SAFE}_${DOMAIN}_SOURCES ${TEMP})
     SET(${LANGUAGE_SAFE}_${DOMAIN}_SOURCES ${${LANGUAGE_SAFE}_${DOMAIN}_SOURCES} PARENT_SCOPE)
 

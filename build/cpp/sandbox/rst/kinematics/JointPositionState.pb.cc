@@ -1,0 +1,69 @@
+/* This file is generated - do not edit. */
+
+#include "JointPositionState.pb.h"
+
+
+DEFINE_MECHANISM(MechanismRosMsg);
+DEFINE_WIRE_SCHEMA(rstkinematicsJointPositionState,rst.kinematics.JointPositionState);
+
+// Type-independent protocol buffer API for rst::kinematics::JointPositionState
+
+ const rst::kinematics::JointPositionState& rst::kinematics::JointPositionState::default_instance(){
+  static rst::kinematics::JointPositionState*instance=NULL;
+  if(!instance)instance=new JointPositionState();
+  return *instance;
+}
+
+ const std::string rst::kinematics::JointPositionState::GetTypeName(){
+  return "rst.kinematics.JointPositionState";
+}
+
+rst::kinematics::JointPositionState* rst::kinematics::JointPositionState::New(){
+  return new rst::kinematics::JointPositionState();
+}
+
+int rst::kinematics::JointPositionState::ByteSize() const{
+  return rosetta::packedSize<rosetta::MechanismRosMsg,rosetta::rstkinematicsJointPositionState>(*this);
+
+}
+
+bool rst::kinematics::JointPositionState::SerializeToString(std::string* destination) const{
+  std::vector<unsigned char> temp(rosetta::packedSize<rosetta::MechanismRosMsg,rosetta::rstkinematicsJointPositionState>(*this));
+  rosetta::pack<rosetta::MechanismRosMsg,rosetta::rstkinematicsJointPositionState>(*this,temp,0,temp.size());
+  destination->resize(temp.size());
+  std::copy((char*)&temp[0],(char*)(&temp[0]+temp.size()),
+  destination->begin());
+  return true;
+  
+
+}
+
+bool rst::kinematics::JointPositionState::ParseFromString(const std::string& source){
+  std::vector<unsigned char> temp((unsigned char*)&source[0],
+  (unsigned char*)(&source[0]+source.size()));
+  rosetta::unpack<rosetta::MechanismRosMsg,rosetta::rstkinematicsJointPositionState>(temp,*this,0,temp.size());
+  return true;
+  
+
+}
+
+
+
+bool rst::kinematics::JointPositionState::SerializeToArray(void* destination,int size) const{
+  std::vector<unsigned char> temp(size);
+  rosetta::pack<rosetta::MechanismRosMsg,rosetta::rstkinematicsJointPositionState>(*this,temp,0,size);
+  std::copy(temp.begin(),temp.end(),(char*)destination);
+  return true;
+  
+
+}
+
+bool rst::kinematics::JointPositionState::ParseFromArray(const void* source,int size){
+  std::vector<unsigned char> temp((unsigned char*)source,(unsigned char*)source+size);
+  rosetta::unpack<rosetta::MechanismRosMsg,rosetta::rstkinematicsJointPositionState>(temp,*this,0,size);
+  return true;
+  
+
+}
+
+
