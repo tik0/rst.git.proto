@@ -28,48 +28,4 @@ rst::communicationpatterns::TaskState* rst::communicationpatterns::TaskState::Ne
   return new rst::communicationpatterns::TaskState();
 }
 
-int rst::communicationpatterns::TaskState::ByteSize() const{
-  return rosetta::packedSize<rosetta::MechanismRosMsg,rosetta::rstcommunicationpatternsTaskState>(*this);
-
-}
-
-bool rst::communicationpatterns::TaskState::SerializeToString(std::string* destination) const{
-  std::vector<unsigned char> temp(rosetta::packedSize<rosetta::MechanismRosMsg,rosetta::rstcommunicationpatternsTaskState>(*this));
-  rosetta::pack<rosetta::MechanismRosMsg,rosetta::rstcommunicationpatternsTaskState>(*this,temp,0,temp.size());
-  destination->resize(temp.size());
-  std::copy((char*)&temp[0],(char*)(&temp[0]+temp.size()),
-  destination->begin());
-  return true;
-  
-
-}
-
-bool rst::communicationpatterns::TaskState::ParseFromString(const std::string& source){
-  std::vector<unsigned char> temp((unsigned char*)&source[0],
-  (unsigned char*)(&source[0]+source.size()));
-  rosetta::unpack<rosetta::MechanismRosMsg,rosetta::rstcommunicationpatternsTaskState>(temp,*this,0,temp.size());
-  return true;
-  
-
-}
-
-
-
-bool rst::communicationpatterns::TaskState::SerializeToArray(void* destination,int size) const{
-  std::vector<unsigned char> temp(size);
-  rosetta::pack<rosetta::MechanismRosMsg,rosetta::rstcommunicationpatternsTaskState>(*this,temp,0,size);
-  std::copy(temp.begin(),temp.end(),(char*)destination);
-  return true;
-  
-
-}
-
-bool rst::communicationpatterns::TaskState::ParseFromArray(const void* source,int size){
-  std::vector<unsigned char> temp((unsigned char*)source,(unsigned char*)source+size);
-  rosetta::unpack<rosetta::MechanismRosMsg,rosetta::rstcommunicationpatternsTaskState>(temp,*this,0,size);
-  return true;
-  
-
-}
-
 

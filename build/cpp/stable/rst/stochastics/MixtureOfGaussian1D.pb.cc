@@ -23,50 +23,6 @@ rst::stochastics::MixtureOfGaussian1D::GaussianComponent1D* rst::stochastics::Mi
   return new rst::stochastics::MixtureOfGaussian1D::GaussianComponent1D();
 }
 
-int rst::stochastics::MixtureOfGaussian1D::GaussianComponent1D::ByteSize() const{
-  return rosetta::packedSize<rosetta::MechanismRosMsg,rosetta::rststochasticsMixtureOfGaussian1DGaussianComponent1D>(*this);
-
-}
-
-bool rst::stochastics::MixtureOfGaussian1D::GaussianComponent1D::SerializeToString(std::string* destination) const{
-  std::vector<unsigned char> temp(rosetta::packedSize<rosetta::MechanismRosMsg,rosetta::rststochasticsMixtureOfGaussian1DGaussianComponent1D>(*this));
-  rosetta::pack<rosetta::MechanismRosMsg,rosetta::rststochasticsMixtureOfGaussian1DGaussianComponent1D>(*this,temp,0,temp.size());
-  destination->resize(temp.size());
-  std::copy((char*)&temp[0],(char*)(&temp[0]+temp.size()),
-  destination->begin());
-  return true;
-  
-
-}
-
-bool rst::stochastics::MixtureOfGaussian1D::GaussianComponent1D::ParseFromString(const std::string& source){
-  std::vector<unsigned char> temp((unsigned char*)&source[0],
-  (unsigned char*)(&source[0]+source.size()));
-  rosetta::unpack<rosetta::MechanismRosMsg,rosetta::rststochasticsMixtureOfGaussian1DGaussianComponent1D>(temp,*this,0,temp.size());
-  return true;
-  
-
-}
-
-
-
-bool rst::stochastics::MixtureOfGaussian1D::GaussianComponent1D::SerializeToArray(void* destination,int size) const{
-  std::vector<unsigned char> temp(size);
-  rosetta::pack<rosetta::MechanismRosMsg,rosetta::rststochasticsMixtureOfGaussian1DGaussianComponent1D>(*this,temp,0,size);
-  std::copy(temp.begin(),temp.end(),(char*)destination);
-  return true;
-  
-
-}
-
-bool rst::stochastics::MixtureOfGaussian1D::GaussianComponent1D::ParseFromArray(const void* source,int size){
-  std::vector<unsigned char> temp((unsigned char*)source,(unsigned char*)source+size);
-  rosetta::unpack<rosetta::MechanismRosMsg,rosetta::rststochasticsMixtureOfGaussian1DGaussianComponent1D>(temp,*this,0,size);
-  return true;
-  
-
-}
-
 
 
 // Type-independent protocol buffer API for rst::stochastics::MixtureOfGaussian1D
@@ -83,50 +39,6 @@ bool rst::stochastics::MixtureOfGaussian1D::GaussianComponent1D::ParseFromArray(
 
 rst::stochastics::MixtureOfGaussian1D* rst::stochastics::MixtureOfGaussian1D::New(){
   return new rst::stochastics::MixtureOfGaussian1D();
-}
-
-int rst::stochastics::MixtureOfGaussian1D::ByteSize() const{
-  return rosetta::packedSize<rosetta::MechanismRosMsg,rosetta::rststochasticsMixtureOfGaussian1D>(*this);
-
-}
-
-bool rst::stochastics::MixtureOfGaussian1D::SerializeToString(std::string* destination) const{
-  std::vector<unsigned char> temp(rosetta::packedSize<rosetta::MechanismRosMsg,rosetta::rststochasticsMixtureOfGaussian1D>(*this));
-  rosetta::pack<rosetta::MechanismRosMsg,rosetta::rststochasticsMixtureOfGaussian1D>(*this,temp,0,temp.size());
-  destination->resize(temp.size());
-  std::copy((char*)&temp[0],(char*)(&temp[0]+temp.size()),
-  destination->begin());
-  return true;
-  
-
-}
-
-bool rst::stochastics::MixtureOfGaussian1D::ParseFromString(const std::string& source){
-  std::vector<unsigned char> temp((unsigned char*)&source[0],
-  (unsigned char*)(&source[0]+source.size()));
-  rosetta::unpack<rosetta::MechanismRosMsg,rosetta::rststochasticsMixtureOfGaussian1D>(temp,*this,0,temp.size());
-  return true;
-  
-
-}
-
-
-
-bool rst::stochastics::MixtureOfGaussian1D::SerializeToArray(void* destination,int size) const{
-  std::vector<unsigned char> temp(size);
-  rosetta::pack<rosetta::MechanismRosMsg,rosetta::rststochasticsMixtureOfGaussian1D>(*this,temp,0,size);
-  std::copy(temp.begin(),temp.end(),(char*)destination);
-  return true;
-  
-
-}
-
-bool rst::stochastics::MixtureOfGaussian1D::ParseFromArray(const void* source,int size){
-  std::vector<unsigned char> temp((unsigned char*)source,(unsigned char*)source+size);
-  rosetta::unpack<rosetta::MechanismRosMsg,rosetta::rststochasticsMixtureOfGaussian1D>(temp,*this,0,size);
-  return true;
-  
-
 }
 
 
