@@ -55,8 +55,8 @@ IF(PYTHONINTERP_FOUND AND ((NOT PYTHON_VERSION_MAJOR) OR (PYTHON_VERSION_MAJOR E
 
     ADD_CUSTOM_COMMAND(OUTPUT ${STABLE_EGG}
                        # to have a valid python package, an __init__.py must be present for every directory
-                       COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/stable/CreatePythonPackagesStable.cmake"
-                       COMMAND ${PYTHON_EXECUTABLE} "${CMAKE_CURRENT_BINARY_DIR}/stable/setup.py" bdist_egg
+                       COMMAND ${CMAKE_COMMAND} -P "'${CMAKE_CURRENT_BINARY_DIR}/stable/CreatePythonPackagesStable.cmake'"
+                       COMMAND ${PYTHON_EXECUTABLE} "'${CMAKE_CURRENT_BINARY_DIR}/stable/setup.py'" bdist_egg
                        DEPENDS ${PYTHON_STABLE_FILES} "${CMAKE_CURRENT_BINARY_DIR}/stable/setup.py"
                        WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/stable"
                        COMMENT "Creating stable python egg")
@@ -67,11 +67,13 @@ IF(PYTHONINTERP_FOUND AND ((NOT PYTHON_VERSION_MAJOR) OR (PYTHON_VERSION_MAJOR E
                        COMMAND ${CMAKE_COMMAND} -E remove_directory rstsandbox
                        COMMAND ${CMAKE_COMMAND} -E copy_directory rst rstsandbox
                        # to have a valid python package, an __init__.py must be present for every directory
-                       COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/sandbox/CreatePythonPackagesSandbox.cmake"
+                       COMMAND ${CMAKE_COMMAND} -P "'${CMAKE_CURRENT_BINARY_DIR}/sandbox/CreatePythonPackagesSandbox.cmake'"
                        # second part of the hack: install a patches __init__.py for rstsandbox which installs rstsandbox in the rst namespace
-                       COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/init-hack.py" "${CMAKE_CURRENT_BINARY_DIR}/sandbox/rstsandbox/__init__.py"
-                       COMMAND ${PYTHON_EXECUTABLE} "${CMAKE_CURRENT_BINARY_DIR}/sandbox/setup.py" bdist_egg
-                       DEPENDS ${PYTHON_SANDBOX_FILES} "${CMAKE_CURRENT_BINARY_DIR}/sandbox/setup.py" "${CMAKE_CURRENT_SOURCE_DIR}/init-hack.py"
+                       COMMAND ${CMAKE_COMMAND} -E copy "'${CMAKE_CURRENT_SOURCE_DIR}/init-hack.py'"
+                                                        "'${CMAKE_CURRENT_BINARY_DIR}/sandbox/rstsandbox/__init__.py'"
+                       COMMAND ${PYTHON_EXECUTABLE} "'${CMAKE_CURRENT_BINARY_DIR}/sandbox/setup.py'" bdist_egg
+                       DEPENDS ${PYTHON_SANDBOX_FILES} "${CMAKE_CURRENT_BINARY_DIR}/sandbox/setup.py"
+                                                       "${CMAKE_CURRENT_SOURCE_DIR}/init-hack.py"
                        WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/sandbox"
                        COMMENT "Creating sandbox python egg")
     ADD_CUSTOM_TARGET(python-sandbox ALL DEPENDS ${SANDBOX_EGG})
