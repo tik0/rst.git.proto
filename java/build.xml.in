@@ -15,21 +15,20 @@
 	<target name="compile" description="compile the source ">
 		<delete dir="classes-stable" />
 		<mkdir dir="classes-stable" />
-		<javac srcdir="@CMAKE_CURRENT_BINARY_DIR@/stable" destdir="classes-stable" debug="on" deprecation="on">
+		<javac srcdir="@SAFE_CMAKE_CURRENT_BINARY_DIR@/stable" destdir="classes-stable" debug="on" deprecation="on">
 			<compilerarg value="-Xlint" />
 			<classpath refid="classpath" />
 		</javac>
 		<delete dir="classes-sandbox" />
 		<mkdir dir="classes-sandbox" />
-		<javac srcdir="@CMAKE_CURRENT_BINARY_DIR@/sandbox" destdir="classes-sandbox" debug="on" deprecation="on">
+		<javac srcdir="@SAFE_CMAKE_CURRENT_BINARY_DIR@/sandbox" destdir="classes-sandbox" debug="on" deprecation="on">
 			<compilerarg value="-Xlint" />
 			<classpath refid="classpath-sandbox" />
 		</javac>
 	</target>
 
 	<target name="dist" depends="compile" description="generate the distribution">
-		<jar jarfile="@STABLE_JAR_FILE@" basedir="classes-stable" manifest="MANIFEST.MF" />
-		<jar jarfile="@SANDBOX_JAR_FILE@" basedir="classes-sandbox" manifest="MANIFEST.MF" />
+		@JAR_LINES@
 	</target>
 
 </project>
