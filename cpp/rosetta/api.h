@@ -36,7 +36,7 @@
 
 #define DEFINE_MECHANISM(NAME)                  \
 namespace rosetta {                             \
-  struct NAME {                                 \
+  struct Mechanism##NAME {                      \
     static const std::string name() {           \
       return "" #NAME "";                       \
     }                                           \
