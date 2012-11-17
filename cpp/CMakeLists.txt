@@ -20,6 +20,9 @@ FOREACH(DOMAIN ${DOMAINS})
     ENDIF()
 ENDFOREACH()
 
+FIND_PACKAGE(Boost 1.38 REQUIRED thread) # We just need the include directory
+INCLUDE_DIRECTORIES(BEFORE SYSTEM ${Boost_INCLUDE_DIRS})
+
 INCLUDE_DIRECTORIES(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}) # TODO hack to include rosetta/api.h
 SET(ROSETTA "rosetta/api.h")
 INSTALL_FILES_RECURSIVE("include/rst/stable" ROSETTA)
