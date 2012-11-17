@@ -1,34 +1,35 @@
 <project name="RST" default="dist" basedir=".">
 
-	<description>
-		Robotics Systems Types library with common wire schemas
-	</description>
+  <description>
+    Robotics Systems Types library with common wire schemas
+  </description>
 
-	<path id="classpath">
-		<pathelement location="@PROTOBUF_JAVA_LIBRARY@" />
-	</path>
-	<path id="classpath-sandbox">
-		<path refid="classpath" />
-		<pathelement location="classes-stable" />
-	</path>
+  <path id="classpath">
+    <pathelement location="@PROTOBUF_JAVA_LIBRARY@" />
+  </path>
+  <path id="classpath-sandbox">
+    <path refid="classpath" />
+    <pathelement location="classes-stable" />
+  </path>
 
-	<target name="compile" description="compile the source ">
-		<delete dir="classes-stable" />
-		<mkdir dir="classes-stable" />
-		<javac srcdir="@SAFE_CMAKE_CURRENT_BINARY_DIR@/stable" destdir="classes-stable" debug="on" deprecation="on">
-			<compilerarg value="-Xlint" />
-			<classpath refid="classpath" />
-		</javac>
-		<delete dir="classes-sandbox" />
-		<mkdir dir="classes-sandbox" />
-		<javac srcdir="@SAFE_CMAKE_CURRENT_BINARY_DIR@/sandbox" destdir="classes-sandbox" debug="on" deprecation="on">
-			<compilerarg value="-Xlint" />
-			<classpath refid="classpath-sandbox" />
-		</javac>
-	</target>
+  <target name="compile" description="compile the source ">
+    <delete dir="classes-stable" />
+    <mkdir dir="classes-stable" />
+    <javac srcdir="@SAFE_CMAKE_CURRENT_BINARY_DIR@/stable" destdir="classes-stable" debug="on" deprecation="on">
+      <compilerarg value="-Xlint" />
+      <classpath refid="classpath" />
+    </javac>
+    <delete dir="classes-sandbox" />
+    <mkdir dir="classes-sandbox" />
+    <javac srcdir="@SAFE_CMAKE_CURRENT_BINARY_DIR@/sandbox" destdir="classes-sandbox" debug="on" deprecation="on">
+      <compilerarg value="-Xlint" />
+      <classpath refid="classpath-sandbox" />
+    </javac>
+  </target>
 
-	<target name="dist" depends="compile" description="generate the distribution">
-		@JAR_LINES@
-	</target>
+  <target name="dist" depends="compile" description="generate the
+                                                     distribution">
+    @JAR_LINES@
+  </target>
 
 </project>
