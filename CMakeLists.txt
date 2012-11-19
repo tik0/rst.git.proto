@@ -123,7 +123,7 @@ FUNCTION(GENERATE_CODE LANGUAGE DOMAIN)
                               --output-directory "${OUTPUT_DIR}"
                               --keep-going
                               ${INCLUDES}
-                              ${FILES} > /dev/null
+                              ${FILES}
                       SOURCES ${FILES}
                       COMMENT "Generating data holders ${LANGUAGE}/${DOMAIN_LOWER} (${FORMATS}, ${COUNT} files)")
 

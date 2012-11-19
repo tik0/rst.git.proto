@@ -6,5 +6,5 @@ option java_outer_classname = "SoundEventType";
 // name: Name of the sound event
 
 message SoundEvent {
-    required string name = 1;
+    require string name = 1;
 }
