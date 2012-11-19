@@ -1,0 +1,18 @@
+import "rst/vision/Image.proto"
+import "yarp/icub/image.bottle-schema"
+
+data-holder: rst.vision.Image
+wire-schema: yarp.icub.image
+
+unpack-rules:
+  .width = .geometry.width
+  .height = .geometry.height
+  .channels = .geometry.channels
+  .depth = .geometry.depth
+
+  .color_mode = rst.vision.Image.ColorMode.COLOR_RGB
+  .data_order = rst.vision.Image.DataOrder.DATA_SEPARATE
+
+  .data = .pixels
+
+pack-rules:

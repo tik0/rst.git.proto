@@ -1,0 +1,17 @@
+import "rst/vision/HeadObject.proto"
+import "yarp/icub/pf3dtracker/output.bottle-schema"
+
+data-holder: rst.vision.HeadObject
+wire-schema: yarp.icub.pf3dtracker.output
+
+unpack-rules:
+  .tracking_info.id  = 0
+  .region.top_left.x = .mean_u
+  .region.top_left.y = .mean_v
+  .region.width      = 0
+  .region.height     = 0
+  .position.x        = .mean_x
+  .position.y        = .mean_y
+  .position.z        = .mean_z
+
+pack-rules:

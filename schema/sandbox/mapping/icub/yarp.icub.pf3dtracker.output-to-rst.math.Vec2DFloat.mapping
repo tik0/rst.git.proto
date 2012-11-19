@@ -1,0 +1,11 @@
+import "rst/math/Vec2DFloat.proto"
+import "yarp/icub/pf3dtracker/output.bottle-schema"
+
+data-holder: rst.math.Vec2DFloat
+wire-schema: yarp.icub.pf3dtracker.output
+
+unpack-rules:
+  .x = .mean_u
+  .y = .mean_v
+
+pack-rules:
