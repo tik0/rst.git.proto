@@ -1,0 +1,15 @@
+import "rst/kinematics/JointAngles.proto"
+import "sensor_msgs/JointState.msg"
+
+data-holder: rst.kinematics.JointAngles
+wire-schema: sensor_msgs.JointState
+
+unpack-rules:
+  len(.angles) = len(.position)
+
+pack-rules:
+  len(.position) = len(.angles)
+
+  len(.name)     = 0 # means "not specified"; see comment in
+  len(.velocity) = 0 # sensor_msgs/JointState.msg
+  len(.effort)   = 0

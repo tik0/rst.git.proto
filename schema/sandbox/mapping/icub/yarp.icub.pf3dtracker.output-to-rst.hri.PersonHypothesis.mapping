@@ -1,0 +1,17 @@
+import "rst/hri/PersonHypothesis.proto"
+import "yarp/icub/pf3dtracker/output.bottle-schema"
+
+data-holder: rst.hri.PersonHypothesis
+wire-schema: yarp.icub.pf3dtracker.output
+
+unpack-rules:
+  .tracking_info.id       = 0
+  .position.x             = .mean_u
+  .position.y             = .mean_v
+  .face.region.top_left.x = .mean_u
+  .face.region.top_left.y = .mean_v
+  .face.region.width      = 0
+  .face.region.height     = 0
+  .face.confidence        = .max_likelihood
+
+pack-rules:

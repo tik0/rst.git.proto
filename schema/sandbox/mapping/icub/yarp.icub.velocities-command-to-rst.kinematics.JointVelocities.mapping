@@ -1,0 +1,18 @@
+import "rst/kinematics/JointAngles.proto"
+import "yarp/icub/velocities/command.bottle-schema"
+
+data-holder: rst.kinematics.JointAngles
+wire-schema: yarp.icub.velocities.command
+
+unpack-rules:
+  len(.angles) = len(.angles)
+  for i from 0 to len(.angles)
+    .angles[i] = 3.141592653589793 / 180.0 * .angles[i] # TODO pi
+  end
+
+pack-rules:
+  .angles = .angles
+  len(.angles) = len(.angles)
+  for i from 0 to len(.angles)
+    .angles[i] = 180.0 / 3.141592653589793 * .angles[i] # TODO pi
+  end

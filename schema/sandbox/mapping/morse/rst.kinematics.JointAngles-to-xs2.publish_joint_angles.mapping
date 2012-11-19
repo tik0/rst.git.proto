@@ -1,0 +1,27 @@
+import "rst/kinematics/JointAngles.proto"
+import "xs2/publish_joint_angles_t.lcm"
+
+data-holder: rst.kinematics.JointAngles
+wire-schema: xs2.publish_joint_angles_t
+
+unpack-rules:
+  len(.angles) = .numvals
+  for i from 0 to len(.angles_rad)
+    .angles[i] = .angles_rad[i]
+  end
+
+pack-rules:
+  .timestamp = 0
+
+  .numvals = len(.angles)
+  len(.angles_rad) = len(.angles)
+  len(.angles_deg) = len(.angles)
+  for i from 0 to len(.angles)
+    .angles_rad[i] = .angles[i]
+    .angles_deg[i] = 3.141592653589793 * .angles[i] / 180
+  end
+
+  .numbones = 0
+  len(.rot_axis) = 0
+  len(.bones) = 0
+  .robotname = "flobi"

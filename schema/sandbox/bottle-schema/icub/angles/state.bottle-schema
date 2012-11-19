@@ -1,4 +1,7 @@
 "yarp.icub.angles.state"
 (
-  ("angles" (:list :double))
+  ("angles" (:list :double)
+   (:unit :degree)
+   (:documentation
+   "Joint angles"))
 )

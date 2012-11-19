@@ -1,0 +1,16 @@
+import "rst/vision/Stereo.proto"
+import "yarp/icub/pf3dtracker/output.bottle-schema"
+
+data-holder: rst.vision.Stereo
+wire-schema: yarp.icub.pf3dtracker.output
+
+unpack-rules:
+  .face.top_left.x = .mean_u
+  .face.top_left.y = .mean_v
+  .face.width      = 0
+  .face.height     = 0
+  .position.x      = .mean_x
+  .position.y      = .mean_y
+  .position.z      = .mean_z
+
+pack-rules:

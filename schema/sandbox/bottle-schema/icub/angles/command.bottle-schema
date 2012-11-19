@@ -3,7 +3,10 @@
   ;; RPC command header
   ("action" (:vocab :|set|)  :|set|)
   ("mode"   (:vocab :|poss|) :|poss|)
+
   ;; Joint angles
-  ;; @unit degree
-  ("angles" (:list :double))
+  ("angles" (:list :double)
+   (:unit :degree)
+   (:documentation
+   "Joint angles"))
 )
