@@ -121,6 +121,7 @@ FUNCTION(GENERATE_CODE LANGUAGE DOMAIN)
                               --language         "${LANGUAGE}"
                               --mechanism        ros-msg
                               --output-directory "${OUTPUT_DIR}"
+                              --keep-going
                               ${INCLUDES}
                               ${FILES} > /dev/null
                       SOURCES ${FILES}
