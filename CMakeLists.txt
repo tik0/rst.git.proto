@@ -37,18 +37,20 @@ SET(SCHEMA_DIR   "${CMAKE_CURRENT_SOURCE_DIR}/schema")
 SET(STABLE_ROOT  "${SCHEMA_DIR}/stable")
 SET(SANDBOX_ROOT "${SCHEMA_DIR}/sandbox")
 
-SET(DOMAINS      "STABLE" "SANDBOX")
-SET(FORMATS      "PROTO" "BOTTLE-SCHEMA" "LCM" "MSG"
-                 "MAPPING")
+SET(DOMAINS         "STABLE" "SANDBOX")
+SET(FORMATS         "PROTO" "BOTTLE-SCHEMA" "LCM" "MSG")
+SET(MAPPING_TARGETS "ICUB" "MORSE")
 
 FUNCTION(FIND_SCHEMA_FILES FORMAT DOMAIN)
+    SET(SUBDIR ${ARGN})
+
     STRING(TOLOWER "${FORMAT}" FORMAT_LOWER)
     STRING(TOLOWER "${DOMAIN}" DOMAIN_LOWER)
     SET(OUTPUT ${FORMAT}_${DOMAIN}_FILES)
 
     FILE(GLOB_RECURSE FILES_RELATIVE
          RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}"
-         "${SCHEMA_DIR}/${DOMAIN_LOWER}/[^.]*.${FORMAT_LOWER}")
+         "${SCHEMA_DIR}/${DOMAIN_LOWER}/${SUBDIR}[^.]*.${FORMAT_LOWER}")
     SET(${OUTPUT})
     FOREACH(FILE ${FILES_RELATIVE})
         GET_FILENAME_COMPONENT(FILE_ABSOLUTE ${FILE} ABSOLUTE)
@@ -58,12 +60,31 @@ FUNCTION(FIND_SCHEMA_FILES FORMAT DOMAIN)
 ENDFUNCTION()
 
 MESSAGE(STATUS "Collecting schema files")
+SET(SCHEMA_FILE_VARIABLES)
 FOREACH(FORMAT ${FORMATS})
     FOREACH(DOMAIN ${DOMAINS})
         FIND_SCHEMA_FILES(${FORMAT} ${DOMAIN})
 
+        LIST(APPEND SCHEMA_FILE_VARIABLES ${FORMAT}_${DOMAIN}_FILES)
+
         LIST(LENGTH ${FORMAT}_${DOMAIN}_FILES COUNT)
         MESSAGE(STATUS "  ${DOMAIN} ${FORMAT} (${COUNT} file(s))")
+    ENDFOREACH()
+ENDFOREACH()
+
+MESSAGE(STATUS "Collecting mapping files")
+SET(MAPPING_FILE_VARIABLES)
+FOREACH(TARGET ${MAPPING_TARGETS})
+    STRING(TOLOWER "${TARGET}" TARGET_LOWER)
+
+    FOREACH(DOMAIN ${DOMAINS})
+        FIND_SCHEMA_FILES("MAPPING" ${DOMAIN} "mapping/${TARGET_LOWER}/")
+        SET(MAPPING_${TARGET}_${DOMAIN}_FILES ${MAPPING_${DOMAIN}_FILES})
+
+        LIST(APPEND MAPPING_FILE_VARIABLES MAPPING_${TARGET}_${DOMAIN}_FILES)
+
+        LIST(LENGTH MAPPING_${TARGET}_${DOMAIN}_FILES COUNT)
+        MESSAGE(STATUS "  ${TARGET}/${DOMAIN} (${COUNT} file(s))")
     ENDFOREACH()
 ENDFOREACH()
 
@@ -91,21 +112,19 @@ FUNCTION(GENERATE_CODE LANGUAGE DOMAIN)
         ENDFOREACH()
 
         LIST(LENGTH ${FORMAT}_${DOMAIN}_FILES COUNT)
-        MESSAGE(STATUS "  Configuring ${LANGUAGE}/${DOMAIN_LOWER}/${FORMAT_LOWER} (${COUNT} files)")
+        MESSAGE(STATUS "  Configuring data holders ${LANGUAGE}/${DOMAIN_LOWER}/${FORMAT_LOWER} (${COUNT} files)")
     ENDFOREACH()
 
     LIST(LENGTH FILES COUNT)
-    # ADD_CUSTOM_TARGET(${LANGUAGE_SAFE}-${DOMAIN_LOWER} ALL
-    #                   COMMAND "${ROSETTA_COMPILER}"
-    #                           --load "/homes/jmoringe/code/cor-lab/rosetta/cl/rosetta/src/model/language/python.lisp"
-    #                           --load "/homes/jmoringe/code/cor-lab/rosetta/cl/rosetta/src/model/language/java.lisp"
-    #                           --language         "${LANGUAGE}"
-    #                           --mechanism        ros-msg
-    #                           --output-directory "${OUTPUT_DIR}"
-    #                           ${INCLUDES}
-    #                           ${FILES} > /dev/null
-    #                   SOURCES ${FILES}
-    #                   COMMENT "Generating ${LANGUAGE}/${DOMAIN_LOWER} (${FORMATS}, ${COUNT} files)")
+    ADD_CUSTOM_TARGET(${LANGUAGE_SAFE}-${DOMAIN_LOWER} ALL
+                      COMMAND "${ROSETTA_COMPILER}"
+                              --language         "${LANGUAGE}"
+                              --mechanism        ros-msg
+                              --output-directory "${OUTPUT_DIR}"
+                              ${INCLUDES}
+                              ${FILES} > /dev/null
+                      SOURCES ${FILES}
+                      COMMENT "Generating data holders ${LANGUAGE}/${DOMAIN_LOWER} (${FORMATS}, ${COUNT} files)")
 
     FILE(GLOB_RECURSE TEMP "${OUTPUT_DIR}/*.pb.cc")
     SET(${LANGUAGE_SAFE}_${DOMAIN}_SOURCES ${TEMP})
@@ -132,7 +151,7 @@ ENDIF()
 #     ADD_SUBDIRECTORY(matlab)
 # ENDIF()
 
-# --- install protocol anyways for backwards compatibility ---
+# Schema files
 
 ADD_SUBDIRECTORY(schema)
 
