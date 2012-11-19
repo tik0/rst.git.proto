@@ -1,0 +1,26 @@
+"morse.kuka.posture"
+(
+  ;; Probably position and orientation of base.
+  ("x"     :double)
+  ("y"     :double)
+  ("z"     :double)
+  ("yaw"   :double)
+  ("pitch" :double)
+  ("roll"  :double)
+
+  ;; Joint space configuration of Kuka LWR
+  ;; (in radiant)
+  ("seg0"  :double)
+  ("seg1"  :double)
+  ("seg2"  :double)
+  ("seg3"  :double)
+  ("seg4"  :double)
+  ("seg5"  :double)
+  ("seg6"  :double)
+
+  ;; Joint space configuration of Pan-Tilt-Unit
+  ;; (in radiant)
+  ("pan"   :double)
+  ("tilt"  :double)
+
+)

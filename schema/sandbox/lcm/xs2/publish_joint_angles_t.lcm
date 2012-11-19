@@ -1,0 +1,37 @@
+package xs2;
+
+// TODO document
+struct publish_joint_angles_t
+{
+
+    // TODO(jmoringe): I don't, whether this is actually in
+    //                 microsecons. I'm just testing
+    // @unit microseconds
+    int64_t  timestamp;
+
+    // TODO
+    // @unit number
+    int16_t  numbones;
+
+    // TODO document
+    // @unit number
+    int16_t  numvals;
+
+    // TODO document
+    // @unit radian
+    double   angles_rad[numvals];
+
+    // TODO document
+    // @unit degree
+    double   angles_deg[numvals];
+
+    // TODO document
+    string   rot_axis[numbones];
+
+    // TODO document
+    string   bones[numbones];
+
+    // TODO document
+    string   robotname;
+
+}
