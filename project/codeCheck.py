@@ -131,20 +131,19 @@ class CheckImportsAbsolute(Check):
 
 class CheckIndentation(Check):
 
-    lineStartRegEx = re.compile("^( +)")
+    lineStartRegEx = re.compile("^( +)(\\*){0,1}")
 
     def check(self):
 
-        for lineNumber in range(1, len(self.fileLines) + 1):
-            line = self.fileLines[lineNumber - 1]
-
+        for (lineNumber, line) in enumerate(self.fileLines):
             if '\t' in line:
-                self.errorHandler.addError(line=lineNumber, description="Illegal indentation with tabs")
+                self.errorHandler.addError(line=lineNumber, description="Indentation with tabs")
 
-            starts = self.lineStartRegEx.findall(line)
-            for s in starts:
-                if len(s) % 4 != 0:
-                    self.errorHandler.addError(line=lineNumber, description="Illegal indentation depth %i not based on 4." % len(s))
+            match = self.lineStartRegEx.match(line)
+            if match and (len(match.group(1)) % 4 != 0) and (match.group(2) is None):
+                self.errorHandler.addError(line=lineNumber,
+                                           description=("Indentation depth %i is not a multiple of 4."
+                                                        % len(match.group(1))))
 
 class CheckNewlineAtEof(Check):
 
