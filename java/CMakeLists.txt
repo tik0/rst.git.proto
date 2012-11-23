@@ -1,6 +1,5 @@
-
-SET(STABLE_JAR_FILE "${CMAKE_CURRENT_BINARY_DIR}/rst.jar" )
-SET(SANDBOX_JAR_FILE "${CMAKE_CURRENT_BINARY_DIR}/rstsandbox.jar")
+SET(STABLE_JAR_FILE "${CMAKE_CURRENT_BINARY_DIR}/rst-${RST_VERSION}.jar" )
+SET(SANDBOX_JAR_FILE "${CMAKE_CURRENT_BINARY_DIR}/rstsandbox-${RST_VERSION}.jar")
 SET(JAR_FILES ${STABLE_JAR_FILE} ${SANDBOX_JAR_FILE})
 
 FIND_PROGRAM(ANT_EXECUTABLE ant)
@@ -29,6 +28,9 @@ IF(ANT_EXECUTABLE AND PROTOBUF_JAVA_LIBRARY)
     ADD_CUSTOM_TARGET(java ALL DEPENDS ${JAR_FILES})
 
     INSTALL(FILES ${JAR_FILES} DESTINATION share/java)
+    # backwards compatibility just for 0.7
+    INSTALL(FILES ${STABLE_JAR_FILE} DESTINATION share/java RENAME rst.jar)
+    INSTALL(FILES ${SANDBOX_JAR_FILE} DESTINATION share/java RENAME rstsandbox.jar)
 
 ELSE()
     MESSAGE(STATUS "ant not found or protobuf java library not available. Java bindings will not be created")
