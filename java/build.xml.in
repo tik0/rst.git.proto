@@ -15,13 +15,13 @@
 	<target name="compile" description="compile the source ">
 		<delete dir="classes-stable" />
 		<mkdir dir="classes-stable" />
-		<javac srcdir="@CMAKE_CURRENT_BINARY_DIR@/stable" destdir="classes-stable" debug="on" deprecation="on">
+		<javac srcdir="@CMAKE_CURRENT_BINARY_DIR@/stable" destdir="classes-stable" debug="on" deprecation="on" target="1.5" source="1.5">
 			<compilerarg value="-Xlint" />
 			<classpath refid="classpath" />
 		</javac>
 		<delete dir="classes-sandbox" />
 		<mkdir dir="classes-sandbox" />
-		<javac srcdir="@CMAKE_CURRENT_BINARY_DIR@/sandbox" destdir="classes-sandbox" debug="on" deprecation="on">
+		<javac srcdir="@CMAKE_CURRENT_BINARY_DIR@/sandbox" destdir="classes-sandbox" debug="on" deprecation="on" target="1.5" source="1.5">
 			<compilerarg value="-Xlint" />
 			<classpath refid="classpath-sandbox" />
 		</javac>
