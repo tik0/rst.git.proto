@@ -14,6 +14,7 @@ message PointCloud3DFloat {
     /**
      * TODO
      */
+    // @unit(meter?)
     repeated math.Vec3DFloat points = 1;
 
 }

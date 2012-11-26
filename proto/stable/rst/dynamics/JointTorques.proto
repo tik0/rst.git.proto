@@ -12,6 +12,7 @@ message JointTorques {
     /**
      * TODO
      */
+    // @unit(newton-meter)
     repeated float torques = 1 [packed=true];
 
 }

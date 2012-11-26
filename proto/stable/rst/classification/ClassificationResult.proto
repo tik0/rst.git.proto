@@ -36,6 +36,7 @@ message ClassificationResult {
          *
          * However, values summing up to 1 are preferred.
          */
+        // @unit(TODO)
         required float confidence = 2;
     }
 

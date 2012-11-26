@@ -19,21 +19,25 @@ message JointState {
     /**
      * A value representing the joint's position.
      */
+    // @unit(TODO)
     required float value = 2;
 
     /**
      * Stiffness of the joint.
      */
+    // @unit(TODO)
     optional float stiffness = 3;
 
     /**
      * The value sent as the last command.
      */
+    // @unit(TODO)
     optional float command = 4;
 
     /**
      * The temperature of the joint.
      */
+    // @unit(degree-celsius)
     optional float temperature = 5;
 
 }

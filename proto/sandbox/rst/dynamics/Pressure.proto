@@ -11,5 +11,6 @@ message Pressure {
     /**
      * TODO
      */
+    // @unit(pascal)
     repeated double pressures = 1;
 }

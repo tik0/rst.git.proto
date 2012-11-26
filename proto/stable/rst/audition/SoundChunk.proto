@@ -65,16 +65,20 @@ message SoundChunk {
     /**
      * TODO
      */
+    // @constraint(value = 8 * .channels * len(.data) * .sample_type)
+    // @unit(number)
     required uint32 sample_count = 2;
 
     /**
      * TODO
      */
+    // @unit(number)
     optional uint32 channels = 3 [default = 1];
 
     /**
      * TODO
      */
+    // @unit(hz)
     optional uint32 rate = 4 [default = 44100];
 
     /**

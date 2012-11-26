@@ -16,26 +16,31 @@ message BoundingBox {
     /**
      * Coordinates of the top left corner.
      */
+    // @unit(pixel)
     required math.Vec2DInt top_left = 1;
 
     /**
      * Width of the bounding box.
      */
+    // @unit(pixel)
     required uint32 width = 2;
 
     /**
      * Height of the bounding box.
      */
+    // @unit(pixel)
     required uint32 height = 3;
 
     /**
      * Width of the image the bounding box is based on.
      */
+    // @unit(pixel)
     optional uint32 image_width = 4;
 
     /**
      * Height of the image the bounding box is based on.
      */
+    // @unit(pixel)
     optional uint32 image_height = 5;
 
 }

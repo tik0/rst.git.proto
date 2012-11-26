@@ -24,6 +24,7 @@ message MixtureOfGaussian1D {
         /**
          * TODO
          */
+        // @unit(TODO)
         required float weight = 2;
 
         /**

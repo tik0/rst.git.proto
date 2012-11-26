@@ -19,6 +19,7 @@ message Face {
     /**
      * TODO Detection confidence factor.
      */
+    // @unit(TODO)
     optional double confidence = 2;
 
 }

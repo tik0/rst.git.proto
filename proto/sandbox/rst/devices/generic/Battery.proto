@@ -11,16 +11,18 @@ message Battery {
     /**
      * TODO
      */
+    // @unit(TODO)
     required float battery_status = 1;
 
     /**
      * TODO
      */
+    // @unit(TODO)
     required float battery_charge = 2;
 
     /**
      * TODO
-     *
      */
+    // @unit(degree-kelvin)
     optional float battery_temperature = 3;
 }

@@ -13,6 +13,7 @@ message Timestamp {
     /**
      * Milliseconds since January 1st, 1970
      */
+    // @unit(microsecond)
     required uint64 time = 1;
 
 }

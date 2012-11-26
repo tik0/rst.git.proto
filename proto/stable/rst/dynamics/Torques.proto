@@ -14,16 +14,19 @@ message Torques {
     /**
      * Torque around the x axis.
      */
+    // @unit(newton-meter)
     required float a = 1;
 
     /**
      * Torque around the y axis.
      */
+    // @unit(newton-meter)
     required float b = 2;
 
     /**
      * Torque around the z axis.
      */
+    // @unit(newton-meter)
     required float c = 3;
 
 }

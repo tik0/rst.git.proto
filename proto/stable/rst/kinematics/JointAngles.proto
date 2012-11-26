@@ -12,6 +12,7 @@ message JointAngles {
     /**
      * Joint angles
      */
+    // @unit(radian)
     repeated float angles = 1 [packed=true];
 
 }

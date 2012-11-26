@@ -14,11 +14,13 @@ message JointImpedance {
      * Stiffness values of multiple joints (same joints and same order as
      * damping below)
      */
+    // @unit(TODO)
     repeated float stiffness = 1;
 
     /**
      * Damping values of multiple joints (same joints and same order as
      * stiffness above).
      */
+    // @unit(newton-meter / rad)
     repeated float damping = 2;
 }

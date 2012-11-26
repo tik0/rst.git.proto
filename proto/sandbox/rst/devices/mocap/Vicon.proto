@@ -36,16 +36,19 @@ message Vicon {
         /**
          * TODO
          */
+        // @unit(hour)
         required uint32 hours = 1;
 
         /**
          * TODO
          */
+        // @unit(minute)
         required uint32 minutes = 2;
 
         /**
          * TODO
          */
+        // @unit(second)
         required uint32 seconds = 3;
 
         /**
@@ -136,6 +139,7 @@ message Vicon {
     /**
      * TODO
      */
+    // @unit(number)
     required uint64 frame = 1;
 
     /**

@@ -12,11 +12,13 @@ message Gaussian1D {
     /**
      * TODO
      */
+    // @unit(number)
     required float mean = 1;
 
-    /**
-     * TODO
+    /* TODO
      */
+    // @constraint(value >= 0)
+    // @unit(number)
     required float variance = 2;
 
 }

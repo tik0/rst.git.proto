@@ -12,5 +12,6 @@ message Length {
     /**
      * TODO
      */
+    // @unit(meter)
     repeated double lengths = 1;
 }

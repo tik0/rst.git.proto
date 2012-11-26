@@ -19,11 +19,13 @@ message Faces {
     /**
      * TODO
      */
+    // @unit(pixel)
     required uint32 width = 2;
 
     /**
      * TODO
      */
+    // @unit(pixel)
     required uint32 height = 3;
 
 }

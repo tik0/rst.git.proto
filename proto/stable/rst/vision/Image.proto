@@ -65,21 +65,25 @@ message Image {
     /**
      * TODO
      */
+    // @constraint(len(value) = (.width * .height * .channels * .depth) / 8)
     required bytes data = 1;
 
     /**
      * TODO
      */
+    // @unit(pixel)
     required uint32 width = 2;
 
     /**
      * TODO
      */
+    // @unit(pixel)
     required uint32 height = 3;
 
     /**
      * TODO
      */
+    // @unit(number)
     optional uint32 channels = 4 [default = 3];
 
     /**

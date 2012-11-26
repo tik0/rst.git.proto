@@ -12,21 +12,25 @@ message CpuMemory {
     /**
      * TODO
      */
+    // @unit(mb?)
     optional float memory_free = 1;
 
     /**
      * TODO
      */
+    // @unit(mb?)
     optional float memory_total = 2;
 
     /**
      * TODO
      */
+    // @unit(mb?)
     optional float memory_used = 3;
 
     /**
      * TODO
      */
+    // @unit(second?)
     optional uint32 jiffy_length = 10;
 
     /**
@@ -38,11 +42,13 @@ message CpuMemory {
         /**
          * TODO
          */
+        // @unit(number)
         required int32 index = 1;
 
         /**
          * TODO
          */
+        // @unit(jiffies)
         optional uint64 user = 2;
 
         /**
