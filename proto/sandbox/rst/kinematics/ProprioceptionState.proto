@@ -4,9 +4,18 @@ option java_outer_classname = "ProprioceptionStateType";
 
 import "rst/kinematics/JointState.proto";
 
-// A message for proprioceptive (joint) data of a robot.
-// @deprecated: This type has been deprecated in favor of
-// rst.kinematics.JointAngles and rst.devices.**
+/**
+ * Proprioceptive (joint) data of a robot.
+ *
+ * @author TODO Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
+// @deprecated This type has been deprecated in favor of
+//             rst.kinematics.JointAngles and rst.devices.
 message ProprioceptionState {
+
+    /**
+     * TODO
+     */
     repeated JointState joints = 1;
+
 }

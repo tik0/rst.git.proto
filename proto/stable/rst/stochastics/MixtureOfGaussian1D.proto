@@ -4,14 +4,37 @@ import "rst/stochastics/Gaussian1D.proto";
 
 option java_outer_classname = "MixtureOfGaussian1DType";
 
+/**
+ * TODO
+ *
+ * @author TODO
+ */
 message MixtureOfGaussian1D {
 
+   /**
+     * TODO
+    */
     message GaussianComponent1D {
+
+        /**
+         * TODO
+         */
         required Gaussian1D gaussian = 1;
+
+        /**
+         * TODO
+         */
         required float weight = 2;
+
+        /**
+         * TODO
+         */
         required float probability_state = 3;
     }
 
+    /**
+     * TODO
+     */
     repeated GaussianComponent1D components = 1;
 
 }

@@ -4,7 +4,21 @@ import "rst/timing/Timestamp.proto";
 
 option java_outer_classname = "IntervalType";
 
+/**
+ * TODO
+ *
+ * @author TODO
+ */
 message Interval {
+
+    /**
+     * TODO
+     */
     optional Timestamp begin = 1;
+
+    /**
+     * TODO
+     */
     optional Timestamp end = 2;
+
 }

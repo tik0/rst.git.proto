@@ -2,7 +2,16 @@ package rst.kinematics;
 
 option java_outer_classname = "JointAnglesType";
 
-// A message that contains joint angles in rad
+/**
+ * Joint angles of a set of multiple joints.
+ *
+ * @author Arne Nordmann <anordman@cor-lab.uni-bielefeld.de>
+ */
 message JointAngles {
+
+    /**
+     * Joint angles
+     */
     repeated float angles = 1 [packed=true];
+
 }

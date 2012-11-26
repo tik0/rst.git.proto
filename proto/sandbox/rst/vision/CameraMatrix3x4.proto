@@ -2,22 +2,32 @@ package rst.vision;
 
 option java_outer_classname = "CameraMatrix3x4Type";
 
-// Matrix for Camera Matrix Parameters K(R, t)
+/**
+ * Matrix for Camera Matrix Parameters K(R, t).
+ *
+ * @author TODO
+ */
 message CameraMatrix3x4 {
 
-    // first row
+    /**
+     * First row.
+     */
     required float c11 = 1;
     required float c12 = 2;
     required float c13 = 3;
     required float c14 = 4;
 
-    // second row
+    /**
+     * Second row.
+     */
     required float c21 = 5;
     required float c22 = 6;
     required float c23 = 7;
     required float c24 = 8;
 
-    // third row
+    /**
+     * Third row.
+     */
     required float c31 = 9;
     required float c32 = 10;
     required float c33 = 11;

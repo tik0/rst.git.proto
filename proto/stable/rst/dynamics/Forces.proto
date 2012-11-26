@@ -2,9 +2,24 @@ package rst.dynamics;
 
 option java_outer_classname = "ForcesType";
 
-// A message that contains cartesian translatory forces in newton
+/**
+ * Cartesian 3-dimensional translatory force.
+ *
+ * @author Arne Nordmann <anordman@cor-lab.uni-bielefeld.de>
+ */
 message Forces {
+    /**
+     * Translatory force along the x axis.
+     */
     required float x = 1;
+
+    /**
+     * Translatory force along the y axis.
+     */
     required float y = 2;
+
+    /**
+     * Translatory force along the z axis.
+     */
     required float z = 3;
 }

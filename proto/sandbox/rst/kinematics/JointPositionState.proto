@@ -4,7 +4,15 @@ option java_outer_classname = "JointPositionStateType";
 
 import "rst/kinematics/JointState.proto";
 
-// A message for joint position data of a robot seen from its head.
+/**
+ * TODO Joint position data of a robot seen from its head.
+ *
+ * @author TODO
+ */
 message JointPositionState {
+
+    /**
+     * TODO
+     */
     repeated JointState joints = 1;
 }

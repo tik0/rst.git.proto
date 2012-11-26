@@ -2,12 +2,33 @@ package rst.geometry;
 
 option java_outer_classname = "RotationType";
 
-// A rotation as quaternion
-// qw, qx, qy, qz: orientation as a unit quaternion (optional)
-//                 all-zero quaternion denotes an invalid pose
+/**
+ * Cartesian 3-dimensional rotatory displacement or orientation (orientation
+ * being a rotation from an origin) in world coordinates expressed as unit
+ * quaternion (all-zero quaternion denotes an invalid orientation/rotation).
+ *
+ * @author Arne Nordmann <anordman@cor-lab.uni-bielefeld.de>
+ */
 message Rotation {
+
+    /**
+     * TODO
+     */
     required double qw = 4;
+
+    /**
+     * TODO
+     */
     required double qx = 5;
+
+    /**
+     * TODO
+     */
     required double qy = 6;
+
+    /**
+     * TODO
+     */
     required double qz = 7;
+
 }

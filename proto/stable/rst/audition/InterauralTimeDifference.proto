@@ -2,17 +2,31 @@ package rst.audition;
 
 option java_outer_classname = "InterauralTimeDifferenceType";
 
-// Interaural time difference measurements.
-// value       : ITD values (in seconds)
-// weight      : weights of the ITD value (between 0 and 1, sum to 1)
-// frame_shift : frame shift between time windows (in seconds)
-// time_window : length of the time window (in seconds) to compute an ITD value
-
+/**
+ * Interaural time difference measurements.
+ *
+ * @author TODO Vasil Khalidov <vasil.khalidov@idiap.ch>
+ */
 message InterauralTimeDifference {
 
+    /**
+     * TODO ITD values
+     */
     repeated float value = 1;
+
+    /**
+     * TODO Weights of the ITD value
+     */
     repeated float weight = 2;
+
+    /**
+     * TODO Frame shift between time windows
+     */
     required float frame_shift = 3;
+
+    /**
+     * Length of the time window to compute an ITD value.
+     */
     required float time_window = 4;
 
 }

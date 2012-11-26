@@ -4,18 +4,38 @@ import "rst/math/Vec2DInt.proto";
 
 option java_outer_classname = "BoundingBoxType";
 
-// An arbitrary bounding box
-// x, y: top left corner coordinates
-// width, height: size
-// All values are in pixels.
+/**
+ * A bounding box, which is associated to a raster image.
+ *
+ * All values are in pixels and refer to the associated image.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
 message BoundingBox {
 
+    /**
+     * Coordinates of the top left corner.
+     */
     required math.Vec2DInt top_left = 1;
+
+    /**
+     * Width of the bounding box.
+     */
     required uint32 width = 2;
+
+    /**
+     * Height of the bounding box.
+     */
     required uint32 height = 3;
-    // width of the image the bounding box is based on
+
+    /**
+     * Width of the image the bounding box is based on.
+     */
     optional uint32 image_width = 4;
-    // height of the image the bounding box is based on
+
+    /**
+     * Height of the image the bounding box is based on.
+     */
     optional uint32 image_height = 5;
 
 }

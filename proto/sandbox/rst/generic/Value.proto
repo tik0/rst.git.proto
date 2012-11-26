@@ -2,10 +2,16 @@ package rst.generic;
 
 option java_outer_classname = "ValueType";
 
-// A message that wraps one single argument with it's type.
+/**
+ * Wraps one single argument with its type.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
 message Value {
 
-    // Each value is typed.
+    /**
+     * TODO Each value is typed.
+     */
     enum Type {
         VOID = 1;
         INT = 2;
@@ -15,9 +21,16 @@ message Value {
         BINARY = 6;
         ARRAY = 7;
     }
+
+    /**
+     * TODO
+     */
     required Type type = 1;
 
-    // along with the specified type, one of these fields need to be filled
+    /**
+     * Along with the specified type, one of these fields need to be
+     * filled.
+     */
     optional int64 int = 2;
     optional double double = 3;
     optional string string = 4;

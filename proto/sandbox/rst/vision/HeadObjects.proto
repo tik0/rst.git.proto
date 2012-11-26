@@ -4,8 +4,16 @@ import "rst/vision/HeadObject.proto";
 
 option java_outer_classname = "HeadObjectsType";
 
-// A head object list
-
+/**
+ * A list of head objects.
+ *
+ * @author TODO
+ */
 message HeadObjects {
+
+    /**
+     * TODO
+     */
     repeated vision.HeadObject head_objects = 1;
+
 }

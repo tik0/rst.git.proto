@@ -4,7 +4,14 @@ option java_outer_classname = "DictionaryType";
 
 import "rst/generic/KeyValuePair.proto";
 
-// A message that wraps one single argument with it's type.
+/**
+ * Wraps one single argument with its type.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
 message Dictionary {
+    /**
+     * TODO
+     */
     repeated KeyValuePair entries = 1;
 }

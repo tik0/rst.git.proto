@@ -2,70 +2,137 @@ package rst.monitoring;
 
 option java_outer_classname = "ProcessCuesType";
 
-// Monitoring-relevant cues about a system process.
+/**
+ * Monitoring-relevant cues about a system process.
+ *
+ * @author TODO
+ */
 message ProcessCues {
 
-    // pid of the program
+    /**
+     * PID of the program.
+     */
     required uint32 pid = 1000;
-    // name of the program (argv[0])
+
+    /**
+     * Name of the program (argv[0]).
+     */
     optional bytes name = 1001;
-    // name of the host the program is running on
+
+    /**
+     * Name of the host the program is running on.
+     */
     optional bytes host_name = 1002;
 
-    // cues from a single source
+    /**
+     * Cues from a single source.
+     */
     message Cues {
-        // short description of the cue source
+
+        /**
+         * Short description of the cue source.
+         */
         required bytes source = 1000;
 
-        // Amount of time that this process has been scheduled in user mode,
-        // [usec], for taskstats this is ac_utime
+        /**
+         * Amount of time that this process has been scheduled in user
+         * mode, [usec], for taskstats this is ac_utime.
+         */
         optional uint64 utime = 1;
-        // Amount of time that this process has been scheduled in kernel mode,
-        // [usec], for taskstats this is ac_stime
+
+        /**
+         * Amount of time that this process has been scheduled in
+         * kernel mode, [usec], for taskstats this is ac_stime
+         */
         optional uint64 stime = 2;
-        // Number  of  threads  in this process.
+
+        /**
+         * Number of threads in this process.
+         */
         optional int64 num_threads = 3;
-        // Virtual memory size in bytes.
+
+        /**
+         * Virtual memory size in bytes.
+         */
         optional uint64 vsize = 4;
-        // Resident Set Size: number of pages the process has in real memory.
+
+        /**
+         * Resident Set Size: number of pages the process has in real
+         * memory.
+         */
         optional int64 rss = 5;
-        // wall-clock time used by this process since start [nanoseconds]
+
+        /**
+         * Wall-clock time used by this process since
+         * start. [nanoseconds]
+         */
         optional uint64 wall_time = 6;
-        // processing time used by this process since start [nanoseconds]
+
+        /**
+         * Processing time used by this process since start.
+         * [nanoseconds]
+         */
         optional uint64 virtual_time = 7;
-        // Elapsed time [usec] (from taskstats)
+
+        /**
+         * Elapsed time (from taskstats). [usec]
+         */
         optional uint64 etime = 8;
-        //
+
+        /**
+         * TODO
+         */
         optional uint64 utime_scaled = 9;
-        //
+
+        /**
+         * TODO
+         */
         optional uint64 stime_scaled = 10;
-        //
+
+        /**
+         * TODO
+         */
         optional uint64 wall_time_scaled = 11;
 
         // IO stuff
 
-        // The number of bytes which this task has caused to be read from
-        // storage. This is simply the sum of bytes which this process passed to
-        // read() and pread(). It includes things like tty IO and it is
-        // unaffected by whether or not actual physical disk IO was required
+        /**
+         * The number of bytes which this task has caused to be read
+         * from storage. This is simply the sum of bytes which this
+         * process passed to read() and pread(). It includes things
+         * like tty IO and it is unaffected by whether or not actual
+         * physical disk IO was required
+         */
         optional uint64 rchar = 30;
 
-        // The number of bytes which this task has caused, or shall cause to be
-        // written to disk. Similar caveats apply here as with rchar.
+        /**
+         * The number of bytes which this task has caused, or shall
+         * cause to be written to disk.
+         *
+         * Similar caveats apply here as with rchar.
+         */
         optional uint64 wchar = 31;
 
-        // Attempt to count the number of bytes which this process really did
-        // cause to be fetched from the storage layer. Done at the submit_bio()
-        // level, so it is accurate for block-backed filesystems.
+        /**
+         * Attempt to count the number of bytes which this process
+         * really did cause to be fetched from the storage layer. Done
+         * at the submit_bio() level, so it is accurate for
+         * block-backed filesystems.
+         */
         optional uint64 read_bytes = 32;
 
-        // Attempt to count the number of bytes which this process caused to be
-        // sent to the storage layer. This is done at page-dirtying time.
+        /**
+         * Attempt to count the number of bytes which this process
+         * caused to be sent to the storage layer. This is done at
+         * page-dirtying time.
+         */
         optional uint64 write_bytes = 33;
 
     }
 
-    // cues from different sources
+    /**
+     * Cues from different sources.
+     */
     repeated Cues cues = 1;
 
 }

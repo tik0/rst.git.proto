@@ -2,9 +2,16 @@ package rst.audition;
 
 option java_outer_classname = "SoundEventType";
 
-// Sound Event
-// name: Name of the sound event
-
+/**
+ * Sound Event
+ *
+ * @author TODO
+ */
 message SoundEvent {
+
+    /*
+     * Name of the sound event.
+     */
     required string name = 1;
+
 }

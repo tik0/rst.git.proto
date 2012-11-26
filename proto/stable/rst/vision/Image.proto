@@ -2,46 +2,99 @@ package rst.vision;
 
 option java_outer_classname = "ImageType";
 
-// The values of width and height are measured in pixels.
-//
-// Interpretation of RSB timestamps
-//
-// create:
-//         image grab time (to be more precisely defined. e.g. what
-//         does this mean for rolling shutter cameras?)
+/**
+ * The values of width and height are measured in pixels.
+ *
+ * Interpretation of RSB timestamps:
+ *
+ * create:
+ *         image grab time (to be more precisely defined. e.g. what
+ *         does this mean for rolling shutter cameras?)
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
 message Image {
 
-    // Depth of one color channel
-    // reflecting the definitions from OpenCV's IplImage
+    /**
+     * Depth of one color channel.
+     *
+     * Reflecting the definitions from OpenCV's IplImage.
+     */
     enum Depth {
         DEPTH_8U = 8;
         DEPTH_16U = 16;
         DEPTH_32F = 32;
     }
 
+    /**
+     * TODO
+     */
     enum ColorMode {
         COLOR_GRAYSCALE = 0;
         COLOR_RGB = 1;
         COLOR_BGR = 2;
-        // YUVYUV layout
+
+        /**
+         * YUVYUV layout
+         */
         COLOR_YUV = 4;
-        // YUYV layout
+
+        /**
+         * YUYV layout
+         */
         COLOR_YUV422 = 8;
     }
 
+    /**
+     * TODO
+     */
     enum DataOrder {
-        // separate planes
+
+        /**
+         * Separate planes.
+         */
         DATA_SEPARATE = 0;
-        // interleaved image
+
+        /**
+         * Interleaved image.
+         */
         DATA_INTERLEAVED = 1;
+
     }
 
+    /**
+     * TODO
+     */
     required bytes data = 1;
+
+    /**
+     * TODO
+     */
     required uint32 width = 2;
+
+    /**
+     * TODO
+     */
     required uint32 height = 3;
+
+    /**
+     * TODO
+     */
     optional uint32 channels = 4 [default = 3];
+
+    /**
+     * TODO
+     */
     optional Depth depth = 5 [default = DEPTH_8U];
+
+    /**
+     * TODO
+     */
     optional ColorMode color_mode = 6 [default = COLOR_RGB];
+
+    /**
+     * TODO
+     */
     optional DataOrder data_order = 7 [default = DATA_SEPARATE];
 
 }

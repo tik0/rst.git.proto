@@ -1,16 +1,22 @@
 package rst.audition;
 
-//
-// Proto for deinterleaved sound chunk data needed by audiocues component
-// @author SAR
-// @date   2011/12/09
-//
-
 import "rst/audition/FloatSoundArray.proto";
+
 option java_outer_classname = "FormattedSoundChunkType";
 
+/**
+ * TODO Deinterleaved sound chunk data needed by audiocues component.
+ *
+ * @author Antoine Deleforge <antoine.deleforge@inrialpes.fr>
+ */
 message FormattedSoundChunk {
-    // see alaudio/alsoundextractor.h from aldebaran
+
+    /**
+     * TODO
+     *
+     * See alaudio/alsoundextractor.h from aldebaran for more
+     * information.
+     */
     enum ChannelType {
         ALL   = 0;
         LEFT  = 1;
@@ -18,7 +24,19 @@ message FormattedSoundChunk {
         FRONT = 3;
         REAR  = 4;
     }
+
+    /**
+     * TODO
+     */
     repeated FloatSoundArray data = 1;
+
+    /**
+     * TODO
+     */
     required uint32          rate = 2;
+
+    /**
+     * TODO
+     */
     optional uint32      channels = 3 [default = 2];
 };

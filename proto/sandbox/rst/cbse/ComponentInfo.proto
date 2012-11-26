@@ -7,14 +7,42 @@ import "rst/timing/Duration.proto";
 import "rst/timing/Frequency.proto";
 option java_outer_classname = "ComponentInfoType";
 
-// Holds information about a component
-// TODO: Should be split up in static (structure) and dynamic part (timing,
-// state, buffer filling levels, ...)
+/**
+ * Holds information about a component.
+ *
+ * TODO: Should be split up in static (structure) and dynamic part
+ * (timing, state, buffer filling levels, ...)
+ *
+ * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
+ */
 message ComponentInfo {
+    /**
+     * TODO
+     */
     required string id = 1;
+
+    /**
+     * TODO
+     */
     required ComponentState lifecycle = 2;
+
+    /**
+     * TODO
+     */
     required InputPort inputs = 3;
+
+    /**
+     * TODO
+     */
     required OutputPort outputs = 4;
+
+    /**
+     * TODO
+     */
     optional timing.Duration uptime = 5;
+
+    /**
+     * TODO
+     */
     optional timing.Frequency freqency = 6;
 }

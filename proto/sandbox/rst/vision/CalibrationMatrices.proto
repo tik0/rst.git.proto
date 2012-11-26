@@ -4,11 +4,21 @@ import "rst/vision/CameraMatrix3x4.proto";
 
 option java_outer_classname = "CalibrationMatricesType";
 
-// A message representing a pair of 2D Points
-
+/**
+ * A pair of 2D Points.
+ *
+ * @author TODO
+ */
 message CalibrationMatrices {
 
+    /**
+     * TODO
+     */
     required CameraMatrix3x4 left = 1;
+
+    /**
+     * TODO
+     */
     required CameraMatrix3x4 right = 2;
 
 }

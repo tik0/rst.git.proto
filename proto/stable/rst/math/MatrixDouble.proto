@@ -2,21 +2,52 @@ package rst.math;
 
 option java_outer_classname = "MatrixDoubleType";
 
-// A message representing a double matrix of MxN entries
+/**
+ * A message representing a double matrix of MxN entries.
+ *
+ * @author TODO
+ */
 message MatrixDouble {
 
-    // A message defining the size of the matrix
+    /**
+     * Size of the matrix.
+     */
     message Size {
+
+        /**
+         * TODO
+         */
         required uint32 m = 1;
+
+        /**
+         * TODO
+         */
         required uint32 n = 2;
+
     }
 
-    // A message carrying the data of the matrix
-    // NOTE: data is represented ROWWISE
+    /**
+     * Data of the matrix.
+     *
+     * NOTE: data is represented ROWWISE
+     */
     message Data {
+
+        /**
+         * TODO
+         */
         repeated double value = 1 [packed=true];
+
     }
 
+    /**
+     * TODO
+     */
     required Size size = 1;
+
+    /**
+     * TODO
+     */
     required Data data = 2;
+
 }

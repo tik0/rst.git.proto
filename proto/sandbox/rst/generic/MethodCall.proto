@@ -4,9 +4,23 @@ option java_outer_classname = "MethodCallType";
 
 import "rst/generic/Value.proto";
 
-// A message that wraps a generic method call
+/**
+ * A generic method call.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
 message MethodCall {
-    // ASCII name of the method to call.
+
+    /**
+     * Name of the method to call.
+     *
+     * ASCII string.
+     */
     required bytes name = 1;
+
+    /**
+     * TODO
+     */
     repeated Value arguments = 2;
+
 }

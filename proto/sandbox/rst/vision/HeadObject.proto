@@ -8,32 +8,100 @@ import "rst/classification/ClassificationResult.proto";
 
 option java_outer_classname = "HeadObjectType";
 
-// Focus on image coordinate systems (vision-based)
-// A head object represented by its ID, location in the image and
-// head rotation angles
-// id    : head object identifier
-// region: head location in the input image
-
+/**
+ * Focus on image coordinate systems (vision-based).
+ *
+ * A head object represented by its ID, location in the image and head
+ * rotation angles.
+ *
+ * id    : head object identifier
+ * TODO what does the above mean?
+ *
+ * @author TODO
+ */
 message HeadObject {
+
+    /**
+     * TODO
+     */
     optional tracking.TrackingInfo tracking_info = 1;
+
+    /**
+     * Head location in the input image.
+     */
     optional geometry.BoundingBox region = 2;
+
+    /**
+     * TODO
+     */
     optional math.Vec3DFloat position = 3;
-    // all pose angles are given in degrees
-    // pan   : pan head rotation angle, positive: person looks to his right side
-    // tilt  : tilt head rotation angle, positive: person looks up
-    // roll  : roll head rotation angle, positive: person's head rolled to his right shoulder
+
+    /**
+     * pose.x -> pan
+     *
+     *   Pan head rotation angle. Positive: person looks to his right
+     *   side.
+     *
+     * pose.y -> tilt
+     *
+     *   Tilt head rotation angle. Positive: person looks up.
+     *
+     * pose.z -> roll
+     *
+     *   Roll head rotation angle. Positive: person's head rolled to
+     *   his right shoulder.
+     */
     optional math.Vec3DFloat pose = 4;
-    // repeated field because in cases of stereo processing there might be faces
-    // from both cameras
+
+    /**
+     * TODO
+     */
     message LabeledFace {
+
+        /**
+         * TODO
+         */
         required bytes label = 1;
+
+        /**
+         * TODO
+         */
         required vision.Face face = 2;
+
     }
+
+    /**
+     * TODO
+     *
+     * Repeated field because in cases of stereo processing there
+     * might be faces from both cameras.
+     */
     repeated LabeledFace faces = 6;
+
+    /**
+     * TODO
+     */
     optional float speaking_probability = 7;
-    // string description of the visual focus of attention of this head
+
+    /**
+     * String description of the visual focus of attention of this
+     * head.
+     */
     optional bytes vfoa_target = 8;
+
+    /**
+     * TODO
+     */
     optional classification.ClassificationResult identity = 9;
+
+    /**
+     * TODO
+     */
     optional classification.ClassificationResult gender = 10;
+
+    /**
+     * TODO
+     */
     optional classification.ClassificationResult age = 11;
+
 }

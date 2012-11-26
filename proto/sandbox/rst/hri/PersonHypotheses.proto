@@ -4,9 +4,16 @@ import "rst/hri/PersonHypothesis.proto";
 
 option java_outer_classname = "PersonHypothesesType";
 
-// Multiple persons
+/**
+ * A sequence of person hypothesis.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
 message PersonHypotheses {
 
+   /**
+    * TODO
+    */
     repeated PersonHypothesis persons = 1;
 
 }

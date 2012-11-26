@@ -2,7 +2,16 @@ package rst.timing;
 
 option java_outer_classname = "FrequencyType";
 
-// Holds a frequency in Hertz (1/s)
+/**
+ * Holds a frequency in Hertz (1/s).
+ *
+ * @author TODO
+ */
 message Frequency {
+
+    /**
+     * TODO
+     */
     required double hz = 1;
+
 }

@@ -2,10 +2,21 @@ package rst.stochastics;
 
 option java_outer_classname = "Gaussian1DType";
 
+/**
+ * TODO
+ *
+ * @author TODO
+ */
 message Gaussian1D {
 
+    /**
+     * TODO
+     */
     required float mean = 1;
-    required float variance = 2;
 
+    /**
+     * TODO
+     */
+    required float variance = 2;
 
 }

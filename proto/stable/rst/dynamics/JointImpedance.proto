@@ -2,8 +2,23 @@ package rst.dynamics;
 
 option java_outer_classname = "JointImpedanceType";
 
-// A message that contains the joints' stiffness and damping values
+/**
+ * Stiffness and damping values of multiple joints.
+ *
+ * @author Christian Emmerich <cemmeric@techfak.uni-bielefeld.de>
+ * @todo what is SI unit of rotatory damping?
+ */
 message JointImpedance {
+
+    /**
+     * Stiffness values of multiple joints (same joints and same order as
+     * damping below)
+     */
     repeated float stiffness = 1;
+
+    /**
+     * Damping values of multiple joints (same joints and same order as
+     * stiffness above).
+     */
     repeated float damping = 2;
 }

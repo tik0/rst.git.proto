@@ -2,31 +2,75 @@ package rst.robot;
 
 option java_outer_classname = "RobotStateType";
 
-// Holds information about a robot's global state
-// Feel free to extend
+/**
+ * Holds information about a robot's global state.
+ *
+ * Feel free to extend.
+ *
+ * @author TODO
+ */
 message RobotState {
 
-// Possible connection states
+    /**
+     * Possible connection states.
+     */
     enum ConnectionStatus {
+
+        /**
+         * TODO
+         */
         CONNECTED = 1;
+
+        /**
+         * TODO
+         */
         NOT_CONNECTED = 2;
     }
 
+    /**
+     * TODO
+     */
     optional ConnectionStatus connection = 1;
 
-    // Possible states of motion
+    /**
+     * Possible states of motion.
+     */
     enum MotionStatus {
+
+        /**
+         * TODO
+         */
         CONVERGED = 1;
+
+        /**
+         * TODO
+         */
         MOVING = 2;
     }
 
+    /**
+     * TODO
+     */
     optional MotionStatus motion = 2;
 
-    // Possible force sensing
+    /**
+     * Possible force sensing states.
+     */
     enum ForceStatus {
+
+        /**
+         * TODO
+         */
         CONSTANT = 1;
+
+        /**
+         * TODO
+         */
         CHANGING = 2;
     }
 
+    /**
+     * TODO
+     */
     optional ForceStatus forces = 3;
 }

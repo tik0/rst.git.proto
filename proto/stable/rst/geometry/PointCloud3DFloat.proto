@@ -4,7 +4,16 @@ option java_outer_classname = "PointCloud3DFloatType";
 
 import "rst/math/Vec3DFloat.proto";
 
-// A message representing a 3D Point cloud
+/**
+ * A collection of points in 3D space.
+ *
+ * @author TODO Jordi Sanchez Riera <jordi.sanchez-riera@inrialpes.fr>
+ */
 message PointCloud3DFloat {
+
+    /**
+     * TODO
+     */
     repeated math.Vec3DFloat points = 1;
+
 }

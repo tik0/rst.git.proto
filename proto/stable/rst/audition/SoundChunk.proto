@@ -2,34 +2,89 @@ package rst.audition;
 
 option java_outer_classname = "SoundChunkType";
 
-// Interpretation of RSB timestamps
-//
-// create:
-//         Capture time of the audio buffer. More precisely, the
-//         timestamp should correspond to the first sample contained
-//         in the buffer.
+/**
+ * Interpretation of RSB timestamps
+ *
+ * create:
+ *         Capture time of the audio buffer. More precisely, the
+ *         timestamp should correspond to the first sample contained
+ *         in the buffer.
+ *
+ * @author TODO Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
 message SoundChunk {
 
+    /**
+     * TODO
+     */
     enum SampleType {
+        /**
+         * Signed 8-bit samples.
+         */
         SAMPLE_S8 = 0;
+
+        /**
+         * Unsigned 8-bit samples.
+         */
         SAMPLE_U8 = 1;
+
+        /**
+         * Signed 16-bit samples.
+         */
         SAMPLE_S16 = 2;
+
+        /**
+         * Unsigned 16-bit samples.
+         */
         SAMPLE_U16 = 4;
+
+        /**
+         * Signed 24-bit samples.
+         */
         SAMPLE_S24 = 8;
+
+        /**
+         * Unsigned 24-bit samples.
+         */
         SAMPLE_U24 = 16;
     }
 
+    /**
+     * TODO
+     */
     enum EndianNess {
         ENDIAN_LITTLE = 0;
         ENDIAN_BIG = 1;
     }
 
+    /**
+     * TODO
+     */
     required bytes data = 1;
+
+    /**
+     * TODO
+     */
     required uint32 sample_count = 2;
 
+    /**
+     * TODO
+     */
     optional uint32 channels = 3 [default = 1];
+
+    /**
+     * TODO
+     */
     optional uint32 rate = 4 [default = 44100];
+
+    /**
+     * TODO
+     */
     optional SampleType sample_type = 5 [default = SAMPLE_S16];
+
+    /**
+     * TODO
+     */
     optional EndianNess endianness = 6 [default = ENDIAN_LITTLE];
 
     // TODO: interleaving type?

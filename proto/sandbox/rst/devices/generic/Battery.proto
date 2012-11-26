@@ -2,9 +2,25 @@ package rst.devices.generic;
 
 option java_outer_classname = "BatteryType";
 
-
+/**
+ * TODO
+ *
+ * @author Jens-Christian Seele <jseele@techfak.uni-bielefeld.de>
+ */
 message Battery {
+    /**
+     * TODO
+     */
     required float battery_status = 1;
+
+    /**
+     * TODO
+     */
     required float battery_charge = 2;
+
+    /**
+     * TODO
+     *
+     */
     optional float battery_temperature = 3;
 }

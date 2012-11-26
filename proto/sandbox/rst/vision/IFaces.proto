@@ -5,9 +5,21 @@ import "rst/vision/Image.proto";
 
 option java_outer_classname = "IFacesType";
 
-// Information to visualize audio-visual fusion
-
+/**
+ * Information to visualize audio-visual fusion.
+ *
+ * @author TODO
+ */
 message IFaces {
-    required vision.Image    image = 1;
-    repeated vision.Face     faces = 2;
+
+    /**
+     * TODO
+     */
+    required vision.Image image = 1;
+
+    /**
+     * TODO
+     */
+    repeated vision.Face faces = 2;
+
 }

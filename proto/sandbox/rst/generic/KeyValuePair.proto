@@ -4,8 +4,21 @@ import "rst/generic/Value.proto";
 
 option java_outer_classname = "KeyValuePairType";
 
-// A message that wraps one single argument with it's type.
+/**
+ * TODO
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
 message KeyValuePair {
+
+    /**
+     * TODO
+     */
     required string key = 1;
+
+    /**
+     * TODO
+     */
     required Value value = 2;
+
 }

@@ -2,19 +2,45 @@ package rst.xml;
 
 option java_outer_classname = "XOPType";
 
+/**
+ * TODO
+ *
+ * @author TODO
+ * TODO move to separate file?
+ */
 message Attachment {
-    // url of attachment
+
+    /**
+     * Url of attachment.
+     */
     optional        string     url         = 1;
 
-    // optional attachment data: only one item is used
+    /**
+     * Optional attachment data: only one item is used.
+     * TODO seems wrong
+     */
     optional        bytes      wire_schema = 2;
+
+    /**
+     * TODO
+     */
     optional        bytes      data        = 3;
 }
 
+/**
+ * TODO
+ *
+ * @author TODO
+ */
 message XOP {
-    // XML string (utf-8 encoded)
+
+    /**
+     * XML string (UTF-8 encoded).
+     */
     optional        string     xml         = 1;
 
-    // set of url-value attachments
+    /**
+     * Set of url-value attachments.
+     */
     repeated        Attachment attachments = 2;
 }

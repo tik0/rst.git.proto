@@ -2,10 +2,28 @@ package rst.dynamics;
 
 option java_outer_classname = "TorquesType";
 
-// A message that representing an interaction Cartesian rotational forces
-// (moments) in N*cm
+/**
+ * Cartesian 3-dimensional rotational force (moment). To specify torques in
+ * joint space, use JointTorques instead.
+ *
+ * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
+ * @todo can we be more specific about the axes here?
+ */
 message Torques {
+
+    /**
+     * Torque around the x axis.
+     */
     required float a = 1;
+
+    /**
+     * Torque around the y axis.
+     */
     required float b = 2;
+
+    /**
+     * Torque around the z axis.
+     */
     required float c = 3;
+
 }

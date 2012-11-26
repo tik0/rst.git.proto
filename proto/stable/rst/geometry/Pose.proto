@@ -5,8 +5,21 @@ import "rst/geometry/Rotation.proto";
 
 option java_outer_classname = "PoseType";
 
-// A message for pose data (camera, robot, ...)
+/**
+ * TODO Pose data (camera, robot, ...).
+ *
+ * @author TODO
+ */
 message Pose {
+
+    /**
+     * TODO
+     */
     required Translation translation = 1;
+
+    /**
+     * TODO
+     */
     required Rotation rotation = 2;
+
 }

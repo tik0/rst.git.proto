@@ -2,12 +2,27 @@ package rst.geometry;
 
 option java_outer_classname = "TranslationType";
 
-// A message for position data (e.g. of an object such as camera,
-// robot, ...)
-// x, y, z: position in world coordinates
-//          all values are in meters
+/**
+ * Cartesian 3-dimensional translatory displacement or position (position being
+ * translation from an origin) in world coordinates.
+ *
+ * @author Arne Nordmann <anordman@cor-lab.uni-bielefeld.de>
+ */
 message Translation {
+
+    /**
+     * Cartesian displacement along the x axis
+     */
     required double x = 1;
+
+    /**
+     * Cartesian displacement along the y axis
+     */
     required double y = 2;
+
+    /**
+     * Cartesian displacement along the z axis
+     */
     required double z = 3;
+
 }

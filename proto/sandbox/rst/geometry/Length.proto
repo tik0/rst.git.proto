@@ -2,7 +2,15 @@ package rst.geometry;
 
 option java_outer_classname = "LengthType";
 
-// A message for length data (e.g. length of a link) in meter [m]
+/**
+ * A sequence of length measurements (e.g. length of a link in a
+ * kinematics chain).
+ *
+ * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
+ */
 message Length {
+    /**
+     * TODO
+     */
     repeated double lengths = 1;
 }
