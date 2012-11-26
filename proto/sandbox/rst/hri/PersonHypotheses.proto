@@ -11,9 +11,9 @@ option java_outer_classname = "PersonHypothesesType";
  */
 message PersonHypotheses {
 
-   /**
-    * TODO
-    */
+    /**
+     * TODO
+     */
     repeated PersonHypothesis persons = 1;
 
 }

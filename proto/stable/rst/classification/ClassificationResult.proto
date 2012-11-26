@@ -27,12 +27,12 @@ message ClassificationResult {
     message ClassWithProbability {
 
         /**
-     * Name of the class (ASCII string).
+         * Name of the class (ASCII string).
          */
         required bytes name = 1;
 
         /**
-     * Some kind of confidence, values are application dependent.
+         * Some kind of confidence, values are application dependent.
          *
          * However, values summing up to 1 are preferred.
          */
@@ -40,8 +40,8 @@ message ClassificationResult {
         required float confidence = 2;
     }
 
-     /**
-     * The complete vector of classes with their probabilities if
+    /**
+      * The complete vector of classes with their probabilities if
       * suitable.
       *
       * The results in this vector should of cause not contradict

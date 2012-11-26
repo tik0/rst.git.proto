@@ -11,9 +11,9 @@ option java_outer_classname = "MixtureOfGaussian1DType";
  */
 message MixtureOfGaussian1D {
 
-   /**
+    /**
      * TODO
-    */
+     */
     message GaussianComponent1D {
 
         /**
