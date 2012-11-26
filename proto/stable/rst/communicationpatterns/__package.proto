@@ -1,0 +1,6 @@
+/**
+ * Communication patterns refers to additional prototypes for advanced
+ * communication patterns at the integration level such as the
+ * Task-State pattern.
+ */
+package rst.communicationpatterns;

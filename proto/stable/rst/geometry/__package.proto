@@ -1,0 +1,8 @@
+/**
+ * Geometry is a branch of mathematics concerned with questions of
+ * shape, size, relative position of figures, and the properties of
+ * space.
+ *
+ * See also: http://www.ros.org/wiki/geometry_msgs
+ */
+package rst.geometry;

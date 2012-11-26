@@ -1,0 +1,6 @@
+/**
+ * Kinematics is the branch of classical mechanics that describes the
+ * motion of bodies (objects) and systems (groups of objects) without
+ * consideration of the forces that cause the motion.
+ */
+package rst.kinematics;
