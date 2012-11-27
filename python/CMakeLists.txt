@@ -53,25 +53,41 @@ IF(PYTHONINTERP_FOUND AND ((NOT PYTHON_VERSION_MAJOR) OR (PYTHON_VERSION_MAJOR E
     SET(SANDBOX_EGG "${CMAKE_CURRENT_BINARY_DIR}/sandbox/${SANDBOX_EGG}")
     #MESSAGE("${STABLE_EGG} ${SANDBOX_EGG}")
 
+    SET(STABLE_CMAKE_FILE "${CMAKE_CURRENT_BINARY_DIR}/stable/CreatePythonPackagesStable.cmake")
+    SET(STABLE_PYTHON_FILE "${CMAKE_CURRENT_BINARY_DIR}/stable/setup.py")
+    IF(UNIX)
+        SET(STABLE_CMAKE_FILE "'${STABLE_CMAKE_FILE}'")
+        SET(STABLE_PYTHON_FILE "'${STABLE_PYTHON_FILE}'")
+    ENDIF()
     ADD_CUSTOM_COMMAND(OUTPUT ${STABLE_EGG}
                        # to have a valid python package, an __init__.py must be present for every directory
-                       COMMAND ${CMAKE_COMMAND} -P "'${CMAKE_CURRENT_BINARY_DIR}/stable/CreatePythonPackagesStable.cmake'"
-                       COMMAND ${PYTHON_EXECUTABLE} "'${CMAKE_CURRENT_BINARY_DIR}/stable/setup.py'" bdist_egg
+                       COMMAND ${CMAKE_COMMAND} -P ${STABLE_CMAKE_FILE}
+                       COMMAND ${PYTHON_EXECUTABLE} ${STABLE_PYTHON_FILE} bdist_egg
                        DEPENDS ${PYTHON_STABLE_FILES} "${CMAKE_CURRENT_BINARY_DIR}/stable/setup.py"
                        WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/stable"
                        COMMENT "Creating stable python egg")
     ADD_CUSTOM_TARGET(python-stable ALL DEPENDS ${STABLE_EGG})
 
+    SET(SANDBOX_CMAKE_FILE "${CMAKE_CURRENT_BINARY_DIR}/sandbox/CreatePythonPackagesSandbox.cmake")
+    SET(SANDBOX_INIT_HACK "${CMAKE_CURRENT_SOURCE_DIR}/init-hack.py")
+    SET(SANDBOX_INIT_PY "${CMAKE_CURRENT_BINARY_DIR}/sandbox/rstsandbox/__init__.py")
+    SET(SANDBOX_SETUP_PY "${CMAKE_CURRENT_BINARY_DIR}/sandbox/setup.py")
+    IF(UNIX)
+        SET(SANDBOX_CMAKE_FILE "'${SANDBOX_CMAKE_FILE}'")
+        SET(SANDBOX_INIT_HACK "'${SANDBOX_INIT_HACK}'")
+        SET(SANDBOX_INIT_PY "'${SANDBOX_INIT_PY}'")
+        SET(SANDBOX_SETUP_PY "'${SANDBOX_SETUP_PY}'")
+    ENDIF()
     ADD_CUSTOM_COMMAND(OUTPUT ${SANDBOX_EGG}
                        # first part of the hack: namespace of proto files is rst but we want a module rstsandbox, so move the generated files to the right place
                        COMMAND ${CMAKE_COMMAND} -E remove_directory rstsandbox
                        COMMAND ${CMAKE_COMMAND} -E copy_directory rst rstsandbox
                        # to have a valid python package, an __init__.py must be present for every directory
-                       COMMAND ${CMAKE_COMMAND} -P "'${CMAKE_CURRENT_BINARY_DIR}/sandbox/CreatePythonPackagesSandbox.cmake'"
+                       COMMAND ${CMAKE_COMMAND} -P ${SANDBOX_CMAKE_FILE}
                        # second part of the hack: install a patches __init__.py for rstsandbox which installs rstsandbox in the rst namespace
-                       COMMAND ${CMAKE_COMMAND} -E copy "'${CMAKE_CURRENT_SOURCE_DIR}/init-hack.py'"
-                                                        "'${CMAKE_CURRENT_BINARY_DIR}/sandbox/rstsandbox/__init__.py'"
-                       COMMAND ${PYTHON_EXECUTABLE} "'${CMAKE_CURRENT_BINARY_DIR}/sandbox/setup.py'" bdist_egg
+                       COMMAND ${CMAKE_COMMAND} -E copy ${SANDBOX_INIT_HACK}
+                                                        ${SANDBOX_INIT_PY}
+                       COMMAND ${PYTHON_EXECUTABLE} ${SANDBOX_SETUP_PY} bdist_egg
                        DEPENDS ${PYTHON_SANDBOX_FILES} "${CMAKE_CURRENT_BINARY_DIR}/sandbox/setup.py"
                                                        "${CMAKE_CURRENT_SOURCE_DIR}/init-hack.py"
                        WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/sandbox"
