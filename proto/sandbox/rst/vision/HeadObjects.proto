@@ -7,13 +7,10 @@ option java_outer_classname = "HeadObjectsType";
 /**
  * A list of head objects.
  *
- * @author TODO
+ * @author Vasil Khalidov <vasil.khalidov@idiap.ch>
  */
 message HeadObjects {
 
-    /**
-     * TODO
-     */
     repeated vision.HeadObject head_objects = 1;
 
 }

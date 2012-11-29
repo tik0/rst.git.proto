@@ -16,20 +16,12 @@ message RobotState {
      */
     enum ConnectionStatus {
 
-        /**
-         * TODO
-         */
         CONNECTED = 1;
 
-        /**
-         * TODO
-         */
         NOT_CONNECTED = 2;
+
     }
 
-    /**
-     * TODO
-     */
     optional ConnectionStatus connection = 1;
 
     /**
@@ -37,20 +29,11 @@ message RobotState {
      */
     enum MotionStatus {
 
-        /**
-         * TODO
-         */
         CONVERGED = 1;
 
-        /**
-         * TODO
-         */
         MOVING = 2;
     }
 
-    /**
-     * TODO
-     */
     optional MotionStatus motion = 2;
 
     /**
@@ -58,19 +41,10 @@ message RobotState {
      */
     enum ForceStatus {
 
-        /**
-         * TODO
-         */
         CONSTANT = 1;
 
-        /**
-         * TODO
-         */
         CHANGING = 2;
     }
 
-    /**
-     * TODO
-     */
     optional ForceStatus forces = 3;
 }

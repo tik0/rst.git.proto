@@ -9,9 +9,8 @@ option java_outer_classname = "LengthType";
  * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
  */
 message Length {
-    /**
-     * TODO
-     */
+
     // @unit(meter)
     repeated double lengths = 1;
+
 }

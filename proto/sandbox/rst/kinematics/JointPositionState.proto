@@ -12,8 +12,6 @@ import "rst/kinematics/JointState.proto";
  */
 message JointPositionState {
 
-    /**
-     * TODO
-     */
     repeated JointState joints = 1;
+
 }

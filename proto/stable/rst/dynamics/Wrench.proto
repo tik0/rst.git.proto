@@ -13,12 +13,12 @@ option java_outer_classname = "WrenchType";
 message Wrench {
 
     /**
-     * 3-dimensional translatory forces
+     * 3-dimensional translatory forces.
      */
     required Forces forces = 1;
 
     /**
-     * 3-dimensional rotatory forces (moment)
+     * 3-dimensional rotatory forces (moment).
      */
     required Torques torques = 2;
 

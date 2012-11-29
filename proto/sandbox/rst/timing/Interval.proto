@@ -5,20 +5,15 @@ import "rst/timing/Timestamp.proto";
 option java_outer_classname = "IntervalType";
 
 /**
- * TODO
+ * @todo document
  *
- * @author TODO
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
+// @constraint(.begin.time <= .end.time)
 message Interval {
 
-    /**
-     * TODO
-     */
     optional Timestamp begin = 1;
 
-    /**
-     * TODO
-     */
     optional Timestamp end = 2;
 
 }

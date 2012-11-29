@@ -24,8 +24,6 @@ message ComponentState {
         RESET = 7;
     }
 
-    /**
-     * TODO
-     */
     required State state = 1;
+
 }

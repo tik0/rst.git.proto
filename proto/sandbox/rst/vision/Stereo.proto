@@ -6,35 +6,20 @@ import "rst/math/Vec3DFloat.proto";
 option java_outer_classname = "StereoType";
 
 /**
- * TODO
+ * @todo document
  *
- * @author TODO
+ * @author Jordi "Sanchez Riera" <jordi.sanchez-riera@inrialpes.fr>
  */
 message Stereo {
 
-    /**
-     * TODO
-     */
     optional geometry.BoundingBox  face = 1;
 
-    /**
-     * TODO
-     */
     optional math.Vec3DFloat   position = 2;
 
-    /**
-     * TODO
-     */
     optional float speaking_probability = 3;
 
-    /**
-     * TODO
-     */
     optional float           mapped_itd = 4;
 
-    /**
-     * TODO
-     */
     optional int32             track_id = 5;
 
 }

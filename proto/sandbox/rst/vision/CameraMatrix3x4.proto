@@ -5,7 +5,7 @@ option java_outer_classname = "CameraMatrix3x4Type";
 /**
  * Matrix for Camera Matrix Parameters K(R, t).
  *
- * @author TODO
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
 message CameraMatrix3x4 {
 

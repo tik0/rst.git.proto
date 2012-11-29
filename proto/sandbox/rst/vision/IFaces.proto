@@ -8,18 +8,12 @@ option java_outer_classname = "IFacesType";
 /**
  * Information to visualize audio-visual fusion.
  *
- * @author TODO
+ * @author Jordi "Sanchez Riera" <jordi.sanchez-riera@inrialpes.fr>
  */
 message IFaces {
 
-    /**
-     * TODO
-     */
     required vision.Image image = 1;
 
-    /**
-     * TODO
-     */
     repeated vision.Face faces = 2;
 
 }

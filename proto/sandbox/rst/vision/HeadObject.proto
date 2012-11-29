@@ -17,13 +17,10 @@ option java_outer_classname = "HeadObjectType";
  * id    : head object identifier
  * @todo "what does the above mean?"
  *
- * @author TODO
+ * @author Vasil Khalidov <vasil.khalidov@idiap.ch>
  */
 message HeadObject {
 
-    /**
-     * TODO
-     */
     optional tracking.TrackingInfo tracking_info = 1;
 
     /**
@@ -31,56 +28,41 @@ message HeadObject {
      */
     optional geometry.BoundingBox region = 2;
 
-    /**
-     * TODO
-     */
     optional math.Vec3DFloat position = 3;
 
     /**
-     * pose.x -> pan
+     * @ref .pose.x -> pan
      *
      *   Pan head rotation angle. Positive: person looks to his right
      *   side.
      *
-     * pose.y -> tilt
+     * @ref .pose.y -> tilt
      *
      *   Tilt head rotation angle. Positive: person looks up.
      *
-     * pose.z -> roll
+     * @ref .pose.z -> roll
      *
      *   Roll head rotation angle. Positive: person's head rolled to
      *   his right shoulder.
      */
     optional math.Vec3DFloat pose = 4;
 
-    /**
-     * TODO
-     */
     message LabeledFace {
 
-        /**
-         * TODO
-         */
         required bytes label = 1;
 
-        /**
-         * TODO
-         */
         required vision.Face face = 2;
 
     }
 
     /**
-     * TODO
+     * @todo "semantic description"
      *
      * Repeated field because in cases of stereo processing there
      * might be faces from both cameras.
      */
     repeated LabeledFace faces = 6;
 
-    /**
-     * TODO
-     */
     optional float speaking_probability = 7;
 
     /**
@@ -89,19 +71,10 @@ message HeadObject {
      */
     optional bytes vfoa_target = 8;
 
-    /**
-     * TODO
-     */
     optional classification.ClassificationResult identity = 9;
 
-    /**
-     * TODO
-     */
     optional classification.ClassificationResult gender = 10;
 
-    /**
-     * TODO
-     */
     optional classification.ClassificationResult age = 11;
 
 }

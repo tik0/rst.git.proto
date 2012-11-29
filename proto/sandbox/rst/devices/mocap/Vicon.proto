@@ -5,156 +5,78 @@ import "rst/math/Vec3DDouble.proto";
 option java_outer_classname = "ViconType";
 
 /**
- * TODO
+ * @todo document
  *
  * @author TODO
  */
 message Vicon {
 
-    /**
-     * TODO
-     */
     message UnlabeledMarker {
 
-        /**
-         * TODO
-         */
         required string name = 1;
 
-        /**
-         * TODO
-         */
         required math.Vec3DDouble translation = 2;
 
     }
 
-    /**
-     * TODO
-     */
     message Timecode{
 
-        /**
-         * TODO
-         */
         // @unit(hour)
         required uint32 hours = 1;
 
-        /**
-         * TODO
-         */
         // @unit(minute)
         required uint32 minutes = 2;
 
-        /**
-         * TODO
-         */
         // @unit(second)
         required uint32 seconds = 3;
 
-        /**
-         * TODO
-         */
         optional uint32 frames = 4 [default = 0];
 
-        /**
-         * TODO
-         */
         optional uint32 sub_frame = 5 [default = 0];
 
     }
 
-    /**
-     * TODO
-     */
+    // @todo: "Add special matrix data/idl type specification"
+    // optional math.Mat3x3Double rotation_matrix = 7;
     message Segment{
 
-        /**
-         * TODO
-         */
         message Marker {
 
-            /**
-             * TODO
-             */
             required string name = 1;
 
-            /**
-             * TODO
-             */
             required math.Vec3DDouble translation = 2;
 
         }
 
-        /**
-         * TODO
-         */
         required string name = 1;
 
-        /**
-         * TODO
-         */
         repeated Marker markers = 2;
 
-        /**
-         * TODO
-         */
         optional math.Vec3DDouble translation = 3;
 
-        /**
-         * TODO
-         */
         optional math.Vec3DDouble euler_orientation = 4;
 
-        /**
-         * TODO
-         */
         optional math.Vec3DDouble helical_orientation = 5;
 
-        /**
-         * TODO
-         */
         optional math.Vec3DDouble quaternionen_orientation = 6;
 
-        //TODO: Add special matrix data/idl type specification
-        //optional math.Mat3x3Double rotation_matrix = 7;
     }
 
-    /**
-     * TODO
-     */
     message Subject {
 
-        /**
-         * TODO
-         */
         required string name = 1;
 
-        /**
-         * TODO
-         */
         repeated Segment segments = 2;
 
     }
 
-    /**
-     * TODO
-     */
     // @unit(number)
     required uint64 frame = 1;
 
-    /**
-     * TODO
-     */
     optional Timecode timecode = 2;
 
-    /**
-     * TODO
-     */
     repeated Subject subject = 3;
 
-    /**
-     * TODO
-     */
     repeated UnlabeledMarker unlabeled_marker = 4;
 
 }

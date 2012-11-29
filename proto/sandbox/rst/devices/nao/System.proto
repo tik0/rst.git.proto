@@ -2,8 +2,10 @@ package rst.devices.nao;
 
 option java_outer_classname = "SystemType";
 
-
 message System {
+
     required string robot_name = 1;
+
     optional string naoqi_version = 2;
+
 }

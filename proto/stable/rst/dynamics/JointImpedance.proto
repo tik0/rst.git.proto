@@ -12,15 +12,17 @@ option java_outer_classname = "JointImpedanceType";
 message JointImpedance {
 
     /**
-     * Stiffness values of multiple joints (same joints and same order as
-     * damping below)
+     * Stiffness values of multiple joints.
+     *
+     * (Same joints and same order as @ref .damping)
      */
     // @unit(TODO)
     repeated float stiffness = 1;
 
     /**
-     * Damping values of multiple joints (same joints and same order as
-     * stiffness above).
+     * Damping values of multiple joints
+     *
+     * (Same joints and same order as @ref .stiffness)
      */
     // @unit(newton-meter / rad)
     repeated float damping = 2;

@@ -8,20 +8,13 @@ option java_outer_classname = "OutputPortType";
  * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
  */
 message OutputPort {
-    /**
-     * TODO
-     */
+
     required string scope = 1;
 
-    /**
-     * TODO
-     */
     // @unit(number-or-bytes?)
     optional uint64 buffersize = 2;
 
-    /**
-     * TODO
-     */
     // @unit(number-or-bytes?)
     optional uint64 filling = 3;
+
 }

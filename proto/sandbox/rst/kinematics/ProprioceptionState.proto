@@ -7,15 +7,12 @@ import "rst/kinematics/JointState.proto";
 /**
  * Proprioceptive (joint) data of a robot.
  *
- * @author TODO Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
-// @deprecated This type has been deprecated in favor of
-//             rst.kinematics.JointAngles and rst.devices.
+// @deprecated This type has been deprecated in favor of @ref
+//             rst.kinematics.JointAngles and @ref rst.devices.
 message ProprioceptionState {
 
-    /**
-     * TODO
-     */
     repeated JointState joints = 1;
 
 }

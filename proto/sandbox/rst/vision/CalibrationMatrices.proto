@@ -6,19 +6,14 @@ option java_outer_classname = "CalibrationMatricesType";
 
 /**
  * A pair of 2D Points.
+ * @todo "comment seems wrong"
  *
- * @author TODO
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
 message CalibrationMatrices {
 
-    /**
-     * TODO
-     */
     required CameraMatrix3x4 left = 1;
 
-    /**
-     * TODO
-     */
     required CameraMatrix3x4 right = 2;
 
 }

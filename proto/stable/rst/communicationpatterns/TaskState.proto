@@ -5,6 +5,10 @@ option java_outer_classname = "TaskStateType";
 /**
  * Represents the initiation or update of a potentially long-running task.
  *
+ * The task is represented as a current state (@ref .state field) and
+ * a datum or "specification" (represented by the @ref .wire_schema
+ * and @ref .payload fields).
+ *
  * @see http://opensource.cit-ec.de/projects/xtt/wiki/TaskStateProtocol
  *      "A detailed description of the task state protocol"
  *
@@ -55,7 +59,7 @@ message TaskState {
     enum State {
 
         /**
-         * Client submits specification with INITIATED state.
+         * Client submits specification with @ref .INITIATED state.
          *
          * Server accepts or rejects task and publishes specification
          * with @ref .ACCEPTED or @ref .REJECTED state accordingly.
@@ -73,7 +77,8 @@ message TaskState {
         REJECTED                 = 2;
 
         /**
-         * Client publishes (modified) specification with UPDATE state.
+         * Client publishes (modified) specification with @ref .UPDATE
+         * state.
          *
          * Server accepts or rejects the update and publishes
          * specification with @ref .ACCEPTED or @ref .UPDATE_REJECTED
@@ -87,7 +92,7 @@ message TaskState {
         UPDATE_REJECTED    = 4;
 
         /**
-         * TODO
+         * @todo document
          */
         ABORT                = 5;
 
@@ -102,7 +107,7 @@ message TaskState {
         ABORT_FAILED         = 7;
 
         /**
-         * TODO
+         * @todo document
          */
         RESULT_AVAILABLE = 8;
 
@@ -161,6 +166,8 @@ message TaskState {
      * processed by a (de)serialization mechanism that decodes/encodes
      * the payload blob according to the type information in
      * wireSchema.
+     *
+     * @todo "type should be ascii-string"
      */
     required bytes    wire_schema = 4;
 

@@ -8,18 +8,12 @@ import "rst/math/Vec2DFloat.proto";
 /**
  * A pair assembled from a 2D Point and a timestamp.
  *
- * @author TODO
+ * @author Agnes Swadzba <aswadzba@techfak.uni-bielefeld.de>
  */
 message Point2DTimestampPair {
 
-    /**
-     * TODO
-     */
     required math.Vec2DFloat point = 1;
 
-    /**
-     * TODO
-     */
     required Timestamp timestamp = 2;
 
 }

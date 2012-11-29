@@ -79,19 +79,10 @@ message ProcessCues {
          */
         optional uint64 etime = 8;
 
-        /**
-         * TODO
-         */
         optional uint64 utime_scaled = 9;
 
-        /**
-         * TODO
-         */
         optional uint64 stime_scaled = 10;
 
-        /**
-         * TODO
-         */
         optional uint64 wall_time_scaled = 11;
 
         // IO stuff

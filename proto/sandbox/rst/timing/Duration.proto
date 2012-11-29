@@ -3,15 +3,13 @@ package rst.timing;
 option java_outer_classname = "DurationType";
 
 /**
- * Holds a time duration in microseconds.
+ * Holds a time duration.
  *
- * @author TODO
+ * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
  */
 message Duration {
 
-    /**
-     * TODO
-     */
+    // @unit(microsecond)
     required uint64 time = 1;
 
 }

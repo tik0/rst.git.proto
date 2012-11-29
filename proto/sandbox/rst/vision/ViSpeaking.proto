@@ -8,23 +8,14 @@ option java_outer_classname = "ViSpeakingType";
 /**
  * Information to visualize audio-visual fusion.
  *
- * @author TODO
+ * @author Jordi "Sanchez Riera" <jordi.sanchez-riera@inrialpes.fr>
  */
 message ViSpeaking {
 
-    /**
-     * TODO
-     */
     required vision.Image    image = 1;
 
-    /**
-     * TODO
-     */
     repeated vision.Stereo  stereo = 2;
 
-    /**
-     * TODO
-     */
     repeated float            itds = 3;
 
 }

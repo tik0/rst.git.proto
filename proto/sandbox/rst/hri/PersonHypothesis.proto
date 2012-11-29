@@ -9,23 +9,14 @@ option java_outer_classname = "PersonHypothesisType";
 /**
  * A hypothesis about a person (e.g. in a person-tracking system).
  *
- * @author: Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
 message PersonHypothesis {
 
-    /**
-     * TODO
-     */
     optional tracking.TrackingInfo tracking_info = 1;
 
-    /**
-     * TODO
-     */
     optional math.Vec2DFloat position = 2;
 
-    /**
-     * TODO
-     */
     optional vision.Face face = 3;
 
 }

@@ -3,67 +3,38 @@ package rst.devices.generic;
 option java_outer_classname = "CpuMemoryType";
 
 /**
- * TODO
+ * @todo document
  *
  * @author Jens-Christian Seele <jseele@techfak.uni-bielefeld.de>
  */
 message CpuMemory {
 
-    /**
-     * TODO
-     */
     // @unit(mb?)
     optional float memory_free = 1;
 
-    /**
-     * TODO
-     */
     // @unit(mb?)
     optional float memory_total = 2;
 
-    /**
-     * TODO
-     */
     // @unit(mb?)
     optional float memory_used = 3;
 
-    /**
-     * TODO
-     */
     // @unit(second?)
     optional uint32 jiffy_length = 10;
 
-    /**
-     * TODO
-     */
     optional bytes host_name = 11;
 
     message Cpu {
-        /**
-         * TODO
-         */
+
         // @unit(number)
         required int32 index = 1;
 
-        /**
-         * TODO
-         */
         // @unit(jiffies)
         optional uint64 user = 2;
 
-        /**
-         * TODO
-         */
         optional uint64 user_low = 3;
 
-        /**
-         * TODO
-         */
         optional uint64 system = 4;
 
-        /**
-         * TODO
-         */
         optional uint64 idle = 5;
     }
 

@@ -5,6 +5,7 @@ import "rst/cbse/InputPort.proto";
 import "rst/cbse/OutputPort.proto";
 import "rst/timing/Duration.proto";
 import "rst/timing/Frequency.proto";
+
 option java_outer_classname = "ComponentInfoType";
 
 /**
@@ -16,33 +17,17 @@ option java_outer_classname = "ComponentInfoType";
  * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
  */
 message ComponentInfo {
-    /**
-     * TODO
-     */
+
     required string id = 1;
 
-    /**
-     * TODO
-     */
     required ComponentState lifecycle = 2;
 
-    /**
-     * TODO
-     */
     required InputPort inputs = 3;
 
-    /**
-     * TODO
-     */
     required OutputPort outputs = 4;
 
-    /**
-     * TODO
-     */
     optional timing.Duration uptime = 5;
 
-    /**
-     * TODO
-     */
     optional timing.Frequency freqency = 6;
+
 }
