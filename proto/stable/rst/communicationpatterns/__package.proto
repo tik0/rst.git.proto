@@ -1,6 +1,10 @@
 /**
- * Communication patterns refers to additional prototypes for advanced
- * communication patterns at the integration level such as the
- * Task-State pattern.
+ * Data types related to communication at the integration level.
+ *
+ * One example is @ref rst.communicationpatterns.TaskState which is
+ * used in the Task-State pattern.
+ *
+ * @see http://www.ros.org/wiki/actionlib_msgs
+ *      "Corresponding data types in ROS"
  */
 package rst.communicationpatterns;
