@@ -7,10 +7,30 @@ option java_outer_classname = "BoundingBoxType";
 /**
  * A bounding box, which is associated to a raster image.
  *
+ * .. parsed-literal::
+ *
+ *    (0,0)           Image
+ *    +----------------------------------+ ^
+ *    |                                  |
+ *    |    @ref .top_left                    |
+ *    |    +---------------+ ^           |
+ *    |    |               |             |
+ *    |    |               | @ref .height    | @ref .image_height
+ *    |    |               |             |
+ *    |    +---------------+ v           |
+ *    |    <    @ref .width     >            |
+ *    |                                  |
+ *    +----------------------------------+ v
+ *    <         @ref .image_width            >
+ *
  * All values are in pixels and refer to the associated image.
  *
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
+// @constraint(.top_left.x < .image_width)
+// @constraint(.top_left.x + .width <= .image_width)
+// @constraint(.top_left.y < .image_height)
+// @constraint(.top_left.y + .height <= .image_height)
 message BoundingBox {
 
     /**

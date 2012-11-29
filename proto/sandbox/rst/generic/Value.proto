@@ -10,7 +10,8 @@ option java_outer_classname = "ValueType";
 message Value {
 
     /**
-     * TODO Each value is typed.
+     * Each value is typed.
+     * @todo "better explanation"
      */
     enum Type {
         VOID = 1;

@@ -10,8 +10,8 @@ option java_outer_classname = "ComponentInfoType";
 /**
  * Holds information about a component.
  *
- * TODO: Should be split up in static (structure) and dynamic part
- * (timing, state, buffer filling levels, ...)
+ * @todo "Should be split up in static (structure) and dynamic part
+ * (timing, state, buffer filling levels, ...)"
  *
  * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
  */

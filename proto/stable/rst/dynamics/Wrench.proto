@@ -6,8 +6,7 @@ import "rst/dynamics/Torques.proto";
 option java_outer_classname = "WrenchType";
 
 /**
- * Interaction force, composed of Cartesian translational forces (in
- * Newton) and Cartesian rotational forces (moments in N*m).
+ * Interaction force, composed of Cartesian translational forces and Cartesian rotational forces.
  *
  * @author Arne Nordmann <anordman@cor-lab.uni-bielefeld.de>
  */

@@ -7,7 +7,8 @@ import "rst/math/Vec3DFloat.proto";
 /**
  * A collection of points in 3D space.
  *
- * @author TODO Jordi Sanchez Riera <jordi.sanchez-riera@inrialpes.fr>
+ * @author Jordi "Sanchez Riera" <jordi.sanchez-riera@inrialpes.fr>
+ * @todo "correct author?"
  */
 message PointCloud3DFloat {
 

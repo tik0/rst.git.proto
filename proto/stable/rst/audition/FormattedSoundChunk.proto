@@ -5,17 +5,18 @@ import "rst/audition/FloatSoundArray.proto";
 option java_outer_classname = "FormattedSoundChunkType";
 
 /**
- * TODO Deinterleaved sound chunk data needed by audiocues component.
+ * Deinterleaved sound chunk data needed by audiocues component.
+ *
+ * @todo "What is deinterleaved sound chunk data?"
  *
  * @author Antoine Deleforge <antoine.deleforge@inrialpes.fr>
  */
 message FormattedSoundChunk {
 
     /**
-     * TODO
-     *
      * See alaudio/alsoundextractor.h from aldebaran for more
      * information.
+     * @todo "this explanation is not helpful"
      */
     enum ChannelType {
         ALL   = 0;

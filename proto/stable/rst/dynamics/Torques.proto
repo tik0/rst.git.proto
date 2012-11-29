@@ -3,11 +3,13 @@ package rst.dynamics;
 option java_outer_classname = "TorquesType";
 
 /**
- * Cartesian 3-dimensional rotational force (moment). To specify torques in
- * joint space, use JointTorques instead.
+ * Cartesian 3-dimensional rotational force (moment).
+ *
+ * To specify torques in joint space, use @ref
+ * rst.dynamics.JointTorques instead.
  *
  * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
- * @todo can we be more specific about the axes here?
+ * @todo "can we be more specific about the axes here?"
  */
 message Torques {
 

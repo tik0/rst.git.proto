@@ -15,7 +15,7 @@ option java_outer_classname = "HeadObjectType";
  * rotation angles.
  *
  * id    : head object identifier
- * TODO what does the above mean?
+ * @todo "what does the above mean?"
  *
  * @author TODO
  */

@@ -6,8 +6,9 @@ option java_outer_classname = "JointImpedanceType";
  * Stiffness and damping values of multiple joints.
  *
  * @author Christian Emmerich <cemmeric@techfak.uni-bielefeld.de>
- * @todo what is SI unit of rotatory damping?
+ * @todo "what is SI unit of rotatory damping?"
  */
+// @constraint(len(.stiffness) == len(.damping))
 message JointImpedance {
 
     /**

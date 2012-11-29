@@ -3,15 +3,27 @@ package rst.audition;
 option java_outer_classname = "SoundChunkType";
 
 /**
- * Interpretation of RSB timestamps
+ * Objects of this represent a chunk of an audio stream.
+ *
+ * The audio information for one or more @ref .channels is stored in
+ * @ref .data as a sequence of @ref .sample_count encoded samples, the
+ * encoding of which is described by @ref .endianness and @ref
+ * .sample_type.
+ *
+ * Depending on the sample rate (@ref .rate), such a chunk of audio
+ * corresponds to a certain amount of time during which its samples
+ * have been recorded.
+ *
+ * Interpretation of RSB timestamps:
  *
  * create:
  *         Capture time of the audio buffer. More precisely, the
  *         timestamp should correspond to the first sample contained
  *         in the buffer.
  *
- * @author TODO Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ * @author David Klotz <dklotz@techfak.uni-bielefeld.de>
  */
+// @constraint(len(.data) == 8 * .channels * .sample_count * TODO(.sample_type))
 message SoundChunk {
 
     /**
@@ -65,7 +77,6 @@ message SoundChunk {
     /**
      * TODO
      */
-    // @constraint(value = 8 * .channels * len(.data) * .sample_type)
     // @unit(number)
     required uint32 sample_count = 2;
 

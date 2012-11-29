@@ -3,8 +3,10 @@ package rst.geometry;
 option java_outer_classname = "TranslationType";
 
 /**
- * Cartesian 3-dimensional translatory displacement or position (position being
- * translation from an origin) in world coordinates.
+ * Cartesian 3-dimensional translatory displacement or position.
+ *
+ * The displacement or position (position being translation from an
+ * origin) is expressed in world coordinates.
  *
  * @author Arne Nordmann <anordman@cor-lab.uni-bielefeld.de>
  */

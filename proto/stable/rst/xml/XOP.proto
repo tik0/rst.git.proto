@@ -5,8 +5,10 @@ option java_outer_classname = "XOPType";
 /**
  * TODO
  *
- * @author TODO
- * TODO move to separate file?
+ * @author Robert Haschke <rhaschke@techfak.uni-bielefeld.de>
+ *
+ * @todo "move to separate file?"
+ * @todo "explain how (de)serialization works"
  */
 message Attachment {
 
@@ -17,7 +19,7 @@ message Attachment {
 
     /**
      * Optional attachment data: only one item is used.
-     * TODO seems wrong
+     * @todo "comment seems wrong"
      */
     optional        bytes      wire_schema = 2;
 
@@ -28,9 +30,16 @@ message Attachment {
 }
 
 /**
- * TODO
+ * Objects of this type represent XML with binary attachments.
  *
- * @author TODO
+ * Thus, this type can be seen (and used) as an implementation of the
+ * XML-binary Optimized Packaging (XOP) recommendation. (Note that the
+ * draft calls this kind of object "XOP Package").
+ *
+ * @see http://www.w3.org/TR/xop10/
+ *      "XML-binary Optimized Packaging (XOP)"
+ *
+ * @author Robert Haschke <rhaschke@techfak.uni-bielefeld.de>
  */
 message XOP {
 

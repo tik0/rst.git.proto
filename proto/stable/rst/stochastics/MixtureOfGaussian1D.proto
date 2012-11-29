@@ -7,7 +7,8 @@ option java_outer_classname = "MixtureOfGaussian1DType";
 /**
  * TODO
  *
- * @author TODO
+ * @author Xavier Alameda-Pineda <xavier.alameda-pineda@inrialpes.fr>
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
 message MixtureOfGaussian1D {
 

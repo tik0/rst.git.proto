@@ -11,8 +11,9 @@ option java_outer_classname = "InstantaneousPhaseType";
 message InstantaneousPhase {
 
     /**
-     * TODO
      * The phase is specified in radians.
+     * @todo "but what does it mean?"
      */
+    // @unit(radian)
     required float phase = 1;
 }

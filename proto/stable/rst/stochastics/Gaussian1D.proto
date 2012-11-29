@@ -5,7 +5,8 @@ option java_outer_classname = "Gaussian1DType";
 /**
  * TODO
  *
- * @author TODO
+ * @author Xavier Alameda-Pineda <xavier.alameda-pineda@inrialpes.fr>
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
 message Gaussian1D {
 
@@ -15,7 +16,8 @@ message Gaussian1D {
     // @unit(number)
     required float mean = 1;
 
-    /* TODO
+    /**
+     * TODO
      */
     // @constraint(value >= 0)
     // @unit(number)
