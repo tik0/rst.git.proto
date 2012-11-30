@@ -3,15 +3,16 @@ package rst.timing;
 option java_outer_classname = "TimestampType";
 
 /**
- * Holds a unix timestamp in milliseconds, count starts at the Unix
- * Epoch on January 1st, 1970.
+ * Holds a UNIX timestamp in microseconds.
+ *
+ * Count starts at the Unix Epoch on January 1st, 1970 in UTC time.
  *
  * @author Agnes Swadzba <aswadzba@techfak.uni-bielefeld.de>
  */
 message Timestamp {
 
     /**
-     * Milliseconds since January 1st, 1970
+     * Number of microseconds since January 1st, 1970 in UTC time.
      */
     // @unit(microsecond)
     required uint64 time = 1;
