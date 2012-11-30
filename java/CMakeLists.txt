@@ -12,8 +12,16 @@ IF(ANT_EXECUTABLE)
 
     # Prepare safe variables and configure ant build files.
     STRING(REPLACE "&" "&amp;" SAFE_CMAKE_CURRENT_BINARY_DIR  "${CMAKE_CURRENT_BINARY_DIR}")
-    STRING(REPLACE "&" "&amp;" JAR_LINES "<jar jarfile=\"${STABLE_JAR_FILE}\" basedir=\"classes-stable\" manifest=\"MANIFEST.MF\"/>\n
-<jar jarfile=\"${SANDBOX_JAR_FILE}\" basedir=\"classes-sandbox\" manifest=\"MANIFEST.MF\"/>")
+    SET(JAR_FILES)
+    SET(JAR_LINES)
+    FOREACH(DOMAIN ${DOMAINS})
+        STRING(TOLOWER ${DOMAIN} DOMAIN_LOWER)
+
+        LIST(APPEND JAR_FILES "${${DOMAIN}_JAR_FILE}")
+
+        STRING(REPLACE "&" "&amp;" TEMP "<jar jarfile=\"${${DOMAIN}_JAR_FILE}\" basedir=\"classes-${DOMAIN_LOWER}\" manifest=\"MANIFEST.MF\"/>")
+        SET(JAR_LINES "${JAR_LINES}\n${TEMP}")
+    ENDFOREACH()
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/build.xml.in"
                    "${CMAKE_CURRENT_BINARY_DIR}/build.xml"
                    @ONLY)
