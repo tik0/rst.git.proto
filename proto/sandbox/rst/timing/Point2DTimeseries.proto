@@ -5,6 +5,8 @@ option java_outer_classname = "Point2DTimeseriesType";
 import "rst/timing/Point2DTimestampPair.proto";
 
 // A list of pairs consisting assembled from a 2D point and a timestamp.
+// It is expected that the entries are sorted by the user in increasing order of the timestamp:
+// entry[i].timestamp.time < entry[i+1].timestamp.time.
 
 message Point2DTimeseries {
     repeated Point2DTimestampPair entry = 1;
