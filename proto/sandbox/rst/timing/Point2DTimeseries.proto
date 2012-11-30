@@ -5,13 +5,17 @@ option java_outer_classname = "Point2DTimeseriesType";
 import "rst/timing/Point2DTimestampPair.proto";
 
 /**
- * A list of pairs consisting assembled from a 2D point and a
- * timestamp.
+ * An ordered list of pairs each consisting of a timestamp and a 2D point.
  *
  * @author Agnes Swadzba <aswadzba@techfak.uni-bielefeld.de>
  */
 message Point2DTimeseries {
 
+    /**
+     * Entries are sorted in increasing order of the @ref
+     * .Point2DTimestampPair.timestamp field.
+     */
+    // @constraint(for i from 0 below (len(value) - 1) value[i].timestamp.time < value[i+1].timestamp.time end)
     repeated Point2DTimestampPair entry = 1;
 
 }
