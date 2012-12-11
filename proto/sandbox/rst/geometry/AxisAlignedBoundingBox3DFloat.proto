@@ -1,0 +1,60 @@
+package rst.geometry;
+
+option java_outer_classname = "AxisAlignedBoundingBox3DFloatType";
+
+import "rst/geometry/Translation.proto";
+
+/**
+ * An axis-aligned box in 3D.
+ *
+ * .. parsed-literal::
+ *
+ *    ^ Z
+ *    |
+ *    |            +----------------------+ ^
+ *    |           /                      /|
+ *    |          /                      / |
+ *    |         /                      /  | @ref .height
+ *    |        +----------------------+   |
+ *    |        |                      |   |
+ *    |        |                      |   + v
+ *    |     Y  |                      |  / ^
+ *    |     ^  |                      | / @ref .depth
+ *    |    /   |                      |/
+ *    |   /    +----------------------+ v
+ *    |  /     @ref .left_front_bottom
+ *    | /      <     @ref .width      >
+ *    |/
+ *    +-----------------------------> X
+ *
+ * @see .BoundingBox3DFloat
+ *
+ * @author Christian Emmerich <cemmeric@cor-lab.de>
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message AxisAlignedBoundingBox3DFloat {
+
+    /**
+     * Coordinates of the bottom left front corner.
+     */
+    required geometry.Translation left_front_bottom = 1;
+
+    /**
+     * The width (along the x axis) of the box.
+     */
+    // @unit(meter)
+    required float width = 2;
+
+    /**
+     * The height (along the y axis) of the box.
+     */
+    // @unit(meter)
+    required float height = 3;
+
+    /**
+     * The depth (along the z axis) of the box.
+     */
+    // @unit(meter)
+    required float depth = 4;
+
+}
