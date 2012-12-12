@@ -5,7 +5,12 @@ option java_outer_classname = "AxisAlignedBoundingBox3DFloatType";
 import "rst/geometry/Translation.proto";
 
 /**
- * An axis-aligned box in 3D.
+ * An axis-aligned bounding-box in 3D.
+ *
+ * The bounding-box is constructed by spanning at @ref
+ * .left_front_bottom a rectangular volume of lengths @ref .width x
+ * @ref .depth x @ref .height along the positive directions of the X,
+ * Y and Z axis respectively.
  *
  * .. parsed-literal::
  *
@@ -27,7 +32,8 @@ import "rst/geometry/Translation.proto";
  *    |/
  *    +-----------------------------> X
  *
- * @see .BoundingBox3DFloat
+ * For a bouding-box in general orientation (i.e. not axis-aligned)
+ * see @ref .BoundingBox3DFloat.
  *
  * @author Christian Emmerich <cemmeric@cor-lab.de>
  * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
@@ -40,21 +46,21 @@ message AxisAlignedBoundingBox3DFloat {
     required geometry.Translation left_front_bottom = 1;
 
     /**
-     * The width (along the x axis) of the box.
+     * The width (along the X axis) of the box.
      */
     // @unit(meter)
     required float width = 2;
 
     /**
-     * The height (along the y axis) of the box.
+     * The depth (along the Y axis) of the box.
      */
     // @unit(meter)
-    required float height = 3;
+    required float depth = 3;
 
     /**
-     * The depth (along the z axis) of the box.
+     * The height (along the Z axis) of the box.
      */
     // @unit(meter)
-    required float depth = 4;
+    required float height = 4;
 
 }
