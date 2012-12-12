@@ -6,14 +6,15 @@ import "rst/geometry/AxisAlignedBoundingBox3DFloat.proto";
 import "rst/geometry/Pose.proto";
 
 /**
- * Bounding box in 3D in general position and orientation.
+ * Bounding-box in 3D in general position and orientation.
  *
- * The general bounding box with dimensions @ref .width x @ref .height
- * x @ref .depth is constructed by translating and rotating (via @ref
- * .transformation) an axis-aligned bounding box around its center of
+ * The general bounding-box with dimensions @ref .width x @ref .depth
+ * x @ref .height is constructed by translating and rotating (via @ref
+ * .transformation) an axis-aligned bounding-box around its center of
  * mass.
  *
- * @see .AxisAlignedBoundingBox3DFloat
+ * For an axis-aligned version, see @ref
+ * .AxisAlignedBoundingBox3DFloat.
  *
  * @author Christian Emmerich <cemmeric@cor-lab.de>
  * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
@@ -21,28 +22,27 @@ import "rst/geometry/Pose.proto";
 message BoundingBox3DFloat {
 
     /**
-     * Transformation is optional, e.g. if not specified the box is
-     * assumed to have its center of mass at origin and its
-     * orientation along the coordinate system's axes.
+     * Transformation, consisting of translation and orientation, of
+     * the center of mass of the bounding-box.
      */
     required geometry.Pose transformation = 1;
 
     /**
-     * The width (along the x axis) of the box.
+     * The width (along the X axis) of the box.
      */
     // @unit(meter)
     required float width = 2;
 
     /**
-     * The height (along the y axis) of the box.
+     * The depth (along the Y axis) of the box.
      */
     // @unit(meter)
-    required float height = 3;
+    required float depth = 3;
 
     /**
-     * The depth (along the z axis) of the box.
+     * The height (along the Z axis) of the box.
      */
     // @unit(meter)
-    required float depth = 4;
+    required float height = 4;
 
 }
