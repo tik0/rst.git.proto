@@ -3,13 +3,21 @@ package rst.vision;
 option java_outer_classname = "ImageType";
 
 /**
- * The values of width and height are measured in pixels.
+ * An uncompressed image with a certain pixel format, color and depth.
  *
- * Interpretation of RSB timestamps:
+ * The binary intensity data is contained in the @ref .data field. The
+ * remaining fields contain information about the interpretation, that
+ * is dimensions (@ref .width x @ref .height), color (@ref
+ * .color_mode, @ref .channels), depth (@ref .depth) and channel
+ * layout (@ref .data_order, @ref .channels), of that data.
  *
- * create:
- *         image grab time (to be more precisely defined. e.g. what
- *         does this mean for rolling shutter cameras?)
+ * Suggested interpretation of RSB timestamps:
+ *
+ *   create
+ *
+ *     Image grab time
+ *     @todo "to be more precisely defined. e.g. what does this mean
+ *            for rolling shutter cameras?"
  *
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
@@ -52,11 +60,25 @@ message Image {
 
         /**
          * Separate planes.
+         *
+         * Example for @ref .ColorMode.COLOR_RGB:
+         *
+         * .. parsed-literal::
+         *
+         *    R R R ... (@ref .width x @ref .height times)
+         *    G G G ... (@ref .width x @ref .height times)
+         *    B B B ... (@ref .width x @ref .height times)
          */
         DATA_SEPARATE = 0;
 
         /**
          * Interleaved image.
+         *
+         * Example for @ref .ColorMode.COLOR_RGB:
+         *
+         * .. parsed-literal::
+         *
+         *    R G B R G B R G B ... (@ref .width x @ref .height times)
          */
         DATA_INTERLEAVED = 1;
 
