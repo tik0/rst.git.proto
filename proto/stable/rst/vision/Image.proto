@@ -13,11 +13,12 @@ option java_outer_classname = "ImageType";
  *
  * Suggested interpretation of RSB timestamps:
  *
- *   create
+ * create
  *
- *     Image grab time
- *     @todo "to be more precisely defined. e.g. what does this mean
- *            for rolling shutter cameras?"
+ *   Image grab time
+ *
+ * @todo "to be more precisely defined. e.g. what does this mean
+ *        for rolling shutter cameras?"
  *
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
@@ -43,18 +44,18 @@ message Image {
         COLOR_BGR = 2;
 
         /**
-         * YUVYUV layout
+         * YUVYUV pixel layout.
          */
         COLOR_YUV = 4;
 
         /**
-         * YUYV layout
+         * YUYV pixel layout.
          */
         COLOR_YUV422 = 8;
     }
 
     /**
-     * TODO
+     * Describes storage layout of pixels with respect to channels.
      */
     enum DataOrder {
 
@@ -85,7 +86,10 @@ message Image {
     }
 
     /**
-     * TODO
+     * Stores the actual pixel data of the image.
+     *
+     * The number of bytes and their interpretation depend on the
+     * values of the remaining fields.
      */
     // @constraint(len(value) = (.width * .height * .channels * .depth) / 8)
     required bytes data = 1;
