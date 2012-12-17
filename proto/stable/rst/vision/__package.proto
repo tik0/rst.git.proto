@@ -3,7 +3,8 @@
  * processing for which the input is an image.
  *
  * This package contains data types for representing images (@ref
- * rst.vision.Image).
+ * rst.vision.Image) or things which can be recognized in images
+ * (e.g. @ref rst.vision.Face).
  *
  * @see http://en.wikipedia.org/wiki/Image_processing
  *      "Wikipedia article containing the definition above"
