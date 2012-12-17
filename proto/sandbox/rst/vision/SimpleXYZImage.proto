@@ -33,9 +33,9 @@ message SimpleXYZImage {
     // @unit(pixel)
     required uint32 height = 2;
 
-     /**
-      * The values are ordered by linearizing the underlying 2D structure row-wise.
-      */
+    /**
+     * The values are ordered by linearizing the underlying 2D structure row-wise.
+     */
     repeated float x = 3;
 
     /**
