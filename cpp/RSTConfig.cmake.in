@@ -41,12 +41,12 @@ IF(EXISTS "${RST_CONFIG_DIR}/../CMakeCache.txt")
     INCLUDE("${RST_CONFIG_DIR}/RSTBuildTreeSettings.cmake")
 ELSE()
 
-    SET(RST_INCLUDE_DIRS "${RST_CONFIG_DIR}/../../include/rst/stable")
+    SET(RST_INCLUDE_DIRS "${RST_CONFIG_DIR}/../../include/@INSTALL_PREFIX@/stable")
     SET(RST_RUNTIME_LIBRARY_DIRS "${RST_CONFIG_DIR}/../../bin")
 
     # sandbox additions
     IF(USE_SANDBOX)
-        LIST(APPEND RST_INCLUDE_DIRS "${RST_CONFIG_DIR}/../../include/rst/sandbox")
+        LIST(APPEND RST_INCLUDE_DIRS "${RST_CONFIG_DIR}/../../include/@INSTALL_PREFIX@/sandbox")
     ENDIF()
 
 ENDIF()

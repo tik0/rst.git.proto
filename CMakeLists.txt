@@ -35,6 +35,8 @@ DEFINE_PROJECT_VERSION(RST_ ${VERSION_MAJOR} ${VERSION_MINOR} 0 "archive")
 
 MESSAGE(STATUS "This is rst version ${RST_VERSION}")
 
+SET(INSTALL_PREFIX "rst${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}")
+
 # --- protocol files ---
 
 FOREACH(DOMAIN stable sandbox)
