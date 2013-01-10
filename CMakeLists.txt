@@ -32,6 +32,9 @@ ENDIF()
 # finally we can deduce the real project version with the RSC macros
 INCLUDE(DefineProjectVersion)
 DEFINE_PROJECT_VERSION(RST_ ${VERSION_MAJOR} ${VERSION_MINOR} 0 "archive")
+# jwienke: HACK for 0.7 release to fix issue 1311
+MATH(EXPR RST_VERSION_PATCH "${RST_VERSION_PATCH} + 100")
+SET(RST_VERSION "${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}.${RST_VERSION_PATCH}")
 
 MESSAGE(STATUS "This is rst version ${RST_VERSION}")
 
