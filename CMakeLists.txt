@@ -5,7 +5,7 @@ PROJECT("RST")
 SET(CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS TRUE)
 
 SET(VERSION_MAJOR 0 CACHE STRING "Major project version part")
-SET(VERSION_MINOR 8 CACHE STRING "Minor project version part")
+SET(VERSION_MINOR 9 CACHE STRING "Minor project version part")
 
 # --- user options ---
 
