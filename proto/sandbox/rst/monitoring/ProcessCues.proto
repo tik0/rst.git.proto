@@ -5,7 +5,7 @@ option java_outer_classname = "ProcessCuesType";
 /**
  * Monitoring-relevant cues about a system process.
  *
- * @author TODO
+ * @author jwienke
  */
 message ProcessCues {
 
