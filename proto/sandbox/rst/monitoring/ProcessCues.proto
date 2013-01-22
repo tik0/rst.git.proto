@@ -127,5 +127,16 @@ message ProcessCues {
      * Cues from different sources.
      */
     repeated Cues cues = 1;
+    
+    message Thread {
+        optional bytes name = 1;
+        optional uint32 tid = 2;
+        repeated Cues cues = 10;
+    }
+    
+    /**
+     * Thread-specific performance data of requested.
+     */
+    repeated Thread threads = 10;
 
 }
