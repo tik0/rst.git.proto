@@ -15,7 +15,7 @@ message ProcessCues {
      * PID of the program.
      */
     required uint32 pid = 1000;
-
+    
     /**
      * Name of the program (argv[0]).
      */
@@ -127,16 +127,22 @@ message ProcessCues {
      * Cues from different sources.
      */
     repeated Cues cues = 1;
-    
+
     message Thread {
         optional bytes name = 1;
         optional uint32 tid = 2;
         repeated Cues cues = 10;
     }
-    
+
     /**
      * Thread-specific performance data of requested.
      */
     repeated Thread threads = 10;
+    
+    /**
+     * Child processes of this process and their data. The hierarchy of
+     * processes is linearized in this field.
+     */
+    repeated ProcessCues children = 20;
 
 }
