@@ -1,6 +1,6 @@
 package rst.xml;
 
-import "rst/xml/XOP.proto";
+import "rst/xml/XOPData.proto";
 
 option java_outer_classname = "XOPsType";
 
@@ -12,8 +12,8 @@ option java_outer_classname = "XOPsType";
 message XOPs {
 
     /**
-     * The collection of @ref rst.xml.XOP objects.
+     * The collection of @ref rst.xml.XOPData objects.
      */
-    repeated XOP xops = 1;
+    repeated XOPData xops = 1;
 
 }
