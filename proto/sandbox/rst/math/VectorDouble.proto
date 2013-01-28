@@ -1,0 +1,18 @@
+package rst.math;
+
+option java_outer_classname = "VectorDoubleType";
+
+/**
+ * A message representing a double vector of n entries. Use more specific
+ * data-type whenever possible.
+ *
+ * @author Arne Nordmann <anordman@cor-lab.uni-bielefeld.de> 
+ */
+message VectorDouble {
+
+    /**
+     * Vector elements.
+     */
+    repeated double data = 2 [packed=true];
+
+}

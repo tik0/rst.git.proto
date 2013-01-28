@@ -1,0 +1,4 @@
+/**
+ * This package contains data types representing mathematical concepts.
+ */
+package rst.math;
