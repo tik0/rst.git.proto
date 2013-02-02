@@ -31,16 +31,16 @@ message HeadObject {
     optional math.Vec3DFloat position = 3;
 
     /**
-     * @ref .pose.x -> pan
+     * @ref .x -> pan
      *
      *   Pan head rotation angle. Positive: person looks to his right
      *   side.
      *
-     * @ref .pose.y -> tilt
+     * @ref .y -> tilt
      *
      *   Tilt head rotation angle. Positive: person looks up.
      *
-     * @ref .pose.z -> roll
+     * @ref .z -> roll
      *
      *   Roll head rotation angle. Positive: person's head rolled to
      *   his right shoulder.
