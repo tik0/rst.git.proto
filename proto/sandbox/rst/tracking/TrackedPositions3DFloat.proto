@@ -1,0 +1,28 @@
+package rst.tracking;
+
+import "rst/tracking/TrackedPosition3DFloat.proto";
+
+option java_outer_classname = "TrackedPositions3DFloatType";
+
+/**
+ * A collection of @ref .TrackedPosition3DFloat objects.
+ *
+ * Collecting multiple @ref .TrackedPosition3DFloat objects in a
+ * single data structure is an easy way to express the fact that they
+ * have been recorded at the same point in time.
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message TrackedPositions3DFloat {
+
+    /**
+     * Empty collections of tracked positions are allowed but should
+     * rarely be necessary.
+     *
+     * Order of positions is not significant since association of
+     * tracked positions to tracked subjects is done via @ref
+     * .position.info.
+     */
+    repeated TrackedPosition3DFloat position = 1;
+
+}

@@ -1,0 +1,34 @@
+package rst.tracking;
+
+import "rst/tracking/TrackingInfo.proto";
+import "rst/geometry/Translation.proto";
+
+option java_outer_classname = "TrackedPosition3DFloatType";
+
+/**
+ * Position of a tracked subject in three-dimensional space.
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message TrackedPosition3DFloat {
+
+    /**
+     * Tracking information such as identity of the subject being
+     * tracked.
+     */
+    required TrackingInfo             info       = 1;
+
+    /**
+     * Position of the tracked subject identified by @ref .info in
+     * three-dimensional space.
+     */
+    required rst.geometry.Translation position   = 2;
+
+    /**
+     * Confidence in the correctness of the value stored in @ref
+     * .position.
+     */
+    //@constraint(0 <= value <= 1)
+    required float                    confidence = 3;
+
+}
