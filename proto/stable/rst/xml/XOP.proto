@@ -74,4 +74,12 @@ message XOP {
      * they are indexed by URLs.
      */
     repeated        Attachment attachments = 2;
+
+    /**
+     * An optional document identifier.
+     * 
+     * Can be used e.g. to distinguish documents without looking at
+     * their content.
+     */
+    optional        uint64     id          = 3;
 }
