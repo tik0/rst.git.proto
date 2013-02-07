@@ -77,7 +77,7 @@ message XOP {
 
     /**
      * An optional document identifier.
-     * 
+     *
      * Can be used e.g. to distinguish documents without looking at
      * their content.
      */

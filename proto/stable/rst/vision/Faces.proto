@@ -6,8 +6,8 @@ option java_outer_classname = "FacesType";
 
 /**
  * A list of faces with information about
- * the dimensions of a source image used 
- * by a face detector. This allows interpretation 
+ * the dimensions of a source image used
+ * by a face detector. This allows interpretation
  * of the bounding box data contained in the Face types.
  *
  * @author Sebastian Wrede <swrede@techfak.uni-bielefeld.de>
