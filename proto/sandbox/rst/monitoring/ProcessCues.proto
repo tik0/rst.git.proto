@@ -26,6 +26,11 @@ message ProcessCues {
      * Name of the host the program is running on.
      */
     optional bytes host_name = 1002;
+    
+    /**
+     * The complete command line of the program (might include the name, too).
+     */
+    optional string command_line = 1003;
 
     /**
      * Cues from a single source.
