@@ -25,6 +25,6 @@ message Posture3DFloat {
      * of individual positions depends on their respective position
      * within the sequence.
      */
-    repeated rst.geometry.Translation position = 2;
+    repeated geometry.Translation position = 2;
 
 }

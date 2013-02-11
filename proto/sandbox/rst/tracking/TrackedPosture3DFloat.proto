@@ -17,18 +17,18 @@ message TrackedPosture3DFloat {
      * Tracking information such as identity of the subject being
      * tracked.
      */
-    required TrackingInfo                  info       = 1;
+    required TrackingInfo              info       = 1;
 
     /**
      * Posture of the tracked subject identified by @ref .info.
      */
-    required rst.kinematics.Posture3DFloat posture    = 2;
+    required kinematics.Posture3DFloat posture    = 2;
 
     /**
      * Confidence values for the individual positions stored in @ref
      * .posture.
      */
     //@constraint(0 <= value <= 1)
-    repeated float                         confidence = 3;
+    repeated float                     confidence = 3;
 
 }
