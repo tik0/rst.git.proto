@@ -93,6 +93,11 @@ message ProcessCues {
 
         optional uint64 wall_time_scaled = 11;
 
+        /**
+         * Start time of the process or thread. [usec] since unix epoche.
+         */
+        optional uint64 start_time = 12;
+
         // IO stuff
 
         /**
