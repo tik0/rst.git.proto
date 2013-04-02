@@ -33,8 +33,8 @@ message HeadObject {
     /**
      * @ref .x -> pan
      *
-     *   Pan head rotation angle. Positive: person looks to his right
-     *   side.
+     *   Pan head rotation angle. Positive: person looks to her or his
+     *   right side.
      *
      * @ref .y -> tilt
      *
