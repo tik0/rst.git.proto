@@ -1,0 +1,33 @@
+package rst.configuration;
+
+import "rst/type/Type.proto";
+import "rst/configuration/Value.proto";
+
+option java_outer_classname = "SchemaItemType";
+
+/**
+ * A schema item describes properties of an configuration value such
+ * as its type and default.
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message SchemaItem {
+
+    /**
+     */
+    required string        name        = 1;
+
+    /**
+     */
+    required rst.type.Type type        = 2;
+
+    /**
+     */
+    optional Value         default     = 3;
+
+    /**
+     * Describes the semantics of the schema item.
+     */
+    optional string        description = 4;
+
+};

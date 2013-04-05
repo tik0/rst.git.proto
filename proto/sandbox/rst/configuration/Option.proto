@@ -1,0 +1,21 @@
+package rst.configuration;
+
+import "rst/configuration/Value.proto";
+
+option java_outer_classname = "OptionType";
+
+/**
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message Option {
+
+    /**
+     */
+    required string name  = 1;
+
+    /**
+     */
+    optional Value  value = 2;
+
+};

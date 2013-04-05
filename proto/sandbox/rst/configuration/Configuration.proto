@@ -1,0 +1,30 @@
+package rst.configuration;
+
+import "rst/configuration/Option.proto";
+
+option java_outer_classname = "ConfigurationType";
+
+/**
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message Configuration {
+
+    message OptionEntry {
+
+        required string key    = 1;
+
+        required Option option = 2;
+
+    };
+
+    /**
+     * Map of configuration options.
+     *
+     * Duplicate values of @ref OptionEntry.key are not permitted.
+     *
+     * Order of entries is not significant.
+     */
+    repeated OptionEntry option = 1;
+
+};

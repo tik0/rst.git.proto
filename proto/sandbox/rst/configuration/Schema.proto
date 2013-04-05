@@ -1,0 +1,47 @@
+package rst.configuration;
+
+option java_outer_classname = "SchemaType";
+
+/**
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message Schema {
+
+    /**
+     * Association of @ref SchemaItem @ref .item to the name @ref
+     * .key.
+     */
+    message ItemEntry {
+        required string     key = 1;
+        required SchemaItem item = 2;
+    };
+
+    /**
+     * @ref .item is a "child schema" responsible for names starting
+     * with @ref .key.
+     */
+    message SchemaEntry {
+        required string     key = 1;
+        required SchemaItem item = 2;
+    };
+
+    /**
+     * Map of schema items constituting the schema.
+     *
+     * Duplicate values of @ref ItemEntry.key are not permitted.
+     *
+     * Order of entries is not significant.
+     */
+    repeated ItemEntry   item  = 1;
+
+    /**
+     * Map of "child schemata".
+     *
+     * Duplicate values of @ref SchemaEntry.key are not permitted.
+     *
+     * Order of entries is not significant.
+     */
+    repeated SchemaEntry child = 2;
+
+};

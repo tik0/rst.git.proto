@@ -1,0 +1,20 @@
+package rst.configuration;
+
+option java_outer_classname = "ValueType";
+
+/**
+ * @todo "this is useful outside the configuration domain"
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message Value {
+
+    /**
+     */
+    optional bytes wire_schema = 1;
+
+    /**
+     */
+    optional Value data        = 2;
+
+};
