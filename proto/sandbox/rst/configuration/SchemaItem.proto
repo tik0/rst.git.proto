@@ -15,19 +15,19 @@ message SchemaItem {
 
     /**
      */
-    required string        name        = 1;
+    required string         name        = 1;
 
     /**
      */
-    required rst.type.Type type        = 2;
+    required .rst.type.Type type        = 2;
 
     /**
      */
-    optional Value         default     = 3;
+    optional Value          default     = 3;
 
     /**
      * Describes the semantics of the schema item.
      */
-    optional string        description = 4;
+    optional string         description = 4;
 
 };

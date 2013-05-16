@@ -29,7 +29,7 @@ message Type {
      * For example the ROS MSG syntax would be designated by the
      * string "http://www.ros.org/wiki/msg". TODO where is the version?
      */
-    required string syntax            = 1;
+    required string     syntax            = 1;
 
     /**
      * Textual definition of the data type, preferably reduced to a
@@ -48,7 +48,7 @@ message Type {
 
     /**
      */
-    required string     digest            = 5;
+    required string     digest            = 5 [ default = "sha1" ];
 
     /**
      */

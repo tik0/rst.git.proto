@@ -1,5 +1,7 @@
 package rst.configuration;
 
+import "rst/configuration/SchemaItem.proto";
+
 option java_outer_classname = "SchemaType";
 
 /**
