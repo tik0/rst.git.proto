@@ -3,7 +3,12 @@ package rst.devices.generic;
 option java_outer_classname = "CpuMemoryType";
 
 /**
- * @todo document
+ * Low-level information of the CPU utilization for a single system with
+ * potentially multiple cores.
+ *
+ * This message is currently designed closely along the information available
+ * in the Linux proc filesystem. So it is probably only directly useful for
+ * Linux systems.
  *
  * @author Jens-Christian Seele <jseele@techfak.uni-bielefeld.de>
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
@@ -22,12 +27,32 @@ message CpuMemory {
     // @unit(microsecond)
     optional uint32 jiffy_length = 10;
 
+    /**
+     * Name of the host being monitored.
+     */
     optional bytes host_name = 11;
 
+    /**
+     * Representation of measurements for a single CPU in the system.
+     *
+     * The supported detailed fields for each CPU vary with different Kernel
+     * versions. In oder to calculate at least a valid load of the CPU,
+     * minimally total and idle need to be given. Hence, they are required
+     * fields. Ideally, idle + all other detail fields should sum up to the
+     * total value.
+     */
     message Cpu {
 
         // @unit(number)
         required int32 index = 1;
+
+        // Total time spent by this CPU so far in any mode including idle.
+        // @unit(jiffies)
+        required uint64 total = 100;
+
+        // Time spent idle.
+        // @unit(jiffies)
+        required uint64 idle = 5;
 
         // Time spent in user mode.
         // @unit(jiffies)
@@ -41,9 +66,26 @@ message CpuMemory {
         // @unit(jiffies)
         optional uint64 system = 4;
 
-        // Time spent idle.
+        // Time spent waiting for IO to complete.
         // @unit(jiffies)
-        optional uint64 idle = 5;
+        optional uint64 iowait = 6;
+
+        // Time spent servicing interrupts.
+        // @unit(jiffies)
+        optional uint64 irq = 7;
+
+        // Time spent servicing softirqs.
+        // @unit(jiffies)
+        optional uint64 softirq = 8;
+
+        // Time spent in another operating system in case of a virtualized system.
+        // @unit(jiffies)
+        optional uint64 steal = 9;
+
+        // Time spent running a virtualized guest.
+        // @unit(jiffies)
+        optional uint64 guest = 10;
+
     }
 
     repeated Cpu cpus = 20;
