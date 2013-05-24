@@ -6,6 +6,7 @@ option java_outer_classname = "CpuMemoryType";
  * @todo document
  *
  * @author Jens-Christian Seele <jseele@techfak.uni-bielefeld.de>
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
 message CpuMemory {
 
@@ -18,7 +19,7 @@ message CpuMemory {
     // @unit(mb?)
     optional float memory_used = 3;
 
-    // @unit(second?)
+    // @unit(microsecond)
     optional uint32 jiffy_length = 10;
 
     optional bytes host_name = 11;
@@ -28,13 +29,20 @@ message CpuMemory {
         // @unit(number)
         required int32 index = 1;
 
+        // Time spent in user mode.
         // @unit(jiffies)
         optional uint64 user = 2;
 
+        // Time spent in user mode with nice (low) priority.
+        // @unit(jiffies)
         optional uint64 user_low = 3;
 
+        // Time spent in system mode.
+        // @unit(jiffies)
         optional uint64 system = 4;
 
+        // Time spent idle.
+        // @unit(jiffies)
         optional uint64 idle = 5;
     }
 
