@@ -88,6 +88,36 @@ message CpuMemory {
 
     }
 
+    /**
+     * An entry for each (virtualized) CPU or core of a multicore system.
+     */
     repeated Cpu cpus = 20;
+
+    /**
+     * Load average for one minute as defined by the linux kernel, e.g. in
+     * man proc:
+     * The first three fields in this file are load average figures giving the
+     * number of jobs in the run queue (state R) or waiting for disk I/O
+     * (state D) averaged over 1, 5, and 15 minutes
+     */
+    optional float load_1 = 40;
+
+    /**
+     * Load average for 5 minutes as defined by the linux kernel, e.g. in
+     * man proc:
+     * The first three fields in this file are load average figures giving the
+     * number of jobs in the run queue (state R) or waiting for disk I/O
+     * (state D) averaged over 1, 5, and 15 minutes
+     */
+    optional float load_5 = 41;
+
+    /**
+     * Load average for 15 minute as defined by the linux kernel, e.g. in
+     * man proc:
+     * The first three fields in this file are load average figures giving the
+     * number of jobs in the run queue (state R) or waiting for disk I/O
+     * (state D) averaged over 1, 5, and 15 minutes
+     */
+    optional float load_15 = 42;
 
 }
