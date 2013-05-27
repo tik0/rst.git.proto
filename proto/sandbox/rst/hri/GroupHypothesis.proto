@@ -1,0 +1,83 @@
+package rst.hri;
+
+import "rst/math/MatrixDouble.proto";
+import "rst/tracking/TrackingInfo.proto";
+
+option java_outer_classname = "GroupHypothesisType";
+
+/**
+ * A hypothesis about a group visible to and/or interacting with the
+ * robot.  Will include estimates about group size and some attributes
+ * like engagement.
+ *
+ * @author David Klotz <dklotz@techfak.uni-bielefeld.de>
+ */
+message GroupHypothesis {
+
+    /**
+     * A category for the age of the group members.
+     */
+    enum AgeCategory {
+        CHILDREN = 1;
+        ADULTS = 2;
+        SENIORS = 4;
+        MIXED = 8;
+    }
+
+    /**
+     * A category for the gender of the group members.
+     */
+    enum GenderCategory {
+        MIXED_GENDERS = 1;
+        COMPLETELY_FEMALE = 2;
+        COMPLETELY_MALE = 4;
+    }
+
+    /**
+     * A category for the group size.
+     */
+    enum SizeCategory {
+        SMALL_GROUP = 1;
+        GROUP = 2;
+        CROWD = 4;
+    }
+
+    /**
+     * A unique identification of a group hypothesis maintained by the
+     * group manager.
+     */
+    optional tracking.TrackingInfo tracking_info = 1;
+
+    /**
+     * Information about the size (number of people) of the group.
+     */
+    optional uint32 group_size_estimate = 10;
+    optional SizeCategory group_size_category = 11;
+
+    /**
+     * Group engagement information:
+     *
+     * A level of interest the group is showing towards the robot.
+     */
+    // @constraint(0.0 <= value <= 1.0)
+    optional float interest_level = 20;
+
+    /**
+     * How stable is the group, i.e. is there a low level of
+     * fluctuation of group members.
+     */
+    // @constraint(0.0 <= value <= 1.0)
+    optional float group_stability = 21;
+
+    /**
+     * Information about the group composition, structure etc.
+     */
+    optional AgeCategory age_category = 30;
+    optional GenderCategory gender_category = 31;
+
+    /**
+     * Internal cue data for evaluation
+     */
+    optional math.MatrixDouble stability_cues = 40;
+
+}
