@@ -1,0 +1,27 @@
+package rst.scene;
+
+option java_outer_classname = "SceneObjectQueryType";
+
+/**
+ * Query specification for selecting scene object by name and/or kind.
+ *
+ * @author David Klotz <dklotz@techfak.uni-bielefeld.de>
+ */
+message SceneObjectQuery {
+
+    /**
+     * Regular expression selecting only objects with matching names.
+     */
+    optional string name_filter = 1 [default = ".*"];
+
+    /**
+     * Regular expression selecting only objects with matching kinds.
+     *
+     * Hint: to match multiple object kinds in a query, use the
+     * regular expression construct:
+     *
+     *   (KIND1|KIND2|...)
+     */
+    optional string kind_filter = 2 [default = ".*"];
+
+}
