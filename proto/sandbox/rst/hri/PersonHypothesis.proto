@@ -13,10 +13,44 @@ option java_outer_classname = "PersonHypothesisType";
  */
 message PersonHypothesis {
 
+    /**
+     * A unique identification of a person hypothesis maintained by
+     * the person manager.
+     */
     optional tracking.TrackingInfo tracking_info = 1;
 
-    optional math.Vec2DFloat position = 2;
-
     optional vision.Face face = 3;
+
+    /**
+     * Direction of the human in a coordinate system the origin of
+     * which is the robot's head.
+     *
+     * @todo "Rename this field to something more descriptive"
+     */
+    optional math.Vec2DFloat rhc_direction = 10;
+
+    /**
+     * Direction of the human in a coordinate system the origin of
+     * which is the robot's body.
+     *
+     * @todo "Rename; see above."
+     */
+    optional math.Vec2DFloat rbc_direction = 20;
+
+    /**
+     * Direction the human is looking.
+     *
+     * @todo "Clarify"
+     */
+    optional math.Vec2DFloat human_head_direction = 30;
+
+    /**
+     * Results from the identity recognizer.
+     *
+     * @todo "Describe what these mean, not where they come from."
+     */
+    optional bytes age = 40;
+    optional bytes gender = 42;
+    optional bytes identity = 44;
 
 }
