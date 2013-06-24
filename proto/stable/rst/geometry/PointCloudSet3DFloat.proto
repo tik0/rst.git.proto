@@ -16,4 +16,5 @@ message PointCloudSet3DFloat {
      * The order of cloud objects is not significant.
      */
     repeated geometry.PointCloud3DFloat clouds = 1;
+
 }
