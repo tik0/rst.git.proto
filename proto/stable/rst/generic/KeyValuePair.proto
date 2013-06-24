@@ -5,14 +5,20 @@ import "rst/generic/Value.proto";
 option java_outer_classname = "KeyValuePairType";
 
 /**
- * @todo document
+ * Combines a generic value with an identifying string key.
  *
- * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
  */
 message KeyValuePair {
 
+    /**
+     * The key of this entry.
+     */
     required string key = 1;
 
+    /**
+     * The value.
+     */
     required Value value = 2;
 
 }
