@@ -1,4 +1,4 @@
-package rst.robot;
+package rst.devices.flexirob;
 
 option java_outer_classname = "RobotStateType";
 
