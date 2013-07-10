@@ -1,0 +1,4 @@
+/**
+ * Generic signal processing data types.
+ */
+package rst.signalprocessing;

@@ -1,6 +1,6 @@
 package rst.geometry;
 
-option java_outer_classname = "LengthType";
+option java_outer_classname = "LengthsType";
 
 /**
  * A sequence of length measurements (e.g. length of a link in a
@@ -8,7 +8,7 @@ option java_outer_classname = "LengthType";
  *
  * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
  */
-message Length {
+message Lengths {
 
     // @unit(meter)
     repeated double lengths = 1;

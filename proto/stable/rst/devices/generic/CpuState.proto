@@ -1,6 +1,6 @@
 package rst.devices.generic;
 
-option java_outer_classname = "CpuMemoryType";
+option java_outer_classname = "CpuStateType";
 
 /**
  * Low-level information of the CPU utilization for a single system with
@@ -13,77 +13,97 @@ option java_outer_classname = "CpuMemoryType";
  * @author Jens-Christian Seele <jseele@techfak.uni-bielefeld.de>
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
-message CpuMemory {
+message CpuState {
 
-    // @unit(mb?)
-    optional float memory_free = 1;
-
-    // @unit(mb?)
-    optional float memory_total = 2;
-
-    // @unit(mb?)
-    optional float memory_used = 3;
-
+    /**
+     * The length of one measurement tick for the individual CPU counters.
+     */
     // @unit(microsecond)
     optional uint32 jiffy_length = 10;
 
     /**
-     * Name of the host being monitored.
-     */
-    optional bytes host_name = 11;
-
-    /**
-     * Representation of measurements for a single CPU in the system.
+     * Measurements for a single CPU in the system.
      *
      * The supported detailed fields for each CPU vary with different Kernel
      * versions. In oder to calculate at least a valid load of the CPU,
      * minimally total and idle need to be given. Hence, they are required
-     * fields. Ideally, idle + all other detail fields should sum up to the
-     * total value.
+     * fields. Ideally, @ref .idle + all other detail fields should sum up to
+     * the total value.
+     *
+     * With each new measurement all counters must fulfill the condition
+     * new value >= previous value. I.e. these are ever-increasing numbers and
+     * differences need to be calculated to find out the current system
+     * statistics.
+     *
+     * All values are measured in abstract ticks of a fixed length. This length
+     * is specified @ref CpuState.jiffy_length.
      */
     message Cpu {
 
+        /**
+         * Identifier for the respective CPU or core in a multicore system.
+         */
         // @unit(number)
         required int32 index = 1;
 
-        // Total time spent by this CPU so far in any mode including idle.
-        // @unit(jiffies)
+        /**
+         * Total time spent by this CPU so far in any mode including idle.
+         */
+        // @unit(number)
         required uint64 total = 100;
 
-        // Time spent idle.
-        // @unit(jiffies)
+        /**
+         * Time spent idle.
+         */
+        // @unit(number)
         required uint64 idle = 5;
 
-        // Time spent in user mode.
-        // @unit(jiffies)
+        /**
+         * Time spent in user mode.
+         */
+        // @unit(number)
         optional uint64 user = 2;
 
-        // Time spent in user mode with nice (low) priority.
-        // @unit(jiffies)
+        /**
+         * Time spent in user mode with nice (low) priority.
+         */
+        // @unit(number)
         optional uint64 user_low = 3;
 
-        // Time spent in system mode.
-        // @unit(jiffies)
+        /**
+         * Time spent in system mode.
+         */
+        // @unit(number)
         optional uint64 system = 4;
 
-        // Time spent waiting for IO to complete.
-        // @unit(jiffies)
+        /**
+         * Time spent waiting for IO to complete.
+         */
+        // @unit(number)
         optional uint64 iowait = 6;
 
-        // Time spent servicing interrupts.
-        // @unit(jiffies)
+        /**
+         * Time spent servicing interrupts.
+         */
+        // @unit(number)
         optional uint64 irq = 7;
 
-        // Time spent servicing softirqs.
-        // @unit(jiffies)
+        /**
+         * Time spent servicing softirqs.
+         */
+        // @unit(number)
         optional uint64 softirq = 8;
 
-        // Time spent in another operating system in case of a virtualized system.
-        // @unit(jiffies)
+        /**
+         * Time spent in another operating system in case of a virtualized system.
+         */
+        // @unit(number)
         optional uint64 steal = 9;
 
-        // Time spent running a virtualized guest.
-        // @unit(jiffies)
+        /**
+         * Time spent running a virtualized guest.
+         */
+        // @unit(number)
         optional uint64 guest = 10;
 
     }
@@ -100,6 +120,8 @@ message CpuMemory {
      * number of jobs in the run queue (state R) or waiting for disk I/O
      * (state D) averaged over 1, 5, and 15 minutes
      */
+    // @unit(number)
+    // @constraint(value>=0)
     optional float load_1 = 40;
 
     /**
@@ -109,6 +131,8 @@ message CpuMemory {
      * number of jobs in the run queue (state R) or waiting for disk I/O
      * (state D) averaged over 1, 5, and 15 minutes
      */
+    // @unit(number)
+    // @constraint(value>=0)
     optional float load_5 = 41;
 
     /**
@@ -118,6 +142,8 @@ message CpuMemory {
      * number of jobs in the run queue (state R) or waiting for disk I/O
      * (state D) averaged over 1, 5, and 15 minutes
      */
+    // @unit(number)
+    // @constraint(value>=0)
     optional float load_15 = 42;
 
 }
