@@ -1,0 +1,6 @@
+/**
+ * Component based software engineering data types.
+ *
+ * Currently only draft types with known problems. Use with caution!
+ */
+package rst.cbse;
