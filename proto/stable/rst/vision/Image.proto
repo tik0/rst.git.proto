@@ -36,22 +36,52 @@ message Image {
     }
 
     /**
-     * TODO
+     * Colorspace(s) and layout of color channel(s).
      */
     enum ColorMode {
+
+        /**
+         * The image consists of only one channel containing intensity
+         * values.
+         *
+         * MUST be used with @ref .channels = 1.
+         */
         COLOR_GRAYSCALE = 0;
+
+        /**
+         * The image has three color channels containing the red,
+         * green and blue color components (note the order of the
+         * channels, not to be confused with @ref .COLOR_BGR).
+         *
+         * MUST be used with @ref .channels = 3.
+         */
         COLOR_RGB = 1;
+
+        /**
+         * The image has three color channels containing the blue,
+         * green and red color components (note the order of the
+         * channels, not to be confused with @ref .COLOR_RGB).
+         *
+         * MUST be used with @ref .channels = 3.
+         */
         COLOR_BGR = 2;
 
         /**
-         * YUVYUV pixel layout.
+         * The image has three color channels, encoded in the YUV
+         * colorspace, and uses the YUVYUV pixel layout.
+         *
+         * MUST be used with @ref .channels = 3.
          */
         COLOR_YUV = 4;
 
         /**
-         * YUYV pixel layout.
+         * The image has three color channels, encoded in the YUV
+         * colorspace, and uses the YUYV pixel layout.
+         *
+         * MUST be used with @ref .channels = 3.
          */
         COLOR_YUV422 = 8;
+
     }
 
     /**
@@ -95,35 +125,42 @@ message Image {
     required bytes data = 1;
 
     /**
-     * TODO
+     * The number of pixels in each row of the image.
      */
     // @unit(pixel)
     required uint32 width = 2;
 
     /**
-     * TODO
+     * The number of pixels in each column of the image.
      */
     // @unit(pixel)
     required uint32 height = 3;
 
     /**
-     * TODO
+     * The number of color channels in the image.
+     *
+     * The interpretation of these channels depends on @ref
+     * .color_mode.
      */
     // @unit(number)
     optional uint32 channels = 4 [default = 3];
 
     /**
-     * TODO
+     * The number of bits used to encode
      */
     optional Depth depth = 5 [default = DEPTH_8U];
 
     /**
-     * TODO
+     * Colorspace and layout of the color channels of the image.
+     *
+     * Determines pixel layout in combination with @ref .data_order.
      */
     optional ColorMode color_mode = 6 [default = COLOR_RGB];
 
     /**
-     * TODO
+     * Layout of the color planes of the image.
+     *
+     * Determines pixel layout in combination with @ref .color_mode.
      */
     optional DataOrder data_order = 7 [default = DATA_SEPARATE];
 
