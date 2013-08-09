@@ -1,4 +1,3 @@
-
 INCLUDE(PedanticCompilerWarnings)
 INCLUDE(InstallFilesRecursive)
 
@@ -23,7 +22,7 @@ ENDIF()
 
 # --- user options ---
 
-OPTION(EXPORT_TO_CMAKE_PAKAGE_REGISTRY "If set to ON, RST will be exported to the CMake user package registry so that downstream projects automatically find the workspace location in find_package calls." OFF)
+OPTION(EXPORT_TO_CMAKE_PAKAGE_REGISTRY "If set to ON, ${CMAKE_PROJECT_NAME} will be exported to the CMake user package registry so that downstream projects automatically find the workspace location in find_package calls." OFF)
 
 # --- pkgconfig files ---
 
@@ -40,20 +39,28 @@ INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/${STABLE_NAME}${SO_VERSION}.pc"
 # --- cmake export ---
 
 IF(EXPORT_TO_CMAKE_PAKAGE_REGISTRY)
-    MESSAGE(STATUS "Exported RST to CMake package registry")
-    EXPORT(PACKAGE RST)
+    MESSAGE(STATUS "Exported ${CMAKE_PROJECT_NAME} to CMake package registry")
+    EXPORT(PACKAGE "${CMAKE_PROJECT_NAME}")
 ENDIF()
 
-CONFIGURE_FILE(RSTBuildTreeSettings.cmake.in
-               "${CMAKE_CURRENT_BINARY_DIR}/RSTBuildTreeSettings.cmake" @ONLY)
+CONFIGURE_FILE("${CMAKE_PROJECT_NAME}BuildTreeSettings.cmake.in"
+               "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}BuildTreeSettings.cmake"
+               @ONLY)
 
 FILE(TO_CMAKE_PATH "${RSC_DIR}" RSC_DIR)
 FILE(TO_CMAKE_PATH "${PROTOBUF_ROOT}" PROTOBUF_ROOT)
-CONFIGURE_FILE(RSTConfig.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/RSTConfig.cmake" @ONLY)
-INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/RSTConfig.cmake" DESTINATION share/${INSTALL_PREFIX})
-CONFIGURE_FILE(RSTConfigVersion.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/RSTConfigVersion.cmake" @ONLY)
-INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/RSTConfigVersion.cmake" DESTINATION share/${INSTALL_PREFIX})
+CONFIGURE_FILE("${CMAKE_PROJECT_NAME}Config.cmake.in"
+               "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}Config.cmake"
+               @ONLY)
+INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}Config.cmake"
+        DESTINATION "share/${INSTALL_PREFIX}")
+CONFIGURE_FILE("${CMAKE_PROJECT_NAME}ConfigVersion.cmake.in"
+               "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}ConfigVersion.cmake"
+               @ONLY)
+INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}ConfigVersion.cmake"
+        DESTINATION "share/${INSTALL_PREFIX}")
 
-EXPORT(TARGETS ${STABLE_NAME} ${SANDBOX_NAME} FILE "${CMAKE_CURRENT_BINARY_DIR}/RSTDepends.cmake")
-INSTALL(EXPORT RSTDepends
+EXPORT(TARGETS ${STABLE_NAME} ${SANDBOX_NAME}
+       FILE "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}Depends.cmake")
+INSTALL(EXPORT "${CMAKE_PROJECT_NAME}Depends"
         DESTINATION "share/${INSTALL_PREFIX}")
