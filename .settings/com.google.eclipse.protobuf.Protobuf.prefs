@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+paths.directoryPaths=${workspace_loc\:/${project}/proto/stable},${workspace_loc\:/${project}/proto/sandbox}
+paths.filesInMultipleDirectories=true
+paths.filesInOneDirectoryOnly=false
