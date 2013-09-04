@@ -27,8 +27,11 @@ IF(ANT_EXECUTABLE AND PROTOBUF_JAVA_LIBRARY)
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/MANIFEST.MF.in"
                    "${CMAKE_CURRENT_BINARY_DIR}/MANIFEST.MF"
                    @ONLY)
-    CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/pom.xml.in"
-                   "${CMAKE_CURRENT_BINARY_DIR}/pom.xml"
+    CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/pom-stable.xml.in"
+                   "${CMAKE_CURRENT_BINARY_DIR}/pom-stable.xml"
+                   @ONLY)
+    CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/pom-sandbox.xml.in"
+                   "${CMAKE_CURRENT_BINARY_DIR}/pom-sandbox.xml"
                    @ONLY)
 
     ADD_CUSTOM_COMMAND(OUTPUT  ${JAR_FILES}
