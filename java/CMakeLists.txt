@@ -40,6 +40,9 @@ IF(ANT_EXECUTABLE AND PROTOBUF_JAVA_LIBRARY)
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/pom-sandbox.xml.in"
                    "${CMAKE_CURRENT_BINARY_DIR}/pom-sandbox.xml"
                    @ONLY)
+    INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/pom-stable.xml"
+                   "${CMAKE_CURRENT_BINARY_DIR}/pom-sandbox.xml"
+            DESTINATION share/java)
 
     ADD_CUSTOM_COMMAND(OUTPUT  ${JAR_FILES}
                        COMMAND ${ANT_EXECUTABLE} dist
