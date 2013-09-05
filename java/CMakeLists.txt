@@ -27,6 +27,13 @@ IF(ANT_EXECUTABLE AND PROTOBUF_JAVA_LIBRARY)
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/MANIFEST.MF.in"
                    "${CMAKE_CURRENT_BINARY_DIR}/MANIFEST.MF"
                    @ONLY)
+
+    # maven poms
+    IF(RST_IS_RELEASE)
+        SET(RST_MVN_VERSION ${RST_VERSION})
+    ELSE()
+        SET(RST_MVN_VERSION "${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}-SNAPSHOT")
+    ENDIF()
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/pom-stable.xml.in"
                    "${CMAKE_CURRENT_BINARY_DIR}/pom-stable.xml"
                    @ONLY)
