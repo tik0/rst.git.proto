@@ -30,7 +30,13 @@ IF(ANT_EXECUTABLE AND PROTOBUF_JAVA_LIBRARY)
 
     # maven poms
     IF(RST_IS_RELEASE)
-        SET(RST_MVN_VERSION ${RST_VERSION})
+        IF(RST_VERSION_PATCH EQUAL 0)
+            # it seems the maven convention is to leave out the revision / patch
+            # version in case it is 0
+            SET(RST_MVN_VERSION "${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}")
+        ELSE()
+            SET(RST_MVN_VERSION ${RST_VERSION})
+        ENDIF()
     ELSE()
         SET(RST_MVN_VERSION "${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}-SNAPSHOT")
     ENDIF()
