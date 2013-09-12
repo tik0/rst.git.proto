@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>rsb</groupId>
-    <artifactId>rstsandbox</artifactId>
+    <artifactId>rst-sandbox</artifactId>
     <version>@RST_VERSION@</version>
     <packaging>jar</packaging>
 
