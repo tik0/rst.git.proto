@@ -97,6 +97,8 @@ IF(PYTHONINTERP_FOUND AND ((NOT PYTHON_VERSION_MAJOR) OR (PYTHON_VERSION_MAJOR E
     # find out the correct install location:
     EXECUTE_PROCESS(COMMAND ${PYTHON_EXECUTABLE} -c "from distutils.sysconfig import get_python_lib; import os.path; print os.path.relpath(get_python_lib(prefix='${CMAKE_INSTALL_PREFIX}'), '${CMAKE_INSTALL_PREFIX}')" OUTPUT_VARIABLE EGG_INSTALL_FOLDER)
     STRING(STRIP ${EGG_INSTALL_FOLDER} EGG_INSTALL_FOLDER)
+    # work around bug 5117 in python 2.6 which won't be fixed there
+    STRING(REGEX REPLACE "^\\.\\./(.*)" "\\1" EGG_INSTALL_FOLDER "${EGG_INSTALL_FOLDER}")
     MESSAGE(STATUS "Python egg install folder: ${EGG_INSTALL_FOLDER}")
 
     # generate pth file for easy-install
