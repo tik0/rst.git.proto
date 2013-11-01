@@ -5,42 +5,34 @@ import "rst/configuration/SchemaItem.proto";
 option java_outer_classname = "SchemaType";
 
 /**
+ * A schema consisting of @ref SchemaItem entries.
  *
  * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
  */
 message Schema {
 
     /**
-     * Association of @ref SchemaItem @ref .item to the name @ref
-     * .key.
-     */
-    message ItemEntry {
-        required string     key = 1;
-        required SchemaItem item = 2;
-    };
-
-    /**
-     * @ref .item is a "child schema" responsible for names starting
-     * with @ref .key.
+     * @ref .item is a "child schema" responsible for names matching
+     * @ref .key.
      */
     message SchemaEntry {
-        required string     key = 1;
-        required SchemaItem item = 2;
+        required string name = 1;
+        required Schema schema = 2;
     };
 
     /**
-     * Map of schema items constituting the schema.
+     * Collection of @ref SchemaItem s constituting the schema.
      *
-     * Duplicate values of @ref ItemEntry.key are not permitted.
+     * Duplicate values of @ref SchemaItem.name are not permitted.
      *
      * Order of entries is not significant.
      */
-    repeated ItemEntry   item  = 1;
+    repeated SchemaItem item = 1;
 
     /**
      * Map of "child schemata".
      *
-     * Duplicate values of @ref SchemaEntry.key are not permitted.
+     * Duplicate values of @ref SchemaEntry.name are not permitted.
      *
      * Order of entries is not significant.
      */
