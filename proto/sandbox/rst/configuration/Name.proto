@@ -1,0 +1,14 @@
+package rst.configuration;
+
+option java_outer_classname = "NameType";
+
+/**
+ * Not sure whether we want this.
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message Name {
+
+    required string Value = 1;
+
+}
