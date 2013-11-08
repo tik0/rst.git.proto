@@ -1,0 +1,31 @@
+package rst.text;
+
+option java_outer_classname = "TextLocationType";
+
+/**
+ * Location of the a character in a text with optional line and column
+ * information.
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message TextLocation {
+
+    /**
+     * Position of the designated character in the text, counting from
+     * 0.
+     */
+    required uint64 index = 1;
+
+    /**
+     * Line in which the designated character occurs in the text,
+     * counting from 0.
+     */
+    optional uint64 line = 2;
+
+    /**
+     * Column in which the designated character occurs in the text,
+     * counting from 0.
+     */
+    optional uint64 column = 3;
+
+}

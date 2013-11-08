@@ -1,0 +1,21 @@
+package rst.text;
+
+import "rst/text/TextLocation.proto";
+
+option java_outer_classname = "FileLocationType";
+
+/**
+ * TODO use either FileSection or FileLocation?
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message FileLocation {
+
+    /**
+     */
+    required string filename = 1;
+
+    /**
+     */
+    optional TextLocation location = 2;
+
+}

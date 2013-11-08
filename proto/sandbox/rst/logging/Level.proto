@@ -1,0 +1,24 @@
+package rst.logging;
+
+option java_outer_classname = "LevelType";
+
+/**
+ * TODO consider http://wiki.ros.org/Verbosity%20Levels
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+enum Level {
+
+    TRACE = 0;
+
+    DEBUG = 1;
+
+    INFO = 2;
+
+    WARNING = 3;
+
+    ERROR = 4;
+
+    FATAL = 5;
+
+}

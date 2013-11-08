@@ -1,0 +1,25 @@
+package rst.text;
+
+import "rst/text/TextLocation.proto";
+
+option java_outer_classname = "TextSectionType";
+
+/**
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message TextSection {
+
+    /**
+     */
+    required TextLocation start = 1;
+
+    /**
+     */
+    optional TextLocation end = 2;
+
+    /**
+     */
+    optional string text = 3;
+
+}

@@ -1,0 +1,49 @@
+package rst.logging;
+
+import "rst/text/FileSection.proto";
+
+option java_outer_classname = "ContextType";
+
+/**
+ * The program context in which a log message has been emitted.
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message Context {
+
+    /**
+     * TODO integrate with rst.monitoring.ProcessCues
+     */
+    optional string process = 1;
+
+    /**
+     * TODO integrate with rst.monitoring.ProcessCues.Thread
+     */
+    optional string thread = 2;
+
+    // TODO stacktrace?
+
+    /**
+     * The location within the source code of the program that
+     * produced the log message.
+     */
+    optional text.FileSection location = 3;
+
+    /**
+     * Lexical context within the program that produced the log
+     * message.
+     *
+     * For Java, an example would be TODO preformatted
+     * [ "package baz.fez", "class Foo", "method bar(String, int)" ]
+     */
+    repeated string lexical_context = 4;
+
+    /**
+     * A stack of dynamic context tags which had been active when the
+     * log message was produced.
+     *
+     * Analogous to log4j's NDCs. TODO link
+     */
+    repeated string dynamic_context = 5;
+
+}

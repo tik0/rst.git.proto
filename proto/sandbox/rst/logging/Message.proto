@@ -1,0 +1,33 @@
+package rst.logging;
+
+import "rst/text/TextLocation.proto";
+
+import "rst/logging/Level.proto";
+import "rst/logging/Context.proto";
+
+option java_outer_classname = "MessageType";
+
+/**
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message Message {
+
+    /**
+     * TODO not sure how to do this one correctly. maybe not needed?
+     */
+    required string source = 1;
+
+    /**
+     */
+    required Level level = 2;
+
+    /**
+     */
+    required string text = 3;
+
+    /**
+     */
+    optional Context context = 5;
+
+}
