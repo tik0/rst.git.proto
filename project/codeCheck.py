@@ -340,7 +340,6 @@ def checkFilesInMultipleRoots(rootFolder, errorHandler):
 
 if __name__ == '__main__':
 
-    logging.basicConfig(level=logging.DEBUG)
 
     parser = optparse.OptionParser()
     parser.add_option("-o", "--output", dest="filename", default="./rst-checks.xml",
@@ -350,8 +349,15 @@ if __name__ == '__main__':
                       help="Format to use for reporting errors", metavar="(plain|xml)")
     parser.add_option("-r", "--root", dest="root", default="../proto",
                       help="Different RST roots like stable and sandbox are located here", metavar="DIR")
+    parser.add_option("-d", "--debug", dest="debug", default=False, action="store_true",
+                      help="Provide debug output")
 
     (options, args) = parser.parse_args()
+
+    if options.debug:
+        logging.basicConfig(level=logging.DEBUG)
+    else:
+        logging.basicConfig(level=logging.WARNING)
 
     # decide on output
     errorHandler = ErrorHandler()
