@@ -1,3 +1,5 @@
+SET_PROPERTY(GLOBAL APPEND PROPERTY ENABLED_FEATURES "cpp binding")
+
 INCLUDE(PedanticCompilerWarnings)
 INCLUDE(InstallFilesRecursive)
 

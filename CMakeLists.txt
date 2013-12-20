@@ -81,6 +81,8 @@ INCLUDE(ProvideFlexibleCPack)
 
 # --- language bindings ---
 
+INCLUDE(FeatureSummary)
+
 IF(BUILD_CPP)
     ADD_SUBDIRECTORY(cpp)
 ENDIF()
@@ -93,6 +95,8 @@ ENDIF()
 IF(BUILD_MATLAB)
     ADD_SUBDIRECTORY(matlab)
 ENDIF()
+
+PRINT_ENABLED_FEATURES()
 
 # --- install protocol anyways for backwards compatibility ---
 
