@@ -320,7 +320,7 @@ def checkFilesInFolder(folder, errorHandler, additionalCheckClasses=[]):
 
     protoFiles = getProtoFilesRecursive(folder)
     for f in protoFiles:
-        if not f.split('/')[-1].startswith('__'):
+        if not os.path.split(f)[-1].startswith('__'):
             checkFile(f, folder, errorHandler, additionalCheckClasses)
 
 def checkFilesInMultipleRoots(rootFolder, errorHandler):
