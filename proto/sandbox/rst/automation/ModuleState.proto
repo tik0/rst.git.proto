@@ -1,0 +1,26 @@
+package rst.automation;
+
+option java_outer_classname = "ModuleStateType";
+
+message ModuleState {
+  required string name = 1;
+  required int32 id = 2;
+
+  enum OperationalMode {
+    AUTO = 0;
+    SETUP = 1;
+    UNKNOWN = 2;
+  }
+
+  enum InternalState {
+  	AVAILABLE = 0;
+  	ONLINE = 1;
+  	DEPLOY = 2;
+  	READY = 3;
+  	IDLE = 4;
+  }
+
+  required OperationalMode operationalMode = 3 [default = UNKNOWN];
+  required InternalState internalState = 4;
+
+}
