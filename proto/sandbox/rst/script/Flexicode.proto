@@ -1,0 +1,8 @@
+package rst.script;
+
+option java_outer_classname = "FlexicodeType";
+
+message Flexicode {
+    optional string name=1;//the name of the Flexicodefile. The name will be used to create the flxcde und flxnav files.
+    repeated string line=16;// One line of flexicode. The PlcInterpreter needs the _NIL statement at the end so an empty valid flexicode consists of only the _NIL statement
+}
