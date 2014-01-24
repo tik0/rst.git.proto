@@ -4,7 +4,9 @@ option java_outer_classname = "UR5MoveType";
 
 message UR5Move {
 
-	// Movement commands for the Universal Robot 5
+  /**
+   * Movement commands for the Universal Robot 5
+   */
 
   required double xpos = 1;
   required double ypos = 2;
