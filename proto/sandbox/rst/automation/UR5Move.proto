@@ -28,7 +28,7 @@ message UR5Move {
     PTP = 1;
   }
 
-  required PointType pointType = 10;
-  required MovementType movementType = 11;
+  optional PointType pointType = 10;
+  optional MovementType movementType = 11;
 
 }
