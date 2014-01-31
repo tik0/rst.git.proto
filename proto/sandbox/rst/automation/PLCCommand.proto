@@ -1,0 +1,33 @@
+package rst.automation;
+
+import "sandbox/rst/automation/UR5Move.proto";
+import "sandbox/rst/automation/FeedScrew.proto";
+import "sandbox/rst/automation/Screw.proto";
+
+option java_outer_classname = "PLCCommandType";
+
+message PLCCommand {
+
+  /**
+   *  The enum contains all implemented PLC Commands.
+   */
+
+  enum Type { WAITFORSIGNAL = 1;SLEEP = 2;MOVE = 3;ACTGRIPPER = 4;FEEDSCREW = 5;SCREW = 6; }
+
+  /**
+   *  The Type field must be filled with one of the enum Types.
+   *  This way we can identify which field is filled in.
+   */
+  required Type type = 1;
+
+  /**
+   * One of the following will be filled in.
+   */
+  optional bool waitForSignal = 2;
+  optional int32 sleep = 3;
+  optional automation.UR5Move move = 4;
+  optional bool activateGripper = 5;
+  optional FeedScrew feedScrew= 6;
+  optional Screw screw = 7;
+
+}

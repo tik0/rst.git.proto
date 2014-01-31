@@ -1,0 +1,15 @@
+package rst.automation;
+
+option java_outer_classname = "FeedScrewType";
+
+message FeedScrew {
+
+  /**
+   * Screw parameters for the "Stöger Zuführeinheit ZSE 1800"
+   */
+
+  optional int32 sort = 1;
+  optional double velocity = 2;
+  optional double targetValue = 3;
+
+}

@@ -1,0 +1,20 @@
+package rst.automation;
+
+option java_outer_classname = "PLCAnswerType";
+
+message PLCAnswer {
+
+  /**
+   * Answer Type suitable for all PLC Functions
+   */
+
+  enum Answer {
+  	DONE = 1;
+  	MINORERROR = 2;
+  	MAJORERROR = 3;
+  }
+
+  required Answer answer = 1;
+  optional int32 errornumber = 2;
+
+}

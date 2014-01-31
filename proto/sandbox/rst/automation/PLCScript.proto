@@ -1,0 +1,16 @@
+package rst.automation;
+
+import "sandbox/rst/automation/PLCCommand.proto";
+
+option java_outer_classname = "PLCScriptType";
+
+message PLCScript {
+
+  /**
+   *
+   */
+
+  required string name = 1;
+  repeated PLCCommand command = 2;
+
+}
