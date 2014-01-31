@@ -12,7 +12,7 @@ message PLCCommand {
    *  The enum contains all implemented PLC Commands.
    */
 
-  enum Type { WAITFORSIGNAL = 1;SLEEP = 2;MOVE = 3;ACTGRIPPER = 4;FEEDSCREW = 5;SCREW = 6; }
+  enum Type { WAITFORSIGNAL = 1;SLEEP = 2;MOVE = 3;ACTGRIPPER = 4;FEEDSCREW = 5;SCREW = 6; TRANSPORT = 7;}
 
   /**
    *  The Type field must be filled with one of the enum Types.
@@ -29,5 +29,6 @@ message PLCCommand {
   optional bool activateGripper = 5;
   optional FeedScrew feedScrew= 6;
   optional Screw screw = 7;
+  optional bool transport = 8;
 
 }

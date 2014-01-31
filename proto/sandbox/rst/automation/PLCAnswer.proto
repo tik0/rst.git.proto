@@ -15,6 +15,10 @@ message PLCAnswer {
   }
 
   required Answer answer = 1;
+
+  /**
+   * If a minor or major error occurs, an error code is returned
+   */
   optional int32 errornumber = 2;
 
 }
