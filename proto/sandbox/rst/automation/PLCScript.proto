@@ -1,6 +1,6 @@
 package rst.automation;
 
-import "sandbox/rst/automation/PLCCommand.proto";
+import "rst/automation/PLCCommand.proto";
 
 option java_outer_classname = "PLCScriptType";
 

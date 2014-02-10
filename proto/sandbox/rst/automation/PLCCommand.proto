@@ -1,8 +1,8 @@
 package rst.automation;
 
-import "sandbox/rst/automation/UR5Move.proto";
-import "sandbox/rst/automation/FeedScrew.proto";
-import "sandbox/rst/automation/Screw.proto";
+import "rst/automation/UR5Move.proto";
+import "rst/automation/FeedScrew.proto";
+import "rst/automation/Screw.proto";
 
 option java_outer_classname = "PLCCommandType";
 
