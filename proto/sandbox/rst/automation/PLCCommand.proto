@@ -8,27 +8,34 @@ option java_outer_classname = "PLCCommandType";
 
 message PLCCommand {
 
-  /**
-   *  The enum contains all implemented PLC Commands.
-   */
+    /**
+     *  The enum contains all implemented PLC Commands.
+     */
+    enum Type {
+        WAITFORSIGNAL = 1;
+        SLEEP = 2;
+        MOVE = 3;
+        ACTGRIPPER = 4;
+        FEEDSCREW = 5;
+        SCREW = 6;
+        TRANSPORT = 7;
+    }
 
-  enum Type { WAITFORSIGNAL = 1;SLEEP = 2;MOVE = 3;ACTGRIPPER = 4;FEEDSCREW = 5;SCREW = 6; TRANSPORT = 7;}
+    /**
+     *  The Type field must be filled with one of the enum Types.
+     *  This way we can identify which field is filled in.
+     */
+    required Type type = 1;
 
-  /**
-   *  The Type field must be filled with one of the enum Types.
-   *  This way we can identify which field is filled in.
-   */
-  required Type type = 1;
-
-  /**
-   * One of the following will be filled in.
-   */
-  optional bool waitForSignal = 2;
-  optional int32 sleep = 3;
-  optional automation.UR5Move move = 4;
-  optional bool activateGripper = 5;
-  optional FeedScrew feedScrew= 6;
-  optional Screw screw = 7;
-  optional bool transport = 8;
+    /**
+     * One of the following will be filled in.
+     */
+    optional bool wait_for_signal = 2;
+    optional int32 sleep = 3;
+    optional automation.UR5Move move = 4;
+    optional bool activate_gripper = 5;
+    optional FeedScrew feed_screw= 6;
+    optional Screw screw = 7;
+    optional bool transport = 8;
 
 }

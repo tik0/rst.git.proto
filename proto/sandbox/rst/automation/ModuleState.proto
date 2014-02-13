@@ -2,48 +2,52 @@ package rst.automation;
 
 option java_outer_classname = "ModuleStateType";
 
+/**
+ * author Hendrik Oestreich <hoestreich@techfak.uni-bielefeld.de>
+ */
 message ModuleState {
 
-  required string name = 1;
-  required int32 id = 2;
+    required string name = 1;
+    required int32 id = 2;
 
-  enum OperationalMode {
-    AUTO = 0;
-    SETUP = 1;
-    UNKNOWN = 2;
-  }
+    enum OperationalMode {
+        AUTO = 0;
+        SETUP = 1;
+        UNKNOWN = 2;
+    }
 
-  required OperationalMode operationalMode = 3 [default = UNKNOWN];
+    required OperationalMode operationalMode = 3 [default = UNKNOWN];
 
-  enum InternalState {
-  	AVAILABLE = 0;
-  	ONLINE = 1;
-  	DEPLOY = 2;
-  	READY = 3;
-  	MODULEIDLE = 4;
-  }
-  required InternalState internalState = 4;
+    enum InternalState {
+        AVAILABLE = 0;
+        ONLINE = 1;
+        DEPLOY = 2;
+        READY = 3;
+        MODULEIDLE = 4;
+    }
+    required InternalState internal_state = 4;
 
-  enum AdsState {
-  	INVALID	= 0;
-	IDLE = 1;
-	RESET = 2;
-	INIT = 3;
-	START = 4;
-	RUN	= 5;
-	STOP = 6;
-	SAVECONFIG = 7;
-	LOADCONFIG = 8;
-	POWERFAILURE = 9;
-	POWERGOOD = 10;
-	ERROR = 11;
-	SHUTDOWN = 12;
-	SUSPEND	= 13;
-	RESUME = 14;
-	CONFIG	= 15;
-	RECONFIG = 16;
-	MAXSTATES = 17;
-  }
+    enum AdsState {
+        INVALID = 0;
+        IDLE = 1;
+        RESET = 2;
+        INIT = 3;
+        START = 4;
+        RUN = 5;
+        STOP = 6;
+        SAVECONFIG = 7;
+        LOADCONFIG = 8;
+        POWERFAILURE = 9;
+        POWERGOOD = 10;
+        ERROR = 11;
+        SHUTDOWN = 12;
+        SUSPEND = 13;
+        RESUME = 14;
+        CONFIG  = 15;
+        RECONFIG = 16;
+        MAXSTATES = 17;
+    }
 
-  required AdsState adsState = 5;
+    required AdsState ads_state = 5;
+
 }

@@ -2,21 +2,21 @@ package rst.automation;
 
 option java_outer_classname = "ScrewType";
 
+/**
+ * Screw parameters for the "Stöger Schraubeinheit TYP SES 1601"
+ * Enum values translated from the PLC code.
+ */
 message Screw {
 
-  /**
-   * Screw parameters for the "Stöger Schraubeinheit TYP SES 1601"
-   * Enum values translated from the PLC code.
-   */
+    enum Mode {
+        ANALOGUE = 1;
+        INTERNALDIGITALDEPTHFINDER = 2;
+        EXTERNALDIGITALDEPTHFINDER = 3;
+        TORSIONALMOMENTLIMIT = 4;
+        NUMBEROFROTATIONS = 5;
+    }
 
-  enum Mode {
-  	ANALOGUE = 1;
-  	INTERNALDIGITALDEPTHFINDER = 2;
-  	EXTERNALDIGITALDEPTHFINDER = 3;
-  	TORSIONALMOMENTLIMIT = 4;
-  	NUMBEROFROTATIONS = 5;
-  }
-  optional Mode screwControlType = 1;
-  optional bool direction = 2;
+    optional Mode screw_control_type = 1;
+    optional bool direction = 2;
 
 }

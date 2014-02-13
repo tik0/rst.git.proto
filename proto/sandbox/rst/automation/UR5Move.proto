@@ -2,33 +2,34 @@ package rst.automation;
 
 option java_outer_classname = "UR5MoveType";
 
+/**
+ * Movement commands for the Universal Robot 5
+ *
+ * @author Hendrik Oestreich <hoestreich@techfak.uni-bielefeld.de>
+ */
 message UR5Move {
 
-  /**
-   * Movement commands for the Universal Robot 5
-   */
+    required double xpos = 1;
+    required double ypos = 2;
+    required double zpos = 3;
+    required double xphipos = 4;
+    required double yphipos = 5;
+    required double zphipos = 6;
+    required double velocity = 7;
+    required double acceleration  = 8;
+    required double declaration = 9;
 
-  required double xpos = 1;
-  required double ypos = 2;
-  required double zpos = 3;
-  required double xphipos = 4;
-  required double yphipos = 5;
-  required double zphipos = 6;
-  required double velocity = 7;
-  required double acceleration  = 8;
-  required double declaration = 9;
+    enum PointType {
+        ABSOLUT = 0;
+        RELATIVE = 1;
+    }
 
-  enum PointType {
-  	ABSOLUT = 0;
-  	RELATIVE = 1;
-  }
+    enum MovementType {
+        LINEAR = 0;
+        PTP = 1;
+    }
 
-  enum MovementType {
-    LINEAR = 0;
-    PTP = 1;
-  }
-
-  optional PointType pointType = 10 [default = ABSOLUT];
-  optional MovementType movementType = 11 [default = LINEAR];
+    optional PointType point_type = 10 [default = ABSOLUT];
+    optional MovementType movement_type = 11 [default = LINEAR];
 
 }

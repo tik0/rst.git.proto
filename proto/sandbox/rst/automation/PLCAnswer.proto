@@ -2,23 +2,22 @@ package rst.automation;
 
 option java_outer_classname = "PLCAnswerType";
 
+/**
+ * Answer Type suitable for all PLC Functions
+ */
 message PLCAnswer {
 
-  /**
-   * Answer Type suitable for all PLC Functions
-   */
+    enum Answer {
+        DONE = 1;
+        MINORERROR = 2;
+        MAJORERROR = 3;
+    }
 
-  enum Answer {
-  	DONE = 1;
-  	MINORERROR = 2;
-  	MAJORERROR = 3;
-  }
+    required Answer answer = 1;
 
-  required Answer answer = 1;
-
-  /**
-   * If a minor or major error occurs, an error code is returned
-   */
-  optional int32 errornumber = 2;
+    /**
+     * If a minor or major error occurs, an error code is returned
+     */
+    optional int32 errornumber = 2;
 
 }

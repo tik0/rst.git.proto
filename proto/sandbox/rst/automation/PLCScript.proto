@@ -4,13 +4,12 @@ import "rst/automation/PLCCommand.proto";
 
 option java_outer_classname = "PLCScriptType";
 
+/**
+ * @author Hendrik Oestreich <hoestreich@techfak.uni-bielefeld.de>
+ */
 message PLCScript {
 
-  /**
-   *
-   */
-
-  required string name = 1;
-  repeated PLCCommand command = 2;
+    required string name = 1;
+    repeated PLCCommand command = 2;
 
 }
