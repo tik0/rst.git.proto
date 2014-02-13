@@ -1,0 +1,19 @@
+package rst.devices.rfid;
+
+option java_outer_classname = "TagType";
+
+/**
+ * Provides information about an RFID tag.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
+message Tag {
+
+    /**
+     * The ID to identify the tag.
+     *
+     * ASCII string encoding.
+     */
+    required bytes id = 1;
+
+}

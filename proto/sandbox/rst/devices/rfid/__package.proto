@@ -1,0 +1,4 @@
+/**
+ * A package with data types for RFID reader information.
+ */
+package rst.devices.generic;
