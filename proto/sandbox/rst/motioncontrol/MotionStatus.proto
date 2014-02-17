@@ -1,0 +1,19 @@
+package rst.motioncontrol;
+
+option java_outer_classname = "MotionStatusType";
+
+/**
+ * Holds the status of a motion, one of the two:
+ * - Converged (in case of a periodic movement: following its attractor)
+ * - Not converged
+ *
+ * @author Arne Nordmann <anordman@cor-lab.uni-bielefeld.de>
+ */
+message MotionStatus {
+
+    /**
+     * Converged - true or false
+     */
+    required bool converged = 1;
+
+}

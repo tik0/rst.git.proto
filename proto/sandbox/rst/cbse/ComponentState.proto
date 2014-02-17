@@ -24,7 +24,7 @@ message ComponentState {
         OFFLINELEARNING = 6;    // Offline learning and not responsive
         RESET = 7;              // Resetted
         LOADED = 8;             // Component was just loaded from persisted state
-        PERSISTED = 9;          // Component state was just persisted 
+        PERSISTED = 9;          // Component state was just persisted
     }
 
     required State state = 1;
