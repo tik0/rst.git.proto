@@ -1,0 +1,19 @@
+package rst.amarsi;
+
+option java_outer_classname = "AdaptiveComponentType";
+
+/**
+ * Holds the status of an AMARSi Adaptive Component, namely:
+ * - Converged
+ * - Not Converged
+ *
+ * @author Arne Nordmann <anordman@cor-lab.uni-bielefeld.de>
+ */
+message AdaptiveComponentStatus {
+
+    /**
+     * Converged - true or false
+     */
+    required bool converged = 1;
+
+}
