@@ -21,8 +21,8 @@ IF(ANT_EXECUTABLE AND PROTOBUF_JAVA_LIBRARY)
 
     # Prepare safe variables and configure ant build files.
     STRING(REPLACE "&" "&amp;" SAFE_CMAKE_CURRENT_BINARY_DIR  "${CMAKE_CURRENT_BINARY_DIR}")
-    STRING(REPLACE "&" "&amp;" JAR_LINES "<jar jarfile=\"${STABLE_JAR_FILE}\" basedir=\"classes-stable\" manifest=\"MANIFEST.MF\"/>\n
-<jar jarfile=\"${SANDBOX_JAR_FILE}\" basedir=\"classes-sandbox\" manifest=\"MANIFEST.MF\"/>")
+    STRING(REPLACE "&" "&amp;" JAR_LINES "<jar jarfile=\"${STABLE_JAR_FILE}\" basedir=\"classes-stable\" manifest=\"MANIFEST.MF\"><fileset dir=\"${CMAKE_SOURCE_DIR}/proto/stable\"><include name=\"**/*.proto\"/></fileset></jar>\n
+<jar jarfile=\"${SANDBOX_JAR_FILE}\" basedir=\"classes-sandbox\" manifest=\"MANIFEST.MF\"><fileset dir=\"${CMAKE_SOURCE_DIR}/proto/sandbox\"><include name=\"**/*.proto\"/></fileset></jar>")
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/build.xml.in"
                    "${CMAKE_CURRENT_BINARY_DIR}/build.xml"
                    @ONLY)
