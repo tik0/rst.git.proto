@@ -1,0 +1,17 @@
+package rst.automation;
+
+option java_outer_classname = "StopperStateType";
+
+/**
+ * Zustand einer Stoppstelle
+ *
+ * @author Christoph Dreyer <cdreyer@techfak.uni-bielefeld.de>
+ */
+message StopperState {
+
+	required string adsPath = 1
+    required bool autarkic = 2;
+    required bool inpos = 3;
+	optional bool aligned = 4 [default = false];
+    
+}
