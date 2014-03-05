@@ -9,9 +9,9 @@ option java_outer_classname = "StopperStateType";
  */
 message StopperState {
 
-	required string adsPath = 1
-    required bool autarkic = 2;
+    required string ads_path = 1;
+    required bool autarchic = 2;
     required bool inpos = 3;
-	optional bool aligned = 4 [default = false];
-    
+    optional bool aligned = 4 [default = false];
+
 }
