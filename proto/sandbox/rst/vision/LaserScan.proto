@@ -1,0 +1,29 @@
+package rst.vision;
+
+option java_outer_classname = "LaserScanType";
+
+/**
+ * An object of this type represents a single laser scan carried out by an
+ * appropriate planar laser range-finder.
+ *
+ * @author "Leon Ziegler" <lziegler@techfak.uni-bielefeld.de>
+ */
+message LaserScan {
+
+    /**
+     * A set of values coming from the laserscanning device.
+     */
+    // @unit(meter)
+    repeated float scan_values = 1;
+
+    /**
+     * The angular range that is covered by the scan.
+     *
+     * This value depends on the used hardware and equals the sensor's
+     * one-dimensional field of view. The values from @ref
+     * .scan_values are evenly distributed over this angular range.
+     */
+    // @unit(radian)
+    required float scan_angle = 2;
+
+}
