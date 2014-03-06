@@ -1,0 +1,41 @@
+package rst.tracking;
+
+import "rst/tracking/TrackingInfo.proto";
+import "rst/geometry/Pose.proto";
+
+option java_outer_classname = "TrackedPoseType";
+
+/**
+ * Pose of a tracked subject in three-dimensional space.
+ *
+ * @author Phillip Luecking <plueckin@techfak.uni-bielefeld.de>
+ */
+message TrackedPose {
+
+    /**
+     * Tracking information such as identity of the subject being
+     * tracked.
+     */
+    required TrackingInfo info = 1;
+
+    /**
+     * Pose of the tracked subject identified by @ref .info in
+     * three-dimensional space.
+     */
+    required geometry.Pose pose = 2;
+
+    /**
+     * Confidence in the correctness of the translation stored in @ref
+     * .pose.
+     */
+    // @constraint(0 <= value <= 1)
+    optional float translation_confidence = 3;
+
+    /**
+     * Confidence in the correctness of the rotation stored in @ref
+     * .pose.
+     */
+    // @constraint(0 <= value <= 1)
+    optional float rotation_confidence = 4;
+
+}
