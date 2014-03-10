@@ -1,0 +1,20 @@
+package rst.automation;
+
+option java_outer_classname = "CoordinationStateType";
+
+/**
+ * Describes the current state of the system coordination.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
+message CoordinationState {
+
+    enum UpdateType {
+        ENTERED = 0;
+        LEFT = 1;
+    }
+
+    required UpdateType update_type = 1;
+    required string node_id = 2;
+
+}
