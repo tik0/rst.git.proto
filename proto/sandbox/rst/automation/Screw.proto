@@ -3,7 +3,7 @@ package rst.automation;
 option java_outer_classname = "ScrewType";
 
 /**
- * Screw parameters for the "Stöger Schraubeinheit TYP SES 1601"
+ * Screw parameters for the "StÃ¶ger Schraubeinheit TYP SES 1601"
  * Enum values translated from the PLC code.
  */
 message Screw {
