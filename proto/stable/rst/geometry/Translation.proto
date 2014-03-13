@@ -30,4 +30,8 @@ message Translation {
     // @unit(meter)
     required double z = 3;
 
+    /**
+     * Identifier for the coordinate frame of the rotation.
+     */
+    optional string frame_id = 8;
 }
