@@ -10,7 +10,5 @@ option java_outer_classname = "FeedScrewType";
 message FeedScrew {
 
     optional int32 sort = 1;
-    optional double velocity = 2;
-    optional double target_value = 3;
 
 }
