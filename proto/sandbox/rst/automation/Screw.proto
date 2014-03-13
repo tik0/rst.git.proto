@@ -18,5 +18,6 @@ message Screw {
 
     optional Mode screw_control_type = 1;
     optional bool direction = 2;
+    optional float depth = 3;
 
 }
