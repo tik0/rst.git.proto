@@ -1,6 +1,6 @@
 package rst.amarsi;
 
-option java_outer_classname = "AdaptiveComponentType";
+option java_outer_classname = "AdaptiveComponentStatusType";
 
 /**
  * Holds the status of an AMARSi Adaptive Component, namely:
