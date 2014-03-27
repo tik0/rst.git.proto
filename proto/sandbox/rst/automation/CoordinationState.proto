@@ -13,10 +13,12 @@ message CoordinationState {
         ENTERED = 0;
         LEFT = 1;
         ERROR = 2;
+        PROCESS_START = 3;
     }
 
     required UpdateType update_type = 1;
-    required string node_id = 2;
+    optional string node_id = 2;
     optional string info = 3;
+    optional string process_id = 4;
 
 }
