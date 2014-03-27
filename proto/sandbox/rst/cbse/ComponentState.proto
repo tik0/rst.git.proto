@@ -15,16 +15,25 @@ message ComponentState {
      * Possible lifecycle states
      */
     enum State {
-        OFF = 1;                // Not running / off / stopped
-        ON = 2;                 // Running / on / online -- rather generic, try
-                                // to use more specific state, see below
-        PAUSED = 3;             // Paused
-        EXECUTION = 4;          // On and running / executing
-        ONLINELEARNING = 5;     // Online learning, but still responsive
-        OFFLINELEARNING = 6;    // Offline learning and not responsive
-        RESET = 7;              // Resetted
-        LOADED = 8;             // Component was just loaded from persisted state
-        PERSISTED = 9;          // Component state was just persisted
+        // Not running / off / stopped
+        OFF = 1;
+        // Running / on / online -- rather generic, try to use more specific
+        // state, see below
+        ON = 2;
+        // Paused
+        PAUSED = 3;
+        // On and running / executing
+        EXECUTION = 4;
+        // Online learning, but still responsive
+        ONLINELEARNING = 5;
+        // Offline learning and not responsive
+        OFFLINELEARNING = 6;
+        // Resetted
+        RESET = 7;
+        // Component was just loaded from persisted state
+        LOADED = 8;
+        // Component state was just persisted
+        PERSISTED = 9;
     }
 
     required State state = 1;
