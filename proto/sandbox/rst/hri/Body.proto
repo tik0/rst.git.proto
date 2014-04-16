@@ -1,0 +1,47 @@
+package rst.hri;
+
+import "rst/geometry/Translation.proto";
+import "rst/geometry/Rotation.proto";
+import "rst/geometry/BoundingBox3DFloat.proto";
+
+option java_outer_classname = "BodyType";
+
+/**
+ * Geometric properties of a person's body (e.g. in a person-tracking
+ * system).
+ *
+ * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
+ */
+message Body {
+
+    /**
+     * Location of the person in 3D space.
+     *
+     * The location describes the average of the two feet positions on
+     * the ground.
+     */
+    optional geometry.Translation location = 10;
+
+    /**
+     * Orientation of the person.
+     *
+     * The provided rotation should be passed as a relative rotation
+     * from the coordinate frame defined by the orientation
+     * description. The axes of the corresponding coordinate system
+     * are defined as follows:
+     *
+     * * x axis: points in the direction of the person's walking direction
+     * * y axis: points to the person's right side
+     * * z axis: points downwards (along the person's body axis)
+     */
+    optional geometry.Rotation orientation = 20;
+
+    /**
+     * Bounding box around the whole body.
+     *
+     * This is not necessarily aligned to location and
+     * orientation. Mainly used for tracking purposes.
+     */
+    optional geometry.BoundingBox3DFloat shape = 30;
+
+}
