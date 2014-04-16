@@ -1,0 +1,37 @@
+package rst.vision;
+
+import "rst/vision/Face.proto";
+import "rst/geometry/Translation.proto";
+import "rst/geometry/Rotation.proto";
+
+option java_outer_classname = "LocatedFaceType";
+
+/**
+ * This type extends the regular Face type with a 3D location.
+ *
+ * @author "Leon Ziegler" <lziegler@techfak.uni-bielefeld.de>
+ */
+message LocatedFace {
+
+    /**
+     * The face as a part of an image.
+     */
+    required vision.Face face = 1;
+
+    /**
+     * The 3d location of the face.
+     */
+    optional geometry.Translation location = 2;
+
+    /**
+     * The 3d orientation of the face. The provided rotation should be passed
+     * as a relative rotation from the default pose when the person looks
+     * straight ahead. In this case the axes of the corresponding coordinate
+     * system are defined as follows:
+     *
+     * * x axis: points in the direction of the person's view
+     * * y axis: points to the person's right side
+     * * z axis: points downwards
+     */
+    optional geometry.Rotation orientation = 3;
+}
