@@ -40,7 +40,6 @@ message PersonHypothesis {
     /**
      * Direction the human is looking.
      *
-     * @todo "Clarify"
      */
     optional math.Vec2DFloat human_head_direction = 30;
 
@@ -62,5 +61,8 @@ message PersonHypothesis {
      */
     optional Gender gender = 42 [default = UNKNOWN];
 
-    optional bytes identity = 44;
+    /**
+     * The person's name. Empty string means unknown or undecided.
+     */
+    optional string name = 44;
 }
