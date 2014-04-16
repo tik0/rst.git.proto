@@ -39,16 +39,36 @@ message PersonHypothesis {
 
     /**
      * Direction the human is looking.
-     *
      */
     optional math.Vec2DFloat human_head_direction = 30;
 
     /**
-     * Results from the identity recognizer.
+     * Represents a person's age in years as a range.
      *
-     * @todo "Describe what these mean, not where they come from."
+     * If the exact age is known, set both values (min and max) to the
+     * desired value.
      */
-    optional bytes age = 40;
+    message AgeRange {
+
+        /**
+         * The lower bound of the age range.
+         */
+        required float age_min = 1;
+
+        /**
+         * The upper bound of the age range.
+         */
+        required float age_max = 2;
+
+    }
+
+    /**
+     * The person's age in years as a range.
+     *
+     * If the exact age is known, set both bounds of the range to the
+     * desired value.
+     */
+    optional AgeRange age = 40;
 
     enum Gender {
         UNKNOWN = 0;
