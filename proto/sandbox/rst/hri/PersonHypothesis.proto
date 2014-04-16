@@ -84,4 +84,14 @@ message PersonHypothesis {
      * The person's name. Empty string means unknown or undecided.
      */
     optional string name = 44;
+
+    /**
+     * Human height of the person (from the ground).
+     *
+     * @see http://en.wikipedia.org/wiki/Human_height
+     *      "Definition of the person's body height"
+     */
+    // @unit(meter)
+    // @constraint(value >= 0)
+    optional float human_height = 45;
 }
