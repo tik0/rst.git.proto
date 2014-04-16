@@ -1,7 +1,7 @@
 package rst.hri;
 
 import "rst/math/Vec2DFloat.proto";
-import "rst/vision/Face.proto";
+import "rst/vision/LocatedFace.proto";
 import "rst/tracking/TrackingInfo.proto";
 
 option java_outer_classname = "PersonHypothesisType";
@@ -19,7 +19,11 @@ message PersonHypothesis {
      */
     optional tracking.TrackingInfo tracking_info = 1;
 
-    optional vision.Face face = 3;
+    /**
+     * The person's face as a part of an image. This also includes the
+     * head's pose in 3D space.
+     */
+    optional vision.LocatedFace face = 3;
 
     /**
      * Direction of the human in a coordinate system the origin of
@@ -36,11 +40,6 @@ message PersonHypothesis {
      * @todo "Rename; see above."
      */
     optional math.Vec2DFloat rbc_direction = 20;
-
-    /**
-     * Direction the human is looking.
-     */
-    optional math.Vec2DFloat human_head_direction = 30;
 
     /**
      * Represents a person's age in years as a range.
