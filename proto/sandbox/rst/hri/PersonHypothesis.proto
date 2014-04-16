@@ -3,6 +3,7 @@ package rst.hri;
 import "rst/math/Vec2DFloat.proto";
 import "rst/vision/LocatedFace.proto";
 import "rst/tracking/TrackingInfo.proto";
+import "rst/hri/Body.proto";
 
 option java_outer_classname = "PersonHypothesisType";
 
@@ -26,20 +27,11 @@ message PersonHypothesis {
     optional vision.LocatedFace face = 3;
 
     /**
-     * Direction of the human in a coordinate system the origin of
-     * which is the robot's head.
+     * Geometric properties of the person's body.
      *
-     * @todo "Rename this field to something more descriptive"
+     * This includes the person's position in the world.
      */
-    optional math.Vec2DFloat rhc_direction = 10;
-
-    /**
-     * Direction of the human in a coordinate system the origin of
-     * which is the robot's body.
-     *
-     * @todo "Rename; see above."
-     */
-    optional math.Vec2DFloat rbc_direction = 20;
+    optional hri.Body body = 10;
 
     /**
      * Represents a person's age in years as a range.
