@@ -50,7 +50,17 @@ message PersonHypothesis {
      * @todo "Describe what these mean, not where they come from."
      */
     optional bytes age = 40;
-    optional bytes gender = 42;
-    optional bytes identity = 44;
 
+    enum Gender {
+        UNKNOWN = 0;
+        MALE = 1;
+        FEMALE = 2;
+    }
+
+    /**
+     * The person's gender.
+     */
+    optional Gender gender = 42 [default = UNKNOWN];
+
+    optional bytes identity = 44;
 }
