@@ -1,0 +1,82 @@
+package rst.navigation;
+
+option java_outer_classname = "CommandResultType";
+
+/**
+ * Describes the result of a navigation command including possible error
+ * conditions and reasons for these errors.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
+ */
+message CommandResult {
+
+    enum Result {
+
+        /**
+         * The commanded target could be reached successfully.
+         */
+        SUCCESS = 0;
+
+        /**
+         * Before reaching the commanded target, a new command was issued.
+         */
+        SUPERSEDED = 1;
+
+        /**
+         * The target was not reached due to an explicit stop command.
+         */
+        CANCELLED = 2;
+
+        /**
+         * The commanded target was not reached because an emergency stop
+         * occurred.
+         */
+        EMERGENCY_STOPPED = 3;
+
+        /**
+         * At some point in time during the command execution the motion
+         * stopped because the path planning could not find a valid path to the
+         * commanded target.
+         */
+        PATH_BLOCKED = 4;
+
+        /**
+         * The target could not be reached inside the specified time.
+         */
+        TIMEOUT = 5;
+
+        /**
+         * Target could not be reached. An error that is specific to a certain
+         * robot platform. Further details can be found in the error code and
+         * the error message.
+         */
+        CUSTOM_ERROR = 100;
+
+        /**
+         * Target could not be reached due to an unknown error. Further details
+         * can be found in the error code and the error message.
+         */
+        UNKNOWN_ERROR = 101;
+
+    }
+
+    /**
+     * Indicates the general result of the command.
+     */
+    required Result type = 1;
+
+    /**
+     * An optional code describing the command result for automatic processing.
+     * Mainly used to distinguish platform-specific errors that are not
+     * modelled otherwise.
+     */
+    optional uint32 code = 2;
+
+    /**
+     * A human-readable description for the achieved result. Mainly used for
+     * unknown or custom error description messages.
+     */
+    optional string description = 3;
+
+}
