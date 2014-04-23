@@ -1,0 +1,31 @@
+package rst.kinematics;
+
+option java_outer_classname = "AngularAccelerationsType";
+
+/**
+ * Cartesian 3-dimensional rotational accelerations.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
+ */
+message AngularAccelerations {
+
+    /**
+     * Acceleration around the x axis.
+     */
+    // @unit(rad / second^2)
+    required float a = 1;
+
+    /**
+     * Acceleration around the y axis.
+     */
+    // @unit(rad / second^2)
+    required float b = 2;
+
+    /**
+     * Acceleration around the z axis.
+     */
+    // @unit(rad / second^2)
+    required float c = 3;
+
+}
