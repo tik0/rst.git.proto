@@ -1,0 +1,25 @@
+package rst.automation;
+
+option java_outer_classname = "RpcReturnValueType";
+
+/**
+ * Answer Type suitable for all RpcReturnValues
+ */
+message RpcReturnValue {
+
+    /**
+     * Error code which can be matched with a error code list
+     */
+    required int32 number = 1;
+
+    /**
+     * Short self explanatory name for the return value
+     */
+    required string name = 2;
+
+    /**
+     * String for a longer explanation, if required
+     */
+    optional string description = 3;
+
+}
