@@ -19,7 +19,7 @@ message CoordinateCommand {
     /**
      * The goal to reach by the navigation.
      */
-    required rst.geometry.Pose goal = 1;
+    required geometry.Pose goal = 1;
 
     /**
      * Parameters for the motions used to reach the specified goal.
