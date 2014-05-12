@@ -41,7 +41,7 @@ message OccupancyGrid2DInt {
      * plane in world coordinates, the pose should only contain a
      * rotation around the z-axis.
      */
-    required rst.geometry.Pose origin = 4;
+    required geometry.Pose origin = 4;
 
     /**
      * The map data, in row-major order.
