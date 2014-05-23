@@ -33,6 +33,13 @@ message ProcessCues {
     optional string command_line = 1003;
 
     /**
+     * A unique id that identifies the exact version of the program that was
+     * monitored. One source for this kind of information might be the build id
+     * from the ELF format on Linux.
+     */
+    optional bytes unique_id = 10004;
+
+    /**
      * Cues from a single source.
      */
     message Cues {
