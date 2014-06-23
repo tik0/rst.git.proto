@@ -1,0 +1,63 @@
+package rst.calendar;
+
+option java_outer_classname = "RequestStatusType";
+
+/**
+ * A description of a status code used in scheduling requests.
+ *
+ * This message represents a REQUEST-STATUS property in RFC 2445.
+ *
+ * For a documentation of the RFC 2445 iCalendar specification visit
+ * http://www.ietf.org/rfc/rfc2445.txt
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message RequestStatus {
+
+    /**
+     * Specifies the language used in the status code as defined in
+     * http://www.ietf.org/rfc/rfc1766.txt.
+     *
+     * This field corresponds to the languageparm parameter of REQUEST-STATUS
+     * in RFC 2445.
+     */
+    optional string language = 1;
+
+    /**
+     * A hierarchical numeric status code as string.
+     * 3-tuple of integers separated by a period character.
+     * example: "3.1.2"
+     *
+     * The level of the integer corresponds to the level of status code
+     * granularity (least granularity to highest from left to right).
+     *
+     * The return status interpretation of the leftmost integer is following:
+     * 1.xx preliminary success, completion is pending
+     * 2.xx completed successfully
+     * 3.xx not successful, error in the syntax or semantic of the request
+     * 4.xx scheduling error, an error occurred within the calendaring service
+     * not directly related to the request itself.
+     *
+     * This field corresponds to the statcode parameter of REQUEST-STATUS
+     * in RFC 2445.
+     */
+    required string status_code = 2;
+
+    /**
+     * A status description text.
+     *
+     * This field corresponds to the statdesc parameter of REQUEST-STATUS
+     * in RFC 2445.
+     */
+    required string status_description = 3;
+
+    /**
+     * Exception data as text. Can be the offending property name and value or
+     * a complete property line.
+     *
+     * This field corresponds to the extdata parameter of REQUEST-STATUS
+     * in RFC 2445.
+     */
+    required string exception_text_data = 4;
+
+}

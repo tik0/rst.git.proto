@@ -1,0 +1,100 @@
+package rst.calendar;
+
+import "rst/calendar/DateTime.proto";
+import "rst/calendar/Entry.proto";
+
+option java_outer_classname = "EventType";
+
+/**
+ * A description of a calendar event following the iCalendar definitions.
+ *
+ * This message represents a VEVENT component in RFC 2445.
+ *
+ * For a documentation of the RFC 2445 iCalendar specification visit
+ * http://www.ietf.org/rfc/rfc2445.txt
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message Event {
+
+    /**
+     * The overall status of an event.
+     */
+    enum EventStatus {
+
+        /**
+         * Used for tentative events.
+         */
+        TENTATIVE = 1;
+
+        /**
+         * Used for confirmed events.
+         */
+        CONFIRMED = 2;
+
+        /**
+         * Used for canceled events.
+         */
+        CANCELED = 3;
+    }
+
+    /**
+     * The transparency of an event.
+     */
+    enum Transparency {
+
+        /**
+         * Used for events which do not consume time in the calendar.
+         */
+        TRANSPARENT = 1;
+
+        /**
+         * Used for events which actually consume time in the calendar.
+         */
+        OPAQUE = 2;
+    }
+
+    /**
+     * This field holds all properties that Event has in common with Todo.
+     *
+     * It corresponds to the following properties: class, created, description,
+     * dtstamp, dtstart, geo, last-mod, location, organizer, priority, seq,
+     * summary, uid, url, recurid, attach, attendee, categories, comment,
+     * contact, exdate, exrule, rstatus, related, resources, rdate and rrule
+     * int the VTODO component in RFC 2445.
+     */
+    optional Entry entry = 1;
+
+    /**
+     * The overall status of the event.
+     *
+     * This field corresponds to the status property of VEVENT in RFC 2445.
+     */
+    optional EventStatus event_status = 2 [default = CONFIRMED];
+
+    /**
+     * Specifies whether this event is transparent to busy-time searches or not.
+     *
+     * This field corresponds to the transp property of VEVENT in RFC 2445.
+     * corresponds to TRANSP
+     */
+    optional Transparency transparency = 3 [default = OPAQUE];
+
+    /**
+     * Specifies the date and time when the event ends.
+     * Either end_date_time or duration can be specified but not both at the
+     * same time.
+     *
+     * This field corresponds to the dtend property of VEVENT in RFC 2445.
+     */
+    optional DateTime end_date_time = 4;
+
+    /**
+     * Specifies the duration of the event in milliseconds.
+     * Either end_date_time or duration can be specified but not both at the
+     * same time.
+     *
+     * This field corresponds to the duration property of VEVENT in RFC 2445.
+     */
+    optional sint64 duration = 5;
+}

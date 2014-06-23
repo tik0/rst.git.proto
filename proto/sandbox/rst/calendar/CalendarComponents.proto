@@ -1,0 +1,31 @@
+package rst.calendar;
+
+import "rst/calendar/TimeZone.proto";
+import "rst/calendar/Event.proto";
+import "rst/calendar/Todo.proto";
+
+option java_outer_classname = "CalendarComponentsType";
+
+/**
+ * A container message for multiple calendar components.
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message CalendarComponents {
+
+    /**
+     * A set of TimeZones
+     */
+    repeated TimeZone timezones = 1;
+
+    /**
+     * A set of Events
+     */
+    repeated Event events = 2;
+
+    /**
+     * A set of Todos
+     */
+    repeated Todo todos = 3;
+
+}

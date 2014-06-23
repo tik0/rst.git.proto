@@ -1,0 +1,228 @@
+package rst.calendar;
+
+import "rst/calendar/DateTime.proto";
+
+option java_outer_classname = "RecurrenceRuleType";
+
+/**
+ * Specifies a rule or repeating pattern for recurring components.
+ *
+ * This message represents a RECUR property in RFC 2445.
+ *
+ * For a documentation of the RFC 2445 iCalendar specification visit
+ * http://www.ietf.org/rfc/rfc2445.txt
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message RecurrenceRule {
+
+    /**
+     * This enum defines a frequency of the recurrence (How often does it recur).
+     */
+    enum Frequency {
+
+        /**
+         * Every second.
+         */
+        SECONDLY = 1;
+
+        /**
+         * Every minute.
+         */
+        MINUTELY = 2;
+
+        /**
+         * Every hour.
+         */
+        HOURLY = 3;
+
+        /**
+         * Every day.
+         */
+        DAILY = 4;
+
+        /**
+         * Every week.
+         */
+        WEEKLY = 5;
+
+        /**
+         * Every month.
+         */
+        MONTHLY = 6;
+
+        /**
+         * Every year.
+         */
+        YEARLY = 7;
+
+    }
+
+    /**
+     * This enum defines a day in within the week.
+     */
+    enum Weekday {
+
+        /**
+         * Sunday.
+         */
+        SUNDAY = 1;
+
+        /**
+         * Monday.
+         */
+        MONDAY = 2;
+
+        /**
+         * Tuesday.
+         */
+        TUESDAY = 3;
+
+        /**
+         * Wednesday.
+         */
+        WEDNESDAY = 4;
+
+        /**
+         * Thursday.
+         */
+        THURSDAY = 5;
+
+        /**
+         * Friday.
+         */
+        FRIDAY = 6;
+
+        /**
+         * Saturday.
+         */
+        SATURDAY = 7;
+    }
+
+    /**
+     * Specifies the end date of the recurrence in utc. Either this or count may
+     * be specified but not both at the same time.
+     *
+     * This field corresponds to the UNTIL part of a recur value in RFC 2445.
+     */
+    optional DateTime until_date_utc = 2;
+
+    /**
+     * Specifies the recurrence count. Either this or until_date_utc may
+     * be specified but not both at the same time.
+     *
+     * This field corresponds to the COUNT part of a recur value in RFC 2445.
+     */
+    optional uint32 count = 3;
+
+    /**
+     * Specifies the frequency of the recurrence.
+     *
+     * This field corresponds to the freq part of a recur value in RFC 2445.
+     */
+    required Frequency frequency = 4 [default = YEARLY];
+
+    /**
+     * Tells how often the rule repeats.
+     *
+     * Example: interval = n and frequency = weekly means every n'th week
+     *
+     * This field corresponds to the INTERVAL part of a recur value in RFC 2445.
+     */
+    optional uint32 interval = 5 [default = 1];
+
+    /**
+     * A list of occurrence seconds.
+     *
+     * This field corresponds to the BYSECOND part of a recur value in RFC 2445.
+     */
+    //@constraint(0 <= value < 60)
+    repeated uint32 by_second = 6;
+
+    /**
+     * A list of occurrence minutes.
+     *
+     * This field corresponds to the BYMINUTE part of a recur value in RFC 2445.
+     */
+    //@constraint(0 <= value < 60)
+    repeated uint32 by_minute = 7;
+
+    /**
+     * A list of occurrence hours.
+     *
+     * This field corresponds to the BYHOUR part of a recur value in RFC 2445.
+     */
+    //@constraint(0 <= value < 24)
+    repeated uint32 by_hour = 8;
+
+    /**
+     * A list of occurrence weekdays.
+     *
+     * This field corresponds to the BYDAY part of a recur value in RFC 2445.
+     */
+    repeated Weekday by_week_day = 9;
+
+    /**
+     * A list of occurrence days.
+     *
+     * Example: frequency = MONTHLY, by_week_day = MO and by_day_n = -1
+     * means the last Monday of the month.
+     *
+     * This field corresponds to the BYDAY part of a recur value in RFC 2445.
+     */
+    repeated sint32 by_day_number = 10;
+
+    /**
+     * A list of occurrence days of the month. If by_moth_day is negative, it is
+     * counted from the end of the month.
+     *
+     * This field corresponds to the BYMONTHDAY part of a recur value in RFC 2445.
+     */
+    //@constraint(-31 <= value <= 31)
+    repeated sint32 by_month_day = 11;
+
+    /**
+     * A list of occurrence days of the year. If by_year_day is negative, it is
+     * counted from the end of the year.
+     *
+     * This field corresponds to the BYYEARDAY part of a recur value in RFC 2445.
+     */
+    //@constraint(-366 <= value <= 366)
+    repeated sint32 by_year_day = 12;
+
+    /**
+     * A list of occurrence weeks of the year. If by_week_number is negative,
+     * it is counted from the end of the year.
+     *
+     * This field corresponds to the BYWEEKNO part of a recur value in RFC 2445.
+     */
+    //@constraint(-53 <= value <= 53)
+    repeated sint32 by_week_number = 13;
+
+    /**
+     * A list of occurrence months. If by_month is negative, it is counted
+     * from the end of the year.
+     *
+     * This field corresponds to the BYMONTH part of a recur value in RFC 2445.
+     */
+    //@constraint(1 <= value <= 31)
+    repeated uint32 by_month = 14;
+
+    /**
+     * Further filters the set by specifying which exact occurrences to use.
+     *
+     * Example: frequency = MONTHLY, by_week_day=FRIDAY and
+     * by_set_pos = -1 specifies the last Friday of the month.
+     *
+     * This field corresponds to the BYSETPOS part of a recur value in RFC 2445.
+     */
+    repeated sint32 by_set_pos = 15;
+
+    /**
+     * Specifies which day is the first day of the week.
+     *
+     * This field corresponds to the WKST part of a recur value in RFC 2445.
+     */
+    optional Weekday week_start = 16 [default = MONDAY];
+
+}

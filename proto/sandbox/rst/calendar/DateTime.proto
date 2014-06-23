@@ -1,0 +1,66 @@
+package rst.calendar;
+
+option java_outer_classname = "DateTimeType";
+
+/**
+ * A description of date and time of day.
+ *
+ * This message represents a DATE-TIME property in RFC 2445.
+ *
+ * For a documentation of the RFC 2445 iCalendar specification visit
+ * http://www.ietf.org/rfc/rfc2445.txt
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message DateTime {
+
+    /**
+     * A DateTime can have one of the three following forms.
+     */
+    enum Type {
+
+        /**
+         * UTC that this time is meant to be in absolute Coordinated Universal
+         * Time.
+         */
+        UTC = 1;
+
+        /**
+         * FLOATING is used to specify time which is not bound to any time zone.
+         *
+         * Example: Dinner may always be at 6pm regardless of the current time
+         * zone.
+         */
+        FLOATING = 2;
+
+        /**
+         * LOCAL specifies that this time is bound to a specific time zone.
+         *
+         * This additionally requires the timezone_id field to be set.
+         */
+        LOCAL = 3;
+
+    }
+
+    /**
+     * Specifies whether this time is floating, utc or local.
+     */
+    optional Type date_time_type = 1 [default = UTC];
+
+    /**
+     * Specifies the time zone to which this time is bound.
+     *
+     * The value of timezone_id must match the timezone_id of a known or
+     * attached TimeZone definition.
+     *
+     * This field MUST be specified when DateTimeType is LOCAL.
+     * In all other cases it has no meaning.
+     */
+    optional string timezone_id = 2 [default = "UTC"];
+
+    /**
+     * The time since epoch (01.01.1970 at 00:00) in milliseconds.
+     */
+    optional uint64 milliseconds_since_epoch = 3 [default = 0];
+
+}

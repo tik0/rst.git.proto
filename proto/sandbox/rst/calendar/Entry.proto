@@ -1,0 +1,243 @@
+package rst.calendar;
+
+import "rst/calendar/TimeZone.proto";
+import "rst/calendar/DateTime.proto";
+import "rst/calendar/RecurrenceId.proto";
+import "rst/calendar/Attendee.proto";
+import "rst/calendar/Organizer.proto";
+import "rst/calendar/Recurrence.proto";
+import "rst/calendar/RequestStatus.proto";
+import "rst/calendar/Relationship.proto";
+
+option java_outer_classname = "EntryType";
+
+/**
+ * A description of a calendar entry holding the common properties of
+ * VEVENT and VTODO components from RFC 2445.
+ *
+ * For a documentation of the RFC 2445 iCalendar specification visit
+ * http://www.ietf.org/rfc/rfc2445.txt
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message Entry {
+
+    /**
+     * This enum is used to restrict access or visibility of of the entry.
+     *
+     * It represents the possible values of a CLASS in RFC 2445
+     */
+    enum Visibility {
+
+        /**
+         * The entry can be seen by everyone.
+         */
+        PUBLIC = 1;
+
+        /**
+         * The entry is private.
+         */
+        PRIVATE = 2;
+
+        /**
+         * The entry is confidential.
+         */
+        CONFIDENTIAL = 3;
+    }
+
+    /**
+     * Specifies the visibility classification of this entry.
+     *
+     * This field corresponds to the class property of an entry in RFC 2445.
+     */
+    optional Visibility visibility = 1 [default = PUBLIC];
+
+    /**
+     * Specifies when the entry was created in utc time.
+     *
+     * More precisely: Tells when the entry was first created in the
+     * calendar store.
+     *
+     * This field corresponds to the created property of an entry in RFC 2445.
+     */
+    //@constraint(value.type == DateTime.Type.UTC)
+    optional DateTime created_utc = 2;
+
+    /**
+     * A more complete description of the entry.
+     *
+     * This field corresponds to the description property of an entry in
+     * RFC 2445.
+     */
+    optional string description = 3;
+
+    /**
+     * Specifies when the entry starts.
+     *
+     * This field corresponds to the dtstart property of an entry in RFC 2445.
+     */
+    optional DateTime date_time_start = 4;
+
+    /**
+     * Specifies the global position of the associated activity.
+     *
+     * This field corresponds to the latitude part of the geo property of an
+     * entry in RFC 2445.
+     */
+    optional double geo_latitude = 5 [default = 0.];
+
+    /**
+     * Specifies the global position of the associated activity.
+     *
+     * This field corresponds to the longitude part of the geo property of an
+     * entry in RFC 2445.
+     */
+    optional double geo_longitude = 6 [default = 0.];
+
+    /**
+     * Specifies when the entry was modified the last time in utc time.
+     *
+     * More precisely: Tells when the entry was last modified in the
+     * calendar store.
+     *
+     * This field corresponds to the last-mod property of an entry in RFC 2445.
+     */
+    //@constraint(value.type == DateTime.Type.UTC)
+    optional DateTime last_modified = 7;
+
+    /**
+     * Specifies where the entry will take place.
+     *
+     * This field corresponds to the location property of an entry in RFC 2445.
+     */
+    optional string location = 8;
+
+    /**
+     * Defines the organizer of the entry.
+     *
+     * This field corresponds to the organizer property of an entry in RFC 2445.
+     */
+    optional Organizer organizer = 9;
+
+    /**
+     * The priority of the entry as an integer between 0 and 9.
+     *
+     * 0 means not defined, 1 means highest, 9 means lowest priority.
+     *
+     * This field corresponds to the priority property of an entry in RFC 2445.
+     */
+    //@constraint(0 <= value <= 9)
+    optional uint32 priority = 10  [default = 0];
+
+    /**
+     * Specifies when the entry was created.
+     *
+     * More precise: When the iCalendar object representation of the calendar
+     * service information was created or last modified.
+     *
+     * This field corresponds to the dtstamp property of an entry in RFC 2445.
+     */
+    optional DateTime date_time_stamp = 11;
+
+    /**
+     * This is incremented every time the entry is changed significantly.
+     *
+     * This field corresponds to the seq property of an entry in RFC 2445.
+     */
+    optional uint32 sequence_number = 12 [default = 0];
+
+    /**
+     * A short summary or the subject of the entry.
+     *
+     * This field corresponds to the summary property of an entry in RFC 2445.
+     */
+    optional string summary = 13;
+
+    /**
+     * The globally unique id of the entry.
+     *
+     * This field corresponds to the uid property of an entry in RFC 2445.
+     */
+    optional string uid = 14;
+
+    /**
+     * The Uniform Resource Locator associated with this entry.
+     *
+     * This field corresponds to the url property of an entry in RFC 2445.
+     */
+    optional string url = 15;
+
+    /**
+     * Combined with uid and sequence, this can be used to reference a specific
+     * entry in a recurrence set.
+     *
+     * This field corresponds to the recurid property of an entry in RFC 2445.
+     */
+    optional RecurrenceId recurrence_id = 16;
+
+    /**
+     * This provides a means to attach a document via URI or binary attachment
+     * as string.
+     *
+     * This field corresponds to the attach property of an entry in RFC 2445.
+     */
+    repeated string attach = 17;
+
+    /**
+     * Specifies attendees to this entry.
+     *
+     * This field corresponds to the attendee property of an entry in RFC 2445.
+     */
+    repeated Attendee attendees = 18;
+
+    /**
+     * A list of categories, this entry is associated with.
+     *
+     * This field corresponds to the categories property of an entry in RFC 2445.
+     */
+    repeated string categories = 19;
+
+    /**
+     * Provides a comment to this entry.
+     *
+     * This field corresponds to the comment property of an entry in RFC 2445.
+     */
+    repeated string comments = 20;
+
+    /**
+     * Contact information or reference to contact information.
+     *
+     * This field corresponds to the contact property of an entry in RFC 2445.
+     */
+    repeated string contacts = 21;
+
+    /**
+     * Specifies a set of dates when the entry is.
+     *
+     * This field corresponds to rdate, rrule, exdate and exrule properties of
+     * an entry in RFC 2445.
+     */
+    optional Recurrence recurrence = 22;
+
+    /**
+     * Holds the status code of a scheduling request.
+     *
+     * This field corresponds to the rstatus property of an entry in RFC 2445.
+     */
+    repeated RequestStatus request_status = 23;
+
+    /**
+     * Represents relationships to other calendar components.
+     *
+     * This field corresponds to the related property of an entry in RFC 2445.
+     */
+    repeated Relationship related = 24;
+
+    /**
+     * Specifies the equipment or resources needed for this entry.
+     *
+     * This field corresponds to the resources property of an entry in RFC 2445.
+     */
+    repeated string resources = 25;
+
+}
