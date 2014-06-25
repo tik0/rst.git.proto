@@ -164,6 +164,19 @@ class CheckTrailingSpaces(Check):
                 if len(space) > 0:
                     self.errorHandler.addError(line=lineNumber, description="Line has trailing spaces")
 
+class CheckBlockCommentIndents(Check):
+
+    indentRegEx = re.compile("^(\s*)\\*.*$")
+
+    def check(self):
+
+        for lineNumber in range(1, len(self.fileLines) + 1):
+            line = self.fileLines[lineNumber - 1]
+            spaces = self.indentRegEx.findall(line)
+            for space in spaces:
+                if len(space) % 4 != 1:
+                    self.errorHandler.addError(line=lineNumber, description="Block comment continuations must be aligned with leading asterisk.")
+
 class CheckPackageDeclarationFirst(Check):
 
     def check(self):
@@ -304,6 +317,7 @@ def checkFile(file, root, errorHandler, additionalCheckClasses=[]):
     executeCheck(CheckIndentation)
     executeCheck(CheckNewlineAtEof)
     executeCheck(CheckTrailingSpaces)
+    executeCheck(CheckBlockCommentIndents)
     executeCheck(CheckPackageDeclarationFirst)
     executeCheck(CheckNoSpaceBeforeFileSettings)
     executeCheck(CheckLeftCurlyBraces)
