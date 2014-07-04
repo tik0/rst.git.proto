@@ -1,0 +1,41 @@
+package rst.automation;
+
+option java_outer_classname = "UIFeedbackType";
+
+/**
+ * Delivers all necessary Information to show a Dialog Window for User interaction
+ *
+ * @author Hendrik Oestreich <hoestreich@techfak.uni-bielefeld.de>
+ */
+message UIFeedback {
+
+    /**
+     * The result of the user interaction
+     */
+    enum Result {
+        OK = 0;
+        CANCEL = 1;
+        COMPLEX = 2;
+    }
+
+    /**
+     * The ID of the user task, which invoked the UserInteraction
+     */
+    required int32 task_id = 1;
+
+    /**
+     * The user which did the interaction
+     */
+    required string user = 2;
+
+    /**
+     * The message level
+     */
+    required Result result = 3;
+
+    /**
+     * If result is set to complex this String should be set
+     */
+    optional string complex_result = 5;
+
+}
