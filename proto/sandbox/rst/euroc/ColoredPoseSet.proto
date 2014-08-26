@@ -1,0 +1,55 @@
+package rst.euroc;
+
+import "rst/geometry/Pose.proto";
+
+option java_outer_classname = "ColoredPoseSetType";
+
+/**
+ * ColoredPoseSet data consisting of one pose and the associated color. The
+ * pose is expressed in world coordinates and the color is represented by the
+ * rgb-model.
+ *
+ * @author Dennis Leroy Wigand <dwigand@techfak.uni-bielefeld.de>
+ */
+message ColoredPoseSet {
+
+    /**
+     * A ColoredPose containing a pose and the associated color.
+     */
+    message ColoredPose {
+
+        /**
+         * The rst.geometry.Pose of the "object".
+         */
+        required geometry.Pose pose = 1;
+
+        /**
+         * The Color of the "object".
+         */
+        message Color {
+
+            /**
+             * Red value of the color.
+             */
+            required double r = 1;
+
+            /**
+             * Green value of the color.
+             */
+            required double g = 2;
+
+            /**
+             * Blue value of the color.
+             */
+            required double b = 3;
+
+        }
+
+        required Color color = 2;
+
+    }
+
+    repeated ColoredPose poses = 1;
+
+}
+
