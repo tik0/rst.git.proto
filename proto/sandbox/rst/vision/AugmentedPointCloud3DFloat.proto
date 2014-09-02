@@ -1,0 +1,70 @@
+package rst.vision;
+
+import "rst/geometry/PointCloud3DFloat.proto";
+
+option java_outer_classname = "AugmentedPointCloud3DFloatType";
+
+/**
+ * Associates a set of scalar values (such as color information) to
+ * each point of a point cloud.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
+message AugmentedPointCloud3DFloat {
+
+    /**
+     * One channel of color information attached to a set of 3D points.
+     *
+     * Each channel contains a vector of the same size as the original point
+     * cloud and attaches the value of one color channel to each point of the
+     * target point cloud.
+     *
+     * The following conventions for channel names and respective values exist:
+     *
+     * "r", "g", "b"
+     *
+     *   RGB values represented between 0 and 1.
+     *
+     * "intensity"
+     *
+     *   Grayscale image value. Between 0 and 1.
+     *
+     * "u", "v"
+     *
+     *   Forms YUV color information in combination with an
+     *   "intensity" channel. Between 0 and 1.
+     *
+     * Inspired by the design of the sensor_msgs/ChannelFloat32 ROS
+     * message type.
+     */
+    message Channel {
+
+        /**
+         * The name of the color channel.
+         */
+        required string name = 1;
+
+        /**
+         * The actual values for the represented color channel for
+         * each point of the target point cloud.
+         *
+         * N-th value is associated to n-th point in @ref .points.
+         */
+        // @constraint(len(value) = len(.points.points))
+        repeated float values = 2 [packed = true];
+
+    }
+
+    /**
+     * Geometry of the point cloud augmented by the data in @ref
+     * .channels.
+     */
+    repeated .rst.geometry.PointCloud3DFloat points = 1;
+
+    /**
+     * An optional set of scalar information to attach to each point
+     * of the point cloud.
+     */
+    repeated Channel channels = 2;
+
+}
