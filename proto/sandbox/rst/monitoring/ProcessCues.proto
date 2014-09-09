@@ -139,6 +139,24 @@ message ProcessCues {
          */
         optional uint64 write_bytes = 33;
 
+        /**
+         * The number of open file descriptors including everything like
+         * sockets and pipes.
+         */
+        optional uint32 open_fds = 50;
+
+        /**
+         * The number of open files (real files, not sockets etc) a process
+         * possesses.
+         */
+        optional uint32 open_files = 51;
+
+        /**
+         * The number of open network connections. This includes TCP/IP and UDP
+         * traffic on IPv4 and IPv6.
+         */
+        optional uint32 open_connections = 60;
+
     }
 
     /**
