@@ -59,7 +59,7 @@ message AugmentedPointCloud3DFloat {
      * Geometry of the point cloud augmented by the data in @ref
      * .channels.
      */
-    repeated .rst.geometry.PointCloud3DFloat points = 1;
+    required .rst.geometry.PointCloud3DFloat points = 1;
 
     /**
      * An optional set of scalar information to attach to each point
