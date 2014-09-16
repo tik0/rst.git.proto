@@ -86,4 +86,30 @@ message PersonHypothesis {
     // @unit(meter)
     // @constraint(value >= 0)
     optional float human_height = 45;
+
+    /**
+     * Indication of the probability that a person focuses on a named
+     * attention target in the scene.
+     */
+    message AttentionTarget {
+
+        /**
+         * String description of the target
+         */
+        required bytes name = 1;
+
+        /**
+         * Probability of the target.
+         */
+        // @constraint(0 <= value <= 1)
+        required float probability = 2;
+
+    }
+
+    /**
+     * A list of defined attention targets in a scene that a person can focus
+     * on with the probability that each target is actually currently focused
+     * by this person.
+     */
+    repeated AttentionTarget attention_targets = 50;
 }
