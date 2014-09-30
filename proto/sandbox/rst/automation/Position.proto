@@ -1,6 +1,6 @@
 package rst.automation;
 
-option java_outer_classname = "Position";
+option java_outer_classname = "PositionType";
 
 /**
  * Position parameters for the ""

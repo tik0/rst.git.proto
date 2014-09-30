@@ -1,6 +1,6 @@
 package rst.automation;
 
-option java_outer_classname = "DownDevice";
+option java_outer_classname = "DownDeviceType";
 
 /**
  * DownDevice parameters for the ""
@@ -8,6 +8,6 @@ option java_outer_classname = "DownDevice";
  */
 message DownDevice {
 
-    optional bool closed = 1;
+    required bool closed = 1;
 
 }

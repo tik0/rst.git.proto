@@ -1,6 +1,6 @@
 package rst.automation;
 
-option java_outer_classname = "Stamping";
+option java_outer_classname = "StampingType";
 
 /**
  * Stamping parameters for the ""
