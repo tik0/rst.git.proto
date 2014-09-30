@@ -1,0 +1,14 @@
+package rst.automation;
+
+option java_outer_classname = "Position";
+
+/**
+ * Position parameters for the ""
+ * Enum values translated from the PLC code.
+ */
+message Position {
+
+    optional float position_work = 1;
+    optional float StandartSpeed = 2;
+
+}

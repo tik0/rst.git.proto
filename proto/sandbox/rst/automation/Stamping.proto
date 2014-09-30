@@ -1,0 +1,13 @@
+package rst.automation;
+
+option java_outer_classname = "Stamping";
+
+/**
+ * Stamping parameters for the ""
+ * Enum values translated from the PLC code.
+ */
+message Stamping {
+
+    optional float position_work = 1;
+
+}

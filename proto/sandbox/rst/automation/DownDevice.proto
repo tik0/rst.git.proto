@@ -1,0 +1,13 @@
+package rst.automation;
+
+option java_outer_classname = "DownDevice";
+
+/**
+ * DownDevice parameters for the ""
+ * Enum values translated from the PLC code.
+ */
+message DownDevice {
+
+    optional bool closed = 1;
+
+}
