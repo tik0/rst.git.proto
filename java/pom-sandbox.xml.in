@@ -32,7 +32,7 @@
         </dependency>
         <dependency>
             <groupId>rsb</groupId>
-            <artifactId>rst</artifactId>
+            <artifactId>rst-fleximon</artifactId>
             <version>@RST_MVN_VERSION@</version>
         </dependency>
     </dependencies>
