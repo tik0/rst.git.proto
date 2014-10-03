@@ -34,7 +34,6 @@
             <groupId>rsb</groupId>
             <artifactId>rst</artifactId>
             <version>@RST_MVN_VERSION@</version>
->>>>>>> refs/heads/master
         </dependency>
     </dependencies>
 
