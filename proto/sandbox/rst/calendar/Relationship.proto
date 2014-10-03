@@ -1,0 +1,56 @@
+package rst.calendar;
+
+option java_outer_classname = "RelationshipType";
+
+/**
+ * This is used to specify relationships between calendar components.
+ *
+ * This message represents a RELATED-TO property in RFC 2445.
+ *
+ * For a documentation of the RFC 2445 iCalendar specification visit
+ * http://www.ietf.org/rfc/rfc2445.txt
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message Relationship {
+
+    /**
+     * Specifies the type of the relationship.
+     *
+     * This enum represents the possible values of a reltypeparam in RFC 2445.
+     */
+    enum Type {
+
+        /**
+         * The component is a subordinate of the referenced component.
+         */
+        PARENT = 1;
+
+        /**
+         * The component is a superior of the referenced component.
+         */
+        CHILD = 2;
+
+        /**
+         * The component is a peer of the referenced component.
+         */
+        SIBLING = 3;
+    }
+
+    /**
+     * The type of relationship to the referenced component.
+     *
+     *
+     * This field corresponds to the reltypeparam parameter in RFC 2445.
+     */
+    optional Type relationship_type = 1 [default = PARENT];
+
+    /**
+     * The unique identifier of the related component. This should
+     * typically be its uid.
+     *
+     * This field corresponds to the text part of related property in RFC 2445.
+     */
+    required string uid = 2;
+
+}

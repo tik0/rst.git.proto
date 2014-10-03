@@ -1,8 +1,9 @@
 package rst.hri;
 
 import "rst/math/Vec2DFloat.proto";
-import "rst/vision/Face.proto";
+import "rst/vision/LocatedFace.proto";
 import "rst/tracking/TrackingInfo.proto";
+import "rst/hri/Body.proto";
 
 option java_outer_classname = "PersonHypothesisType";
 
@@ -19,38 +20,96 @@ message PersonHypothesis {
      */
     optional tracking.TrackingInfo tracking_info = 1;
 
-    optional vision.Face face = 3;
+    /**
+     * The person's face as a part of an image. This also includes the
+     * head's pose in 3D space.
+     */
+    optional vision.LocatedFace face = 3;
 
     /**
-     * Direction of the human in a coordinate system the origin of
-     * which is the robot's head.
+     * Geometric properties of the person's body.
      *
-     * @todo "Rename this field to something more descriptive"
+     * This includes the person's position in the world.
      */
-    optional math.Vec2DFloat rhc_direction = 10;
+    optional hri.Body body = 10;
 
     /**
-     * Direction of the human in a coordinate system the origin of
-     * which is the robot's body.
+     * Represents a person's age in years as a range.
      *
-     * @todo "Rename; see above."
+     * If the exact age is known, set both values (min and max) to the
+     * desired value.
      */
-    optional math.Vec2DFloat rbc_direction = 20;
+    message AgeRange {
+
+        /**
+         * The lower bound of the age range.
+         */
+        required float age_min = 1;
+
+        /**
+         * The upper bound of the age range.
+         */
+        required float age_max = 2;
+
+    }
 
     /**
-     * Direction the human is looking.
+     * The person's age in years as a range.
      *
-     * @todo "Clarify"
+     * If the exact age is known, set both bounds of the range to the
+     * desired value.
      */
-    optional math.Vec2DFloat human_head_direction = 30;
+    optional AgeRange age = 40;
+
+    enum Gender {
+        UNKNOWN = 0;
+        MALE = 1;
+        FEMALE = 2;
+    }
 
     /**
-     * Results from the identity recognizer.
-     *
-     * @todo "Describe what these mean, not where they come from."
+     * The person's gender.
      */
-    optional bytes age = 40;
-    optional bytes gender = 42;
-    optional bytes identity = 44;
+    optional Gender gender = 42 [default = UNKNOWN];
 
+    /**
+     * The person's name. Empty string means unknown or undecided.
+     */
+    optional string name = 44;
+
+    /**
+     * Human height of the person (from the ground).
+     *
+     * @see http://en.wikipedia.org/wiki/Human_height
+     *      "Definition of the person's body height"
+     */
+    // @unit(meter)
+    // @constraint(value >= 0)
+    optional float human_height = 45;
+
+    /**
+     * Indication of the probability that a person focuses on a named
+     * attention target in the scene.
+     */
+    message AttentionTarget {
+
+        /**
+         * String description of the target
+         */
+        required bytes name = 1;
+
+        /**
+         * Probability of the target.
+         */
+        // @constraint(0 <= value <= 1)
+        required float probability = 2;
+
+    }
+
+    /**
+     * A list of defined attention targets in a scene that a person can focus
+     * on with the probability that each target is actually currently focused
+     * by this person.
+     */
+    repeated AttentionTarget attention_targets = 50;
 }

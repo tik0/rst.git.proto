@@ -1,0 +1,35 @@
+package rst.monitoring;
+
+option java_outer_classname = "ProcessAnomalyType";
+
+/**
+ * A message to describe a detected anomaly inside a system-level process.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ * @todo "this message requires serious abstraction once the
+ *       functionality of all cue providers is understood. Do not move
+ *       it to stable!"
+ */
+message ProcessAnomaly {
+
+    /**
+     * PID of the program.
+     */
+    required uint32 pid = 1000;
+
+    /**
+     * Name of the program (argv[0]).
+     */
+    optional bytes name = 1001;
+
+    /**
+     * Name of the host the program is running on.
+     */
+    optional bytes host_name = 1002;
+
+    /**
+     * A use-case-dependent list of reasons for the detection of this anomaly.
+     */
+    repeated string reasons = 1;
+
+}

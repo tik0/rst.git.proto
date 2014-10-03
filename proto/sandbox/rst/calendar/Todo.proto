@@ -1,0 +1,97 @@
+package rst.calendar;
+
+import "rst/calendar/DateTime.proto";
+import "rst/calendar/Entry.proto";
+
+option java_outer_classname = "TodoType";
+
+/**
+ * A description of an calendar todo following the icalendar definitions.
+ *
+ * This message represents a VTODO component in RFC 2445.
+ *
+ * For a documentation of the RFC 2445 iCalendar specification visit
+ * http://www.ietf.org/rfc/rfc2445.txt
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message Todo {
+
+    /**
+     * The overall status of a todo.
+     */
+    enum TodoStatus {
+
+        /**
+         * Used for todos that need an action.
+         */
+        NEEDS_ACTION = 1;
+
+        /**
+         * Used for completed todos.
+         */
+        COMPLETED = 2;
+
+        /**
+         * Used for todos that are currently in process of.
+         */
+        IN_PROCESS = 3;
+
+        /**
+         * Used for canceled todos.
+         */
+        CANCELED = 4;
+    }
+
+    /**
+     * This field holds all properties that Todo has in common with Event.
+     *
+     * It corresponds to the following properties: class, created, description,
+     * dtstamp, dtstart, geo, last-mod, location, organizer, priority, seq,
+     * summary, uid, url, recurid, attach, attendee, categories, comment,
+     * contact, exdate, exrule, rstatus, related, resources, rdate and rrule
+     * int the VTODO component in RFC 2445.
+     */
+    optional Entry entry = 1;
+
+    /**
+     * Specifies the date and time this Todo was completed in utc.
+     *
+     * This field corresponds to the completed property of VTODO in RFC 2445.
+     */
+    //@constraint(value.type == DateTime.Type.UTC)
+    optional DateTime completed_utc = 2;
+
+    /**
+     * Specifies the completion status of the Todo in percent as a positive
+     * integer (0-100).
+     *
+     * This field corresponds to the completed property of VTODO in RFC 2445.
+     */
+    //@constraint(0 <= value <= 100)
+    optional uint32 percent = 3 [default = 0];
+
+    /**
+     * The overall status of the Todo.
+     *
+     * This field corresponds to the status property of VTODO in RFC 2445.
+     */
+    optional TodoStatus todo_status = 4  [default = NEEDS_ACTION];
+
+    /**
+     * Specifies due which date the Todo needs to be done.
+     * Either due or duration can be specified but not both at the same time.
+     *
+     * This field corresponds to the due property of VTODO in RFC 2445.
+     */
+    optional DateTime due = 5;
+
+    /**
+     * Specifies the duration of the Todo in milliseconds.
+     * Either due or duration can be specified but not both at the same time.
+     *
+     * This field corresponds to the duration property of VTODO in RFC 2445.
+     */
+    optional sint64 duration = 6;
+
+}

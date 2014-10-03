@@ -5,7 +5,7 @@ option java_outer_classname = "FieldOfViewType";
 /**
  * The field of view of a sensor.
  *
- * The sensor's FOV is defined the angular extent of a scene that is
+ * The sensor's FOV is defined as the angular extent of a scene that is
  * imaged by a visual sensor. The outermost observable ray that falls
  * in a sensor's FOV has the angular distance +/- AOV/2.0 from the
  * optical axis in the respective extent (vertical/horizontal). The

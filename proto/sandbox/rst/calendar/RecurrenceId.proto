@@ -1,0 +1,90 @@
+package rst.calendar;
+
+import "rst/calendar/DateTime.proto";
+
+option java_outer_classname = "RecurrenceIdType";
+
+/**
+ * The recurrence id can be used to reference a single component out of a
+ * recurring component set.
+ *
+ * While the UID of a component references its whole recurrence set the
+ * combination of the UID with a RecurrenceId can be used to point to a
+ * specific instance within this set.
+ *
+ * This message represents a RECURRENCE-ID property in RFC 2445.
+ *
+ * For a documentation of the RFC 2445 iCalendar specification visit
+ * http://www.ietf.org/rfc/rfc2445.txt
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message RecurrenceId {
+
+    /**
+     * Specifies whether this RecurrenceId uses a date or a date-time.
+     */
+    enum Type {
+
+        /**
+         * Specifies a date and time.
+         */
+        DATE_TIME = 1;
+
+        /**
+         * Specifies a date (whole day).
+         */
+        DATE = 2;
+    }
+
+
+    /**
+     * Specifies whether this RecurrenceId references a single instance or
+     * the same with all prior or future instances.
+     *
+     * This enum corresponds to the RANGE parameter in RFC 2445.
+     */
+    enum Range {
+
+        /**
+         * Specifies a single instance.
+         */
+        SINGLE = 1;
+
+        /**
+         * Specifies an instance and all instances following it.
+         */
+        THIS_AND_FUTURE = 2;
+
+        /**
+         * Specifies a instance and all instances prior to it.
+         */
+        THIS_AND_PRIOR = 3;
+    }
+
+    /**
+     * Specifies whether the id should be interpreted as a date with time
+     * or as a date, ignoring time.
+     *
+     * This field corresponds to the VALUE part of a ridparam property RFC 2445.
+     */
+    optional Type type = 1 [default = DATE_TIME];
+
+    /**
+     * Specifies whether a single instance or set is referenced.
+     *
+     * This field corresponds to the rangeparam part of a ridparam
+     * property RFC 2445.
+     */
+    optional Range range = 2 [default = SINGLE];
+
+    /**
+     * Specifies ReferenceId value as a DateTime this should match the date value
+     * of an instance in the recurrence set.
+     *
+     * This field corresponds to the ridval part of a RECURRENCE-ID
+     * property RFC 2445.
+     */
+    optional DateTime rid = 3;
+
+}

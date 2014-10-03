@@ -3,8 +3,8 @@ package rst.cbse;
 option java_outer_classname = "ComponentStateType";
 
 /**
- * Holds information about a component`s lifecycle state.
- *
+ * Holds information about a component`s lifecycle state. May also be used to
+ * trigger a component to transition to the according state.
  * Feel free to extend the State enum.
  *
  * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
@@ -15,13 +15,25 @@ message ComponentState {
      * Possible lifecycle states
      */
     enum State {
+        // Not running / off / stopped
         OFF = 1;
+        // Running / on / online -- rather generic, try to use more specific
+        // state, see below
         ON = 2;
+        // Paused
         PAUSED = 3;
+        // On and running / executing
         EXECUTION = 4;
+        // Online learning, but still responsive
         ONLINELEARNING = 5;
+        // Offline learning and not responsive
         OFFLINELEARNING = 6;
+        // Resetted
         RESET = 7;
+        // Component was just loaded from persisted state
+        LOADED = 8;
+        // Component state was just persisted
+        PERSISTED = 9;
     }
 
     required State state = 1;

@@ -1,0 +1,26 @@
+package rst.kinematics;
+
+import "rst/kinematics/LinearAccelerations.proto";
+import "rst/kinematics/AngularAccelerations.proto";
+
+option java_outer_classname = "SpatialAccelerationsType";
+
+/**
+ * Twist representation of Cartesian velocities.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
+ */
+message SpatialAccelerations {
+
+    /**
+     * 3-dimensional translatory accelerations.
+     */
+    required LinearAccelerations linear = 1;
+
+    /**
+     * 3-dimensional rotatory accelerations.
+     */
+    required AngularAccelerations angular = 2;
+
+}

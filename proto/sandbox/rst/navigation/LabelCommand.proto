@@ -1,0 +1,33 @@
+package rst.navigation;
+
+option java_outer_classname = "LabelCommandType";
+
+import "rst/navigation/ExecutionParameters.proto";
+import "rst/navigation/MotionParameters.proto";
+
+/**
+ * A navigation command for a robot with a goal that is designated by
+ * pre-learned name.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
+ */
+message LabelCommand {
+
+    /**
+     * The name of the goal to reach by the navigation.
+     */
+    required string goal = 1;
+
+    /**
+     * Parameters for the motions used to reach the specified goal.
+     */
+    optional MotionParameters motion_parameters = 2;
+
+    /**
+     * Parameters used to specify the execution semantics while
+     * moving towards the goal.
+     */
+    optional ExecutionParameters execution_parameters = 3;
+
+}

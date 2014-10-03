@@ -1,0 +1,20 @@
+package rst.vision;
+
+option java_outer_classname = "AugmentedPointCloudSet3DFloatType";
+
+import "rst/vision/AugmentedPointCloud3DFloat.proto";
+
+/**
+ * A set of augmented 3D Point clouds.
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message AugmentedPointCloudSet3DFloat {
+
+    /**
+     * Empty collection of clouds is allowed.
+     * The order of cloud objects is not significant.
+     */
+    repeated AugmentedPointCloud3DFloat clouds = 1;
+
+}

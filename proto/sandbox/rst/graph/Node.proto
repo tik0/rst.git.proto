@@ -1,0 +1,19 @@
+package rst.graph;
+
+option java_outer_classname = "NodeType";
+
+/**
+ * Node with associated data in an edge-list graph.
+ *
+ * @author Daniel Seidel <dseidel@techfak.uni-bielefeld.de>
+ */
+message Node {
+
+    /**
+     * Arbitrary data describing the node, e.g. location coordinates.
+     *
+     * Specific to application creating the graph.
+     */
+    repeated float data = 1;
+
+}

@@ -1,0 +1,40 @@
+package rst.navigation;
+
+option java_outer_classname = "ExecutionParametersType";
+
+/**
+ * Defines parameters that specify the execution semantics of a
+ * navigation command. In case a parameter is not set, the robot
+ * driver may arbitrarily decide on an appropriate value.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message ExecutionParameters {
+
+    /**
+     * If > 0, the movement till reaching the goal must not last
+     * longer than the specified timeout in seconds. The robot must
+     * stop if the timeout is reached.
+     */
+    // @unit(second)
+    // @constraint(value >= 0)
+    optional float timeout = 1;
+
+    // --- parameters specific to certain implementations ---
+
+    /**
+     * If > 0, the global path planner (if active) shall only try to
+     * compute a valid plan for the given number of times before
+     * giving up.
+     */
+    optional uint32 max_replan_cycles = 100;
+
+    /**
+     * If true, after reaching the goal with the usual parameters,
+     * try to perform a fine localization to improve the accuracy.
+     */
+    optional bool use_fine_localization = 101;
+
+}

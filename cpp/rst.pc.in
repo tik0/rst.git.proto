@@ -6,5 +6,5 @@ Name: Robotics Systems Types
 Description: Type specifications for Robotics and Cognitive Systems specified in Google Protocol Buffer's IDL format.
 Version: @RST_VERSION@
 Requires: protobuf
-Libs: -L${libdir} -l@STABLE_NAME@
+Libs: -L${libdir} -l@STABLE_LIBRARY_NAME@
 Cflags: -I${includedir}/@INSTALL_PREFIX@/stable @RST_CFLAGS@

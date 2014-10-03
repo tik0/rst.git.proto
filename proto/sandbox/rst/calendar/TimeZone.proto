@@ -1,0 +1,78 @@
+package rst.calendar;
+
+import "rst/calendar/DateTime.proto";
+import "rst/calendar/Observance.proto";
+
+option java_outer_classname = "TimeZoneType";
+
+/**
+ * A description of a TimeZone following the icalendar definitions.
+ * The TimeZone must at least hold it timezone_id and one standards or daylights
+ * Observance.
+ *
+ * This message represents a VTIMEZONE component in RFC 2445.
+ *
+ * For a documentation of the RFC 2445 iCalendar specification visit
+ * http://www.ietf.org/rfc/rfc2445.txt
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+//@constraint(len(.standards) + len(.daylights) > 0)
+message TimeZone {
+
+    /**
+     * The id of the time zone. This should be unique.
+     *
+     * This field corresponds to the tzid parameter of VTIMEZONE in RFC 2445.
+     */
+    required string timezone_id = 1;
+
+    /**
+     * Specifies when the time zone was modified the last time in utc time.
+     *
+     * More precisely: Tells when this time zone data was last modified
+     * in the calendar store.
+     *
+     * This field corresponds to the last-mod parameter of VTIMEZONE in RFC 2445.
+     */
+    //@constraint(value.type == DateTime.Type.UTC)
+    optional DateTime last_modified_utc = 2;
+
+    /**
+     * Specifies a network location where an up to date version of this time zone
+     * can be retrieved.
+     *
+     * This field corresponds to the tzurl parameter of VTIMEZONE in RFC 2445.
+     */
+    optional string timezone_url = 3;
+
+    /**
+     * The location to which this time zone applies. This can define where the
+     * TimeZone is applied.
+     *
+     * Example: "Europe/Berlin" for the TimeZone that is used in Berlin,
+     * in Germany
+     *
+     * This is a field corresponding to X-LIC-LOCATION, which is not in RFC 2445.
+     */
+    optional string x_location = 4;
+
+    /**
+     * A collection of standard-observances for this TimeZone. Defines all its
+     * 'winter' times.
+     *
+     * This field corresponds to the standardc parameter of VTIMEZONE in
+     * RFC 2445.
+     */
+    repeated Observance standards = 5;
+
+    /**
+     * A collection of daylight-observances for this TimeZone. Defines all its
+     * 'summer' times.
+     *
+     * This field corresponds to the daylightc parameter of VTIMEZONE in
+     * RFC 2445.
+     */
+    repeated Observance daylights = 6;
+
+}

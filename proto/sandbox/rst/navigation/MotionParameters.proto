@@ -1,0 +1,57 @@
+package rst.navigation;
+
+option java_outer_classname = "MotionParametersType";
+
+/**
+ * Defines parameters that specify the aspects of the motions used to
+ * reach a navigation goal. This means properties like the velocity
+ * or orientation of the robot but not execution properties like a
+ * timeout.
+ *
+ * If one of the values is not specified, the robot driver may decide
+ * on this one arbitrarily. Velocity and acceleration restrict the
+ * magnitude in the direction of the movement and not per axis.
+ * Accuracies need to be reached for every axis individually.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
+ */
+message MotionParameters {
+
+    /**
+     * The maximum velocity to be used when reaching the goal.
+     */
+    // @unit(meter / second)
+    // @constraint(value >= 0)
+    optional float max_velocity = 1;
+
+    /**
+     * The maximum acceleration to be used when reaching the goal.
+     */
+    // @unit(meter / second^2)
+    // @constraint(value >= 0)
+    optional float max_acceleration = 2;
+
+    /**
+     * The desired translational accuracy to reach for a successful
+     * motion command.
+     */
+    // @unit(meter)
+    // @constraint(value >= 0)
+    optional float translation_accuracy = 3;
+
+    /**
+     * The desired orientation accuracy to reach for a successful
+     * motion command.
+     */
+    // @unit(rad)
+    // @constraint(value >= 0)
+    optional float orientation_accuracy = 4;
+
+    /**
+     * If true, try to prefer moving in the forward orientation of
+     * the platform.
+     */
+    optional bool prefer_forward_orientation = 5;
+
+}

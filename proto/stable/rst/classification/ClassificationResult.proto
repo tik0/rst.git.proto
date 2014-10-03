@@ -43,12 +43,12 @@ message ClassificationResult {
     }
 
     /**
-      * The complete vector of classes with their probabilities if
-      * suitable.
-      *
-      * The results in this vector should of cause not contradict
-      * decided_class.
-      */
+     * The complete vector of classes with their probabilities if
+     * suitable.
+     *
+     * The results in this vector should of cause not contradict
+     * decided_class.
+     */
     repeated ClassWithProbability classes = 2;
 
 }

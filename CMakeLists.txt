@@ -1,11 +1,12 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 PROJECT("RST")
+STRING(TOLOWER ${CMAKE_PROJECT_NAME} PROJECT_NAME_LOWERCASE)
 
 SET(CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS TRUE)
 
 SET(VERSION_MAJOR "0" CACHE STRING "Major project version part")
-SET(VERSION_MINOR "9" CACHE STRING "Minor project version part")
+SET(VERSION_MINOR "11" CACHE STRING "Minor project version part")
 
 # --- user options ---
 
@@ -38,7 +39,8 @@ DEFINE_PROJECT_VERSION(RST_ ${VERSION_MAJOR} ${VERSION_MINOR} 0 "archive")
 
 MESSAGE(STATUS "This is rst version ${RST_VERSION}")
 
-SET(INSTALL_PREFIX "rst${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}")
+SET(VERSION_SUFFIX "${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}")
+SET(INSTALL_PREFIX "${PROJECT_NAME_LOWERCASE}${VERSION_SUFFIX}")
 
 # --- protocol files ---
 
@@ -82,6 +84,8 @@ INCLUDE(ProvideFlexibleCPack)
 
 # --- language bindings ---
 
+INCLUDE(FeatureSummary)
+
 IF(BUILD_CPP)
     ADD_SUBDIRECTORY(cpp)
 ENDIF()
@@ -94,6 +98,8 @@ ENDIF()
 IF(BUILD_MATLAB)
     ADD_SUBDIRECTORY(matlab)
 ENDIF()
+
+PRINT_ENABLED_FEATURES()
 
 # --- install protocol anyways for backwards compatibility ---
 

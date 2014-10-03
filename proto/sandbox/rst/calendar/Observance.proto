@@ -1,0 +1,84 @@
+package rst.calendar;
+
+import "rst/calendar/DateTime.proto";
+import "rst/calendar/Recurrence.proto";
+
+option java_outer_classname = "ObservanceType";
+
+/**
+ * A description of a shift in a time zone following the iCalendar definitions.
+ * Observances are used to describe standard-daylight changes for a time zone.
+ *
+ * This message represents a tzprop property in RFC 2445.
+ *
+ * For a documentation of the RFC 2445 iCalendar specification visit
+ * http://www.ietf.org/rfc/rfc2445.txt
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message Observance {
+
+    /**
+     * This enum tells whether the observance describes a daylight (summer)
+     * or standard (winter) time.
+     */
+    enum Type {
+
+        /**
+         * An observance setting the time zone to standard (winter) time.
+         */
+        STANDARD = 1;
+
+        /**
+         * An observance setting the time zone to daylight (summer) time.
+         */
+        DAYLIGHT = 2;
+    }
+
+    /**
+     * This field tells of which type this observance is STANDARD (winter) or
+     * DAYLIGHT (summer).
+     */
+    required Type type = 3 [default = STANDARD];
+
+    /**
+     * Specifies when the Observance begins (since when it is in use) in
+     * utc-time.
+     *
+     * This field corresponds to dtstart of a tzprop in RFC 2445.
+     */
+    required DateTime start_utc = 4;
+
+    /**
+     * Specifies the name of the observance.
+     *
+     * This field corresponds to tzname of a tzprop in RFC 2445.
+     */
+    optional string name = 6;
+
+    /**
+     * Specifies a set of dates when the observance gets active.
+     *
+     * This field corresponds to rdate and rrule of a tzprop in RFC 2445.
+     *
+     * The exclude_dates and exclude_rules of this recurrence should be ignored.
+     */
+    optional Recurrence recurrence = 7;
+
+    /**
+     * Specifies the time offset in use before the observance is active in
+     * milliseconds.
+     *
+     * This field corresponds to tzoffsetfrom of a tzprop in RFC 2445.
+     */
+    required sint64 offset_from = 8 [default = 0];
+
+    /**
+     * Specifies the time offset in use while observance is active in
+     * milliseconds
+     *
+     * This field corresponds to tzoffsetto of a tzprop in RFC 2445.
+     */
+    required sint64 offset_to = 9 [default = 0];
+
+}

@@ -33,4 +33,8 @@ message Rotation {
      */
     required double qz = 7;
 
+    /**
+     * Identifier for the coordinate frame of the rotation.
+     */
+    optional string frame_id = 8;
 }

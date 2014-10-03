@@ -4,7 +4,7 @@
 
     <groupId>rsb</groupId>
     <artifactId>rst-sandbox</artifactId>
-    <version>@RST_VERSION@</version>
+    <version>@RST_MVN_VERSION@</version>
     <packaging>jar</packaging>
 
     <name>Robotic System Types - Sandbox</name>
@@ -33,7 +33,8 @@
         <dependency>
             <groupId>rsb</groupId>
             <artifactId>rst</artifactId>
-            <version>[@RST_VERSION@]</version>
+            <version>@RST_MVN_VERSION@</version>
+>>>>>>> refs/heads/master
         </dependency>
     </dependencies>
 

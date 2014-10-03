@@ -1,0 +1,31 @@
+package rst.kinematics;
+
+option java_outer_classname = "LinearAccelerationsType";
+
+/**
+ * Cartesian 3-dimensional translatory velocities.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
+ */
+message LinearAccelerations {
+
+    /**
+     * Translatory acceleration along the x axis.
+     */
+    // @unit(meter / second^2)
+    required float x = 1;
+
+    /**
+     * Translatory acceleration along the y axis.
+     */
+    // @unit(meter / second^2)
+    required float y = 2;
+
+    /**
+     * Translatory acceleration along the z axis.
+     */
+    // @unit(meter / second^2)
+    required float z = 3;
+
+}

@@ -1,0 +1,18 @@
+package rst.kinematics;
+
+option java_outer_classname = "JointVelocitiesType";
+
+/**
+ * A sequence of joint velocities of multiple joints.
+ *
+ * @author Arne Nordmann <anordman@cor-lab.uni-bielefeld.de>
+ */
+message JointVelocities {
+
+    /**
+     * Joint velocities
+     */
+    // @unit(rad-per-second)
+    repeated float velocities = 1 [packed=true];
+
+}

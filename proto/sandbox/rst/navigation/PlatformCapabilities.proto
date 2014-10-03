@@ -1,0 +1,35 @@
+package rst.navigation;
+
+option java_outer_classname = "PlatformCapabilitiesType";
+
+/**
+ * Describes the navigation capabilities of a mobile platform.
+ *
+ * Boolean parameters that are not specified imply a false value. Numeric
+ * parameters are unspecified.
+ *
+ * @author jwienke
+ */
+message PlatformCapabilities {
+
+    /**
+     * The maximum velocity of the platform.
+     */
+    // @unit(meter / second)
+    // @constraint(value >= 0)
+    optional float max_velocity = 1;
+
+    /**
+     * The maximum acceleration of the platform.
+     */
+    // @unit(meter / second^2)
+    // @constraint(value >= 0)
+    optional float max_acceleration = 2;
+
+    /**
+     * Indicates whether the platform has a fine localization skill that can be
+     * used when navigating towards goals.
+     */
+    optional bool has_fine_localization = 3;
+
+}

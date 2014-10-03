@@ -1,0 +1,54 @@
+package rst.calendar;
+
+import "rst/calendar/DateTime.proto";
+import "rst/calendar/RecurrenceRule.proto";
+
+option java_outer_classname = "RecurrenceType";
+
+/**
+ * A description of a recurrence following the iCalendar definitions.
+ * can be used to generate a set of dates.
+ *
+ * The final set of dates is created by combining all dates from
+ * recurrence_dates and recurrence_rules and removing all dates generated
+ * by exclude_dates and exclude_rules.
+ *
+ * This message combines a representation of repeating RDATE, RRULE, EXDATE and
+ * EXRULE properties in RFC 2445.
+ *
+ * For a documentation of the RFC 2445 iCalendar specification visit
+ * http://www.ietf.org/rfc/rfc2445.txt
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message Recurrence {
+
+    /**
+     * Specifies a set of specific dates to include.
+     *
+     * This field represents a set of RDATE in RFC 2445.
+     */
+    repeated DateTime recurrence_dates = 1;
+
+    /**
+     * Specifies a set of rules that generate dates to include.
+     *
+     * This field represents a set of RRULE in RFC 2445.
+     */
+    repeated RecurrenceRule recurrence_rules = 2;
+
+    /**
+     * Specifies a set of dates to exclude.
+     *
+     * This field represents a set of EXDATE in RFC 2445.
+     */
+    repeated DateTime exclude_dates = 3;
+
+    /**
+     * Specifies a set of rules that generate dates to exclude.
+     *
+     * This field represents a set of EXRULE in RFC 2445.
+     */
+    repeated RecurrenceRule exclude_rules = 4;
+
+}

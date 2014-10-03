@@ -1,0 +1,30 @@
+package rst.graph;
+
+option java_outer_classname = "EdgeType";
+
+/**
+ * Incident nodes and associated data of an edge in an edge-list
+ * graph.
+ *
+ * @author Daniel Seidel <dseidel@techfak.uni-bielefeld.de>
+ */
+message Edge {
+
+    /**
+     * Index of the head node in the graph's node list.
+     */
+    required uint32 head = 1;
+
+    /**
+     * Index of the tail node in the graph's node list.
+     */
+    required uint32 tail = 2;
+
+    /**
+     * Arbitrary data describing the edge, e.g. traversal cost.
+     *
+     * Specific to application creating the graph.
+     */
+    repeated float data = 3;
+
+}

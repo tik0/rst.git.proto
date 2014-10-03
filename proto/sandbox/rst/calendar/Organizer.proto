@@ -1,0 +1,55 @@
+package rst.calendar;
+
+option java_outer_classname = "OrganizerType";
+
+/**
+ * A description of a organizer of a calendar component.
+ *
+ * This message represents a ORGANIZER property in RFC 2445.
+ *
+ * For a documentation of the RFC 2445 iCalendar specification visit
+ * http://www.ietf.org/rfc/rfc2445.txt
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message Organizer {
+
+    /**
+     * Specifies the organizers calendar user address as URI.
+     * Can for example be a MAILTO.
+     *
+     * This field corresponds to cal-address of an ORGANIZER in RFC 2445.
+     */
+    required string calendar_address = 1;
+
+    /**
+     * Specifies the common or display name of the organizer.
+     *
+     * This field corresponds to cnparam of an ORGANIZER in RFC 2445.
+     */
+    optional string common_name = 2;
+
+    /**
+     * Specifies a reference (uri) to the directory entry associated with the
+     * calendar user acting as organizer.
+     *
+     * This field corresponds to dirparam of an ORGANIZER in RFC 2445.
+     */
+    optional string directory = 3;
+
+    /**
+     * Specifies another user that is acting on behalf of the organizer.
+     *
+     * This field corresponds to sentbyparam of an ORGANIZER in RFC 2445.
+     */
+    optional string sent_by = 4;
+
+    /**
+     * Specifies the language as defined in http://www.ietf.org/rfc/rfc1766.txt.
+     * If specified the language applies to the common_name field.
+     *
+     * This field corresponds to languageparam of an ORGANIZER in RFC 2445.
+     */
+    optional string language = 5;
+
+}

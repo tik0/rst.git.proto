@@ -1,0 +1,189 @@
+package rst.calendar;
+
+option java_outer_classname = "AttendeeType";
+
+/**
+ * A description of an Attendee of a calendar component.
+ *
+ * This message represents an ATTENDEE property in RFC 2445.
+ *
+ * For a documentation of the RFC 2445 iCalendar specification visit
+ * http://www.ietf.org/rfc/rfc2445.txt
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message Attendee {
+
+    /**
+     * Used to identify the type of a calendar user specified by an
+     * attendee definition. An attendee at a calender event does
+     * not inevitably have to be a person. It also can be a group
+     * room or different noteworthy physical resource.
+     *
+     * This enum represents the possible values of a CUTYPE in RFC 2445
+     */
+    enum UserType {
+
+        /**
+         * The attendee is an individual.
+         */
+        INDIVIDUAL = 1;
+
+        /**
+         * The attendee is a group of individuals.
+         */
+        GROUP = 2;
+
+        /**
+         * The attendee is a physical resource.
+         */
+        RESOURCE = 3;
+
+        /**
+         * The attendee is a room.
+         */
+        ROOM = 4;
+    }
+
+    /**
+     * Used to specify the participation role of an attendee.
+     *
+     * This enum represents the possible values of a ROLE in RFC 2445
+     */
+    enum Role {
+
+        /**
+         * Chair of the calendar entity.
+         */
+        CHAIR = 1;
+
+        /**
+         * Someone whose participation is required.
+         */
+        REQUIRED_PARTICIPANT = 2;
+
+        /**
+         * Someone whose participation is optional.
+         */
+        OPTIONAL_PARTICIPANT = 3;
+
+        /**
+         * Someone whose participation is for information purposes only.
+         */
+        NON_PARTICIPANT = 4;
+    }
+
+    /**
+     * Used to specify the participation status of an attendee.
+     *
+     * This enum represents the possible values of a PARTSTAT in RFC 2445
+     */
+    enum ParticipationStatus {
+
+        /**
+         * The attendee has yet to react.
+         */
+        NEEDS_ACTION = 1;
+
+        /**
+         * The attendee has accepted the participation.
+         */
+        ACCEPTED = 2;
+
+        /**
+         * The attendee has declined the participation.
+         */
+        DECLINED = 3;
+    }
+
+    /**
+     * Specifies the attendees calendar user address as URI, which can for
+     * example be a MAILTO.
+     *
+     * This field corresponds to the cal-address of an attendee in RFC 2445
+     */
+    required string calendar_adress = 1;
+
+    /**
+     * Specifies what type of calendar user this attendee is.
+     * An attendee can be a person, group, room or resource.
+     *
+     * This field corresponds to the cutypeparam of an attendee in RFC 2445
+     */
+    optional UserType calendar_user_type = 6 [default = INDIVIDUAL];
+
+    /**
+     * Specifies the groups the attendee belongs to via a list of URIs.
+     *
+     * This field corresponds to the memberparam of an attendee in RFC 2445.
+     * The original memberparam is a single string holding the uris as a comma
+     * separated list of double quoted uris.
+     */
+    repeated string member = 7;
+
+    /**
+     * Specifies the participation role of the attendee.
+     *
+     * This field corresponds to the roleparam of an attendee in RFC 2445
+     */
+    optional Role participation_role = 8 [default = REQUIRED_PARTICIPANT];
+
+    /**
+     * Specifies the participation status of the attendee.
+     *
+     * This field corresponds to the partstatparam of an attendee in RFC 2445
+     */
+    optional ParticipationStatus participation_status = 9 [default = NEEDS_ACTION];
+
+    /**
+     * Specifies whether the favor of a reply is requested.
+     *
+     * This field corresponds to the rsvpparam of an attendee in RFC 2445
+     */
+    optional bool reply_requested = 10 [default = false];
+
+    /**
+     * An URI specifying a user to whom this participation was delegated.
+     *
+     * This field corresponds to the deltoparam of an attendee in RFC 2445
+     */
+    optional string delegated_to = 11;
+
+    /**
+     * An URI specifying a user from which this participation was delegated.
+     *
+     * This field corresponds to the delfromparam of an attendee in RFC 2445
+     */
+    optional string delegated_from = 12;
+
+    /**
+     * Specifies another user that is acting on behalf of the attendee
+     *
+     * This field corresponds to the sentbyparam of an attendee in RFC 2445
+     */
+    optional string sent_by = 4;
+
+    /**
+     * Specifies the common or display name of the attendee.
+     *
+     * This field corresponds to the cnparam of an attendee in RFC 2445
+     */
+    optional string common_name = 2;
+
+    /**
+     * Specifies a reference (uri) to the directory entry associated with the
+     * calendar user acting as attendee.
+     *
+     * This field corresponds to the dirparam of an attendee in RFC 2445
+     */
+    optional string directory = 3;
+
+    /**
+     * Specifies the language as defined in http://www.ietf.org/rfc/rfc1766.txt.
+     * If specified the language applies to the common_name field.
+     *
+     * This field corresponds to the languageparam of an attendee in RFC 2445
+     */
+    optional string language = 5;
+
+}

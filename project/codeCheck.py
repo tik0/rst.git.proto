@@ -164,6 +164,19 @@ class CheckTrailingSpaces(Check):
                 if len(space) > 0:
                     self.errorHandler.addError(line=lineNumber, description="Line has trailing spaces")
 
+class CheckBlockCommentIndents(Check):
+
+    indentRegEx = re.compile("^(\s*)\\*.*$")
+
+    def check(self):
+
+        for lineNumber in range(1, len(self.fileLines) + 1):
+            line = self.fileLines[lineNumber - 1]
+            spaces = self.indentRegEx.findall(line)
+            for space in spaces:
+                if len(space) % 4 != 1:
+                    self.errorHandler.addError(line=lineNumber, description="Block comment continuations must be aligned with leading asterisk.")
+
 class CheckPackageDeclarationFirst(Check):
 
     def check(self):
@@ -304,6 +317,7 @@ def checkFile(file, root, errorHandler, additionalCheckClasses=[]):
     executeCheck(CheckIndentation)
     executeCheck(CheckNewlineAtEof)
     executeCheck(CheckTrailingSpaces)
+    executeCheck(CheckBlockCommentIndents)
     executeCheck(CheckPackageDeclarationFirst)
     executeCheck(CheckNoSpaceBeforeFileSettings)
     executeCheck(CheckLeftCurlyBraces)
@@ -340,7 +354,6 @@ def checkFilesInMultipleRoots(rootFolder, errorHandler):
 
 if __name__ == '__main__':
 
-    logging.basicConfig(level=logging.DEBUG)
 
     parser = optparse.OptionParser()
     parser.add_option("-o", "--output", dest="filename", default="./rst-checks.xml",
@@ -350,8 +363,15 @@ if __name__ == '__main__':
                       help="Format to use for reporting errors", metavar="(plain|xml)")
     parser.add_option("-r", "--root", dest="root", default="../proto",
                       help="Different RST roots like stable and sandbox are located here", metavar="DIR")
+    parser.add_option("-d", "--debug", dest="debug", default=False, action="store_true",
+                      help="Provide debug output")
 
     (options, args) = parser.parse_args()
+
+    if options.debug:
+        logging.basicConfig(level=logging.DEBUG)
+    else:
+        logging.basicConfig(level=logging.WARNING)
 
     # decide on output
     errorHandler = ErrorHandler()
