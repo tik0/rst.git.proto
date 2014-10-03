@@ -29,11 +29,22 @@ IF(ANT_EXECUTABLE AND PROTOBUF_JAVA_LIBRARY)
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/MANIFEST.MF.in"
                    "${CMAKE_CURRENT_BINARY_DIR}/MANIFEST.MF"
                    @ONLY)
+
+    # maven poms
+    IF(RST_IS_RELEASE)
+        IF(RST_VERSION_PATCH EQUAL 0)
+            # it seems the maven convention is to leave out the revision / patch
+            # version in case it is 0
+            SET(RST_MVN_VERSION "${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}")
+        ELSE()
+            SET(RST_MVN_VERSION ${RST_VERSION})
+        ENDIF()
+        SET(RST_MVN_VERSION "[$RST_MVN_VERSION]")
+    ELSE()
+        SET(RST_MVN_VERSION "${RST_VERSION_MAJOR}.${RST_VERSION_MINOR}-SNAPSHOT")
+    ENDIF()
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/pom-stable.xml.in"
-                   "${CMAKE_CURRENT_BINARY_DIR}/pom-stable.xml"
-                   @ONLY)
-    CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/pom-sandbox.xml.in"
-                   "${CMAKE_CURRENT_BINARY_DIR}/pom-sandbox.xml"
+                   "${CMAKE_CURRENT_BINARY_DIR}/pom-stable${RST_VERSION}.xml"
                    @ONLY)
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/pom-sandbox.xml.in"
                    "${CMAKE_CURRENT_BINARY_DIR}/pom-sandbox${RST_VERSION}.xml"
