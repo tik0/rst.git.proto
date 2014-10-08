@@ -1,0 +1,47 @@
+package rst.cbse;
+
+option java_outer_classname = "TickType";
+
+import "rst/timing/Timestamp.proto";
+import "rst/timing/Duration.proto";
+
+/**
+ * Tick sent to a component in a component circuit (as used by a global
+ * heartbeat). Including support for virtual (simulation) time often found in
+ * robotics applications.
+ *
+ * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
+ */
+message Tick {
+
+    /**
+     * Sequence number of the tick. This sequence number is unique "within" the
+     * sending heartbeat.
+     */
+    required uint32 sequence_number = 1;
+
+    /**
+     * Real time timestamp
+     */
+    // @unit(microseconds)
+    required timing.Timestamp timestamp = 2;
+
+    /**
+     * Virtual (simulation) timestamp
+     */
+    // @unit(microseconds)
+    optional timing.Timestamp virtual_timestamp = 3;
+
+    /**
+     * (Real) Timestep since last tick
+     */
+    // @unit(microseconds)
+    optional timing.Duration timestep = 4;
+
+    /**
+     * Virtual (simulation) timestep since last tick
+     */
+    // @unit(microseconds)
+    optional timing.Duration virtual_timestep = 5;
+
+}
