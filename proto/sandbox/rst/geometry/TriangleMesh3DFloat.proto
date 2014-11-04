@@ -1,0 +1,54 @@
+package rst.geometry;
+
+option java_outer_classname = "TriangleMesh3DFloatType";
+
+import "rst/geometry/PointCloud3DFloat.proto";
+
+/**
+ * Defines a triangle mesh for describing 3D objects through vertices and their
+ * assembly to triangles. Edges are therefore only implicitly defined through
+ * the definitions of the triangles. Other typical mesh properties like faces,
+ * and surfaces are not defined.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
+message TriangleMesh3DFloat {
+
+    /**
+     * The collection of vertices in the mesh.
+     */
+    required PointCloud3DFloat vertices = 1;
+
+    /**
+     * Definition of a single triangle in a mesh by means of indices to the
+     * vertex point cloud for all corners of the triangle. Vertices are indexed
+     * in counter-clockwise order to define a normal of the triangle that
+     * points outwards.
+     */
+    message Triangle {
+
+        /**
+         * Index of the first vertex defining the triangle.
+         */
+        required uint32 point1 = 1;
+
+        /**
+         * Index of the second vertex defining the triangle.
+         */
+        required uint32 point2 = 2;
+
+        /**
+         * Index of the third vertex defining the triangle.
+         */
+        required uint32 point3 = 3;
+
+    }
+
+    /**
+     * Defines the triangles that form the mesh in the form of 3-tuples to
+     * indexes in the vertices point cloud. No particular ordering is assumed
+     * here.
+     */
+    repeated Triangle triangles = 2;
+
+}
