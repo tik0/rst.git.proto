@@ -47,6 +47,11 @@ message ColoredPoseSet {
 
         required Color color = 2;
 
+        /**
+         * The type of the "object" (e.g. "BOX", "CYLINDER", "COMPOSED").
+         */
+        optional string type = 3;
+
     }
 
     repeated ColoredPose poses = 1;
