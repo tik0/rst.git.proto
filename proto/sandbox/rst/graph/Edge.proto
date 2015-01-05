@@ -1,5 +1,7 @@
 package rst.graph;
 
+import "rst/generic/Value.proto";
+
 option java_outer_classname = "EdgeType";
 
 /**
@@ -25,6 +27,6 @@ message Edge {
      *
      * Specific to application creating the graph.
      */
-    repeated float data = 3;
+    repeated .rst.generic.Value data = 3;
 
 }

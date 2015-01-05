@@ -1,5 +1,7 @@
 package rst.graph;
 
+import "rst/generic/Value.proto";
+
 option java_outer_classname = "NodeType";
 
 /**
@@ -14,6 +16,6 @@ message Node {
      *
      * Specific to application creating the graph.
      */
-    repeated float data = 1;
+    repeated .rst.generic.Value data = 1;
 
 }
