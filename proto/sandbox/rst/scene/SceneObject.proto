@@ -6,17 +6,20 @@ import "rst/geometry/Shape3DFloat.proto";
 option java_outer_classname = "SceneObjectType";
 
 /**
- * Description of a planar object in the scene surrounding the robot.
+ * Geometry and location within a 3D scene of an uniquely identifiable
+ * object.
+ *
+ * @author David Klotz <dklotz@techfak.uni-bielefeld.de>
  */
 message SceneObject {
 
     /**
-     * A unique object identifier.
+     * A unique name.
      */
     required string name = 1;
 
     /**
-     * The "kind" of the object, e.g.: "chair", "painting", etc.
+     * The kind of the object, e.g.: "chair", "painting", etc.
      */
     optional string kind = 2;
 
