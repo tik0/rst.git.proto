@@ -36,11 +36,19 @@ IF(PYTHONINTERP_FOUND AND ((NOT PYTHON_VERSION_MAJOR) OR (PYTHON_VERSION_MAJOR E
                       PROTOROOT ${SANDBOX_ROOT}
                       INCLUDES ${STABLE_ROOT}
                       OUTPATH "${CMAKE_CURRENT_BINARY_DIR}/sandbox")
+    PROTOBUF_GENERATE(PYTHON PYTHON_DEPRECATED_FILES
+                      PROTOFILES ${DEPRECATED_PROTOS}
+                      PROTOROOT ${DEPRECATED_ROOT}
+                      INCLUDES ${STABLE_ROOT}
+                               ${SANDBOX_ROOT}
+                      OUTPATH "${CMAKE_CURRENT_BINARY_DIR}/deprecated")
 
     CONFIGURE_FILE(CreatePythonPackages.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/stable/CreatePythonPackagesStable.cmake" @ONLY)
     CONFIGURE_FILE(CreatePythonPackages.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/sandbox/CreatePythonPackagesSandbox.cmake" @ONLY)
+    CONFIGURE_FILE(CreatePythonPackages.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/deprecated/CreatePythonPackagesdeprecated.cmake" @ONLY)
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/setup-stable.py.in" "${CMAKE_CURRENT_BINARY_DIR}/stable/setup.py" @ONLY)
     CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/setup-sandbox.py.in" "${CMAKE_CURRENT_BINARY_DIR}/sandbox/setup.py" @ONLY)
+    CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/setup-deprecated.py.in" "${CMAKE_CURRENT_BINARY_DIR}/deprecated/setup.py" @ONLY)
 
     # determine the egg names which will be produced
     EXECUTE_PROCESS(COMMAND ${PYTHON_EXECUTABLE} setup.py print_outputs
@@ -53,6 +61,11 @@ IF(PYTHONINTERP_FOUND AND ((NOT PYTHON_VERSION_MAJOR) OR (PYTHON_VERSION_MAJOR E
                     OUTPUT_VARIABLE SANDBOX_EGG_RAW)
     PARSE_EGG_NAMES(SANDBOX_EGG ${SANDBOX_EGG_RAW})
     SET(SANDBOX_EGG "${CMAKE_CURRENT_BINARY_DIR}/sandbox/${SANDBOX_EGG}")
+    EXECUTE_PROCESS(COMMAND ${PYTHON_EXECUTABLE} setup.py print_outputs
+                    WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/deprecated"
+                    OUTPUT_VARIABLE DEPRECATED_EGG_RAW)
+    PARSE_EGG_NAMES(DEPRECATED_EGG ${DEPRECATED_EGG_RAW})
+    SET(DEPRECATED_EGG "${CMAKE_CURRENT_BINARY_DIR}/deprecated/${DEPRECATED_EGG}")
     #MESSAGE("${STABLE_EGG} ${SANDBOX_EGG}")
 
     SET(STABLE_CMAKE_FILE "${CMAKE_CURRENT_BINARY_DIR}/stable/CreatePythonPackagesStable.cmake")
@@ -71,30 +84,58 @@ IF(PYTHONINTERP_FOUND AND ((NOT PYTHON_VERSION_MAJOR) OR (PYTHON_VERSION_MAJOR E
     ADD_CUSTOM_TARGET(python-stable ALL DEPENDS ${STABLE_EGG})
 
     SET(SANDBOX_CMAKE_FILE "${CMAKE_CURRENT_BINARY_DIR}/sandbox/CreatePythonPackagesSandbox.cmake")
-    SET(SANDBOX_INIT_HACK "${CMAKE_CURRENT_SOURCE_DIR}/init-hack.py")
+    SET(SANDBOX_INIT_HACK "${CMAKE_CURRENT_SOURCE_DIR}/init-hack-sandbox.py")
     SET(SANDBOX_INIT_PY "${CMAKE_CURRENT_BINARY_DIR}/sandbox/rstsandbox/__init__.py")
     SET(SANDBOX_SETUP_PY "${CMAKE_CURRENT_BINARY_DIR}/sandbox/setup.py")
     IF(UNIX)
-        SET(SANDBOX_CMAKE_FILE "'${SANDBOX_CMAKE_FILE}'")
-        SET(SANDBOX_INIT_HACK "'${SANDBOX_INIT_HACK}'")
-        SET(SANDBOX_INIT_PY "'${SANDBOX_INIT_PY}'")
-        SET(SANDBOX_SETUP_PY "'${SANDBOX_SETUP_PY}'")
+        SET(SANDBOX_CMAKE_FILE_QUOTED "'${SANDBOX_CMAKE_FILE}'")
+        SET(SANDBOX_INIT_HACK_QUOTED "'${SANDBOX_INIT_HACK}'")
+        SET(SANDBOX_INIT_PY_QUOTED "'${SANDBOX_INIT_PY}'")
+        SET(SANDBOX_SETUP_PY_QUOTED "'${SANDBOX_SETUP_PY}'")
     ENDIF()
     ADD_CUSTOM_COMMAND(OUTPUT ${SANDBOX_EGG}
                        # first part of the hack: namespace of proto files is rst but we want a module rstsandbox, so move the generated files to the right place
                        COMMAND ${CMAKE_COMMAND} -E remove_directory rstsandbox
                        COMMAND ${CMAKE_COMMAND} -E copy_directory rst rstsandbox
                        # to have a valid python package, an __init__.py must be present for every directory
-                       COMMAND ${CMAKE_COMMAND} -P ${SANDBOX_CMAKE_FILE}
+                       COMMAND ${CMAKE_COMMAND} -P ${SANDBOX_CMAKE_FILE_QUOTED}
                        # second part of the hack: install a patches __init__.py for rstsandbox which installs rstsandbox in the rst namespace
-                       COMMAND ${CMAKE_COMMAND} -E copy ${SANDBOX_INIT_HACK}
-                                                        ${SANDBOX_INIT_PY}
-                       COMMAND ${PYTHON_EXECUTABLE} ${SANDBOX_SETUP_PY} bdist_egg
-                       DEPENDS ${PYTHON_SANDBOX_FILES} "${CMAKE_CURRENT_BINARY_DIR}/sandbox/setup.py"
-                                                       "${CMAKE_CURRENT_SOURCE_DIR}/init-hack.py"
+                       COMMAND ${CMAKE_COMMAND} -E copy ${SANDBOX_INIT_HACK_QUOTED}
+                                                        ${SANDBOX_INIT_PY_QUOTED}
+                       COMMAND ${PYTHON_EXECUTABLE} ${SANDBOX_SETUP_PY_QUOTED} bdist_egg
+                       DEPENDS ${PYTHON_SANDBOX_FILES}
+                               ${SANDBOX_SETUP_PY}
+                               ${SANDBOX_INIT_HACK}
                        WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/sandbox"
                        COMMENT "Creating sandbox python egg")
     ADD_CUSTOM_TARGET(python-sandbox ALL DEPENDS ${SANDBOX_EGG})
+
+    SET(DEPRECATED_CMAKE_FILE "${CMAKE_CURRENT_BINARY_DIR}/deprecated/CreatePythonPackagesdeprecated.cmake")
+    SET(DEPRECATED_INIT_HACK "${CMAKE_CURRENT_SOURCE_DIR}/init-hack-deprecated.py")
+    SET(DEPRECATED_INIT_PY "${CMAKE_CURRENT_BINARY_DIR}/deprecated/rstdeprecated/__init__.py")
+    SET(DEPRECATED_SETUP_PY "${CMAKE_CURRENT_BINARY_DIR}/deprecated/setup.py")
+    IF(UNIX)
+        SET(DEPRECATED_CMAKE_FILE_QUOTED "'${DEPRECATED_CMAKE_FILE}'")
+        SET(DEPRECATED_INIT_HACK_QUOTED "'${DEPRECATED_INIT_HACK}'")
+        SET(DEPRECATED_INIT_PY_QUOTED "'${DEPRECATED_INIT_PY}'")
+        SET(DEPRECATED_SETUP_PY_QUOTED "'${DEPRECATED_SETUP_PY}'")
+    ENDIF()
+    ADD_CUSTOM_COMMAND(OUTPUT ${DEPRECATED_EGG}
+                       # first part of the hack: namespace of proto files is rst but we want a module rstdeprecated, so move the generated files to the right place
+                       COMMAND ${CMAKE_COMMAND} -E remove_directory rstdeprecated
+                       COMMAND ${CMAKE_COMMAND} -E copy_directory rst rstdeprecated
+                       # to have a valid python package, an __init__.py must be present for every directory
+                       COMMAND ${CMAKE_COMMAND} -P ${DEPRECATED_CMAKE_FILE_QUOTED}
+                       # second part of the hack: install a patches __init__.py for rstdeprecated which installs rstdeprecated in the rst namespace
+                       COMMAND ${CMAKE_COMMAND} -E copy ${DEPRECATED_INIT_HACK_QUOTED}
+                                                        ${DEPRECATED_INIT_PY_QUOTED}
+                       COMMAND ${PYTHON_EXECUTABLE} ${DEPRECATED_SETUP_PY_QUOTED} bdist_egg
+                       DEPENDS ${PYTHON_DEPRECATED_FILES}
+                               ${DEPRECATED_SETUP_PY}
+                               ${DEPRECATED_INIT_HACK}
+                       WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/deprecated"
+                       COMMENT "Creating deprecated python egg")
+    ADD_CUSTOM_TARGET(python-deprecated ALL DEPENDS ${DEPRECATED_EGG})
 
     # find out the correct install location:
     EXECUTE_PROCESS(COMMAND ${PYTHON_EXECUTABLE} -c "from distutils.sysconfig import get_python_lib; import os.path; print os.path.relpath(get_python_lib(prefix='${CMAKE_INSTALL_PREFIX}'), '${CMAKE_INSTALL_PREFIX}')" OUTPUT_VARIABLE EGG_INSTALL_FOLDER)
@@ -106,9 +147,10 @@ IF(PYTHONINTERP_FOUND AND ((NOT PYTHON_VERSION_MAJOR) OR (PYTHON_VERSION_MAJOR E
     # generate pth file for easy-install
     GET_FILENAME_COMPONENT(STABLE_EGG_NAME ${STABLE_EGG} NAME)
     GET_FILENAME_COMPONENT(SANDBOX_EGG_NAME ${SANDBOX_EGG} NAME)
+    GET_FILENAME_COMPONENT(DEPRECATED_EGG_NAME ${DEPRECATED_EGG} NAME)
     CONFIGURE_FILE(rst.pth.in "${CMAKE_CURRENT_BINARY_DIR}/${INSTALL_PREFIX}.pth" @ONLY)
 
-    INSTALL(FILES ${STABLE_EGG} ${SANDBOX_EGG} "${CMAKE_CURRENT_BINARY_DIR}/${INSTALL_PREFIX}.pth"
+    INSTALL(FILES ${STABLE_EGG} ${SANDBOX_EGG} ${DEPRECATED_EGG} "${CMAKE_CURRENT_BINARY_DIR}/${INSTALL_PREFIX}.pth"
             DESTINATION ${EGG_INSTALL_FOLDER})
             
     # use site.py hack from setuptools to ensure that we have a working python

@@ -11,6 +11,11 @@
 		<path refid="classpath" />
 		<pathelement location="classes-stable" />
 	</path>
+	<path id="classpath-deprecated">
+		<path refid="classpath" />
+		<pathelement location="classes-stable" />
+		<pathelement location="classes-sandbox" />
+	</path>
 
 	<target name="compile" description="compile the source ">
 		<delete dir="classes-stable" />
@@ -24,6 +29,12 @@
 		<javac srcdir="@SAFE_CMAKE_CURRENT_BINARY_DIR@/sandbox" destdir="classes-sandbox" debug="on" deprecation="on" target="1.5" source="1.5">
 			<compilerarg value="-Xlint" />
 			<classpath refid="classpath-sandbox" />
+		</javac>
+		<delete dir="classes-deprecated" />
+		<mkdir dir="classes-deprecated" />
+		<javac srcdir="@SAFE_CMAKE_CURRENT_BINARY_DIR@/deprecated" destdir="classes-deprecated" debug="on" deprecation="on" target="1.5" source="1.5">
+			<compilerarg value="-Xlint" />
+			<classpath refid="classpath-deprecated" />
 		</javac>
 	</target>
 

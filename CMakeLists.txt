@@ -44,7 +44,7 @@ SET(INSTALL_PREFIX "${PROJECT_NAME_LOWERCASE}${VERSION_SUFFIX}")
 
 # --- protocol files ---
 
-FOREACH(DOMAIN stable sandbox)
+FOREACH(DOMAIN stable sandbox deprecated)
     STRING(TOUPPER ${DOMAIN} DOMAIN_UPPER)
 
     FILE(GLOB_RECURSE ${DOMAIN_UPPER}_PROTOS_REL
@@ -69,6 +69,7 @@ FOREACH(DOMAIN stable sandbox)
 ENDFOREACH()
 
 SET(SANDBOX_ROOT "${CMAKE_SOURCE_DIR}/proto/sandbox")
+SET(DEPRECATED_ROOT "${CMAKE_SOURCE_DIR}/proto/deprecated")
 
 # --- package ---
 
