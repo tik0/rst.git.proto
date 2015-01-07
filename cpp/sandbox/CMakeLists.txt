@@ -1,5 +1,5 @@
 INCLUDE_DIRECTORIES(BEFORE ${CMAKE_CURRENT_BINARY_DIR}
-                    "${CMAKE_CURRENT_BINARY_DIR}/../stable")
+                           "${CMAKE_CURRENT_BINARY_DIR}/../stable")
 
 IF(WIN32)
     ADD_DEFINITIONS("/D${CMAKE_PROJECT_NAME}_EXPORT=__declspec(dllimport)"
