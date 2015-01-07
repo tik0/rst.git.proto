@@ -28,7 +28,7 @@ message TrackedPosition3DFloat {
      * Confidence in the correctness of the value stored in @ref
      * .position.
      */
-    //@constraint(0 <= value <= 1)
+    // @constraint(0 <= value <= 1)
     required float                confidence = 3;
 
 }

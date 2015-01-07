@@ -136,7 +136,7 @@ message RecurrenceRule {
      *
      * This field corresponds to the BYSECOND part of a recur value in RFC 2445.
      */
-    //@constraint(0 <= value < 60)
+    // @constraint(0 <= value < 60)
     repeated uint32 by_second = 6;
 
     /**
@@ -144,7 +144,7 @@ message RecurrenceRule {
      *
      * This field corresponds to the BYMINUTE part of a recur value in RFC 2445.
      */
-    //@constraint(0 <= value < 60)
+    // @constraint(0 <= value < 60)
     repeated uint32 by_minute = 7;
 
     /**
@@ -152,7 +152,7 @@ message RecurrenceRule {
      *
      * This field corresponds to the BYHOUR part of a recur value in RFC 2445.
      */
-    //@constraint(0 <= value < 24)
+    // @constraint(0 <= value < 24)
     repeated uint32 by_hour = 8;
 
     /**
@@ -178,7 +178,7 @@ message RecurrenceRule {
      *
      * This field corresponds to the BYMONTHDAY part of a recur value in RFC 2445.
      */
-    //@constraint(-31 <= value <= 31)
+    // @constraint(-31 <= value <= 31)
     repeated sint32 by_month_day = 11;
 
     /**
@@ -187,7 +187,7 @@ message RecurrenceRule {
      *
      * This field corresponds to the BYYEARDAY part of a recur value in RFC 2445.
      */
-    //@constraint(-366 <= value <= 366)
+    // @constraint(-366 <= value <= 366)
     repeated sint32 by_year_day = 12;
 
     /**
@@ -196,7 +196,7 @@ message RecurrenceRule {
      *
      * This field corresponds to the BYWEEKNO part of a recur value in RFC 2445.
      */
-    //@constraint(-53 <= value <= 53)
+    // @constraint(-53 <= value <= 53)
     repeated sint32 by_week_number = 13;
 
     /**
@@ -205,7 +205,7 @@ message RecurrenceRule {
      *
      * This field corresponds to the BYMONTH part of a recur value in RFC 2445.
      */
-    //@constraint(1 <= value <= 31)
+    // @constraint(1 <= value <= 31)
     repeated uint32 by_month = 14;
 
     /**

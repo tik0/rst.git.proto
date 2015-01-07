@@ -59,7 +59,7 @@ message Todo {
      *
      * This field corresponds to the completed property of VTODO in RFC 2445.
      */
-    //@constraint(value.type == DateTime.Type.UTC)
+    // @constraint(value.type == DateTime.Type.UTC)
     optional DateTime completed_utc = 2;
 
     /**
@@ -68,7 +68,7 @@ message Todo {
      *
      * This field corresponds to the completed property of VTODO in RFC 2445.
      */
-    //@constraint(0 <= value <= 100)
+    // @constraint(0 <= value <= 100)
     optional uint32 percent = 3 [default = 0];
 
     /**

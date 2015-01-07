@@ -226,6 +226,19 @@ class CheckRightCurlyBraces(Check):
                 if re.match('^\s*$', brace) == None:
                     self.errorHandler.addError(line=lineNumber, description="Right curly braces must be on a new empty line.")
 
+class CheckAnnotations(Check):
+
+    annotationRegEx = re.compile('^\s*//@')
+
+    def check(self):
+
+        for lineNumber in range(1, len(self.fileLines) + 1):
+            line = self.fileLines[lineNumber - 1]
+
+            annotations = self.annotationRegEx.findall(line)
+            for annotation in annotations:
+                self.errorHandler.addError(line=lineNumber, description="Write annotation comments with a space (e.g. '// @ANNOTATION' instead of '//@ANNOTATION'.")
+
 # utility stuff
 
 def getProtoFilesRecursive(folder):
@@ -323,6 +336,7 @@ def checkFile(file, root, errorHandler, additionalCheckClasses=[]):
     executeCheck(CheckNoSpaceBeforeFileSettings)
     executeCheck(CheckLeftCurlyBraces)
     executeCheck(CheckRightCurlyBraces)
+    executeCheck(CheckAnnotations)
 
     for check in additionalCheckClasses:
         executeCheck(check)

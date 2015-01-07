@@ -17,7 +17,7 @@ option java_outer_classname = "TimeZoneType";
  *
  * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
  */
-//@constraint(len(.standards) + len(.daylights) > 0)
+// @constraint(len(.standards) + len(.daylights) > 0)
 message TimeZone {
 
     /**
@@ -35,7 +35,7 @@ message TimeZone {
      *
      * This field corresponds to the last-mod parameter of VTIMEZONE in RFC 2445.
      */
-    //@constraint(value.type == DateTime.Type.UTC)
+    // @constraint(value.type == DateTime.Type.UTC)
     optional DateTime last_modified_utc = 2;
 
     /**

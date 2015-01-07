@@ -10,7 +10,7 @@ option java_outer_classname = "TrackedPosture3DFloatType";
  *
  * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
  */
-//@constraint(len(.posture) == len(.confidence))
+// @constraint(len(.posture) == len(.confidence))
 message TrackedPosture3DFloat {
 
     /**
@@ -28,7 +28,7 @@ message TrackedPosture3DFloat {
      * Confidence values for the individual positions stored in @ref
      * .posture.
      */
-    //@constraint(0 <= value <= 1)
+    // @constraint(0 <= value <= 1)
     repeated float                     confidence = 3;
 
 }
