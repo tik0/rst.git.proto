@@ -41,7 +41,7 @@ namespace rst {
  *
  * @author jwienke
  */
-class RST_EXPORT RSTVersion {
+class RSTSTABLE_EXPORT RSTVersion {
 public:
 
     static unsigned int major();
