@@ -1,0 +1,5 @@
+/**
+ * Placeholder package to ensure that there is always something inside the
+ * deprecated domain.
+ */
+package rst.deprecated;

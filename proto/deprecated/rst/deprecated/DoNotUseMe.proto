@@ -1,0 +1,17 @@
+package rst.deprecated;
+
+option java_outer_classname = "DoNotUseMeType";
+
+/**
+ * A placeholder message type for the RST deprecated domain. This domain is
+ * intended for types which do not meet the required standards or are
+ * deprecated for various other reasons. They will be placed in this domain for
+ * some time before they will finally be removed. Since this domain might
+ * become empty for some releases and the build system would choke on this,
+ * this dummy type ensures that there is always something to build.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
+message DoNotUseMe {
+
+}

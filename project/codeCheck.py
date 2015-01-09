@@ -352,14 +352,14 @@ def checkFilesInFolder(folder, errorHandler, additionalCheckClasses=[]):
         if not os.path.split(f)[-1].startswith('__'):
             checkFile(f, folder, errorHandler, additionalCheckClasses)
 
-def checkFilesInMultipleRoots(rootFolder, errorHandler):
+def checkFilesInMultipleRoots(rootFolder, errorHandler, exclude=[]):
 
     logger.info("Searching for RST roots in %s", rootFolder)
 
     rootCandidates = os.listdir(rootFolder)
     roots = []
     for candidate in rootCandidates:
-        if os.path.isdir(os.path.join(rootFolder, candidate)) and candidate != ".svn":
+        if os.path.isdir(os.path.join(rootFolder, candidate)) and candidate != ".svn" and not candidate in exclude:
             roots.append(os.path.join(rootFolder, candidate))
 
     logger.info("Found RST roots %s", roots)
@@ -380,6 +380,9 @@ if __name__ == '__main__':
                       help="Different RST roots like stable and sandbox are located here", metavar="DIR")
     parser.add_option("-d", "--debug", dest="debug", default=False, action="store_true",
                       help="Provide debug output")
+    parser.add_option("-e", "--deprecated", dest="deprecated", default=False,
+                      action="store_true",
+                      help="Include the deprecated domain")
 
     (options, args) = parser.parse_args()
 
@@ -393,6 +396,10 @@ if __name__ == '__main__':
     if options.format == "xml":
         errorHandler = CheckstyleXmlErrorHandler(options.filename)
 
-    checkFilesInMultipleRoots(options.root, errorHandler)
+    exclude = ['deprecated']
+    if options.deprecated:
+        exclude = []
+    checkFilesInMultipleRoots(options.root, errorHandler,
+                              exclude=exclude)
 
     errorHandler.done()
