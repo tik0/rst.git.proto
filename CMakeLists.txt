@@ -13,7 +13,6 @@ SET(VERSION_MINOR "12" CACHE STRING "Minor project version part")
 OPTION(BUILD_CPP "Decide whether to build the CPP bindings." ON)
 OPTION(BUILD_JAVA "Decide whether to build the Java bindings." ON)
 OPTION(BUILD_PYTHON "Decide whether to build the Python bindings." ON)
-OPTION(BUILD_MATLAB "Decide whether to build the Matlab bindings." ON)
 
 # --- dependency handling ---
 
@@ -95,9 +94,6 @@ IF(BUILD_JAVA)
 ENDIF()
 IF(BUILD_PYTHON)
     ADD_SUBDIRECTORY(python)
-ENDIF()
-IF(BUILD_MATLAB)
-    ADD_SUBDIRECTORY(matlab)
 ENDIF()
 
 PRINT_ENABLED_FEATURES()
