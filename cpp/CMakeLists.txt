@@ -26,7 +26,7 @@ ENDIF()
 
 # --- user options ---
 
-OPTION(EXPORT_TO_CMAKE_PAKAGE_REGISTRY "If set to ON, ${CMAKE_PROJECT_NAME} will be exported to the CMake user package registry so that downstream projects automatically find the workspace location in find_package calls." OFF)
+OPTION(EXPORT_TO_CMAKE_PAKAGE_REGISTRY "If set to ON, ${CMAKE_PROJECT_NAME} will be exported to the CMake user package registry so that downstream projects automatically find the workspace location in FIND_PACKAGE calls." OFF)
 
 # --- pkgconfig files ---
 
