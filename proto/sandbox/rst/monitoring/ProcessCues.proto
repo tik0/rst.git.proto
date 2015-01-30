@@ -157,6 +157,16 @@ message ProcessCues {
          */
         optional uint32 open_connections = 60;
 
+        /**
+         * Number of bytes received via network.
+         */
+        optional uint64 received_bytes = 70;
+
+        /**
+         * Number of bytes sent via network.
+         */
+        optional uint64 sent_bytes = 71;
+
     }
 
     /**
