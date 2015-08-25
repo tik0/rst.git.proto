@@ -1,0 +1,1707 @@
+package rst.claas;
+
+option java_outer_classname = "FrontAttachmentCan_CombineHarvesterType";
+
+message fVhbcFamcHeaderRpmAct {
+	required double TmIntakeSpeedMax__m_s = 1;
+	required double TmIntakeSpeedMin__m_s = 2;
+	required double IntakeSpeedActVal__m_s = 3;
+	required uint32 HeaderRpmActVal__rpm = 4;
+}
+
+message fFamcVhbcHeaderRpmParam {
+	required double IntakeSpeedStep2__m_s = 1;
+	required uint32 HeaderRpmStep2__rpm = 2;
+	required double IntakeSpeedStep1__m_s = 3;
+	required uint32 HeaderRpmStep1__rpm = 4;
+}
+
+message fFamcVhbcHeaderRpmAuto {
+	required double IntakeSpeedAutoMax__m_s = 1;
+	required uint32 HeaderRpmAutoMax__rpm = 2;
+	required double IntakeSpeedAutoMin__m_s = 3;
+	required uint32 HeaderRpmAutoMin__rpm = 4;
+}
+
+message fFamcVhbcHeaderRpmMan {
+	required uint32 HeaderRpmRev__rpm = 1;
+	required uint32 EnableVVA__ = 2;
+	required uint32 HeaderReserve__ = 3;
+	required uint32 HeaderRpmManMax__rpm = 4;
+	required uint32 HeaderRpmManMin__rpm = 5;
+}
+
+message fFamcBrc_SpeedRPMValues {
+	required double SpeedRPMValue4__rpm = 1;
+	required double SpeedRPMValue3__rpm = 2;
+	required double SpeedRPMValue2__rpm = 3;
+	required double SpeedRPMValue1__rpm = 4;
+}
+
+message fFamcBrc_FamStatus {
+	required uint32 RequestPressureFA__ = 1;
+}
+
+message fFamcVhbcCHRData {
+	required uint32 CHRState__ = 1;
+	required uint32 CHRSet__ = 2;
+	required uint32 CHRSelector__ = 3;
+	required uint32 CHRDataCount__ = 4;
+	required uint32 CHRData1__ = 5;
+	required uint32 CHRData0__ = 6;
+	required uint32 CHRCRC__ = 7;
+}
+
+message fVhbcFamcCHRData {
+	required uint32 CHRState__ = 1;
+	required uint32 CHRSet__ = 2;
+	required uint32 CHRSelector__ = 3;
+	required uint32 CHRDataCount__ = 4;
+	required uint32 CHRData1__ = 5;
+	required uint32 CHRData0__ = 6;
+	required uint32 CHRCRC__ = 7;
+}
+
+message fFamtFamcReelDragParam {
+	required uint32 ReelDragPV_Sensitivity__ = 1;
+	required uint32 ReelDragPV_ReelPressure__ = 2;
+	required uint32 ReelDragPV_MinValue__ = 3;
+	required uint32 ReelDragPV_MaxValue__ = 4;
+	required uint32 ReelDragParamSet__ = 5;
+	required uint32 ReelDragParamSel__ = 6;
+}
+
+message fFamcFamtReelDragParam {
+	required uint32 ReelDragPV_Sensitivity__ = 1;
+	required uint32 ReelDragPV_ReelPressure__ = 2;
+	required uint32 ReelDragPV_MinValue__ = 3;
+	required uint32 ReelDragPV_MaxValue__ = 4;
+	required uint32 ReelDragPI_Sensitivity__ = 5;
+	required uint32 ReelDragPI_ReelPressure__ = 6;
+	required uint32 ReelDragPI_MinValue__ = 7;
+	required uint32 ReelDragPI_MaxValue__ = 8;
+	required uint32 ReelDragParamState__ = 9;
+	required uint32 ReelDragParamSet__ = 10;
+	required uint32 ReelDragParamSel__ = 11;
+}
+
+message fFamtFamcReelDragCtrl {
+	required uint32 ReelDragCV_ReelDragAuto__ = 1;
+	required uint32 ReelDragCtrlSet__ = 2;
+	required uint32 ReelDragCtrlSel__ = 3;
+}
+
+message fFamcFamtReelDragCtrl {
+	required uint32 ReelDragCV_ReelDragAuto__ = 1;
+	required uint32 ReelDragCtrlState__ = 2;
+	required uint32 ReelDragCtrlSet__ = 3;
+	required uint32 ReelDragCtrlSel__ = 4;
+	required uint32 ReelDragCI_ReelDragAuto__ = 5;
+}
+
+message fTabcBrc_ReelHeightPos {
+	required uint32 IconReelHeightAutoActive__ = 1;
+	required double ReelHeightSetVal__perc = 2;
+	required double ReelHeightActVal__perc = 3;
+}
+
+message fFatcTabcIncDecReelHeightPos {
+	required uint32 IncrSetValReelHeight__ = 1;
+}
+
+message fApedAfasDevCcpXcp {
+	required uint32 DevCcpXcpByte8__ = 1;
+	required uint32 DevCcpXcpByte7__ = 2;
+	required uint32 DevCcpXcpByte6__ = 3;
+	required uint32 DevCcpXcpByte5__ = 4;
+	required uint32 DevCcpXcpByte4__ = 5;
+	required uint32 DevCcpXcpByte3__ = 6;
+	required uint32 DevCcpXcpByte2__ = 7;
+	required uint32 DevCcpXcpByte1__ = 8;
+}
+
+message fApedMacsDevCcpXcp {
+	required uint32 DevCcpXcpByte8__ = 1;
+	required uint32 DevCcpXcpByte7__ = 2;
+	required uint32 DevCcpXcpByte6__ = 3;
+	required uint32 DevCcpXcpByte5__ = 4;
+	required uint32 DevCcpXcpByte4__ = 5;
+	required uint32 DevCcpXcpByte3__ = 6;
+	required uint32 DevCcpXcpByte2__ = 7;
+	required uint32 DevCcpXcpByte1__ = 8;
+}
+
+message fApedFamsDevCcpXcp {
+	required uint32 DevCcpXcpByte8__ = 1;
+	required uint32 DevCcpXcpByte7__ = 2;
+	required uint32 DevCcpXcpByte6__ = 3;
+	required uint32 DevCcpXcpByte5__ = 4;
+	required uint32 DevCcpXcpByte4__ = 5;
+	required uint32 DevCcpXcpByte3__ = 6;
+	required uint32 DevCcpXcpByte2__ = 7;
+	required uint32 DevCcpXcpByte1__ = 8;
+}
+
+message fAfasApedDevCcpXcp {
+	required uint32 DevCcpXcpByte8__ = 1;
+	required uint32 DevCcpXcpByte7__ = 2;
+	required uint32 DevCcpXcpByte6__ = 3;
+	required uint32 DevCcpXcpByte5__ = 4;
+	required uint32 DevCcpXcpByte4__ = 5;
+	required uint32 DevCcpXcpByte3__ = 6;
+	required uint32 DevCcpXcpByte2__ = 7;
+	required uint32 DevCcpXcpByte1__ = 8;
+}
+
+message fMacsApedDevCcpXcp {
+	required uint32 DevCcpXcpByte8__ = 1;
+	required uint32 DevCcpXcpByte7__ = 2;
+	required uint32 DevCcpXcpByte6__ = 3;
+	required uint32 DevCcpXcpByte5__ = 4;
+	required uint32 DevCcpXcpByte4__ = 5;
+	required uint32 DevCcpXcpByte3__ = 6;
+	required uint32 DevCcpXcpByte2__ = 7;
+	required uint32 DevCcpXcpByte1__ = 8;
+}
+
+message fFamsApedDevCcpXcp {
+	required uint32 DevCcpXcpByte8__ = 1;
+	required uint32 DevCcpXcpByte7__ = 2;
+	required uint32 DevCcpXcpByte6__ = 3;
+	required uint32 DevCcpXcpByte5__ = 4;
+	required uint32 DevCcpXcpByte4__ = 5;
+	required uint32 DevCcpXcpByte3__ = 6;
+	required uint32 DevCcpXcpByte2__ = 7;
+	required uint32 DevCcpXcpByte1__ = 8;
+}
+
+message fMactMaccCACSensConfigCtrl {
+	required uint32 CACSensConfigCV_ConfigSensor9__ = 1;
+	required uint32 CACSensConfigCV_ConfigSensor8__ = 2;
+	required uint32 CACSensConfigCV_ConfigSensor7__ = 3;
+	required uint32 CACSensConfigCV_ConfigSensor6__ = 4;
+	required uint32 CACSensConfigCV_ConfigSensor5__ = 5;
+	required uint32 CACSensConfigCV_ConfigSensor4__ = 6;
+	required uint32 CACSensConfigCV_ConfigSensor3__ = 7;
+	required uint32 CACSensConfigCV_ConfigSensor2__ = 8;
+	required uint32 CACSensConfigCV_ConfigSensor10__ = 9;
+	required uint32 CACSensConfigCV_ConfigSensor1__ = 10;
+	required uint32 CACSensConfigCtrlSet__ = 11;
+	required uint32 CACSensConfigCtrlSel__ = 12;
+}
+
+message fMaccMactCACSensConfigCtrl {
+	required uint32 CACSensConfigCV_ConfigSensor9__ = 1;
+	required uint32 CACSensConfigCV_ConfigSensor8__ = 2;
+	required uint32 CACSensConfigCV_ConfigSensor7__ = 3;
+	required uint32 CACSensConfigCV_ConfigSensor6__ = 4;
+	required uint32 CACSensConfigCV_ConfigSensor5__ = 5;
+	required uint32 CACSensConfigCV_ConfigSensor4__ = 6;
+	required uint32 CACSensConfigCV_ConfigSensor3__ = 7;
+	required uint32 CACSensConfigCV_ConfigSensor2__ = 8;
+	required uint32 CACSensConfigCV_ConfigSensor10__ = 9;
+	required uint32 CACSensConfigCV_ConfigSensor1__ = 10;
+	required uint32 CACSensConfigCI_ConfigSensor9__ = 11;
+	required uint32 CACSensConfigCI_ConfigSensor8__ = 12;
+	required uint32 CACSensConfigCI_ConfigSensor7__ = 13;
+	required uint32 CACSensConfigCI_ConfigSensor6__ = 14;
+	required uint32 CACSensConfigCI_ConfigSensor5__ = 15;
+	required uint32 CACSensConfigCI_ConfigSensor4__ = 16;
+	required uint32 CACSensConfigCI_ConfigSensor3__ = 17;
+	required uint32 CACSensConfigCI_ConfigSensor2__ = 18;
+	required uint32 CACSensConfigCI_ConfigSensor10__ = 19;
+	required uint32 CACSensConfigCI_ConfigSensor1__ = 20;
+	required uint32 CACSensConfigCtrlState__ = 21;
+	required uint32 CACSensConfigCtrlSet__ = 22;
+	required uint32 CACSensConfigCtrlSel__ = 23;
+}
+
+message fMaccBrc_CACSensorValues {
+	required double CACLeftValue__perc = 1;
+	required double CACRightValue__perc = 2;
+	required uint32 CACSensorStatus__ = 3;
+}
+
+message fFamtFamcFlexBeltOpModeParam {
+	required uint32 FlexBeltOpModePV_OpMode__ = 1;
+	required uint32 FlexBeltOpModeParamSet__ = 2;
+	required uint32 FlexBeltOpModeParamSel__ = 3;
+}
+
+message fFamcFamtFlexBeltOpModeParam {
+	required uint32 FlexBeltOpModePV_OpMode__ = 1;
+	required uint32 FlexBeltOpModePI_OpMode__ = 2;
+	required uint32 FlexBeltOpModeParamState__ = 3;
+	required uint32 FlexBeltOpModeParamSet__ = 4;
+	required uint32 FlexBeltOpModeParamSel__ = 5;
+}
+
+message fFamtFamcFlexPressCircuitSignal {
+	required uint32 FlexPressCircuitSignalSetVNo__ = 1;
+	required double FlexPressCircuitSignalSetVal__bar = 2;
+	required uint32 FlexPressCircuitSignalSet__ = 3;
+}
+
+message fFamcFamtFlexPressCircuitSignal {
+	required uint32 FlexPressCircuitSignalState__ = 1;
+	required uint32 FlexPressCircuitSignalSetVNo__ = 2;
+	required double FlexPressCircuitSignalSetVal__bar = 3;
+	required uint32 FlexPressCircuitSignalSet__ = 4;
+	required uint32 FlexPressCircuitSignalInfo__ = 5;
+	required double FlexPressCircuitSignalActVal__bar = 6;
+}
+
+message fFamtFamcFlexPressCircuitParam {
+	required double FlexPressCircuitPV_MinValue__bar = 1;
+	required double FlexPressCircuitPV_MaxValue__bar = 2;
+	required uint32 FlexPressCircuitParamSet__ = 3;
+	required uint32 FlexPressCircuitParamSel__ = 4;
+}
+
+message fFamcFamtFlexPressCircuitParam {
+	required double FlexPressCircuitPV_MinValue__bar = 1;
+	required double FlexPressCircuitPV_MaxValue__bar = 2;
+	required uint32 FlexPressCircuitPI_MinValue__ = 3;
+	required uint32 FlexPressCircuitPI_MaxValue__ = 4;
+	required uint32 FlexPressCircuitParamState__ = 5;
+	required uint32 FlexPressCircuitParamSet__ = 6;
+	required uint32 FlexPressCircuitParamSel__ = 7;
+}
+
+message fFamtFamcSnapPlatePosmmSignal {
+	required uint32 SnapPlatePosmmSignalSetVNo__ = 1;
+	required double SnapPlatePosmmSignalSetVal__mm = 2;
+	required uint32 SnapPlatePosmmSignalSet__ = 3;
+}
+
+message fFamcFamtSnapPlatePosmmSignal {
+	required uint32 SnapPlatePosmmSignalState__ = 1;
+	required uint32 SnapPlatePosmmSignalSetVNo__ = 2;
+	required double SnapPlatePosmmSignalSetVal__mm = 3;
+	required uint32 SnapPlatePosmmSignalSet__ = 4;
+	required uint32 SnapPlatePosmmSignalInfo__ = 5;
+	required double SnapPlatePosmmSignalActVal__mm = 6;
+}
+
+message fFamtFamcSnapPlatePosmmParam {
+	required double SnapPlatePosmmPV_MinValue__mm = 1;
+	required double SnapPlatePosmmPV_MaxValue__mm = 2;
+	required uint32 SnapPlatePosmmParamSet__ = 3;
+	required uint32 SnapPlatePosmmParamSel__ = 4;
+}
+
+message fFamcFamtSnapPlatePosmmParam {
+	required double SnapPlatePosmmPV_MinValue__mm = 1;
+	required double SnapPlatePosmmPV_MaxValue__mm = 2;
+	required uint32 SnapPlatePosmmPI_MinValue__ = 3;
+	required uint32 SnapPlatePosmmPI_MaxValue__ = 4;
+	required uint32 SnapPlatePosmmParamState__ = 5;
+	required uint32 SnapPlatePosmmParamSet__ = 6;
+	required uint32 SnapPlatePosmmParamSel__ = 7;
+}
+
+message fFamtFamcFeedingUnitLoadSignal {
+	required uint32 FeedingUnitLoadSignalSetVNo__ = 1;
+	required double FeedingUnitLoadSignalSetVal__perc = 2;
+	required uint32 FeedingUnitLoadSignalSet__ = 3;
+}
+
+message fFamcFamtFeedingUnitLoadSignal {
+	required uint32 FeedingUnitLoadSignalState__ = 1;
+	required uint32 FeedingUnitLoadSignalSetVNo__ = 2;
+	required double FeedingUnitLoadSignalSetVal__perc = 3;
+	required uint32 FeedingUnitLoadSignalSet__ = 4;
+	required uint32 FeedingUnitLoadSignalInfo__ = 5;
+	required double FeedingUnitLoadSignalActVal__perc = 6;
+}
+
+message fFamtFamcFeedingUnitLoadParam {
+	required double FeedingUnitLoadPV_MinValue__perc = 1;
+	required double FeedingUnitLoadPV_MaxValue__perc = 2;
+	required uint32 FeedingUnitLoadParamSet__ = 3;
+	required uint32 FeedingUnitLoadParamSel__ = 4;
+}
+
+message fFamcFamtFeedingUnitLoadParam {
+	required double FeedingUnitLoadPV_MinValue__perc = 1;
+	required double FeedingUnitLoadPV_MaxValue__perc = 2;
+	required uint32 FeedingUnitLoadPI_MinValue__ = 3;
+	required uint32 FeedingUnitLoadPI_MaxValue__ = 4;
+	required uint32 FeedingUnitLoadParamState__ = 5;
+	required uint32 FeedingUnitLoadParamSet__ = 6;
+	required uint32 FeedingUnitLoadParamSel__ = 7;
+}
+
+message fFamtFamcFeedingUnitSpeedSignal {
+	required uint32 FeedingUnitSpeedSignalSetVNo__ = 1;
+	required double FeedingUnitSpeedSignalSetVal__km_h = 2;
+	required uint32 FeedingUnitSpeedSignalSet__ = 3;
+}
+
+message fFamcFamtFeedingUnitSpeedSignal {
+	required uint32 FeedingUnitSpeedSignalState__ = 1;
+	required uint32 FeedingUnitSpeedSignalSetVNo__ = 2;
+	required double FeedingUnitSpeedSignalSetVal__km_h = 3;
+	required uint32 FeedingUnitSpeedSignalSet__ = 4;
+	required uint32 FeedingUnitSpeedSignalInfo__ = 5;
+	required double FeedingUnitSpeedSignalActVal__km_h = 6;
+}
+
+message fFamtFamcFeedingUnitSpeedParam {
+	required double FeedingUnitSpeedPV_SpeedOffset__km_h = 1;
+	required double FeedingUnitSpeedPV_MinValue__km_h = 2;
+	required double FeedingUnitSpeedPV_MaxValue__km_h = 3;
+	required uint32 FeedingUnitSpeedParamSet__ = 4;
+	required uint32 FeedingUnitSpeedParamSel__ = 5;
+}
+
+message fFamcFamtFeedingUnitSpeedParam {
+	required double FeedingUnitSpeedPV_SpeedOffset__km_h = 1;
+	required double FeedingUnitSpeedPV_MinValue__km_h = 2;
+	required double FeedingUnitSpeedPV_MaxValue__km_h = 3;
+	required uint32 FeedingUnitSpeedPI_SpeedOffset__ = 4;
+	required uint32 FeedingUnitSpeedPI_MinValue__ = 5;
+	required uint32 FeedingUnitSpeedPI_MaxValue__ = 6;
+	required uint32 FeedingUnitSpeedParamState__ = 7;
+	required uint32 FeedingUnitSpeedParamSet__ = 8;
+	required uint32 FeedingUnitSpeedParamSel__ = 9;
+}
+
+message fFamtFamcSnapRollerSpeedSignal {
+	required uint32 SnapRollerSpeedSignalSetVNo__ = 1;
+	required double SnapRollerSpeedSignalSetVal__rpm = 2;
+	required uint32 SnapRollerSpeedSignalSet__ = 3;
+}
+
+message fFamcFamtSnapRollerSpeedSignal {
+	required uint32 SnapRollerSpeedSignalState__ = 1;
+	required uint32 SnapRollerSpeedSignalSetVNo__ = 2;
+	required double SnapRollerSpeedSignalSetVal__rpm = 3;
+	required uint32 SnapRollerSpeedSignalSet__ = 4;
+	required uint32 SnapRollerSpeedSignalInfo__ = 5;
+	required double SnapRollerSpeedSignalActVal__rpm = 6;
+}
+
+message fFamtFamcSnapRollerSpeedParam {
+	required double SnapRollerSpeedPV_MinValue__rpm = 1;
+	required double SnapRollerSpeedPV_MaxValue__rpm = 2;
+	required uint32 SnapRollerSpeedParamSet__ = 3;
+	required uint32 SnapRollerSpeedParamSel__ = 4;
+}
+
+message fFamcFamtSnapRollerSpeedParam {
+	required uint32 SnapRollerSpeedPI_MaxValue__ = 1;
+	required uint32 SnapRollerSpeedParamState__ = 2;
+	required uint32 SnapRollerSpeedParamSet__ = 3;
+	required uint32 SnapRollerSpeedParamSel__ = 4;
+	required double SnapRollerSpeedPV_MinValue__rpm = 5;
+	required double SnapRollerSpeedPV_MaxValue__rpm = 6;
+	required uint32 SnapRollerSpeedPI_MinValue__ = 7;
+}
+
+message fFamsBrc_OSShutdownMsg_2 {
+	required uint32 OSErr_LineNbr__ = 1;
+	required uint32 OSErr_ErrorState__ = 2;
+	required uint32 OSErr_ErrCode__ = 3;
+	required uint32 OSErr_ActTask__ = 4;
+}
+
+message fFamsBrc_OSShutdownMsg_1 {
+	required uint32 OSErr_Status_7__ = 1;
+	required uint32 OSErr_Status_6__ = 2;
+	required uint32 OSErr_Status_5__ = 3;
+	required uint32 OSErr_Status_4__ = 4;
+	required uint32 OSErr_Status_3__ = 5;
+	required uint32 OSErr_Status_2__ = 6;
+	required uint32 OSErr_Status_1__ = 7;
+	required uint32 OSErr_Status_0__ = 8;
+}
+
+message fFamsBrc_CpuLoadMonitoring {
+	required uint32 CpuLoadPercentMax__ = 1;
+	required uint32 CpuLoadPercentActual__ = 2;
+	required uint32 CpuLoadLoopCount__ = 3;
+}
+
+message fCoecAfacDevStat2 {
+	required uint32 Dev_Stat2Signal7__ = 1;
+	required uint32 Dev_Stat2Signal6__ = 2;
+	required uint32 Dev_Stat2Signal5__ = 3;
+	required uint32 Dev_Stat2Signal4__ = 4;
+	required uint32 Dev_Stat2Signal3__ = 5;
+	required uint32 Dev_Stat2Signal2__ = 6;
+	required uint32 Dev_Stat2Signal1__ = 7;
+	required uint32 Dev_Stat2Signal0__ = 8;
+}
+
+message fCoecAfacDevStat1 {
+	required uint32 Dev_Stat1Signal7__ = 1;
+	required uint32 Dev_Stat1Signal6__ = 2;
+	required uint32 Dev_Stat1Signal5__ = 3;
+	required uint32 Dev_Stat1Signal4__ = 4;
+	required uint32 Dev_Stat1Signal3__ = 5;
+	required uint32 Dev_Stat1Signal2__ = 6;
+	required uint32 Dev_Stat1Signal1__ = 7;
+	required uint32 Dev_Stat1Signal0__ = 8;
+}
+
+message fAfacCoecDevStat_9 {
+	required uint32 Dev_Stat9Signal1__ = 1;
+	required uint32 Dev_Stat9Signal0__ = 2;
+}
+
+message fAfacCoecDevStat_8 {
+	required uint32 Dev_Stat8Signal1__ = 1;
+	required uint32 Dev_Stat8Signal0__ = 2;
+}
+
+message fAfacCoecDevStat_7 {
+	required uint32 Dev_Stat7Signal3__ = 1;
+	required uint32 Dev_Stat7Signal2__ = 2;
+	required uint32 Dev_Stat7Signal1__ = 3;
+	required uint32 Dev_Stat7Signal0__ = 4;
+}
+
+message fAfacCoecDevStat_6 {
+	required uint32 Dev_Stat6Signal3__ = 1;
+	required uint32 Dev_Stat6Signal2__ = 2;
+	required uint32 Dev_Stat6Signal1__ = 3;
+	required uint32 Dev_Stat6Signal0__ = 4;
+}
+
+message fAfacCoecDevStat_5 {
+	required uint32 Dev_Stat5Signal7__ = 1;
+	required uint32 Dev_Stat5Signal6__ = 2;
+	required uint32 Dev_Stat5Signal5__ = 3;
+	required uint32 Dev_Stat5Signal4__ = 4;
+	required uint32 Dev_Stat5Signal3__ = 5;
+	required uint32 Dev_Stat5Signal2__ = 6;
+	required uint32 Dev_Stat5Signal1__ = 7;
+	required uint32 Dev_Stat5Signal0__ = 8;
+}
+
+message fAfacCoecDevStat_4 {
+	required uint32 Dev_Stat4Signal7__ = 1;
+	required uint32 Dev_Stat4Signal6__ = 2;
+	required uint32 Dev_Stat4Signal5__ = 3;
+	required uint32 Dev_Stat4Signal4__ = 4;
+	required uint32 Dev_Stat4Signal3__ = 5;
+	required uint32 Dev_Stat4Signal2__ = 6;
+	required uint32 Dev_Stat4Signal1__ = 7;
+	required uint32 Dev_Stat4Signal0__ = 8;
+}
+
+message fAfacCoecDevStat_3 {
+	required uint32 Dev_Stat3Signal7__ = 1;
+	required uint32 Dev_Stat3Signal6__ = 2;
+	required uint32 Dev_Stat3Signal5__ = 3;
+	required uint32 Dev_Stat3Signal4__ = 4;
+	required uint32 Dev_Stat3Signal3__ = 5;
+	required uint32 Dev_Stat3Signal2__ = 6;
+	required uint32 Dev_Stat3Signal1__ = 7;
+	required uint32 Dev_Stat3Signal0__ = 8;
+}
+
+message fAfacCoecDevStat_2 {
+	required uint32 Dev_Stat2Signal7__ = 1;
+	required uint32 Dev_Stat2Signal6__ = 2;
+	required uint32 Dev_Stat2Signal5__ = 3;
+	required uint32 Dev_Stat2Signal4__ = 4;
+	required uint32 Dev_Stat2Signal3__ = 5;
+	required uint32 Dev_Stat2Signal2__ = 6;
+	required uint32 Dev_Stat2Signal1__ = 7;
+	required uint32 Dev_Stat2Signal0__ = 8;
+}
+
+message fAfacCoecDevStat_1 {
+	required uint32 Dev_Stat1Signal1__ = 1;
+	required uint32 Dev_Stat1Signal0__ = 2;
+	required uint32 Dev_Stat1Signal7__ = 3;
+	required uint32 Dev_Stat1Signal6__ = 4;
+	required uint32 Dev_Stat1Signal5__ = 5;
+	required uint32 Dev_Stat1Signal4__ = 6;
+	required uint32 Dev_Stat1Signal3__ = 7;
+	required uint32 Dev_Stat1Signal2__ = 8;
+}
+
+message fFamcAfac_SetOutputValues {
+	required uint32 CRCChecksum__ = 1;
+	required uint32 Out6SetVal__ = 2;
+	required uint32 Out5SetVal__ = 3;
+	required uint32 Out4SetVal__ = 4;
+	required uint32 Out3SetVal__ = 5;
+	required uint32 Out2SetVal__ = 6;
+	required uint32 Out1SetVal__ = 7;
+}
+
+message fAfacBrc_OutputStatus {
+	required uint32 Out6Status__ = 1;
+	required uint32 Out6ActVal__ = 2;
+	required uint32 Out5Status__ = 3;
+	required uint32 Out5ActVal__ = 4;
+	required uint32 Out4Status__ = 5;
+	required uint32 Out4ActVal__ = 6;
+	required uint32 Out3Status__ = 7;
+	required uint32 Out3ActVal__ = 8;
+	required uint32 Out2Status__ = 9;
+	required uint32 Out2ActVal__ = 10;
+	required uint32 Out1Status__ = 11;
+	required uint32 Out1ActVal__ = 12;
+}
+
+message fAfacBrc_InputSignals2 {
+	required uint32 AnalogIn8__mV = 1;
+	required uint32 AnalogIn7__mV = 2;
+	required uint32 AnalogIn6__mV = 3;
+	required uint32 AnalogIn5__mV = 4;
+}
+
+message fAfacBrc_InputSignals1 {
+	required uint32 AnalogIn4__mV = 1;
+	required uint32 AnalogIn3__mV = 2;
+	required uint32 AnalogIn2__mV = 3;
+	required uint32 AnalogIn1__mV = 4;
+}
+
+message fFamtFamcCntResetCtrl {
+	required uint32 CntResetFamcCtrlCV_Maint1000h__ = 1;
+	required uint32 CntResetFamcCtrlSet__ = 2;
+	required uint32 CntResetFamcCtrlSel__ = 3;
+	required uint32 CntResetFamcCtrlCV_Maint0500h__ = 4;
+	required uint32 CntResetFamcCtrlCV_Maint0250h__ = 5;
+	required uint32 CntResetFamcCtrlCV_Maint0100h__ = 6;
+}
+
+message fFamcFamtCntResetCtrl {
+	required uint32 CntResetFamcCtrlCV_Maint1000h__ = 1;
+	required uint32 CntResetFamcCtrlCI_Maint1000h__ = 2;
+	required uint32 CntResetFamcCtrlState__ = 3;
+	required uint32 CntResetFamcCtrlSet__ = 4;
+	required uint32 CntResetFamcCtrlSel__ = 5;
+	required uint32 CntResetFamcCtrlCV_Maint0500h__ = 6;
+	required uint32 CntResetFamcCtrlCV_Maint0250h__ = 7;
+	required uint32 CntResetFamcCtrlCV_Maint0100h__ = 8;
+	required uint32 CntResetFamcCtrlCI_Maint0500h__ = 9;
+	required uint32 CntResetFamcCtrlCI_Maint0250h__ = 10;
+	required uint32 CntResetFamcCtrlCI_Maint0100h__ = 11;
+}
+
+message fFamcBrc_CntMain2 {
+	required double CntMaintenance_1000h__h = 1;
+	required double CntMaintenance_0500h__h = 2;
+}
+
+message fFamcBrc_CntMain1 {
+	required double CntMaintenance_0250h__h = 1;
+	required double CntMaintenance_0100h__h = 2;
+}
+
+message fFamcBrc_CntHoursTotal {
+	required double CntHoursHeader__h = 1;
+}
+
+message fFamcBrc_ATPValues {
+	required uint32 RightATPTouchArm__mV = 1;
+	required uint32 LeftATPTouchArm__mV = 2;
+}
+
+message fFamcBrc_SensorValues {
+	required uint32 SnapPlateVoltage__mV = 1;
+	required double ReelSpeed__km_h = 2;
+	required uint32 ReelHeightVoltage__mV = 3;
+}
+
+message fFamcBrc_HeaderInformation {
+	required double WorkWidthPhysicalFat__cm = 1;
+	required double WorkWidth__cm = 2;
+	required uint32 NumOfSegments__ = 3;
+	required uint32 FrontAttachmentType__ = 4;
+}
+
+message fVhbcBrc_HeaderCompatibility {
+	required uint32 HeaderSurveillance__ = 1;
+	required uint32 Calibration__ = 2;
+	required uint32 ReelCabinProtect__ = 3;
+	required uint32 CHR__ = 4;
+	required uint32 CCH__ = 5;
+}
+
+message fFamcBrc_HeaderCompatibility {
+	required uint32 HeaderSurveillance__ = 1;
+	required uint32 Calibration__ = 2;
+	required uint32 ReelCabinProtect__ = 3;
+	required uint32 CHR__ = 4;
+	required uint32 CCH__ = 5;
+}
+
+message fFamcBrc_HeaderConfig {
+	required uint32 DampWheelSupport__ = 1;
+	required uint32 FlexBeltPressureSupport__ = 2;
+	required uint32 ReelDragSupport__ = 3;
+	required uint32 FlexCACLinkSupport__ = 4;
+	required uint32 NumberOfCACSensors__ = 5;
+	required uint32 FeedingUnitSupport__ = 6;
+	required uint32 FeedingUnitLoadSupport__ = 7;
+	required uint32 SnapRollerVariatorSupport__ = 8;
+	required uint32 SnapRollerSpeedSupport__ = 9;
+	required uint32 SnapPlateSupport__ = 10;
+	required uint32 DraperSpeedSupport__ = 11;
+	required uint32 CanolaSupport__ = 12;
+	required uint32 TableHorizSupport__ = 13;
+	required uint32 ReelSpeedSupport__ = 14;
+	required uint32 ReelHorizSupport__ = 15;
+	required uint32 ReelHeightSupport__ = 16;
+	required uint32 MultiCACSupport__ = 17;
+	required uint32 CACSupport__ = 18;
+	required uint32 CounterSupport__ = 19;
+}
+
+message fAfasBrc_AfamAlive {
+	required uint32 SwVersionMiddle__ = 1;
+	required uint32 SwVersionLow__ = 2;
+	required uint32 SwVersionHigh__ = 3;
+	required uint32 ModuleStatus__ = 4;
+	required uint32 ModuleAliveMsgCounter__ = 5;
+	required uint32 FunctionalityIdent__ = 6;
+}
+
+message fAfasVbccAlarm {
+	required uint32 AlarmStatus__ = 1;
+	required uint32 AlarmId__ = 2;
+}
+
+message fVbccAfasAlarmAck {
+	required uint32 AlarmStatus__ = 1;
+	required uint32 AlarmId__ = 2;
+}
+
+message fEltcAcucCanChannelTest {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 Byte0__ = 8;
+}
+
+message fVbccMacsAlarmAck {
+	required uint32 AlarmStatus__ = 1;
+	required uint32 AlarmId__ = 2;
+}
+
+message fVbccFamsAlarmAck {
+	required uint32 AlarmStatus__ = 1;
+	required uint32 AlarmId__ = 2;
+}
+
+message fMaccBrc_DiffFeederHouseAngle {
+	required double FeederHouseAngleDelta__ = 1;
+}
+
+message fVhbcBrc_FeederHouseValues {
+	required double PressureLiftCyclinder__bar = 1;
+	required uint32 StateVibrationDamping__ = 2;
+	required uint32 SetValueReached__ = 3;
+	required uint32 ConfigurationCrossLeveling__ = 4;
+	required uint32 MachineType__ = 5;
+	required double HeaderPitchAngle__ = 6;
+	required double FeederHouseAngle__ = 7;
+}
+
+message fFamcBrc_VarioTableStatus {
+	required uint32 VarioTableStatus__ = 1;
+	required uint32 NotAllowTableMovement__ = 2;
+	required uint32 StateTableLockRight__ = 3;
+	required uint32 NotAllowHeaderEngage__ = 4;
+	required uint32 StateTableLockLeft__ = 5;
+}
+
+message fMacsVbccAlarm {
+	required uint32 AlarmStatus__ = 1;
+	required uint32 AlarmId__ = 2;
+}
+
+message fCoecMaccDevStat2 {
+	required uint32 Dev_Stat2Signal7__ = 1;
+	required uint32 Dev_Stat2Signal6__ = 2;
+	required uint32 Dev_Stat2Signal5__ = 3;
+	required uint32 Dev_Stat2Signal4__ = 4;
+	required uint32 Dev_Stat2Signal3__ = 5;
+	required uint32 Dev_Stat2Signal2__ = 6;
+	required uint32 Dev_Stat2Signal1__ = 7;
+	required uint32 Dev_Stat2Signal0__ = 8;
+}
+
+message fCoecMaccDevStat1 {
+	required uint32 Dev_Stat1Signal7__ = 1;
+	required uint32 Dev_Stat1Signal6__ = 2;
+	required uint32 Dev_Stat1Signal5__ = 3;
+	required uint32 Dev_Stat1Signal4__ = 4;
+	required uint32 Dev_Stat1Signal3__ = 5;
+	required uint32 Dev_Stat1Signal2__ = 6;
+	required uint32 Dev_Stat1Signal1__ = 7;
+	required uint32 Dev_Stat1Signal0__ = 8;
+}
+
+message fMaccCoecDevStat_9 {
+	required uint32 Dev_Stat9Signal1__ = 1;
+	required uint32 Dev_Stat9Signal0__ = 2;
+}
+
+message fMaccCoecDevStat_8 {
+	required uint32 Dev_Stat8Signal1__ = 1;
+	required uint32 Dev_Stat8Signal0__ = 2;
+}
+
+message fMaccCoecDevStat_7 {
+	required uint32 Dev_Stat7Signal3__ = 1;
+	required uint32 Dev_Stat7Signal2__ = 2;
+	required uint32 Dev_Stat7Signal1__ = 3;
+	required uint32 Dev_Stat7Signal0__ = 4;
+}
+
+message fMaccCoecDevStat_6 {
+	required uint32 Dev_Stat6Signal3__ = 1;
+	required uint32 Dev_Stat6Signal2__ = 2;
+	required uint32 Dev_Stat6Signal1__ = 3;
+	required uint32 Dev_Stat6Signal0__ = 4;
+}
+
+message fMaccCoecDevStat_5 {
+	required uint32 Dev_Stat5Signal7__ = 1;
+	required uint32 Dev_Stat5Signal6__ = 2;
+	required uint32 Dev_Stat5Signal5__ = 3;
+	required uint32 Dev_Stat5Signal4__ = 4;
+	required uint32 Dev_Stat5Signal3__ = 5;
+	required uint32 Dev_Stat5Signal2__ = 6;
+	required uint32 Dev_Stat5Signal1__ = 7;
+	required uint32 Dev_Stat5Signal0__ = 8;
+}
+
+message fMaccCoecDevStat_4 {
+	required uint32 Dev_Stat4Signal7__ = 1;
+	required uint32 Dev_Stat4Signal6__ = 2;
+	required uint32 Dev_Stat4Signal5__ = 3;
+	required uint32 Dev_Stat4Signal4__ = 4;
+	required uint32 Dev_Stat4Signal3__ = 5;
+	required uint32 Dev_Stat4Signal2__ = 6;
+	required uint32 Dev_Stat4Signal1__ = 7;
+	required uint32 Dev_Stat4Signal0__ = 8;
+}
+
+message fMaccCoecDevStat_3 {
+	required uint32 Dev_Stat3Signal7__ = 1;
+	required uint32 Dev_Stat3Signal6__ = 2;
+	required uint32 Dev_Stat3Signal5__ = 3;
+	required uint32 Dev_Stat3Signal4__ = 4;
+	required uint32 Dev_Stat3Signal3__ = 5;
+	required uint32 Dev_Stat3Signal2__ = 6;
+	required uint32 Dev_Stat3Signal1__ = 7;
+	required uint32 Dev_Stat3Signal0__ = 8;
+}
+
+message fMaccCoecDevStat_2 {
+	required uint32 Dev_Stat2Signal7__ = 1;
+	required uint32 Dev_Stat2Signal6__ = 2;
+	required uint32 Dev_Stat2Signal5__ = 3;
+	required uint32 Dev_Stat2Signal4__ = 4;
+	required uint32 Dev_Stat2Signal3__ = 5;
+	required uint32 Dev_Stat2Signal2__ = 6;
+	required uint32 Dev_Stat2Signal1__ = 7;
+	required uint32 Dev_Stat2Signal0__ = 8;
+}
+
+message fMaccCoecDevStat_1 {
+	required uint32 Dev_Stat1Signal1__ = 1;
+	required uint32 Dev_Stat1Signal0__ = 2;
+	required uint32 Dev_Stat1Signal7__ = 3;
+	required uint32 Dev_Stat1Signal6__ = 4;
+	required uint32 Dev_Stat1Signal5__ = 5;
+	required uint32 Dev_Stat1Signal4__ = 6;
+	required uint32 Dev_Stat1Signal3__ = 7;
+	required uint32 Dev_Stat1Signal2__ = 8;
+}
+
+message fVhbcBrc_HeaderHeightLearnState {
+	required uint32 LearnInfoSensingBands__ = 1;
+}
+
+message fMaccBrc_SensingBandHeight {
+	required uint32 SensorStatiSensingBands1__ = 1;
+	required double SensingBandRightHeight__perc = 2;
+	required double SensingBandLeftHeight__perc = 3;
+}
+
+message fMacsBrc_MacmAlive {
+	required uint32 SwVersionMiddle__ = 1;
+	required uint32 SwVersionLow__ = 2;
+	required uint32 SwVersionHigh__ = 3;
+	required uint32 ModuleStatus__ = 4;
+	required uint32 ModuleAliveMsgCounter__ = 5;
+	required uint32 FunctionalityIdent__ = 6;
+}
+
+message fCoecFamcDevStat2 {
+	required uint32 Dev_Stat2Signal7__ = 1;
+	required uint32 Dev_Stat2Signal6__ = 2;
+	required uint32 Dev_Stat2Signal5__ = 3;
+	required uint32 Dev_Stat2Signal4__ = 4;
+	required uint32 Dev_Stat2Signal3__ = 5;
+	required uint32 Dev_Stat2Signal2__ = 6;
+	required uint32 Dev_Stat2Signal1__ = 7;
+	required uint32 Dev_Stat2Signal0__ = 8;
+}
+
+message fCoecFamcDevStat1 {
+	required uint32 Dev_Stat1Signal7__ = 1;
+	required uint32 Dev_Stat1Signal6__ = 2;
+	required uint32 Dev_Stat1Signal5__ = 3;
+	required uint32 Dev_Stat1Signal4__ = 4;
+	required uint32 Dev_Stat1Signal3__ = 5;
+	required uint32 Dev_Stat1Signal2__ = 6;
+	required uint32 Dev_Stat1Signal1__ = 7;
+	required uint32 Dev_Stat1Signal0__ = 8;
+}
+
+message fFamtFamcDraperBeltRPMSignal {
+	required uint32 DraperBeltRpmSignalSetVNo__ = 1;
+	required double DraperBeltRPMSignalSetVal__perc = 2;
+	required uint32 DraperBeltRpmSignalSet__ = 3;
+}
+
+message fFamcFamtDraperBeltRPMSignal {
+	required uint32 DraperBeltRpmSignalState__ = 1;
+	required uint32 DraperBeltRpmSignalSetVNo__ = 2;
+	required double DraperBeltRPMSignalSetVal__perc = 3;
+	required uint32 DraperBeltRpmSignalSet__ = 4;
+	required uint32 DraperBeltRpmSignalInfo__ = 5;
+	required double DraperBeltRpmSignalActVal__perc = 6;
+}
+
+message fFamcCoecDevStat_9 {
+	required uint32 Dev_Stat9Signal1__ = 1;
+	required uint32 Dev_Stat9Signal0__ = 2;
+}
+
+message fFamcCoecDevStat_8 {
+	required uint32 Dev_Stat8Signal1__ = 1;
+	required uint32 Dev_Stat8Signal0__ = 2;
+}
+
+message fFamcCoecDevStat_7 {
+	required uint32 Dev_Stat7Signal3__ = 1;
+	required uint32 Dev_Stat7Signal2__ = 2;
+	required uint32 Dev_Stat7Signal1__ = 3;
+	required uint32 Dev_Stat7Signal0__ = 4;
+}
+
+message fFamcCoecDevStat_6 {
+	required uint32 Dev_Stat6Signal3__ = 1;
+	required uint32 Dev_Stat6Signal2__ = 2;
+	required uint32 Dev_Stat6Signal1__ = 3;
+	required uint32 Dev_Stat6Signal0__ = 4;
+}
+
+message fFamcCoecDevStat_5 {
+	required uint32 Dev_Stat5Signal7__ = 1;
+	required uint32 Dev_Stat5Signal6__ = 2;
+	required uint32 Dev_Stat5Signal5__ = 3;
+	required uint32 Dev_Stat5Signal4__ = 4;
+	required uint32 Dev_Stat5Signal3__ = 5;
+	required uint32 Dev_Stat5Signal2__ = 6;
+	required uint32 Dev_Stat5Signal1__ = 7;
+	required uint32 Dev_Stat5Signal0__ = 8;
+}
+
+message fFamcCoecDevStat_4 {
+	required uint32 Dev_Stat4Signal7__ = 1;
+	required uint32 Dev_Stat4Signal6__ = 2;
+	required uint32 Dev_Stat4Signal5__ = 3;
+	required uint32 Dev_Stat4Signal4__ = 4;
+	required uint32 Dev_Stat4Signal3__ = 5;
+	required uint32 Dev_Stat4Signal2__ = 6;
+	required uint32 Dev_Stat4Signal1__ = 7;
+	required uint32 Dev_Stat4Signal0__ = 8;
+}
+
+message fFamcCoecDevStat_3 {
+	required uint32 Dev_Stat3Signal7__ = 1;
+	required uint32 Dev_Stat3Signal6__ = 2;
+	required uint32 Dev_Stat3Signal5__ = 3;
+	required uint32 Dev_Stat3Signal4__ = 4;
+	required uint32 Dev_Stat3Signal3__ = 5;
+	required uint32 Dev_Stat3Signal2__ = 6;
+	required uint32 Dev_Stat3Signal1__ = 7;
+	required uint32 Dev_Stat3Signal0__ = 8;
+}
+
+message fFamcCoecDevStat_2 {
+	required uint32 Dev_Stat2Signal7__ = 1;
+	required uint32 Dev_Stat2Signal6__ = 2;
+	required uint32 Dev_Stat2Signal5__ = 3;
+	required uint32 Dev_Stat2Signal4__ = 4;
+	required uint32 Dev_Stat2Signal3__ = 5;
+	required uint32 Dev_Stat2Signal2__ = 6;
+	required uint32 Dev_Stat2Signal1__ = 7;
+	required uint32 Dev_Stat2Signal0__ = 8;
+}
+
+message fFamcCoecDevStat_1 {
+	required uint32 Dev_Stat1Signal1__ = 1;
+	required uint32 Dev_Stat1Signal0__ = 2;
+	required uint32 Dev_Stat1Signal7__ = 3;
+	required uint32 Dev_Stat1Signal6__ = 4;
+	required uint32 Dev_Stat1Signal5__ = 5;
+	required uint32 Dev_Stat1Signal4__ = 6;
+	required uint32 Dev_Stat1Signal3__ = 7;
+	required uint32 Dev_Stat1Signal2__ = 8;
+}
+
+message fFamsVbccAlarm {
+	required uint32 AlarmStatus__ = 1;
+	required uint32 AlarmId__ = 2;
+}
+
+message fFamsBrc_FammAlive {
+	required uint32 SwVersionMiddle__ = 1;
+	required uint32 SwVersionLow__ = 2;
+	required uint32 SwVersionHigh__ = 3;
+	required uint32 ModuleStatus__ = 4;
+	required uint32 ModuleAliveMsgCounter__ = 5;
+	required uint32 FunctionalityIdent__ = 6;
+}
+
+message fVhbcBrc_ManualKeyState {
+	required uint32 HeaderFoldOut__ = 1;
+	required uint32 HeaderLower__ = 2;
+	required uint32 HeaderFoldIn__ = 3;
+	required uint32 HeaderLift__ = 4;
+	required uint32 TableKeyReverse__ = 5;
+	required uint32 TableKeyForward__ = 6;
+	required uint32 ReelHorizKeyReverse__ = 7;
+	required uint32 ReelHorizKeyForward__ = 8;
+	required uint32 ReelHeightKeyDown__ = 9;
+	required uint32 ReelHeightKeyUp__ = 10;
+	required uint32 EngageReversing__ = 11;
+	required uint32 EngageHeader__ = 12;
+	required uint32 CacAutomaticKeyState__ = 13;
+}
+
+message fVhbcBrc_MachineStatus {
+	required uint32 ErrStateHeaderPressure__ = 1;
+	required uint32 FeedRakeActHeight__ = 2;
+	required uint32 CutterBarStatus__ = 3;
+	required uint32 MainDriveStatus__ = 4;
+	required uint32 SeatSwitchState__ = 5;
+	required uint32 EngineRunning__ = 6;
+	required uint32 RoadTravelSwitch__ = 7;
+}
+
+message fFamcVhbc_SpeedChangeReq {
+	required uint32 SetCanSpeed__ = 1;
+}
+
+message fVhbcFamc_SpeedChangeRes {
+	required uint32 SpeedChangeStatus__ = 1;
+	required uint32 SetCanSpeed__ = 2;
+}
+
+message fVhbcBrc_ReelHeightLearnedState {
+	required uint32 ReelHeightLearnState__ = 1;
+	required uint32 ReelHeightLearnedUpperValue__mV = 2;
+	required uint32 ReelHeightLearnedLowerValue__mV = 3;
+}
+
+message fVbccBrc_AlarmMonitoringStatus {
+	required uint32 AlarmMonitoringAckUsage__ = 1;
+	required uint32 AlarmMonitoringStatus__ = 2;
+	required uint32 AlarmMonitoringCounter__ = 3;
+}
+
+message fFatcFabcAlive {
+	required uint32 AliveStatus__ = 1;
+	required uint32 AliveCounter__ = 2;
+}
+
+message fFatcFabcCounter1 {
+	required double WorkAreaCnt__ha = 1;
+	required double WorkingHoursCnt__h = 2;
+}
+
+message fFatcFabcStatus {
+	required uint32 FrontattachmentStatus__ = 1;
+}
+
+message fFatcFmhcOutput1 {
+}
+
+message fFatcFmhcOutput2 {
+}
+
+message fFatcScnrScanArea {
+	required uint32 xScanbereich__ = 1;
+}
+
+message fFatcScnrSteeringKind {
+	required uint32 xLenkungsarten__ = 1;
+}
+
+message fScnrFatcStatusScanner {
+	required uint32 xStatusScanner__ = 1;
+}
+
+message fScnrFatcSteeringSignal {
+	required uint32 xGemittelteEntfernung__ = 1;
+	required uint32 xVertikalerBargraph__ = 2;
+	required uint32 xHorizontalerBargraph__ = 3;
+	required uint32 xdig_Lenksignal__ = 4;
+}
+
+message fScnrFatcAlarm {
+	required uint32 xAlarmnummer__ = 1;
+}
+
+message fFatcScnlScanArea {
+	required uint32 xScanbereich__ = 1;
+}
+
+message fFatcScnlSteeringKind {
+	required uint32 xLenkungsarten__ = 1;
+}
+
+message fScnlFatcStatusScanner {
+	required uint32 xStatusScanner__ = 1;
+}
+
+message fScnlFatcSteeringSignal {
+	required uint32 xGemittelteEntfernung__ = 1;
+	required uint32 xVertikalerBargraph__ = 2;
+	required uint32 xHorizontalerBargraph__ = 3;
+	required uint32 xdig_Lenksignal__ = 4;
+}
+
+message fScnlFatcAlarm {
+	required uint32 xAlarmnummer__ = 1;
+}
+
+message fTabcFatcVarioSelection {
+	required uint32 xVarioschneidwerk__ = 1;
+}
+
+message fTabcFatcTisAlive {
+	required uint32 xInitialisierung__ = 1;
+	required uint32 xAlivezaehlerTIS__ = 2;
+}
+
+message fTabcFatcSwCompatibilityTis {
+	required uint32 xKompatibilitaetszahl_TIS__ = 1;
+}
+
+message fTabcFatcStatusReelTable {
+	required uint32 xZustandTisch__ = 1;
+	required uint32 xErrorcodePlusTisch__ = 2;
+	required uint32 xErrorcodeMinusTisch__ = 3;
+	required uint32 xStatusSensorTischOK__ = 4;
+	required uint32 xUntergrenzeTisch__ = 5;
+	required uint32 xObergrenzeTisch__ = 6;
+	required uint32 xSollwert4Tisch__ = 7;
+	required uint32 xSollwert3Tisch__ = 8;
+	required uint32 xSollwert2Tisch__ = 9;
+	required uint32 xSollwert1Tisch__ = 10;
+	required uint32 xKennungTisch__ = 11;
+	required uint32 xAktiverSollwertTisch__ = 12;
+	required uint32 xIstwertTisch__ = 13;
+}
+
+message fTabcFatcStatusReelHorizon {
+	required uint32 xSollwert4Horizontal__ = 1;
+	required uint32 xSollwert3Horizontal__ = 2;
+	required uint32 xUntergrenzeHorizontal__ = 3;
+	required uint32 xObergrenzeHorizontal__ = 4;
+	required uint32 xZustandHorizontal__ = 5;
+	required uint32 xErrorcodePlusHorizontal__ = 6;
+	required uint32 xErrorcodeMinusHorizontal__ = 7;
+	required uint32 xKennungHorizontal__ = 8;
+	required uint32 xSollwert2Horizontal__ = 9;
+	required uint32 xSollwert1Horizontal__ = 10;
+	required uint32 xIstwertHorizontal__ = 11;
+	required uint32 xAktiverSollwertHorizontal__ = 12;
+	required uint32 xStatusSensorHorizOK__ = 13;
+}
+
+message fTabcFatcSerialNumberTis {
+	required uint32 xLaufendeNummer__ = 1;
+	required uint32 xKalenderwoche__ = 2;
+	required uint32 xJahr__ = 3;
+}
+
+message fTabcFatcRunningHoursTis {
+	required double xBetriebsstunden__h = 1;
+}
+
+message fTabcFatcReelTablePosition {
+	required uint32 xPositionTischSollwert__ = 1;
+	required uint32 xPositionTischIstwert__ = 2;
+}
+
+message fTabcFatcReelHorizonPosition {
+	required uint32 xPositionHorizontalSollwert__ = 1;
+	required uint32 xPositionHorizontalIstwert__ = 2;
+}
+
+message fTabcFatcReelHeightControl {
+	required uint32 xReaktivierungHSPHoehenregler__ = 1;
+}
+
+message fTabcFatcMessageTis {
+	required uint32 xRapstable__ = 1;
+	required uint32 xIconTable__ = 2;
+	required uint32 xIconHoriz__ = 3;
+	required uint32 xFreigabeTis2Hsp__ = 4;
+	required uint32 xLimitswitchReelHeight__ = 5;
+}
+
+message fTabcFatcLearnState {
+	required uint32 xStatusLernen__ = 1;
+	required uint32 xKommandoLernen__ = 2;
+	required uint32 xFehlerstatus__ = 3;
+	required uint32 xAggregat__ = 4;
+}
+
+message fTabcFatcInfoReelTable {
+	required uint32 xInfoSensorTischOK__ = 1;
+	required uint32 xIstwertTischAD__digit = 2;
+	required uint32 xEndanschlagEingefahrenTischAD__digit = 3;
+	required uint32 xEndanschlagAusgefahrenTischAD__digit = 4;
+}
+
+message fTabcFatcInfoReelHorizon {
+	required uint32 xInfoSensorHorizOK__ = 1;
+	required uint32 xEndanschlagEingefahrenHorizAD__digit = 2;
+	required uint32 xEndanschlagAusgefahrenHorizAD__digit = 3;
+	required uint32 xIstwertHorizAD__digit = 4;
+}
+
+message fTabcFatcDiagTisTer {
+	required uint32 xDiagData7__ = 1;
+	required uint32 xDiagData6__ = 2;
+	required uint32 xDiagData5__ = 3;
+	required uint32 xDiagData4__ = 4;
+	required uint32 xDiagData3__ = 5;
+	required uint32 xDiagData2__ = 6;
+	required uint32 xDiagData1__ = 7;
+	required uint32 xDiagData0__ = 8;
+}
+
+message fTabcFatcDiagTisSvtOn {
+	required uint32 xDiagnosticsTIS__ = 1;
+}
+
+message fTabcFatcAlarm {
+	required uint32 xAlarmnummer__ = 1;
+}
+
+message fFatcTabcWorkingPosition {
+	required uint32 xSchneidwerksstatus__ = 1;
+}
+
+message fFatcTabcTerAlive {
+	required uint32 xAlivezaehlerTer__ = 1;
+}
+
+message fFatcTabcTablePosControl {
+	required uint32 xReaktivierungTischposition__ = 1;
+}
+
+message fFatcTabcSwCompatibilityHsp {
+	required uint32 xKompatibilitaetszahl_HSP__ = 1;
+}
+
+message fFatcTabcStartLearning {
+	required uint32 xSollwertFrucht__ = 1;
+	required uint32 xKommandoLernen__ = 2;
+	required uint32 xKommando2Lernen__ = 3;
+	required uint32 xAggregat__ = 4;
+}
+
+message fFatcTabcMessageHsp {
+	required uint32 ReelHeightAutoStatus__ = 1;
+	required uint32 xGetreideschneidwerk__ = 2;
+}
+
+message fFatcTabcMasterswitchCutterbar {
+	required uint32 xHauptschalterSchneidwerk__ = 1;
+}
+
+message fFatcTabcIncDecTablePos {
+	required uint32 xInkrSollwertTischpos__ = 1;
+}
+
+message fFatcTabcIncDecHorizonPos {
+	required uint32 xInkrSollwertHspHoriz__ = 1;
+}
+
+message fFatcTabcHorizonPosControl {
+	required uint32 xReaktivierungHorizPos__ = 1;
+}
+
+message fFatcTabcDiagTerTis {
+	required uint32 xDiagData3__ = 1;
+	required uint32 xDiagData2__ = 2;
+	required uint32 xDiagData1__ = 3;
+	required uint32 xDiagData0__ = 4;
+}
+
+message fFatcTabcDiagSvtTisOn {
+	required uint32 xDiagnosticsTIS__ = 1;
+}
+
+message fFatcTabcBasemessage6 {
+	required double xBetriebsstunden__h = 1;
+}
+
+message fFatcTabcBasemessage5 {
+	required uint32 xGedrueckteTaste__ = 1;
+	required uint32 xAktiverSollwert__ = 2;
+	required uint32 xAktiverRegler__ = 3;
+}
+
+message fFatcEltcCanChannelTest {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 Byte0__ = 8;
+}
+
+message fFatcBrc_Basemessage1 {
+	required uint32 xFahrgeschwindigkeit__m_h = 1;
+}
+
+message fEltcFatcCanChannelTest {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 Byte0__ = 8;
+}
+
+message fMaccBrc_HeaderHeight {
+	required uint32 SensorStatiSensingBands2__ = 1;
+	required double HeaderLateralTilt__perc = 2;
+	required double HeaderHeight__perc = 3;
+}
+
+message fFamcBrc_ReelHeightEquValues {
+	required uint32 ReelHeightLearnedUpperValue__mV = 1;
+	required double ReelOriginEquSlope__ = 2;
+	required double ReelOriginEquPO__ = 3;
+	required double ReelHeightEquSlope__ = 4;
+}
+
+message fVhbcEltcCanChannelTest {
+	required uint32 Byte0__ = 1;
+	required uint32 Byte7__ = 2;
+	required uint32 Byte6__ = 3;
+	required uint32 Byte5__ = 4;
+	required uint32 Byte4__ = 5;
+	required uint32 Byte3__ = 6;
+	required uint32 Byte2__ = 7;
+	required uint32 Byte1__ = 8;
+}
+
+message fEltcVhbcCanChannelTest {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 Byte0__ = 8;
+}
+
+message fCrmcC04cCvuMessage {
+	required uint32 CvuSignal4__ = 1;
+	required uint32 CvuSignal3__ = 2;
+	required uint32 CvuSignal2__ = 3;
+	required uint32 CvuSignal1__ = 4;
+	required uint32 CvuCommandByte__ = 5;
+	required uint32 CvuSignal7__ = 6;
+	required uint32 CvuSignal6__ = 7;
+	required uint32 CvuSignal5__ = 8;
+}
+
+message fCrmcC03cCvuMessage {
+	required uint32 CvuSignal7__ = 1;
+	required uint32 CvuSignal6__ = 2;
+	required uint32 CvuSignal5__ = 3;
+	required uint32 CvuSignal4__ = 4;
+	required uint32 CvuSignal3__ = 5;
+	required uint32 CvuSignal2__ = 6;
+	required uint32 CvuSignal1__ = 7;
+	required uint32 CvuCommandByte__ = 8;
+}
+
+message fCrmcC02cCvuMessage {
+	required uint32 CvuSignal7__ = 1;
+	required uint32 CvuSignal6__ = 2;
+	required uint32 CvuSignal5__ = 3;
+	required uint32 CvuSignal4__ = 4;
+	required uint32 CvuSignal3__ = 5;
+	required uint32 CvuSignal2__ = 6;
+	required uint32 CvuSignal1__ = 7;
+	required uint32 CvuCommandByte__ = 8;
+}
+
+message fCrmcC01cCvuMessage {
+	required uint32 CvuSignal7__ = 1;
+	required uint32 CvuSignal6__ = 2;
+	required uint32 CvuSignal5__ = 3;
+	required uint32 CvuSignal4__ = 4;
+	required uint32 CvuSignal3__ = 5;
+	required uint32 CvuSignal2__ = 6;
+	required uint32 CvuSignal1__ = 7;
+	required uint32 CvuCommandByte__ = 8;
+}
+
+message fCoecCrmcRioDebugQuery {
+	required uint32 Dev_RioDebugSignal7__ = 1;
+	required uint32 Dev_RioDebugSignal6__ = 2;
+	required uint32 Dev_RioDebugSignal5__ = 3;
+	required uint32 Dev_RioDebugSignal4__ = 4;
+	required uint32 Dev_RioDebugSignal3__ = 5;
+	required uint32 Dev_RioDebugSignal2__ = 6;
+	required uint32 Dev_RioDebugSignal1__ = 7;
+	required uint32 Dev_RioDebugModeByte__ = 8;
+}
+
+message fCrmcCoecRioDebugQuery {
+	required uint32 Dev_RioDebugSignal7__ = 1;
+	required uint32 Dev_RioDebugSignal6__ = 2;
+	required uint32 Dev_RioDebugSignal5__ = 3;
+	required uint32 Dev_RioDebugSignal4__ = 4;
+	required uint32 Dev_RioDebugSignal3__ = 5;
+	required uint32 Dev_RioDebugSignal2__ = 6;
+	required uint32 Dev_RioDebugSignal1__ = 7;
+	required uint32 Dev_RioDebugModeByte__ = 8;
+}
+
+message fCrmcR10cRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message fCrmcR09cRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message fCrmcR08cRioMessage {
+	required uint32 RioSignal1__ = 1;
+	required uint32 RioCommandByte__ = 2;
+	required uint32 RioSignal7__ = 3;
+	required uint32 RioSignal6__ = 4;
+	required uint32 RioSignal5__ = 5;
+	required uint32 RioSignal4__ = 6;
+	required uint32 RioSignal3__ = 7;
+	required uint32 RioSignal2__ = 8;
+}
+
+message fCrmcR07cRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message fCrmcR06cRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message fCrmcR05cRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message fCrmcR04cRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message fCrmcR03cRioMessage {
+	required uint32 RioSignal3__ = 1;
+	required uint32 RioSignal4__ = 2;
+	required uint32 RioSignal5__ = 3;
+	required uint32 RioSignal6__ = 4;
+	required uint32 RioSignal7__ = 5;
+	required uint32 RioCommandByte__ = 6;
+	required uint32 RioSignal1__ = 7;
+	required uint32 RioSignal2__ = 8;
+}
+
+message fCrmcR02cRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message fCrmcR01cRioMessage {
+	required uint32 RioSignal1__ = 1;
+	required uint32 RioCommandByte__ = 2;
+	required uint32 RioSignal7__ = 3;
+	required uint32 RioSignal6__ = 4;
+	required uint32 RioSignal5__ = 5;
+	required uint32 RioSignal4__ = 6;
+	required uint32 RioSignal3__ = 7;
+	required uint32 RioSignal2__ = 8;
+}
+
+message fR10cCrmcRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message fR09cCrmcRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message fR08cCrmcRioMessage {
+	required uint32 RioSignal1__ = 1;
+	required uint32 RioCommandByte__ = 2;
+	required uint32 RioSignal7__ = 3;
+	required uint32 RioSignal6__ = 4;
+	required uint32 RioSignal5__ = 5;
+	required uint32 RioSignal4__ = 6;
+	required uint32 RioSignal3__ = 7;
+	required uint32 RioSignal2__ = 8;
+}
+
+message fR07cCrmcRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message fR06cCrmcRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message fR05cCrmcRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message fR04cCrmcRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message fR03cCrmcRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message fR02cCrmcRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message fR01cCrmcRioMessage {
+	required uint32 RioSignal1__ = 1;
+	required uint32 RioCommandByte__ = 2;
+	required uint32 RioSignal7__ = 3;
+	required uint32 RioSignal6__ = 4;
+	required uint32 RioSignal5__ = 5;
+	required uint32 RioSignal4__ = 6;
+	required uint32 RioSignal3__ = 7;
+	required uint32 RioSignal2__ = 8;
+}
+
+message fVhbcCoecDevDyn {
+	required uint32 Dev_DynSignal7__ = 1;
+	required uint32 Dev_DynSignal6__ = 2;
+	required uint32 Dev_DynSignal5__ = 3;
+	required uint32 Dev_DynSignal4__ = 4;
+	required uint32 Dev_DynSignal3__ = 5;
+	required uint32 Dev_DynSignal2__ = 6;
+	required uint32 Dev_DynSignal1__ = 7;
+	required uint32 Dev_DynSignal0__ = 8;
+}
+
+message fCoecVhbcDevDyn {
+	required uint32 Dev_DynSignal7__ = 1;
+	required uint32 Dev_DynSignal6__ = 2;
+	required uint32 Dev_DynSignal5__ = 3;
+	required uint32 Dev_DynSignal4__ = 4;
+	required uint32 Dev_DynSignal3__ = 5;
+	required uint32 Dev_DynSignal2__ = 6;
+	required uint32 Dev_DynSignal1__ = 7;
+	required uint32 Dev_DynSignal0__ = 8;
+}
+
+message fC04cCrmcCvuMessage {
+	required uint32 CvuSignal7__ = 1;
+	required uint32 CvuSignal6__ = 2;
+	required uint32 CvuSignal5__ = 3;
+	required uint32 CvuSignal4__ = 4;
+	required uint32 CvuSignal3__ = 5;
+	required uint32 CvuSignal2__ = 6;
+	required uint32 CvuSignal1__ = 7;
+	required uint32 CvuCommandByte__ = 8;
+}
+
+message fC03cCrmcCvuMessage {
+	required uint32 CvuSignal7__ = 1;
+	required uint32 CvuSignal6__ = 2;
+	required uint32 CvuSignal5__ = 3;
+	required uint32 CvuSignal4__ = 4;
+	required uint32 CvuSignal3__ = 5;
+	required uint32 CvuSignal2__ = 6;
+	required uint32 CvuSignal1__ = 7;
+	required uint32 CvuCommandByte__ = 8;
+}
+
+message fC02cCrmcCvuMessage {
+	required uint32 CvuSignal7__ = 1;
+	required uint32 CvuSignal6__ = 2;
+	required uint32 CvuSignal5__ = 3;
+	required uint32 CvuSignal4__ = 4;
+	required uint32 CvuSignal3__ = 5;
+	required uint32 CvuSignal2__ = 6;
+	required uint32 CvuSignal1__ = 7;
+	required uint32 CvuCommandByte__ = 8;
+}
+
+message fC01cCrmcCvuMessage {
+	required uint32 CvuSignal7__ = 1;
+	required uint32 CvuSignal6__ = 2;
+	required uint32 CvuSignal5__ = 3;
+	required uint32 CvuSignal4__ = 4;
+	required uint32 CvuSignal3__ = 5;
+	required uint32 CvuSignal2__ = 6;
+	required uint32 CvuSignal1__ = 7;
+	required uint32 CvuCommandByte__ = 8;
+}
+
+message fAfasBrc_OSShutdownMsg_2 {
+	required uint32 OSErr_LineNbr__ = 1;
+	required uint32 OSErr_ErrorState__ = 2;
+	required uint32 OSErr_ErrCode__ = 3;
+	required uint32 OSErr_ActTask__ = 4;
+}
+
+message fAfasBrc_OSShutdownMsg_1 {
+	required uint32 OSErr_Status_7__ = 1;
+	required uint32 OSErr_Status_6__ = 2;
+	required uint32 OSErr_Status_5__ = 3;
+	required uint32 OSErr_Status_4__ = 4;
+	required uint32 OSErr_Status_3__ = 5;
+	required uint32 OSErr_Status_2__ = 6;
+	required uint32 OSErr_Status_1__ = 7;
+	required uint32 OSErr_Status_0__ = 8;
+}
+
+message fAfasBrc_CpuLoadMonitoring {
+	required uint32 CpuLoadPercentMax__ = 1;
+	required uint32 CpuLoadPercentActual__ = 2;
+	required uint32 CpuLoadLoopCount__ = 3;
+}
+

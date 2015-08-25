@@ -1,0 +1,1760 @@
+package rst.claas;
+
+option java_outer_classname = "J1939CanCombineHarvesterType";
+
+message jEc1cVhbcA1SCRSI2 {
+	required double AftertreatmentTotalDEFused__l = 1;
+}
+
+message jEc1cVhbcEDC7_EDC {
+	required uint32 IndstaofUretanlev_EDC7_EDC__ = 1;
+	required uint32 IndstaofUrequa_EDC7_EDC__ = 2;
+	required uint32 IndstaofUrecondev_EDC7_EDC__ = 3;
+	required uint32 IndstaofUredosint_EDC7_EDC__ = 4;
+	required uint32 IndstaofEgrvalimp_EDC7_EDC__ = 5;
+	required uint32 IndstaofMonsys_EDC7_EDC__ = 6;
+	required uint32 TimDer1_EDC7_EDC__min = 7;
+	required uint32 TimDer2_EDC7_EDC__min = 8;
+	required uint32 Amooftorredind_EDC7_EDC__perc = 9;
+}
+
+message jMuicVuicIndCtrlClient06 {
+	required uint32 IndCtrlClient06SetVal04__ = 1;
+	required uint32 IndCtrlClient06SetVal03__ = 2;
+	required uint32 IndCtrlClient06SetVal02__ = 3;
+	required uint32 IndCtrlClient06SetVal01__ = 4;
+	required uint32 IndCtrlClient06Sel04__ = 5;
+	required uint32 IndCtrlClient06Sel03__ = 6;
+	required uint32 IndCtrlClient06Sel02__ = 7;
+	required uint32 IndCtrlClient06Sel01__ = 8;
+}
+
+message jMuicVuicIndCtrlClient00 {
+	required uint32 IndCtrlClient00Sel02__ = 1;
+	required uint32 IndCtrlClient00Sel01__ = 2;
+	required uint32 IndCtrlClient00Sel03__ = 3;
+	required uint32 IndCtrlClient00Sel04__ = 4;
+	required uint32 IndCtrlClient00SetVal01__ = 5;
+	required uint32 IndCtrlClient00SetVal02__ = 6;
+	required uint32 IndCtrlClient00SetVal03__ = 7;
+	required uint32 IndCtrlClient00SetVal04__ = 8;
+}
+
+message jEc1cBrc_AT1HI1 {
+	required uint32 Aftertreatment1TotalRegenTime__s = 1;
+	required double Aftertreatment1TotalFuelUsed__L = 2;
+}
+
+message jEc1VhbcHRLFC {
+	required double HigResEngTriFue__l = 1;
+	required double HigResEngTotFueUse__l = 2;
+}
+
+message jVhbcEc11AMB {
+	required double RoadSurfaceTemp__deg_C = 1;
+	required double BarometricPress__kPa = 2;
+	required double CabInteriorTemp__deg_C = 3;
+	required double AmbientAirTemp__deg_C = 4;
+	required uint32 EngAirInletTemp__deg_C = 5;
+}
+
+message jVhbcEc1AUX_EC_VCU {
+	required uint32 EngStaReq_AUX_EC_VCU__ = 1;
+	required uint32 EngStoReq_AUX_EC_VCU__ = 2;
+	required uint32 LigAct_AUX_EC_VCU__ = 3;
+	required uint32 EngBraZerFueReq_AUX_EC_VCU__ = 4;
+	required uint32 Vehstosta_AUX_EC_VCU__ = 5;
+	required uint32 OveReq_AUX_EC_VCU__ = 6;
+	required uint32 Smomapsel_AUX_EC_VCU__ = 7;
+	required uint32 AirConComReq_AUX_EC_VCU__ = 8;
+	required uint32 Immidenum_AUX_EC_VCU__ = 9;
+	required uint32 BloOutComres_AUX_EC_VCU__ = 10;
+	required double Spegovfeefac_AUX_EC_VCU__rpm_mg_cyc = 11;
+	required double Maxengrotacc_AUX_EC_VCU__rpm_s = 12;
+	required uint32 EngHighestDynReq_AUX_EC_VCU__ = 13;
+	required uint32 AltReq_AUX_EC_VCU__ = 14;
+	required uint32 AltChaReq_AUX_EC_VCU__ = 15;
+	required uint32 EstEngParLosPerTor_AUX_EC_VCU__perc = 16;
+	required uint32 MesCou_AUX_EC_VCU__ = 17;
+	required uint32 MesChe_AUX_EC_VCU__ = 18;
+	required uint32 EngHigDynReq_AUX_EC_VCU__ = 19;
+}
+
+message jVhbcEc1TimeDate {
+	required double Sec_TD_VCU__s = 1;
+	required uint32 Min_TD_VCU__min = 2;
+	required uint32 Hou_TD_VCU__hr = 3;
+	required uint32 Mon_TD_VCU__month = 4;
+	required double Day_TD_VCU__days = 5;
+	required uint32 Yea_TD_VCU__year = 6;
+	required uint32 Locminoff_TD_VCU__min = 7;
+	required uint32 Lochouoff_TD_VCU__hr = 8;
+}
+
+message jVhbcEc1VehicleHours {
+	required double TotVehHou_VH_VCU__h = 1;
+	required double TotPowTakHou_VH_VCU__h = 2;
+}
+
+message jBdycEc1cTSC1VE {
+	required uint32 OverrideCtrlModes__ = 1;
+	required uint32 RqstedSpeedCtrlCondition__ = 2;
+	required uint32 OverrideCtrlModePrio__ = 3;
+	required double RqstedSpeed__rpm = 4;
+	required uint32 RqstedTorque__perc = 5;
+	required uint32 Tsc1TransmissionRate__ = 6;
+	required uint32 Tsc1ControlPurpose__ = 7;
+	required double EngineReqTorqHiRes__perc = 8;
+	required uint32 MessageCounter_SPN4206__ = 9;
+	required uint32 MessageChecksum_SPN4207__ = 10;
+}
+
+message jVhbcBrc_FD1 {
+	required double EstimatedPercentFanSpeed__ = 1;
+	required double FanSpeed__ = 2;
+}
+
+message jVhbcBrc_CM2 {
+	required uint32 ElevatedEngineSpeedAllowedSwitch__ = 1;
+}
+
+message jEc4cBrc_CM1 {
+	required uint32 ParkBrakeCommand__ = 1;
+	required uint32 DpfRegenForceSwitch__perc = 2;
+	required uint32 DpfRegenInhibitSwitch__perc = 3;
+	required uint32 SelectedMaxVehicleSpeedLimit__ = 4;
+	required uint32 RqCabZoneHeating__ = 5;
+	required uint32 RqEngZoneHeating__ = 6;
+	required uint32 AuxHeaterModeRq__ = 7;
+	required uint32 EngAutomaticStartEnableSwitch__ = 8;
+	required uint32 AtmaticGearShiftingEnableSwitch__ = 9;
+	required uint32 VhclLmtngSpdGvernorEnableSwitch__ = 10;
+	required uint32 VhclLmtngSpdGvrnrIncrmentSwitch__ = 11;
+	required uint32 VhclLmtngSpdGvrnrDcrementSwitch__ = 12;
+	required uint32 SeatBeltSwitch__ = 13;
+	required uint32 OperatorSeatDirectionSwitch__ = 14;
+	required uint32 BatteryMainSwitchHoldRq__ = 15;
+	required uint32 AuxHeaterCoolantPumpRq__ = 16;
+	required double CabInteriorTempCmd__deg_C = 17;
+	required double RqedPercentFanSpeed__perc = 18;
+}
+
+message jEc4cBrc_ASI {
+	required uint32 AftertreatmentEngineLoadReq__ = 1;
+}
+
+message jEc1VhecTP_DT {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 SeqNumber__ = 8;
+}
+
+message jEc1VhecTP_CM {
+	required uint32 PGNumber__ = 1;
+	required uint32 BamNoPackets__ = 2;
+	required uint32 BamMsgSize__ = 3;
+	required uint32 ControlByte__ = 4;
+}
+
+message jEc11VhecTP_DT {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 SeqNumber__ = 8;
+}
+
+message jEc11VhecTP_CM {
+	required uint32 PGNumber__ = 1;
+	required uint32 BamNoPackets__ = 2;
+	required uint32 BamMsgSize__ = 3;
+	required uint32 ControlByte__ = 4;
+}
+
+message jTrccBrc_SafetyMsg1 {
+	required uint32 EffiDriverLogic_SetValue_Safe__ = 1;
+	required uint32 Parkingbrakeautom_SetValue_Safe__ = 2;
+	required uint32 CRC_Trcc_SafetyMsg1__ = 3;
+	required uint32 SequNo_Trcc_SafetyMsg1__ = 4;
+	required uint32 Parkingbrakesignal_Safe__ = 5;
+	required uint32 RoadTravelSwitchTrcc_Safe__ = 6;
+	required uint32 TravelDirection_Safe__ = 7;
+	required uint32 Startsign_Trcc_SafetyMsg1__ = 8;
+}
+
+message jVhbcBrc_SafetyMsg1 {
+	required uint32 EfficientlyDriverLogic_Adj_Safe__ = 1;
+	required uint32 CRC_Vhbc_SafetyMsg1__ = 2;
+	required uint32 SequNo_Vhbc_SafetyMsg1__ = 3;
+	required uint32 VehicleSpeedWheel_Safe__ = 4;
+	required uint32 Parkingbrakeautomatic_Adj_Safe__ = 5;
+	required uint32 RoadTravelSwitchVhbc_Safe__ = 6;
+	required uint32 SeatSwitchState_delayed_Safe__ = 7;
+	required uint32 SeatSwitchState_directly_Safe__ = 8;
+	required uint32 Startsign_Vhbc_SafetyMsg1__ = 9;
+}
+
+message jEc4cVhbcA1SCRSI2 {
+	required double AftertreatmentTotalDEFused__l = 1;
+}
+
+message jVhbcEc4cRequestPGN {
+	required uint32 RqstedPGN__ = 1;
+}
+
+message jVhbcEcMcTimeDate {
+	required uint32 LocalHourOffset__h = 1;
+	required uint32 LocalMinuteOffset__min = 2;
+	required double Day__day = 3;
+	required uint32 Year__year = 4;
+	required uint32 Month__month = 5;
+	required uint32 Hours__h = 6;
+	required uint32 Minutes__min = 7;
+	required double Seconds__s = 8;
+}
+
+message jVhbcEcMcCUID_Req {
+	required uint32 EngCUID_Byte7__ = 1;
+	required uint32 EngCUID_Byte6__ = 2;
+	required uint32 EngCUID_Byte5__ = 3;
+	required uint32 EngCUID_Byte4__ = 4;
+	required uint32 EngCUID_Byte3__ = 5;
+	required uint32 EngCUID_Byte2__ = 6;
+	required uint32 EngCUID_Byte1__ = 7;
+	required uint32 EngCUID_Byte0__ = 8;
+}
+
+message jVhbcTrccAlarmAck {
+	required uint32 AlarmStatus__ = 1;
+	required uint32 AlarmNumber__ = 2;
+}
+
+message jEc1cBrc_ASI {
+	required uint32 AftertreatmentEngineSpeedIncReq__ = 1;
+}
+
+message jEc1cBrc_PropDEFCounter {
+	required uint32 DEFConsTrip__g = 1;
+	required uint32 DEFConsTotal__g = 2;
+}
+
+message jEc3cVhbcTP_DT {
+	required uint32 SeqNumber__ = 1;
+	required uint32 Byte7__ = 2;
+	required uint32 Byte6__ = 3;
+	required uint32 Byte5__ = 4;
+	required uint32 Byte4__ = 5;
+	required uint32 Byte3__ = 6;
+	required uint32 Byte2__ = 7;
+	required uint32 Byte1__ = 8;
+}
+
+message jEc3cVhbcTP_CM {
+	required uint32 PGNumber__ = 1;
+	required uint32 ControlByte__ = 2;
+	required uint32 BamNoPackets__ = 3;
+	required uint32 BamMsgSize__ = 4;
+}
+
+message jEc3cBrc_SoftwareIdentification {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 Byte0__ = 8;
+}
+
+message jEc2cBrc_SoftwareIdentification {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 Byte0__ = 8;
+}
+
+message jEc4cVhbcTI1 {
+	required uint32 CatalystTankTemp__deg_C = 1;
+	required double CatalystTankLevel__perc = 2;
+	required uint32 CatalystTankLevelPreliminaryFMI__ = 3;
+	required double CatalystTankLevel2__mm = 4;
+}
+
+message JVhbcEc4cCM1 {
+	required uint32 DpfRegenForceSwitch__perc = 1;
+	required uint32 DpfRegenInhibitSwitch__perc = 2;
+	required uint32 SelectedMaxVehicleSpeedLimit__ = 3;
+	required uint32 RqCabZoneHeating__ = 4;
+	required uint32 RqEngZoneHeating__ = 5;
+	required uint32 AuxHeaterModeRq__ = 6;
+	required uint32 EngAutomaticStartEnableSwitch__ = 7;
+	required uint32 AtmaticGearShiftingEnableSwitch__ = 8;
+	required uint32 VhclLmtngSpdGvernorEnableSwitch__ = 9;
+	required uint32 VhclLmtngSpdGvrnrIncrmentSwitch__ = 10;
+	required uint32 VhclLmtngSpdGvrnrDcrementSwitch__ = 11;
+	required uint32 SeatBeltSwitch__ = 12;
+	required uint32 OperatorSeatDirectionSwitch__ = 13;
+	required uint32 BatteryMainSwitchHoldRq__ = 14;
+	required uint32 AuxHeaterCoolantPumpRq__ = 15;
+	required double CabInteriorTempCmd__deg_C = 16;
+	required double RqedPercentFanSpeed__perc = 17;
+}
+
+message jEc4cBrc_TP_DT {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 SeqNumber__ = 8;
+}
+
+message jEc4cBrc_TP_CM {
+	required uint32 PGNumber__ = 1;
+	required uint32 BamNoPackets__ = 2;
+	required uint32 BamMsgSize__ = 3;
+	required uint32 ControlByte__ = 4;
+}
+
+message jEc4cVhbcDM1 {
+	required uint32 Bytes7_8NotDefined__ = 1;
+	required sint32 OccurenceCount__ = 2;
+	required uint32 SpnConversionMethod__ = 3;
+	required uint32 FMI__ = 4;
+	required uint32 SPN3mostSignificantBits__ = 5;
+	required uint32 SPNsecondByte__ = 6;
+	required uint32 SPN8leastSignificantBits__ = 7;
+	required uint32 ReservedForSAEassignLamp__ = 8;
+	required uint32 MalFuncIndLampStatus__ = 9;
+	required uint32 RedStopLampStatus__ = 10;
+	required uint32 AmberWarnLampStatus__ = 11;
+	required uint32 ProtectLampStatus__ = 12;
+}
+
+message jVhbcEc11TP_CM {
+	required uint32 MaxNumberOfPackets__ = 1;
+	required uint32 PGNumber__ = 2;
+	required uint32 BamNoPackets__ = 3;
+	required uint32 BamMsgSize__ = 4;
+	required uint32 ControlByte__ = 5;
+}
+
+message jEc31Brc_TP_DT {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 SeqNumber__ = 8;
+}
+
+message jEc31Brc_TP_CM {
+	required uint32 PGNumber__ = 1;
+	required uint32 BamNoPackets__ = 2;
+	required uint32 BamMsgSize__ = 3;
+	required uint32 ControlByte__ = 4;
+}
+
+message jEc21Brc_TP_DT {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 SeqNumber__ = 8;
+}
+
+message jEc21Brc_TP_CM {
+	required uint32 PGNumber__ = 1;
+	required uint32 BamNoPackets__ = 2;
+	required uint32 BamMsgSize__ = 3;
+	required uint32 ControlByte__ = 4;
+}
+
+message jEc3cVhbcDM1 {
+	required uint32 Bytes7_8NotDefined__ = 1;
+	required sint32 OccurenceCount__ = 2;
+	required uint32 SpnConversionMethod__ = 3;
+	required uint32 FMI__ = 4;
+	required uint32 SPN3mostSignificantBits__ = 5;
+	required uint32 SPNsecondByte__ = 6;
+	required uint32 SPN8leastSignificantBits__ = 7;
+	required uint32 ReservedForSAEassignLamp__ = 8;
+	required uint32 MalFuncIndLampStatus__ = 9;
+	required uint32 RedStopLampStatus__ = 10;
+	required uint32 AmberWarnLampStatus__ = 11;
+	required uint32 ProtectLampStatus__ = 12;
+}
+
+message jEc1cVhbcEngineTurbocharger {
+	required uint32 EngineTurboOilLevelSwitch__ = 1;
+	required double EngineTurboLubeOilPress1__kPa = 2;
+	required double EngineTurbo1Speed__rpm = 3;
+}
+
+message jEc1cVhbcEngineTurboInfo6 {
+	required double EngineTurbo4ComprOutletTemp__deg_C = 1;
+	required double EngineTurbo3ComprOutletTemp__deg_C = 2;
+	required double EngineTurbo2ComprOutletTemp__deg_C = 3;
+	required double EngineTurbo1ComprOutletTemp__deg_C = 4;
+}
+
+message jEc1cVhbcWaterInFuelIndicator {
+	required uint32 WaterInFuelIndicator__ = 1;
+}
+
+message jEc1cVhbcEGR_FlowRate {
+	required double EngineIntakeAirMassFlowRate__kg_h = 1;
+	required double EngineEGR2MassFlowRate__kg_h = 2;
+	required double EngineEGR1MassFlowRate__kg_h = 3;
+}
+
+message jEc1cVhbcEFL_Press2 {
+	required double EngineInjectorTimingRail1Press__MPa = 1;
+	required double EngineInjectorMeteringRail2Press__MPa = 2;
+	required double EngineInjectorMeteringRail1Press__MPa = 3;
+	required double EngineInjectionCtrlPress__MPa = 4;
+}
+
+message jEc1cVhbcA1SCRDSI1 {
+	required double AFT1DEFActQtyOfIntegrator__g = 1;
+	required double AFT1DEFActDosingQty__g_h = 2;
+	required double AFT1DEF_DoserAbsPress__kPa = 3;
+	required uint32 AFT1_SCR_SystemState__ = 4;
+}
+
+message jVdtcBrc_OHECS {
+	required uint32 EngAltDroopAuxInputSelect__ = 1;
+	required uint32 EngAltDroopRemoteAccelSelect__ = 2;
+	required uint32 EngAltDroopAccel2Select__ = 3;
+	required uint32 EngAltDroopAccel1Select__ = 4;
+	required uint32 EngAltRatingSelect__ = 5;
+	required uint32 EngAltLowIdleSwitch__ = 6;
+	required uint32 EngSynchronizationSwitch__ = 7;
+	required uint32 EngAuxGovernorSwitch__ = 8;
+}
+
+message jEc1cBrc_OHCSS {
+	required uint32 EngAltDroopAuxInputSelectState__ = 1;
+	required uint32 EngAltDrpRemoteAccelSelectState__ = 2;
+	required uint32 EngAltDroopAccel2SelectState__ = 3;
+	required uint32 EngAltDroopAccel1SelectState__ = 4;
+	required uint32 EngAltRatingSelectState__ = 5;
+	required uint32 EngAltLowIdleSelectState__ = 6;
+	required uint32 EngMultiUnitSyncState__ = 7;
+	required uint32 EngAuxGovernorState__ = 8;
+}
+
+message jEc1VhbcET3 {
+	required double EngChargeAirCoolerOutletTemp__deg_C = 1;
+	required double EngIntkVlvActationSystemOilTemp__deg_C = 2;
+	required double EngCoolantTempHiRes__deg_C = 3;
+	required double EngIntakeManifold1AirTemp__deg_C = 4;
+}
+
+message jVhbcEc1cAMB {
+	required double RoadSurfaceTemp__deg_C = 1;
+	required uint32 EngAirInletTemp__deg_C = 2;
+	required double AmbientAirTemp__deg_C = 3;
+	required double CabInteriorTemp__deg_C = 4;
+	required double BarometricPress__kPa = 5;
+}
+
+message jTrccKwptKWP2000 {
+	required uint64 KWP2000SignalDummy1__ = 1;
+}
+
+message jVhbcEcMcRequestPGN {
+	required uint32 ClearErrMemMFR__ = 1;
+	required uint32 RqstedPGN__ = 2;
+}
+
+message jEc1VhbcAuxInOut1 {
+	required uint32 AuxInOutChannel2__ = 1;
+	required uint32 AuxInOutChannel1__ = 2;
+	required uint32 AuxInOut16__ = 3;
+	required uint32 AuxInOut15__ = 4;
+	required uint32 AuxInOut14__ = 5;
+	required uint32 AuxInOut13__ = 6;
+	required uint32 AuxInOut12__ = 7;
+	required uint32 AuxInOut11__ = 8;
+	required uint32 AuxInOut10__ = 9;
+	required uint32 AuxInOut9__ = 10;
+	required uint32 AuxInOut8__ = 11;
+	required uint32 AuxInOut7__ = 12;
+	required uint32 AuxInOut6__ = 13;
+	required uint32 AuxInOut5__ = 14;
+	required uint32 AuxInOut4__ = 15;
+	required uint32 AuxInOut3__ = 16;
+	required uint32 AuxInOut2__ = 17;
+	required uint32 AuxInOut1__ = 18;
+}
+
+message jVhbcTrccParameters2 {
+	required uint32 HydraulicOilTemperatureCLAAS__deg_C = 1;
+	required uint32 TotalWeightMachine__kg = 2;
+	required uint32 TiltSensorAvailable__ = 3;
+	required uint32 RearAxleLoadPercentage__perc = 4;
+	required uint32 FrontAxleLoadPercentage__perc = 5;
+	required uint32 FrontAttachmentInstalled__ = 6;
+	required uint32 GrainTankFillnessLevel__ = 7;
+	required sint32 TiltLongitudinal__deg = 8;
+}
+
+message jVhbcEc1cKSM {
+	required uint32 ZeroFuelingEngBrake__ = 1;
+	required uint32 SmokeMap__ = 2;
+	required uint32 EngineStopRequest__ = 3;
+	required uint32 EngineStartRequest__ = 4;
+	required uint32 RqstedTorqueKSM__perc = 5;
+	required double RqstedSpeedKSM__rpm = 6;
+	required uint32 OverrideCtrlModePrioKSM__ = 7;
+	required uint32 RqstedSpeedCtrlConditionKSM__ = 8;
+	required uint32 OverrideCtrlModesKSM__ = 9;
+	required uint32 ParameterSetZDR__ = 10;
+	required uint32 ParameterSetEDR__ = 11;
+	required uint32 ParameterSetLLR__ = 12;
+	required double GovenorSlope__rpm_mg_Hub = 13;
+}
+
+message jEc1VhbcPTC1 {
+	required uint32 ParticulateTrapLampCmd__ = 1;
+	required uint32 PrtcltTrpPssvRegenerationStatus__ = 2;
+	required uint32 PrtcltTrpActvRegenerationStatus__ = 3;
+	required uint32 ParticulateTrapStatus__ = 4;
+	required uint32 PrtcltTrpActvRgnrtnInhbtdStatus__ = 5;
+	required uint32 PrtcltTrpActvRgnrtnInhbtdDTInhbt__ = 6;
+	required uint32 PrtcltTrpActvRgnrtnInhbtdDTCltch__ = 7;
+	required sint32 PrtcltTrpActvRgnrtnInhbtdDTSrvcB__ = 8;
+	required sint32 PrtcltTrpActvRgnrtnInhbtdDTPTOAc__ = 9;
+	required sint32 PrtcltTrpActvRgnrtnInhbtdDTAcclP__ = 10;
+	required uint32 PrtcltTrpActvRgnrtnInhbtdDTOtOfN__ = 11;
+	required uint32 PrtcltTrpActvRgnrtnInhbtdDTVhclS__ = 12;
+	required uint32 ExhaustSystemHighTempLampCmd__ = 13;
+}
+
+message jEc1VhbcTI1 {
+	required double AFT1DEF_Tank1Heater__perc = 1;
+	required uint32 AFT_SCR_OpInducSeverity__ = 2;
+	required uint32 CatalystTankTemp__deg_C = 3;
+	required double CatalystTankLevel__perc = 4;
+	required uint32 CatalystTankLevelPreliminaryFMI__ = 5;
+	required double CatalystTankLevel2__mm = 6;
+}
+
+message jEc1VhbcET2 {
+	required double EngExhaustGasRecirculationTemp__deg_C = 1;
+	required double EngExhstGsRcirculationDiffPress__kPa = 2;
+	required double EngECUTemp__deg_C = 3;
+	required double EngOilTemp2__deg_C = 4;
+}
+
+message jEc1VhbcEEC5 {
+	required double EngVrblGometryTurbo1ActuatorPos__perc = 1;
+	required uint32 EngVrblGmtryTrbArCtrlShtffValve__ = 2;
+	required double EngExhstGsRcirculationValveCtrl__perc = 3;
+	required double EngTrb1ClcltedTurbineOutletTemp__deg_C = 4;
+	required double EngTrb1ClclatedTurbineInletTemp__deg_C = 5;
+}
+
+message jEc1VhbcECUID {
+	required uint32 ECUType__ = 1;
+	required uint32 ECULocation__ = 2;
+	required uint32 ECUSerialNumber__ = 3;
+	required uint32 ECUPartNumber__ = 4;
+}
+
+message JVhbcEc1CM1 {
+	required uint32 DpfRegenForceSwitch__perc = 1;
+	required uint32 DpfRegenInhibitSwitch__perc = 2;
+	required uint32 SelectedMaxVehicleSpeedLimit__ = 3;
+	required uint32 RqCabZoneHeating__ = 4;
+	required uint32 RqEngZoneHeating__ = 5;
+	required uint32 AuxHeaterModeRq__ = 6;
+	required uint32 EngAutomaticStartEnableSwitch__ = 7;
+	required uint32 AtmaticGearShiftingEnableSwitch__ = 8;
+	required uint32 VhclLmtngSpdGvernorEnableSwitch__ = 9;
+	required uint32 VhclLmtngSpdGvrnrIncrmentSwitch__ = 10;
+	required uint32 VhclLmtngSpdGvrnrDcrementSwitch__ = 11;
+	required uint32 SeatBeltSwitch__ = 12;
+	required uint32 OperatorSeatDirectionSwitch__ = 13;
+	required uint32 BatteryMainSwitchHoldRq__ = 14;
+	required uint32 AuxHeaterCoolantPumpRq__ = 15;
+	required double CabInteriorTempCmd__deg_C = 16;
+	required double RqedPercentFanSpeed__perc = 17;
+}
+
+message jEc1VhbcCI {
+	required uint32 UnitNumber__ = 1;
+	required uint32 SerialNumber__ = 2;
+	required uint32 Model__ = 3;
+	required uint32 Make__ = 4;
+}
+
+message jEc1VhbcAT1AC1 {
+	required uint32 Aftertreatment1PurgeAirActuator__ = 1;
+	required uint32 Aftrtrtmnt1AtmzationAirActuator__ = 2;
+	required uint32 Aftertreatment1AirSystemRelay__ = 3;
+	required double Aftrtrtment1AirPressActuatorPos__perc = 4;
+	required double Aftertreatment1AirPressCtrl__perc = 5;
+	required double Aftertreatment1PurgeAirPress__kPa = 6;
+	required double Aftertreatment1SupplyAirPress__kPa = 7;
+	required uint32 Aftrtreatment1AirEnableActuator__ = 8;
+}
+
+message jEc1VhbcAT1AC2 {
+	required double Aftertreatment1SecondAirPress__kPa = 1;
+	required double Aftrtreatment1SecondAirMassFlow__kg_hr = 2;
+	required double Aftertreatment1SecondAirTemp__deg_C = 3;
+	required double Aftrtratment1SecondAirDiffPress__kPa = 4;
+}
+
+message jEc1VhbcAT1FC1 {
+	required uint32 Aftrtratment1FuelEnableActuator__ = 1;
+	required uint32 Aftrtratment1RegenerationStatus__ = 2;
+	required uint32 Aftertreatment1Ignt__ = 3;
+	required uint32 Aftrtreatment1FuelDrainActuator__ = 4;
+	required double Aftertreatment1FuelPressCtrl__perc = 5;
+	required double Aftertreatment1FuelRate__L_h = 6;
+	required double Aftertreatment1FuelPress1__kPa = 7;
+}
+
+message jEc1VhbcAT1FC2 {
+	required double Aftertreatment1FuelPress2__kPa = 1;
+}
+
+message jEc1VhbcAT1GP {
+	required double ParticulateTrapOutletPress1__kPa = 1;
+	required double ParticulateTrapIntakePress1__kPa = 2;
+}
+
+message jEc1VhbcAT1IG2 {
+	required uint32 Aftrtrtmnt1PrtcltTrpIntkGsTmpPrl__ = 1;
+	required uint32 Aftrtrtmnt1ExhstGsTmp1PrlmnryFMI__ = 2;
+	required double Aftrtrtmnt1PrtcltTrpIntkGasTemp__deg_C = 3;
+	required double Aftertreatment1ExhaustGasTemp1__deg_C = 4;
+}
+
+message jEc1VhbcAT1IMG {
+	required uint32 Aftrtrtmnt1PrtcltTrpDltPrssPrlmn__ = 1;
+	required uint32 Aftrtrtmnt1ExhstGsTmp2PrlmnryFMI__ = 2;
+	required double Aftrtrtmnt1PrtclteTrapDiffPress__kPa = 3;
+	required double Aftrtrtmnt1PrtcltTrpIntrmdtGsTmp__deg = 4;
+	required double Aftertreatment1ExhaustGasTemp2__deg = 5;
+}
+
+message jEc1VhbcAT1S {
+	required uint32 PrtcltTrp1TmSncLstActvRgnration__sec = 1;
+	required uint32 ParticulateTrap1AshLoadPercent__perc = 2;
+	required uint32 ParticulateTrap1SootLoadPercent__perc = 3;
+}
+
+message jEc1VhbcAETC {
+	required uint32 NumberOfAETCDataPoints__ = 1;
+	required uint32 AETCDataCollectionStandard__ = 2;
+}
+
+message jEc1VhbcAMB {
+	required double RoadSurfaceTemp__deg_C = 1;
+	required uint32 EngAirInletTemp__deg_C = 2;
+	required double AmbientAirTemp__deg_C = 3;
+	required double CabInteriorTemp__deg_C = 4;
+	required double BarometricPress__kPa = 5;
+}
+
+message o_jEltcShlcCanChannelTest_obsole {
+	required uint32 Byte0__ = 1;
+	required uint32 Byte7__ = 2;
+	required uint32 Byte6__ = 3;
+	required uint32 Byte5__ = 4;
+	required uint32 Byte4__ = 5;
+	required uint32 Byte3__ = 6;
+	required uint32 Byte2__ = 7;
+	required uint32 Byte1__ = 8;
+}
+
+message o_jShlcEltcCanChannelTest_obsole {
+	required uint32 Byte0__ = 1;
+	required uint32 Byte7__ = 2;
+	required uint32 Byte6__ = 3;
+	required uint32 Byte5__ = 4;
+	required uint32 Byte4__ = 5;
+	required uint32 Byte3__ = 6;
+	required uint32 Byte2__ = 7;
+	required uint32 Byte1__ = 8;
+}
+
+message jVhbcBrc_ConfigCH1 {
+	required uint32 ConfigTableLengthVariation__ = 1;
+	required uint32 ConfigSubType_CH__ = 2;
+	required uint32 ConfigReelSpeedAutoType__ = 3;
+	required uint32 ConfigReelHorizonAutoType__ = 4;
+	required uint32 ConfigReelHeightAutoType__ = 5;
+	required uint32 ConfigSAPAxleType__t = 6;
+	required uint32 ConfigMachineWidthType__ = 7;
+	required uint32 ConfigLabelType__ = 8;
+	required uint32 ConfigHydraulicBrake__ = 9;
+	required uint32 ConfigHeaderPitchControl__ = 10;
+	required uint32 ConfigGearboxType__ = 11;
+	required uint32 ConfigFeedRakeType__ = 12;
+	required uint32 ConfigFeedRakeRpmVariation__ = 13;
+	required uint32 ConfigCrossLeveling__ = 14;
+	required uint32 ConfigChassisType__ = 15;
+	required uint32 ConfigAxisType__ = 16;
+	required uint32 Config_RearAxisType__ = 17;
+}
+
+message o_jEltcCrpcCanChannelTest_obsole {
+	required uint32 Byte0__ = 1;
+	required uint32 Byte7__ = 2;
+	required uint32 Byte6__ = 3;
+	required uint32 Byte5__ = 4;
+	required uint32 Byte4__ = 5;
+	required uint32 Byte3__ = 6;
+	required uint32 Byte2__ = 7;
+	required uint32 Byte1__ = 8;
+}
+
+message jEc11VhbcTP_DT {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 SeqNumber__ = 8;
+}
+
+message jEc11VhbcTP_CM {
+	required uint32 PGNumber__ = 1;
+	required uint32 BamNoPackets__ = 2;
+	required uint32 BamMsgSize__ = 3;
+	required uint32 ControlByte__ = 4;
+}
+
+message jEc11Brc_TP_DT {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 SeqNumber__ = 8;
+}
+
+message jEc11Brc_TP_CM {
+	required uint32 PGNumber__ = 1;
+	required uint32 BamNoPackets__ = 2;
+	required uint32 BamMsgSize__ = 3;
+	required uint32 ControlByte__ = 4;
+}
+
+message jEc1cVhbc_EngineHours {
+	required double TotalEngineHours__h = 1;
+}
+
+message jCrpcSpccCruiseCtrlVehSpeed {
+	required uint32 EngineShutdownOverrideSwitch__ = 1;
+	required uint32 EngineTestModeSwitch__ = 2;
+	required uint32 IdleDecrementSwitch__ = 3;
+	required uint32 IdleIncrementSwitch__ = 4;
+	required uint32 CruiseCtrlState__ = 5;
+	required uint32 PTOStates__ = 6;
+	required uint32 CruiseCtrlSetSpeed__km_h = 7;
+	required uint32 CruiseCtrlAccelerateSwitch__ = 8;
+	required uint32 CruiseCtrlResumeSwitch__ = 9;
+	required uint32 CruiseCtrlCoastSwitch__ = 10;
+	required uint32 CruiseCtrlSetSwitch__ = 11;
+	required uint32 ClutchSwitch__ = 12;
+	required uint32 BrakeSwitch__ = 13;
+	required uint32 CruiseCtrlEnableSwitch__ = 14;
+	required uint32 CruiseCtrlActive__ = 15;
+	required double Wheel_BasedVehicleSpeed__km_ = 16;
+	required uint32 TwoSpeedAxleSwitch__ = 17;
+	required uint32 ParkingBrakeSwitch__ = 18;
+}
+
+message jVuicMuicSwitch38 {
+	required uint32 Switch38Startsign__ = 1;
+	required uint32 Switch38SeqNo__ = 2;
+	required uint32 Switch38OpCount2__ = 3;
+	required uint32 Switch38OpCount1__ = 4;
+	required double Switch38DurSLC2__s = 5;
+	required double Switch38DurSLC1__s = 6;
+	required uint32 Switch38CRC__ = 7;
+	required uint32 Switch38ActVal2__ = 8;
+	required uint32 Switch38ActVal1__ = 9;
+}
+
+message jCoecSpccDebug1 {
+	required uint32 Dev_CoecSpccSeatSwitch__ = 1;
+	required uint32 Dev_CoecSpccRoadTravelMode__ = 2;
+	required uint32 Dev_CoecSpccMaindriveOn__ = 3;
+	required uint32 Dev_CoecSpccDebugSwitchOn__ = 4;
+	required uint32 Dev_CoecSpccDebugCebisOn__ = 5;
+	required uint32 Dev_CoecSpccAtpSwitch__ = 6;
+	required uint32 Dev_CoecSpccMaxSpeedInc__ = 7;
+	required uint32 Dev_CoecSpccMaxSpeedDec__ = 8;
+	required uint32 Dev_CoecSpccSetSpeedDec__ = 9;
+	required uint32 Dev_CoecSpccSetSpeedInc__ = 10;
+	required uint32 Dev_CoecSpccDebugOn__ = 11;
+	required uint32 Dev_CoecSpccClearStatMem__ = 12;
+	required uint32 Dev_CoecSpccMainSwitch__ = 13;
+}
+
+message jSpccCoecDebug2 {
+	required uint32 Dev_SpccCoecCounterAtpSwitch__ = 1;
+	required uint32 Dev_SpccCoecCounterActivate__ = 2;
+	required uint32 Dev_SpccCoecSpccVehicleSpeedInt__ = 3;
+	required uint32 Dev_SpccCoecSpccVehicleSpeed__ = 4;
+}
+
+message jSpccCoecDebug1 {
+	required uint32 Dev_SpccCoecSpccCruiseCtrlEnable__ = 1;
+	required uint32 Dev_SpccCoecSpccCruiseCtrlActive__ = 2;
+	required uint32 Dev_SpccCoecSetVehicleSpeed__ = 3;
+	required uint32 Dev_SpccCoecSeatSwitch__ = 4;
+	required uint32 Dev_SpccCoecRoadTravelMode__ = 5;
+	required uint32 Dev_SpccCoecMaxVehicleSpeed__ = 6;
+	required uint32 Dev_SpccCoecMainDriveOn__ = 7;
+	required uint32 Dev_SpccCoecCruiseCtrlState__ = 8;
+	required uint32 Dev_SpccCoecCruiseCtrlMainSwitch__ = 9;
+	required uint32 Dev_SpccCoecAtpSwitch__ = 10;
+	required uint32 Dev_SpccCoecAtpPressState__ = 11;
+	required uint32 Dev_SpccCoecAdaptNewSpeed__ = 12;
+}
+
+message jTrccKwpcKWP2000 {
+	required uint64 KWP2000SignalDummy1__ = 1;
+}
+
+message jVhbcBrcConfig3 {
+	required uint32 ConfigIso11783TaskControl__ = 1;
+	required uint32 ConfigIso11783GeneralSupport__ = 2;
+	required uint32 ConfigMachIndVar_MappingIfc_ATP__ = 3;
+	required uint32 ConfigMachIndVar_GrainQualityCam__ = 4;
+	required uint32 ConfigMachIndVar_AutoContour3__ = 5;
+	required uint32 ConfigCabinType__ = 6;
+	required uint32 ConfigEngineType__ = 7;
+	required uint32 ConfigMachIndVar_ContMoisMeas__ = 8;
+	required uint32 ConfigMachIndVar_CentralLub__ = 9;
+	required uint32 ConfigMachIndVar_AddTank__ = 10;
+	required uint32 ConfigMachIndVar_ElecSwGear__ = 11;
+	required uint32 ConfigMachIndVar_HMS__ = 12;
+	required uint32 ConfigMachIndVar_LaserPilot__ = 13;
+	required uint32 ConfigMachIndVar_EngineCtrl__ = 14;
+	required uint32 ConfigMachIndVar_Autopilot__ = 15;
+	required uint32 ConfigMachIndVar_FuelConsump__ = 16;
+	required uint32 ConfigMachIndVar_YieldMeas__ = 17;
+	required uint32 ConfigMachIndVar_ElecDrvSys__ = 18;
+	required uint32 ConfigMachIndVar_CruisePilot__ = 19;
+	required uint32 ConfigMachIndVar_4Trac__ = 20;
+	required uint32 ConfigMachIndVar_YieldMap__ = 21;
+	required uint32 ConfigMachIndVar_GpsPilot__ = 22;
+	required uint32 ConfigMachIndVar_SteerViaJoy__ = 23;
+	required uint32 ConfigMachIndVar_TyrePresReg__ = 24;
+	required uint32 ConfigMachIndVar_HeaderEmStop__ = 25;
+}
+
+message jVhbcBrcConfig2 {
+	required uint32 ConfigCountryCode__ = 1;
+	required uint32 ConfigMachineNumber__ = 2;
+	required uint32 ConfigLanguage__ = 3;
+	required uint32 ConfigSpeed__km_h = 4;
+}
+
+message jVhbcBrcConfig1 {
+	required uint32 ConfigAcc_SpeedControl__ = 1;
+	required uint32 ConfigUnits_Miscellaneous__ = 2;
+	required uint32 ConfigUnits_Temperature__ = 3;
+	required uint32 ConfigUnits_Distance__ = 4;
+	required uint32 ConfigUnits_Volume__ = 5;
+	required uint32 ConfigUnits_Harvest__ = 6;
+	required uint32 ConfigUnits_Area__ = 7;
+	required uint32 ConfigAcc_NoneDgps__ = 8;
+	required uint32 ConfigAcc_TeleService__ = 9;
+	required uint32 ConfigAcc_Gps__ = 10;
+	required uint32 ConfigAcc_Printer__ = 11;
+	required uint32 ConfigAcc_Pcmcia__ = 12;
+	required uint32 ConfigAcc_OnboardDiagnostic2__ = 13;
+	required uint32 ConfigAcc_OnboardDiagnostic1__ = 14;
+	required uint32 ConfigSeriesStatus__ = 15;
+	required uint32 ConfigTerminal__ = 16;
+}
+
+message jTrccBrc_ShiftRelease {
+	required uint32 SwitchShiftRelVehicleStop__ = 1;
+	required uint32 SwitchShiftRelOpCount2__ = 2;
+	required uint32 SwitchShiftRelFnrNeutral__ = 3;
+	required double SwitchShiftRelDurSLC2__s = 4;
+	required uint32 SwitchShiftRelBrakeActive__ = 5;
+	required uint32 SwitchShiftRelSeqNo__ = 6;
+	required uint32 SwitchShiftRelCRC__ = 7;
+	required double SwitchShiftRelDurSLC1__s = 8;
+	required uint32 SwitchShiftRelOpCount1__ = 9;
+	required uint32 SwitchShiftRelActVal1__ = 10;
+	required uint32 SwitchShiftRelStartsign__ = 11;
+}
+
+message jVhbcTrccParameters3 {
+	required double RearAxleLoad__t = 1;
+	required double FrontAxleLoad__t = 2;
+	required uint32 State4TracClutch__ = 3;
+	required uint32 FrontAttachmentCharacteristics__ = 4;
+	required double TirePressureRearAxle__kPa = 5;
+	required double TirePressureFrontAxle__kPa = 6;
+	required uint32 MetalDetectorStatus__ = 7;
+	required uint32 ShiftRelief__ = 8;
+}
+
+message jRaxcVhbcAlarm {
+	required uint32 AlarmStatus__ = 1;
+	required uint32 AlarmNumber__ = 2;
+}
+
+message jEc2cVhbcEngineTemp {
+	required double EngineICoolerThermostatOpening__ = 1;
+	required uint32 EngineIntercoolerTemperature__deg_C = 2;
+	required double TurboOilTemperature__deg_C = 3;
+	required double EngineOilTemperature__deg_C = 4;
+	required uint32 FuelTemperature__deg_C = 5;
+	required uint32 EngineCoolantTemperature__deg_C = 6;
+}
+
+message jEc2cVhbcEngineFluidLevPres {
+	required double EngineOilPressure__kPa = 1;
+	required double CoolantLevel__perc = 2;
+	required double CoolantPressure__kPa = 3;
+	required double CrankcasePressure__kPa = 4;
+	required double EngineOilLevel__perc = 5;
+	required double ExtdCrankcaseBlowByPressure__ = 6;
+	required double FuelDeliveryPressure__kPa = 7;
+}
+
+message jTrccVhbcHydroSignals {
+	required uint32 Hydraulic4tracMotorDisplacement__ccm = 1;
+	required double Hydraulic4tracMotorAmperage__mA = 2;
+	required uint32 HydraulicPumpTorque__Nm = 3;
+	required uint32 HydraulicPumpDisplacement__ccm = 4;
+	required uint32 HydraulicMotorTorque__Nm = 5;
+	required uint32 HydraulicMotorDisplacement__ccm = 6;
+}
+
+message jEc2cVhbcInletExhaustCond {
+	required double CoolantFilterDiffPressure__kPa = 1;
+	required double ExhaustGasTemperature__deg_C = 2;
+	required double AirFilterDifferentialPressure__kPa = 3;
+	required double AirInletPressure__kPa = 4;
+	required uint32 IntakeManifoldTemp_1__ = 5;
+	required double BoostPressure__kPa = 6;
+	required double ParticulateTrapInletPressure__kPa = 7;
+}
+
+message jEc2cVhbcFuelEconomy {
+	required uint32 Bytes7_8NotDefined__ = 1;
+	required double AverageFuelEconomy__km = 2;
+	required double InstantaneousFuelEconomy__km = 3;
+	required double FuelRate__L_h = 4;
+}
+
+message jEc2cVhbcFuelConsumption {
+	required double TotalFuelUsed__L = 1;
+	required double TripFuel__L = 2;
+}
+
+message jEc2cVhbcEEC3 {
+	required uint32 EEC3Bytes5_8NotDefined__ = 1;
+	required uint32 EngineOperateSpeedAsymAdjstmnt__ = 2;
+	required double EngineDesiredOperatingSpeed__rpm = 3;
+	required uint32 NominalFriction_PercentTorque__perc = 4;
+}
+
+message jEc2cVhbcEEC2 {
+	required uint32 EEC2Bytes5_8NotDefined__ = 1;
+	required double CrpMainSwitchCtrlSet__ = 2;
+	required uint32 PercentLoadAtCurrentSpeed__perc = 3;
+	required double AcceleratorPedalPosition__perc = 4;
+	required uint32 APKickdownSwitch__ = 5;
+	required uint32 APLowIdleSwitch__ = 6;
+}
+
+message jEc2cVhbcEEC1 {
+	required uint32 Bytes6_8NotDefined__ = 1;
+	required double EngineSpeed__rpm = 2;
+	required uint32 ActualEngine_PercTorque__perc = 3;
+	required uint32 DriversDemandEngine_PercTorque__perc = 4;
+	required uint32 EngineRetarderTorqueMode__ = 5;
+}
+
+message jVhbcEc2cTSC1 {
+	required uint32 RqstedTorque__perc = 1;
+	required double RqstedSpeed__rpm = 2;
+	required uint32 OverrideCtrlModes__ = 3;
+	required uint32 OverrideCtrlModePrio__ = 4;
+	required uint32 RqstedSpeedCtrlCondition__ = 5;
+	required sint32 TSC1_NotDefBytes__ = 6;
+}
+
+message jVhbcEcMcVDHR {
+	required double MachineOperationHours__s = 1;
+}
+
+message jVhbcBrc_RequestPGN {
+	required uint32 RqstedPGN__ = 1;
+}
+
+message jEc1cVhbcDM1 {
+	required uint32 Bytes7_8NotDefined__ = 1;
+	required sint32 OccurenceCount__ = 2;
+	required uint32 SpnConversionMethod__ = 3;
+	required uint32 FMI__ = 4;
+	required uint32 SPN3mostSignificantBits__ = 5;
+	required uint32 SPNsecondByte__ = 6;
+	required uint32 SPN8leastSignificantBits__ = 7;
+	required uint32 ReservedForSAEassignLamp__ = 8;
+	required uint32 MalFuncIndLampStatus__ = 9;
+	required uint32 RedStopLampStatus__ = 10;
+	required uint32 AmberWarnLampStatus__ = 11;
+	required uint32 ProtectLampStatus__ = 12;
+}
+
+message o_jVhbcEltcCanChannelTest_obsole {
+	required uint32 Byte0__ = 1;
+	required uint32 Byte7__ = 2;
+	required uint32 Byte6__ = 3;
+	required uint32 Byte5__ = 4;
+	required uint32 Byte4__ = 5;
+	required uint32 Byte3__ = 6;
+	required uint32 Byte2__ = 7;
+	required uint32 Byte1__ = 8;
+}
+
+message jVhbcEc1cTP_CM {
+	required uint32 MaxNumberOfPackets__ = 1;
+	required uint32 PGNumber__ = 2;
+	required uint32 BamNoPackets__ = 3;
+	required uint32 BamMsgSize__ = 4;
+	required uint32 ControlByte__ = 5;
+}
+
+message o_jEltcVhbcCanChannelTest_obsole {
+	required uint32 Byte0__ = 1;
+	required uint32 Byte7__ = 2;
+	required uint32 Byte6__ = 3;
+	required uint32 Byte5__ = 4;
+	required uint32 Byte4__ = 5;
+	required uint32 Byte3__ = 6;
+	required uint32 Byte2__ = 7;
+	required uint32 Byte1__ = 8;
+}
+
+message jEc1cVhbcEngineFluidLevPres {
+	required double EngineOilPressure__kPa = 1;
+	required double CoolantLevel__perc = 2;
+	required double CoolantPressure__kPa = 3;
+	required double CrankcasePressure__kPa = 4;
+	required double EngineOilLevel__perc = 5;
+	required double ExtdCrankcaseBlowByPressure__ = 6;
+	required double FuelDeliveryPressure__kPa = 7;
+}
+
+message jRetcVhbcTP_CM {
+	required uint32 PGNumber__ = 1;
+	required uint32 BamNoPackets__ = 2;
+	required uint32 BamMsgSize__ = 3;
+	required uint32 ControlByte__ = 4;
+}
+
+message jEc1cVhbcTP_CM {
+	required uint32 PGNumber__ = 1;
+	required uint32 BamNoPackets__ = 2;
+	required uint32 BamMsgSize__ = 3;
+	required uint32 ControlByte__ = 4;
+}
+
+message jRetcVhbcTP_DT {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 SeqNumber__ = 8;
+}
+
+message jEc1cVhbcTP_DT {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 SeqNumber__ = 8;
+}
+
+message jEc1cVhbcInletExhaustCond {
+	required double CoolantFilterDiffPressure__kPa = 1;
+	required double ExhaustGasTemperature__deg_C = 2;
+	required double AirFilterDifferentialPressure__kPa = 3;
+	required double AirInletPressure__kPa = 4;
+	required uint32 IntakeManifoldTemp_1__ = 5;
+	required double BoostPressure__kPa = 6;
+	required double ParticulateTrapInletPressure__kPa = 7;
+}
+
+message jEc1cVhbcFuelEconomy {
+	required uint32 Bytes7_8_NotDefined__ = 1;
+	required double AverageFuelEconomy__km = 2;
+	required double InstantaneousFuelEconomy__km = 3;
+	required double FuelRate__L_h = 4;
+}
+
+message jEc1cVhbcFuelConsumption {
+	required double TotalFuelUsed__L = 1;
+	required double TripFuel__L = 2;
+}
+
+message ERC1 {
+	required uint32 Bytes6_8NotDefined__ = 1;
+	required uint32 SrcAddrCDevRetarderCtrl__ = 2;
+	required uint32 EngineCoolantLoadIncrease__ = 3;
+	required uint32 IntendedRetarderPercentTorque__ = 4;
+	required uint32 ActualRetarderPercentTorque__perc = 5;
+	required uint32 RetarderEnableShiftAssistSwitch__ = 6;
+	required uint32 RetarderEnableBrakeAssistSwitch__ = 7;
+}
+
+message jVhbcEc1cRequestPGN {
+	required uint32 RqstedPGN__ = 1;
+}
+
+message jTrccRaxcDriveTainSetValues {
+	required uint32 RearMotorSetPoint__perc = 1;
+	required uint32 LTA_Status__ = 2;
+	required double VehicleSpeedDtmLta__km_h = 3;
+	required uint32 FNR_Value__perc = 4;
+	required uint32 BrakingConditions__ = 5;
+}
+
+message jSpccTrccCruiseCtrlVehSpeed {
+	required uint32 EngineShutdownOverrideSwitch__ = 1;
+	required uint32 EngineTestModeSwitch__ = 2;
+	required uint32 IdleDecrementSwitch__ = 3;
+	required uint32 IdleIncrementSwitch__ = 4;
+	required uint32 CruiseCtrlState__ = 5;
+	required uint32 PTOStates__ = 6;
+	required uint32 CruiseCtrlSetSpeed__km_h = 7;
+	required uint32 CruiseCtrlAccelerateSwitch__ = 8;
+	required uint32 CruiseCtrlResumeSwitch__ = 9;
+	required uint32 CruiseCtrlCoastSwitch__ = 10;
+	required uint32 CruiseCtrlSetSwitch__ = 11;
+	required uint32 ClutchSwitch__ = 12;
+	required uint32 BrakeSwitch__ = 13;
+	required uint32 CruiseCtrlEnableSwitch__ = 14;
+	required uint32 CruiseCtrlActive__ = 15;
+	required double Wheel_BasedVehicleSpeed__km_ = 16;
+	required uint32 TwoSpeedAxleSwitch__ = 17;
+	required uint32 ParkingBrakeSwitch__ = 18;
+}
+
+message jTrccSpccCruiseCtrlVehSpeed {
+	required double Wheel_BasedVehicleSpeed__km_ = 1;
+	required uint32 TwoSpeedAxleSwitch__ = 2;
+	required uint32 PTOStates__ = 3;
+	required uint32 ParkingBrakeSwitch__ = 4;
+	required uint32 IdleIncrementSwitch__ = 5;
+	required uint32 IdleDecrementSwitch__ = 6;
+	required uint32 EngineTestModeSwitch__ = 7;
+	required uint32 EngineShutdownOverrideSwitch__ = 8;
+	required uint32 CruiseCtrlState__ = 9;
+	required uint32 CruiseCtrlSetSwitch__ = 10;
+	required uint32 CruiseCtrlSetSpeed__km_h = 11;
+	required uint32 CruiseCtrlResumeSwitch__ = 12;
+	required uint32 CruiseCtrlEnableSwitch__ = 13;
+	required uint32 CruiseCtrlCoastSwitch__ = 14;
+	required uint32 CruiseCtrlActive__ = 15;
+	required uint32 CruiseCtrlAccelerateSwitch__ = 16;
+	required uint32 ClutchSwitch__ = 17;
+	required uint32 BrakeSwitch__ = 18;
+}
+
+message jVhbcBrc_VehicleSpeedStatus {
+	required uint32 RiceTypeConfigured__ = 1;
+	required uint32 ASRConfigured__ = 2;
+	required uint32 FourTracState__ = 3;
+	required uint32 SeatSwitchState__ = 4;
+	required uint32 StateEngineSpeedSwitch__ = 5;
+	required double VehicleSpeedDtm__km_h = 6;
+	required uint32 TUEV_Mode__ = 7;
+	required uint32 MaxVehicleSpeedFrontAttachment__km_h = 8;
+	required uint32 StatusTerminalAlive__ = 9;
+	required uint32 StatusBrakeSystem__ = 10;
+	required uint32 StatusParkingBrake__ = 11;
+}
+
+message jCrmcC04cCvuMessage {
+	required uint32 CvuSignal4__ = 1;
+	required uint32 CvuSignal3__ = 2;
+	required uint32 CvuSignal2__ = 3;
+	required uint32 CvuSignal1__ = 4;
+	required uint32 CvuCommandByte__ = 5;
+	required uint32 CvuSignal7__ = 6;
+	required uint32 CvuSignal6__ = 7;
+	required uint32 CvuSignal5__ = 8;
+}
+
+message jCrmcC03cCvuMessage {
+	required uint32 CvuSignal7__ = 1;
+	required uint32 CvuSignal6__ = 2;
+	required uint32 CvuSignal5__ = 3;
+	required uint32 CvuSignal4__ = 4;
+	required uint32 CvuSignal3__ = 5;
+	required uint32 CvuSignal2__ = 6;
+	required uint32 CvuSignal1__ = 7;
+	required uint32 CvuCommandByte__ = 8;
+}
+
+message jCrmcC02cCvuMessage {
+	required uint32 CvuSignal7__ = 1;
+	required uint32 CvuSignal6__ = 2;
+	required uint32 CvuSignal5__ = 3;
+	required uint32 CvuSignal4__ = 4;
+	required uint32 CvuSignal3__ = 5;
+	required uint32 CvuSignal2__ = 6;
+	required uint32 CvuSignal1__ = 7;
+	required uint32 CvuCommandByte__ = 8;
+}
+
+message jCrmcC01cCvuMessage {
+	required uint32 CvuSignal7__ = 1;
+	required uint32 CvuSignal6__ = 2;
+	required uint32 CvuSignal5__ = 3;
+	required uint32 CvuSignal4__ = 4;
+	required uint32 CvuSignal3__ = 5;
+	required uint32 CvuSignal2__ = 6;
+	required uint32 CvuSignal1__ = 7;
+	required uint32 CvuCommandByte__ = 8;
+}
+
+message jCoecCrmcRioDebugQuery {
+	required uint32 Dev_RioDebugSignal7__ = 1;
+	required uint32 Dev_RioDebugSignal6__ = 2;
+	required uint32 Dev_RioDebugSignal5__ = 3;
+	required uint32 Dev_RioDebugSignal4__ = 4;
+	required uint32 Dev_RioDebugSignal3__ = 5;
+	required uint32 Dev_RioDebugSignal2__ = 6;
+	required uint32 Dev_RioDebugSignal1__ = 7;
+	required uint32 Dev_RioDebugModeByte__ = 8;
+}
+
+message jCrmcR15cRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message jCrmcR14cRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message jCrmcR13cRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message jCrmcR12cRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message jCrmcR11cRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message jR15cCrmcRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message jR14cCrmcRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message jR13cCrmcRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message jR12cCrmcRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message jR11cCrmcRioMessage {
+	required uint32 RioSignal2__ = 1;
+	required uint32 RioSignal1__ = 2;
+	required uint32 RioCommandByte__ = 3;
+	required uint32 RioSignal7__ = 4;
+	required uint32 RioSignal6__ = 5;
+	required uint32 RioSignal5__ = 6;
+	required uint32 RioSignal4__ = 7;
+	required uint32 RioSignal3__ = 8;
+}
+
+message jVhbcCoecDevDyn {
+	required uint32 Dev_DynSignal7__ = 1;
+	required uint32 Dev_DynSignal6__ = 2;
+	required uint32 Dev_DynSignal5__ = 3;
+	required uint32 Dev_DynSignal4__ = 4;
+	required uint32 Dev_DynSignal3__ = 5;
+	required uint32 Dev_DynSignal2__ = 6;
+	required uint32 Dev_DynSignal1__ = 7;
+	required uint32 Dev_DynSignal0__ = 8;
+}
+
+message jCoecVhbcDevDyn {
+	required uint32 Dev_DynSignal7__ = 1;
+	required uint32 Dev_DynSignal6__ = 2;
+	required uint32 Dev_DynSignal5__ = 3;
+	required uint32 Dev_DynSignal4__ = 4;
+	required uint32 Dev_DynSignal3__ = 5;
+	required uint32 Dev_DynSignal2__ = 6;
+	required uint32 Dev_DynSignal1__ = 7;
+	required uint32 Dev_DynSignal0__ = 8;
+}
+
+message jC04cCrmcCvuMessage {
+	required uint32 CvuSignal7__ = 1;
+	required uint32 CvuSignal6__ = 2;
+	required uint32 CvuSignal5__ = 3;
+	required uint32 CvuSignal4__ = 4;
+	required uint32 CvuSignal3__ = 5;
+	required uint32 CvuSignal2__ = 6;
+	required uint32 CvuSignal1__ = 7;
+	required uint32 CvuCommandByte__ = 8;
+}
+
+message jC03cCrmcCvuMessage {
+	required uint32 CvuSignal7__ = 1;
+	required uint32 CvuSignal6__ = 2;
+	required uint32 CvuSignal5__ = 3;
+	required uint32 CvuSignal4__ = 4;
+	required uint32 CvuSignal3__ = 5;
+	required uint32 CvuSignal2__ = 6;
+	required uint32 CvuSignal1__ = 7;
+	required uint32 CvuCommandByte__ = 8;
+}
+
+message jC02cCrmcCvuMessage {
+	required uint32 CvuSignal7__ = 1;
+	required uint32 CvuSignal6__ = 2;
+	required uint32 CvuSignal5__ = 3;
+	required uint32 CvuSignal4__ = 4;
+	required uint32 CvuSignal3__ = 5;
+	required uint32 CvuSignal2__ = 6;
+	required uint32 CvuSignal1__ = 7;
+	required uint32 CvuCommandByte__ = 8;
+}
+
+message jC01cCrmcCvuMessage {
+	required uint32 CvuSignal7__ = 1;
+	required uint32 CvuSignal6__ = 2;
+	required uint32 CvuSignal5__ = 3;
+	required uint32 CvuSignal4__ = 4;
+	required uint32 CvuSignal3__ = 5;
+	required uint32 CvuSignal2__ = 6;
+	required uint32 CvuSignal1__ = 7;
+	required uint32 CvuCommandByte__ = 8;
+}
+
+message jVhbcBrc_GDMSignals {
+	required uint32 FieldModeSlowDownEngineSwitch__ = 1;
+	required uint32 Switch4Trac__ = 2;
+	required uint32 jRoadTravelSwitch__ = 3;
+	required uint32 SwitchGDMSignalsCRC__ = 4;
+	required uint32 GDM_MaxVehicleSpeedFrontAtt__km_h = 5;
+	required uint32 GDM_SeatSwitchState__ = 6;
+	required uint32 SwitchGDMSignalsStartsign__ = 7;
+	required uint32 SwitchGDMSignalsSeqNo__ = 8;
+	required uint32 ParkingBrakeSwitch__ = 9;
+}
+
+message jVhbcRaxcSteeringAxleValues {
+	required sint32 EstimatedCurvature4Trac__ = 1;
+	required double AngleSteeringAxle__ = 2;
+}
+
+message jVhbcRetcTSC1 {
+	required uint32 RqstedTorque__perc = 1;
+	required double RqstedSpeed__rpm = 2;
+	required uint32 OverrideCtrlModes__ = 3;
+	required uint32 OverrideCtrlModePrio__ = 4;
+	required uint32 RqstedSpeedCtrlCondition__ = 5;
+	required sint32 TSC1_NotDefBytes__ = 6;
+}
+
+message jRaxcTrccHydroMotorStatus {
+	required uint32 RightRearMotorVolume__perc = 1;
+	required double RightRearMotorSpeed__rpm = 2;
+	required uint32 LeftRearMotorVolume__perc = 3;
+	required double LeftRearMotorSpeed__rpm = 4;
+	required uint32 InchValue__perc = 5;
+	required uint32 FrontMotorSetPoint__perc = 6;
+}
+
+message jVhbcEc2cEngStartStopp {
+	required sint32 InhibitEngineStart__ = 1;
+	required sint32 EngineStart__ = 2;
+	required sint32 InhibitFuelInjection__ = 3;
+}
+
+message jVhbcEc2cRequestPGN {
+	required uint32 RqstedPGN__ = 1;
+}
+
+message jTrccVhbcTSC1 {
+	required double DrvTrainPressureSensorRev__bar = 1;
+	required uint32 RqstedTorque__perc = 2;
+	required double DrvTrainPressureSensorFwd__bar = 3;
+	required double RqstedSpeed__rpm = 4;
+	required uint32 OverrideCtrlModes__ = 5;
+	required uint32 OverrideCtrlModePrio__ = 6;
+	required uint32 RqstedSpeedCtrlCondition__ = 7;
+}
+
+message jVhbcBrc_WorkingHours {
+	required uint32 WorkingHours__s = 1;
+}
+
+message jVhbcTrccParameters1 {
+	required uint32 WheelDiameter_Field__ = 1;
+	required uint32 SelectedGear__ = 2;
+	required uint32 VehicleID__ = 3;
+	required uint32 CurrentGear__ = 4;
+	required uint32 SelectedDriveStrategy__ = 5;
+}
+
+message jTrccVhbcCalibrationStatus {
+	required uint32 TypeOfCalibration__ = 1;
+	required uint32 CalibrationStatus__ = 2;
+	required uint32 CalibrationModule__ = 3;
+}
+
+message jVhbcTrccCalibration {
+	required uint32 CalibrationFunction__ = 1;
+	required uint32 TypeOfCalibration__ = 2;
+	required uint32 CalibrationModule__ = 3;
+}
+
+message jTrccVhbcAlarm {
+	required uint32 AlarmStatus__ = 1;
+	required uint32 AlarmNumber__ = 2;
+}
+
+message jTrccVhbcParameters1 {
+	required uint32 CurrentGear__ = 1;
+	required uint32 VehicleID__ = 2;
+	required uint32 SelectedGear__ = 3;
+	required uint32 SelectedDriveStrategy__ = 4;
+}
+
+message jVhbcEc1cTSC1 {
+	required uint32 RqstedTorque__perc = 1;
+	required double RqstedSpeed__rpm = 2;
+	required uint32 OverrideCtrlModes__ = 3;
+	required uint32 OverrideCtrlModePrio__ = 4;
+	required uint32 RqstedSpeedCtrlCondition__ = 5;
+	required sint32 TSC1_NotDefBytes__ = 6;
+}
+
+message jEc1cVhbcEngineTemp {
+	required double EngineICoolerThermostatOpening__ = 1;
+	required uint32 EngineIntercoolerTemperature__deg_C = 2;
+	required double TurboOilTemperature__deg_C = 3;
+	required double EngineOilTemperature__deg_C = 4;
+	required uint32 FuelTemperature__deg_C = 5;
+	required uint32 EngineCoolantTemperature__deg_C = 6;
+}
+
+message jEc1cVhbcEEC3 {
+	required uint32 EEC3Bytes5_8NotDefined__ = 1;
+	required uint32 EngineOperateSpeedAsymAdjstmnt__ = 2;
+	required double EngineDesiredOperatingSpeed__rpm = 3;
+	required uint32 NominalFriction_PercentTorque__perc = 4;
+}
+
+message jEc1cVhbcEEC1 {
+	required uint32 SrcAddrOfCtrlDev__ = 1;
+	required uint32 EngineDemand_PercTorque__perc = 2;
+	required double EngineActPercTorqHiRes__perc = 3;
+	required sint32 EngStarterMode__ = 4;
+	required double EngineSpeed__rpm = 5;
+	required uint32 ActualEngine_PercTorque__perc = 6;
+	required uint32 DriversDemandEngine_PercTorque__perc = 7;
+	required uint32 EngineRetarderTorqueMode__ = 8;
+}
+
+message jEc1cVhbcEEC2 {
+	required double ActMaxAvailEng_PercTorque__perc = 1;
+	required uint32 VehicleAccRateLimitStatus__ = 2;
+	required uint32 RoadSpeedLimitStatus__ = 3;
+	required double CrpMainSwitchCtrlSet__ = 4;
+	required uint32 PercentLoadAtCurrentSpeed__perc = 5;
+	required double AcceleratorPedalPosition__perc = 6;
+	required uint32 APKickdownSwitch__ = 7;
+	required uint32 APLowIdleSwitch__ = 8;
+}
+
+message jTrccVhbcVehicleMoving {
+	required uint32 VehicleMovingBackwIndicator__ = 1;
+	required uint32 VehicleMovingIndicator__ = 2;
+}
+
+message jVhbcEc1cEEC2 {
+	required double ActMaxAvailEngPercentTorque__perc = 1;
+	required double AccelPedalPos2__perc = 2;
+	required uint32 VhclAccelerationRateLimitStatus__ = 3;
+	required uint32 EngPercentLoadAtCurrentSpeed__perc = 4;
+	required uint32 AccelPedal2LowIdleSwitch__ = 5;
+	required uint32 RoadSpeedLimitStatus__ = 6;
+	required uint32 AccelPedalKickdownSwitch__ = 7;
+	required uint32 AccelPedal1LowIdleSwitch__ = 8;
+	required double RemoteAccelPedalPos__perc = 9;
+	required double AccelPedalPos1__perc = 10;
+}
+
+message jVhbcEc1cEBC1 {
+	required uint32 SrcAddrssOfCtrllngDvcFrBrkCntrl__ = 1;
+	required double BrakePedalPos__perc = 2;
+	required uint32 TrctrMntdTrilerABSWarningSignal__ = 3;
+	required uint32 TrailerABSStatus__ = 4;
+	required uint32 HaltBrakeSwitch__ = 5;
+	required uint32 ATC_ASRInformationSignal__ = 6;
+	required uint32 ABS_EBSAmberWarningSignal__ = 7;
+	required uint32 EBSRedWarningSignal__ = 8;
+	required uint32 ABSFullyOperational__ = 9;
+	required double EngRetarderSelection__perc = 10;
+	required uint32 RemoteAccelEnableSwitch__ = 11;
+	required uint32 EngAuxEngShutdownSwitch__ = 12;
+	required uint32 EngDerateSwitch__ = 13;
+	required uint32 AccelInterlockSwitch__ = 14;
+	required uint32 TractionCtrlOverrideSwitch__ = 15;
+	required uint32 ASRHillHolderSwitch__ = 16;
+	required uint32 ASROffroadSwitch__ = 17;
+	required uint32 ABSOffroadSwitch__ = 18;
+	required uint32 EBSBrakeSwitch__ = 19;
+	required uint32 AntiLockBrakingActive__ = 20;
+	required uint32 ASRBrakeCtrlActive__ = 21;
+	required uint32 ASREngCtrlActive__ = 22;
+}
+
+message jTrccVhbcStateSignals {
+	required uint32 State4TracClutchOffSwitch__ = 1;
+	required uint32 State4TracClutchOnSwitch__ = 2;
+	required uint32 State4TracActVal__ = 3;
+	required uint32 StateDrivingDirection__ = 4;
+	required uint32 State4TracSetVal__ = 5;
+	required uint32 StateBrakePedalRight__ = 6;
+	required uint32 StateBrakePedalLeft__ = 7;
+	required uint32 StateBrakePressureSwitchRight__ = 8;
+	required uint32 StateBrakePressureSwitchLeft__ = 9;
+	required uint32 StateReverseSwitch__ = 10;
+	required uint32 StateForwardSwitch__ = 11;
+	required uint32 StateShiftRelease__ = 12;
+	required uint32 StatePanicBrake__ = 13;
+	required uint32 StateRoadSwitch__ = 14;
+	required uint32 StateNeutralSwitch__ = 15;
+	required uint32 StateBrakeLight__ = 16;
+}
+
+message jTrccVhbcHydroRpmSignal {
+	required uint32 LTAMotorSpeed__1_min = 1;
+	required uint32 DesiredEngineSpeedEFA__1_min = 2;
+	required uint32 HydraulicMotorSpeed__1_min = 3;
+	required uint32 HydraulicPumpSpeed__1_min = 4;
+}
+
+message jTrccVhbcSensorSignals1 {
+	required double HydraulicMotorAmperage__mA = 1;
+	required double HydraulicPumpAmperage__mA = 2;
+	required double LeverPositionNominal__ = 3;
+	required double PressureSensorVoltageBackw__V = 4;
+	required double PressureSensorVoltageForw__V = 5;
+	required double LeverVoltagePosition2__V = 6;
+	required double LeverVoltagePosition1__V = 7;
+}
+
+message jVhbcEc1cPropB50 {
+	required double EngineSpeedGovernorDroop__perc = 1;
+}
+
+message jEc2cVhbcET3 {
+	required double EngChargeAirCoolerOutletTemp__deg_C = 1;
+	required double EngIntkVlvActationSystemOilTemp__deg_C = 2;
+	required double EngCoolantTempHiRes__deg_C = 3;
+	required double EngIntakeManifold1AirTemp__deg_C = 4;
+}
+
+message jVhbcEc2cETC2 {
+	required uint32 CurrentGear__ = 1;
+	required uint32 ActualGearRatio__ = 2;
+	required uint32 TransmissionRequestedRange__ = 3;
+	required uint32 TransmissionCurrentRange__ = 4;
+	required uint32 SelectedGearETC2__ = 5;
+}
+
+message jVgscVbccAlarm {
+	required uint32 AlarmNumber__ = 1;
+	required uint32 AlarmStatus__ = 2;
+}
+
+message jVgscBrc_GearShiftStatus {
+	required uint32 GearShiftMaxActVal__ = 1;
+	required uint32 GearShiftPreselReverse__ = 2;
+	required uint32 GearShiftPreselHeadland__ = 3;
+	required uint32 GearShiftPreselForward__ = 4;
+	required uint32 GearShiftActVal__ = 5;
+	required uint32 GearShiftSetVal__ = 6;
+}
+
+message jVuicMuicSwitch31 {
+	required uint32 Switch31Startsign__ = 1;
+	required uint32 Switch31SeqNo__ = 2;
+	required uint32 Switch31OpCount2__ = 3;
+	required uint32 Switch31OpCount1__ = 4;
+	required double Switch31DurSLC2__s = 5;
+	required double Switch31DurSLC1__s = 6;
+	required uint32 Switch31CRC__ = 7;
+	required uint32 Switch31ActVal2__ = 8;
+	required uint32 Switch31ActVal1__ = 9;
+}
+
+message jEc2cVhbcTP_DT {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 SeqNumber__ = 8;
+}
+
+message jEc2cVhbcTP_CM {
+	required uint32 PGNumber__ = 1;
+	required uint32 BamNoPackets__ = 2;
+	required uint32 BamMsgSize__ = 3;
+	required uint32 ControlByte__ = 4;
+}
+
+message jEc2cVhbcDM1 {
+	required sint32 OccurenceCount__ = 1;
+	required uint32 SpnConversionMethod__ = 2;
+	required uint32 FMI__ = 3;
+	required uint32 SPN3mostSignificantBits__ = 4;
+	required uint32 SPNsecondByte__ = 5;
+	required uint32 SPN8leastSignificantBits__ = 6;
+	required uint32 ReservedForSAEassignLamp__ = 7;
+	required uint32 MalFuncIndLampStatus__ = 8;
+	required uint32 RedStopLampStatus__ = 9;
+	required uint32 AmberWarnLampStatus__ = 10;
+	required uint32 ProtectLampStatus__ = 11;
+}
+
+message jEc1VhbcTP_DT {
+	required uint32 Byte7__ = 1;
+	required uint32 Byte6__ = 2;
+	required uint32 Byte5__ = 3;
+	required uint32 Byte4__ = 4;
+	required uint32 Byte3__ = 5;
+	required uint32 Byte2__ = 6;
+	required uint32 Byte1__ = 7;
+	required uint32 SeqNumber__ = 8;
+}
+
+message jEc1VhbcTP_CM {
+	required uint32 PGNumber__ = 1;
+	required uint32 BamNoPackets__ = 2;
+	required uint32 BamMsgSize__ = 3;
+	required uint32 ControlByte__ = 4;
+}
+

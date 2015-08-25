@@ -1,0 +1,1693 @@
+package rst.claas;
+
+option java_outer_classname = "SteeringCanType";
+
+message sEatcMatc_AuthenticationRequest {
+	required uint32 AuthenticationKey__ = 1;
+	required uint32 AuthenticationID__ = 2;
+	required uint32 MinorIndex__ = 3;
+	required uint32 MajorIndex__ = 4;
+}
+
+message sMatcEatc_AuthenticationResponse {
+	required uint32 SeedKey__ = 1;
+	required uint32 AuthenticationState__ = 2;
+	required uint32 MinorIndex__ = 3;
+	required uint32 MajorIndex__ = 4;
+}
+
+message sApedAtpsDevCcpXcp {
+	required uint32 DevCcpXcpByte8__ = 1;
+	required uint32 DevCcpXcpByte7__ = 2;
+	required uint32 DevCcpXcpByte6__ = 3;
+	required uint32 DevCcpXcpByte5__ = 4;
+	required uint32 DevCcpXcpByte4__ = 5;
+	required uint32 DevCcpXcpByte3__ = 6;
+	required uint32 DevCcpXcpByte2__ = 7;
+	required uint32 DevCcpXcpByte1__ = 8;
+}
+
+message sAtpsApedDevCcpXcp {
+	required uint32 DevCcpXcpByte8__ = 1;
+	required uint32 DevCcpXcpByte7__ = 2;
+	required uint32 DevCcpXcpByte6__ = 3;
+	required uint32 DevCcpXcpByte5__ = 4;
+	required uint32 DevCcpXcpByte4__ = 5;
+	required uint32 DevCcpXcpByte3__ = 6;
+	required uint32 DevCcpXcpByte2__ = 7;
+	required uint32 DevCcpXcpByte1__ = 8;
+}
+
+message Reserved_AgJunction_msg_12 {
+}
+
+message sAtpcBrc_CalibrationResponse {
+	required uint32 P_Gain__ = 1;
+	required double CurvatureCorrection__ = 2;
+	required uint32 ZeroPointWheelAngle__mV = 3;
+	required uint32 OffsetRight__mA = 4;
+	required uint32 OffsetLeft__mA = 5;
+	required uint32 Mux_Calibration__ = 6;
+	required uint32 SequenceNumber__ = 7;
+	required double EndStop_right__1_km = 8;
+	required double EndStop_left__1_km = 9;
+	required uint32 SafetyValve_power_supply__ = 10;
+	required uint32 PVED_power_supply__ = 11;
+	required uint32 CalibrationStatus__ = 12;
+}
+
+message sPcucBrc_CalibrationRequest {
+	required uint32 P_Gain__ = 1;
+	required double CurvatureCorrection__ = 2;
+	required uint32 ZeroPointWheelAngle__mV = 3;
+	required uint32 OffsetRight__mA = 4;
+	required uint32 OffsetLeft__mA = 5;
+	required uint32 Mux_Calibration__ = 6;
+	required uint32 SequenceNumber__ = 7;
+	required double EndStop_right__1_km = 8;
+	required double EndStop_left__1_km = 9;
+	required uint32 SafetyValve_power_supply__ = 10;
+	required uint32 PVED_power_supply__ = 11;
+	required uint32 CalibrationStatus__ = 12;
+}
+
+message sAtpcDev_Development_3 {
+	required sint32 steering_right_voltage__mV = 1;
+	required sint32 steering_left_voltage__mV = 2;
+}
+
+message sAtpcDev_Development_2 {
+	required double steering_right_pwm__perc = 1;
+	required double steering_left_pwm__perc = 2;
+	required sint32 steering_right_current_act__mA = 3;
+	required sint32 steering_left_current_act__mA = 4;
+}
+
+message sAtpcDev_Development_1 {
+	required sint32 steering_right_current_des__mA = 1;
+	required sint32 steering_left_current_des__mA = 2;
+	required double y_rho_stat__1_km = 3;
+	required double w_rho_stat__1_km = 4;
+}
+
+message Reserved_AgJunction_msg_11 {
+}
+
+message Reserved_AgJunction_msg_10 {
+}
+
+message Reserved_AgJunction_msg_9 {
+}
+
+message Reserved_AgJunction_msg_8 {
+}
+
+message Reserved_AgJunction_msg_7 {
+}
+
+message Reserved_AgJunction_msg_6 {
+}
+
+message Reserved_AgJunction_msg_5 {
+}
+
+message Reserved_AgJunction_msg_4 {
+}
+
+message Reserved_AgJunction_msg_3 {
+}
+
+message Reserved_AgJunction_msg_2 {
+}
+
+message Reserved_AgJunction_msg_1 {
+}
+
+message sAtpcBrc_GpsAntennaBracket {
+	required uint32 Position_Status__ = 1;
+	required uint32 Position_AnalogValue__mV = 2;
+}
+
+message sPcucBrc_SteeringSystemStatus {
+	required uint32 Reserved_1_byte__ = 1;
+	required double X_Track__m = 2;
+	required uint32 X_TrackStatus__ = 3;
+	required uint32 PathType__ = 4;
+	required uint32 SystemSteerActuator__ = 5;
+	required uint32 SystemStatus__ = 6;
+}
+
+message sCsrcCsatCamAppRStatusParam {
+	required uint32 CamAppRStatusPV_AvailableApp__ = 1;
+	required uint32 CamAppRStatusPV_ActivatedApp__ = 2;
+	required uint32 CamAppRStatusPI_AvailableApp__ = 3;
+	required uint32 CamAppRStatusPI_ActivatedApp__ = 4;
+	required uint32 CamAppRStatusParamState__ = 5;
+	required uint32 CamAppRStatusParamSet__ = 6;
+	required uint32 CamAppRStatusParamSel__ = 7;
+}
+
+message sCslcCsatCamAppLStatusParam {
+	required uint32 CamAppLStatusPV_AvailableApp__ = 1;
+	required uint32 CamAppLStatusPV_ActivatedApp__ = 2;
+	required uint32 CamAppLStatusPI_AvailableApp__ = 3;
+	required uint32 CamAppLStatusPI_ActivatedApp__ = 4;
+	required uint32 CamAppLStatusParamState__ = 5;
+	required uint32 CamAppLStatusParamSet__ = 6;
+	required uint32 CamAppLStatusParamSel__ = 7;
+}
+
+message sCsccCsatCamAppCStatusParam {
+	required uint32 CamAppCStatusPV_ActivatedApp__ = 1;
+	required uint32 CamAppCStatusPV_AvailableApp__ = 2;
+	required uint32 CamAppCStatusPI_ActivatedApp__ = 3;
+	required uint32 CamAppCStatusPI_AvailableApp__ = 4;
+	required uint32 CamAppCStatusParamState__ = 5;
+	required uint32 CamAppCStatusParamSet__ = 6;
+	required uint32 CamAppCStatusParamSel__ = 7;
+}
+
+message sCsrcCsctCamAppRStatusParam {
+	required uint32 CamAppRStatusPV_AvailableApp__ = 1;
+	required uint32 CamAppRStatusPV_ActivatedApp__ = 2;
+	required uint32 CamAppRStatusPI_AvailableApp__ = 3;
+	required uint32 CamAppRStatusPI_ActivatedApp__ = 4;
+	required uint32 CamAppRStatusParamState__ = 5;
+	required uint32 CamAppRStatusParamSet__ = 6;
+	required uint32 CamAppRStatusParamSel__ = 7;
+}
+
+message sCslcCsctCamAppLStatusParam {
+	required uint32 CamAppLStatusPV_AvailableApp__ = 1;
+	required uint32 CamAppLStatusPV_ActivatedApp__ = 2;
+	required uint32 CamAppLStatusPI_AvailableApp__ = 3;
+	required uint32 CamAppLStatusPI_ActivatedApp__ = 4;
+	required uint32 CamAppLStatusParamState__ = 5;
+	required uint32 CamAppLStatusParamSet__ = 6;
+	required uint32 CamAppLStatusParamSel__ = 7;
+}
+
+message sCsctCsrcCamAppRStatusParam {
+	required uint32 CamAppRStatusPV_AvailableApp__ = 1;
+	required uint32 CamAppRStatusPV_ActivatedApp__ = 2;
+	required uint32 CamAppRStatusParamSet__ = 3;
+	required uint32 CamAppRStatusParamSel__ = 4;
+}
+
+message sCsctCslcCamAppLStatusParam {
+	required uint32 CamAppLStatusPV_AvailableApp__ = 1;
+	required uint32 CamAppLStatusPV_ActivatedApp__ = 2;
+	required uint32 CamAppLStatusParamSet__ = 3;
+	required uint32 CamAppLStatusParamSel__ = 4;
+}
+
+message sCsctCsccCamAppCStatusParam {
+	required uint32 CamAppCStatusPV_ActivatedApp__ = 1;
+	required uint32 CamAppCStatusPV_AvailableApp__ = 2;
+	required uint32 CamAppCStatusParamSet__ = 3;
+	required uint32 CamAppCStatusParamSel__ = 4;
+}
+
+message sCsccCsctCamAppCStatusParam {
+	required uint32 CamAppCStatusPV_ActivatedApp__ = 1;
+	required uint32 CamAppCStatusPV_AvailableApp__ = 2;
+	required uint32 CamAppCStatusPI_ActivatedApp__ = 3;
+	required uint32 CamAppCStatusPI_AvailableApp__ = 4;
+	required uint32 CamAppCStatusParamState__ = 5;
+	required uint32 CamAppCStatusParamSet__ = 6;
+	required uint32 CamAppCStatusParamSel__ = 7;
+}
+
+message sCsrcCoedDevStat3 {
+	required uint32 Dev_CsdOutStatDoubleWord2__ = 1;
+	required uint32 Dev_CsdOutStatDoubleWord1__ = 2;
+}
+
+message sCslcCoedDevStat3 {
+	required uint32 Dev_CsdOutStatDoubleWord2__ = 1;
+	required uint32 Dev_CsdOutStatDoubleWord1__ = 2;
+}
+
+message sCsccCoedDevStat3 {
+	required uint32 Dev_CsdOutStatDoubleWord2__ = 1;
+	required uint32 Dev_CsdOutStatDoubleWord1__ = 2;
+}
+
+message sCoedCsrcDevStat1 {
+	required uint32 Dev_CsdOutStatByte8__ = 1;
+	required uint32 Dev_CsdOutStatByte7__ = 2;
+	required uint32 Dev_CsdOutStatByte6__ = 3;
+	required uint32 Dev_CsdOutStatByte5__ = 4;
+	required uint32 Dev_CsdOutStatByte4__ = 5;
+	required uint32 Dev_CsdOutStatByte3__ = 6;
+	required uint32 Dev_CsdOutStatByte2__ = 7;
+	required uint32 Dev_CsdOutStatByte1__ = 8;
+}
+
+message sCoedCslcDevStat1 {
+	required uint32 Dev_CsdOutStatByte8__ = 1;
+	required uint32 Dev_CsdOutStatByte7__ = 2;
+	required uint32 Dev_CsdOutStatByte6__ = 3;
+	required uint32 Dev_CsdOutStatByte5__ = 4;
+	required uint32 Dev_CsdOutStatByte4__ = 5;
+	required uint32 Dev_CsdOutStatByte3__ = 6;
+	required uint32 Dev_CsdOutStatByte2__ = 7;
+	required uint32 Dev_CsdOutStatByte1__ = 8;
+}
+
+message sCoedCsccDevStat1 {
+	required uint32 Dev_CsdOutStatByte8__ = 1;
+	required uint32 Dev_CsdOutStatByte7__ = 2;
+	required uint32 Dev_CsdOutStatByte6__ = 3;
+	required uint32 Dev_CsdOutStatByte5__ = 4;
+	required uint32 Dev_CsdOutStatByte4__ = 5;
+	required uint32 Dev_CsdOutStatByte3__ = 6;
+	required uint32 Dev_CsdOutStatByte2__ = 7;
+	required uint32 Dev_CsdOutStatByte1__ = 8;
+}
+
+message sCmccBrc_CameraRightInfo {
+	required sint32 CameraUserOffset__cm = 1;
+	required uint32 CameraUserAngle__ = 2;
+	required uint32 CameraTimestamp__ms = 3;
+	required uint32 CameraSpeed__mm_s = 4;
+	required uint32 CameraControllerState__ = 5;
+}
+
+message sCmccBrc_CameraLeftInfo {
+	required sint32 CameraUserOffset__cm = 1;
+	required uint32 CameraUserAngle__ = 2;
+	required uint32 CameraTimestamp__ms = 3;
+	required uint32 CameraSpeed__mm_s = 4;
+	required uint32 CameraControllerState__ = 5;
+}
+
+message sCsccBrc_CameraRightData {
+	required uint32 SteerOutputConfidence1__ = 1;
+	required uint32 CheckByte__ = 2;
+	required uint32 Distance4Cast_SVE__ = 3;
+	required uint32 CrossSection4Cast_SVE__ = 4;
+	required uint32 Distance_SVE__ = 5;
+	required uint32 CrossSectionArea_SVE__ = 6;
+	required uint32 FPS__ = 7;
+	required uint32 Angle_Tracking__ = 8;
+	required uint32 Offset_Tracking__ = 9;
+	required uint32 SteerOutputConfidence__ = 10;
+	required uint32 CsXcBrc_CameraDataSel__ = 11;
+}
+
+message sCsccBrc_CameraLeftData {
+	required uint32 SteerOutputConfidence1__ = 1;
+	required uint32 CheckByte__ = 2;
+	required uint32 Distance4Cast_SVE__ = 3;
+	required uint32 CrossSection4Cast_SVE__ = 4;
+	required uint32 Distance_SVE__ = 5;
+	required uint32 CrossSectionArea_SVE__ = 6;
+	required uint32 FPS__ = 7;
+	required uint32 Angle_Tracking__ = 8;
+	required uint32 Offset_Tracking__ = 9;
+	required uint32 SteerOutputConfidence__ = 10;
+	required uint32 CsXcBrc_CameraDataSel__ = 11;
+}
+
+message sCmccBrc_CameraRightData {
+	required uint32 CamSwatMessActivated__ = 1;
+	required uint32 CameraProgramCtrl__ = 2;
+	required uint32 CameraInitializationReq__ = 3;
+	required uint32 CameraShutter__ = 4;
+	required uint32 CameraGain__ = 5;
+	required uint32 CameraAutoGainShutter__ = 6;
+	required double CameraCalibOffset__mm = 7;
+	required double CameraCalibHeading__deg = 8;
+	required uint32 CameraRowsBetwWheels__rows = 9;
+	required uint32 CameraNumberOfRows__rows = 10;
+	required uint32 CameraMinorDistance__cm = 11;
+	required uint32 CameraMainTargetDistance__cm = 12;
+	required uint32 CameraTargetHeight__cm = 13;
+	required uint32 CameraTargetWidth__cm = 14;
+	required uint32 CameraDebugSetting__ = 15;
+	required uint32 CameraThreshold__ = 16;
+	required uint32 CameraAngle__deg = 17;
+	required uint32 CameraHeight__cm = 18;
+	required uint32 CameraTrackingProgram__ = 19;
+	required uint32 CameraDataContent_sel__ = 20;
+}
+
+message sCmccBrc_CameraLeftData {
+	required uint32 CamSwatMessActivated__ = 1;
+	required uint32 CameraProgramCtrl__ = 2;
+	required uint32 CameraInitializationReq__ = 3;
+	required uint32 CameraShutter__ = 4;
+	required uint32 CameraGain__ = 5;
+	required uint32 CameraAutoGainShutter__ = 6;
+	required double CameraCalibOffset__mm = 7;
+	required double CameraCalibHeading__deg = 8;
+	required uint32 CameraRowsBetwWheels__rows = 9;
+	required uint32 CameraNumberOfRows__rows = 10;
+	required uint32 CameraMinorDistance__cm = 11;
+	required uint32 CameraMainTargetDistance__cm = 12;
+	required uint32 CameraTargetHeight__cm = 13;
+	required uint32 CameraTargetWidth__cm = 14;
+	required uint32 CameraDebugSetting__ = 15;
+	required uint32 CameraThreshold__ = 16;
+	required uint32 CameraAngle__deg = 17;
+	required uint32 CameraHeight__cm = 18;
+	required uint32 CameraTrackingProgram__ = 19;
+	required uint32 CameraDataContent_sel__ = 20;
+}
+
+message sCsrsVbccAlarm {
+	required uint32 AlarmStatus__ = 1;
+	required uint32 AlarmMsgCounter__ = 2;
+	required uint32 AlarmId__ = 3;
+}
+
+message sCsrsBrc_CscmAlive {
+	required uint32 SwVersionLow__ = 1;
+	required uint32 SwVersionMiddle__ = 2;
+	required uint32 SwVersionHigh__ = 3;
+	required uint32 ModuleStatus__ = 4;
+	required uint32 ModuleAliveMsgCounter__ = 5;
+}
+
+message sCslsVbccAlarm {
+	required uint32 AlarmStatus__ = 1;
+	required uint32 AlarmMsgCounter__ = 2;
+	required uint32 AlarmId__ = 3;
+}
+
+message sCslsBrc_CscmAlive {
+	required uint32 FunctionalityIdent__ = 1;
+	required uint32 SwVersionLow__ = 2;
+	required uint32 SwVersionMiddle__ = 3;
+	required uint32 SwVersionHigh__ = 4;
+	required uint32 ModuleStatus__ = 5;
+	required uint32 ModuleAliveMsgCounter__ = 6;
+}
+
+message sGpscBrc_Time_Date {
+	required sint32 LocalOffsetMinutes__mins = 1;
+	required double Time__sec = 2;
+	required uint32 Date__day = 3;
+}
+
+message sRtccGpsc_ParameterRequest {
+	required uint32 ParameterValue_Byte5__ = 1;
+	required uint32 ParameterValue_Byte4__ = 2;
+	required uint32 ParameterValue_Byte3__ = 3;
+	required uint32 ParameterValue_Byte2__ = 4;
+	required uint32 ParameterValue_Byte1__ = 5;
+	required uint32 ParameterID__ = 6;
+	required uint32 CommandID__ = 7;
+	required uint32 Frame_ParameterRequest__ = 8;
+	required uint32 Sequence_ParameterRequest__ = 9;
+}
+
+message sGpscRtcc_ParameterResponse {
+	required uint32 ParameterValue_Byte5_Response__ = 1;
+	required uint32 ParameterValue_Byte4_Response__ = 2;
+	required uint32 ParameterValue_Byte3_Response__ = 3;
+	required uint32 ParameterValue_Byte2_Response__ = 4;
+	required uint32 ParameterValue_Byte1_Response__ = 5;
+	required uint32 ParameterID_Response__ = 6;
+	required uint32 CommandID_Response__ = 7;
+	required uint32 Sequence_ParameterResponse__ = 8;
+	required uint32 Frame_ParameterResponse__ = 9;
+}
+
+message sClbtClbc_CalibrationRequest {
+	required uint32 CalibrationInteractive_Signal__ = 1;
+}
+
+message sClbcClbt_CalibrationResponse {
+	required uint32 CalibrationStatus__ = 1;
+	required uint32 CalibrationProgress__perc = 2;
+	required uint32 CalibrationInteractiveInfo__ = 3;
+	required double DeviationDrivingStraight_deg__deg = 4;
+	required double DeviationDrivingStraight_curv__1_km = 5;
+}
+
+message sPcusBrc_PcumAlive {
+	required uint32 Reserved_2_byte__ = 1;
+	required uint32 FunctionalityIdent__ = 2;
+	required uint32 SwVersionMiddle__ = 3;
+	required uint32 SwVersionLow__ = 4;
+	required uint32 SwVersionHigh__ = 5;
+	required uint32 ModuleStatus__ = 6;
+	required uint32 ModuleAliveMsgCounter__ = 7;
+}
+
+message sAtpcBrc_XerionSpecificInfo {
+	required double SteeringCrabAngle__deg = 1;
+	required uint32 SteeringProgram__ = 2;
+	required uint32 SteeringCabinPosition__ = 3;
+	required double SteeringRearAxleAngle__deg = 4;
+	required double SteeringFrontAxleAngle__deg = 5;
+}
+
+message sAtpcBrc_CommonMachineInfo {
+	required uint32 Reserved_4_bit__ = 1;
+	required uint32 ManualOverride__ = 2;
+	required uint32 SeatSwitch__ = 3;
+	required uint32 ATP_Release__ = 4;
+	required double WheelSpeed__ = 5;
+	required uint32 WheelAngleSensor__mV = 6;
+	required double MaxLateralAccel__m_s2 = 7;
+	required uint32 DrivingDirection__ = 8;
+	required uint32 WorkingPositionStatus__ = 9;
+}
+
+message sGpscBrc_GNSSSatsInView {
+	required double RangeResiduals04_B00_B15__m = 1;
+	required double RangeResiduals04_B16_B31__m = 2;
+	required double SNR13_B00_B07__dB = 3;
+	required double SNR13_B08_B15__dB = 4;
+	required double SNR06_B00_B07__dB = 5;
+	required double SNR06_B08_B15__dB = 6;
+	required double RangeResiduals15_B00_B23__m = 7;
+	required double RangeResiduals15_B24_B31__m = 8;
+	required double RangeResiduals14_B00_B07__m = 9;
+	required double RangeResiduals14_B08_B31__m = 10;
+	required double RangeResiduals11_B00_B15__m = 11;
+	required double RangeResiduals11_B16_B31__m = 12;
+	required double RangeResiduals08_B00_B23__m = 13;
+	required double RangeResiduals08_B24_B31__m = 14;
+	required double RangeResiduals07_B00_B07__m = 15;
+	required double RangeResiduals07_B08_B31__m = 16;
+	required double RangeResiduals01_B00_B23__m = 17;
+	required double RangeResiduals01_B24_B31__m = 18;
+	required double Elevation11_B00_B07__rad = 19;
+	required double Elevation11_B08_B15__rad = 20;
+	required double Elevation04_B00_B07__rad = 21;
+	required double Elevation04_B08_B15__rad = 22;
+	required double Azimuth12_B00_B07__rad = 23;
+	required double Azimuth12_B08_B15__rad = 24;
+	required double Azimuth05_B00_B07__rad = 25;
+	required double Azimuth05_B08_B15__rad = 26;
+	required uint32 Sequence__ = 27;
+	required uint32 PRNStatus16__ = 28;
+	required uint32 PRNStatus15__ = 29;
+	required uint32 PRNStatus14__ = 30;
+	required uint32 PRNStatus13__ = 31;
+	required uint32 PRNStatus12__ = 32;
+	required uint32 PRNStatus11__ = 33;
+	required uint32 PRNStatus10__ = 34;
+	required uint32 PRNStatus09__ = 35;
+	required uint32 PRNStatus08__ = 36;
+	required uint32 PRNStatus07__ = 37;
+	required uint32 PRNStatus06__ = 38;
+	required uint32 PRNStatus05__ = 39;
+	required uint32 PRNStatus04__ = 40;
+	required uint32 PRNStatus03__ = 41;
+	required double RangeResiduals16__m = 42;
+	required double RangeResiduals13__m = 43;
+	required double RangeResiduals12__m = 44;
+	required double RangeResiduals10__m = 45;
+	required double RangeResiduals09__m = 46;
+	required double RangeResiduals06__m = 47;
+	required double RangeResiduals05__m = 48;
+	required double RangeResiduals03__m = 49;
+	required double SNR16__dB = 50;
+	required double SNR15__dB = 51;
+	required double SNR14__dB = 52;
+	required double SNR12__dB = 53;
+	required double SNR11__dB = 54;
+	required double SNR10__dB = 55;
+	required double SNR09__dB = 56;
+	required double SNR08__dB = 57;
+	required double SNR07__dB = 58;
+	required double SNR05__dB = 59;
+	required double SNR04__dB = 60;
+	required double SNR03__dB = 61;
+	required double Azimuth16__rad = 62;
+	required double Azimuth15__rad = 63;
+	required double Azimuth14__rad = 64;
+	required double Azimuth13__rad = 65;
+	required double Azimuth11__rad = 66;
+	required double Azimuth10__rad = 67;
+	required double Azimuth09__rad = 68;
+	required double Azimuth08__rad = 69;
+	required double Azimuth07__rad = 70;
+	required double Azimuth06__rad = 71;
+	required double Azimuth04__rad = 72;
+	required double Azimuth03__rad = 73;
+	required double Elevation16__rad = 74;
+	required double Elevation15__rad = 75;
+	required double Elevation14__rad = 76;
+	required double Elevation13__rad = 77;
+	required double Elevation12__rad = 78;
+	required double Elevation10__rad = 79;
+	required double Elevation09__rad = 80;
+	required double Elevation08__rad = 81;
+	required double Elevation07__rad = 82;
+	required double Elevation06__rad = 83;
+	required double Elevation05__rad = 84;
+	required double Elevation03__rad = 85;
+	required uint32 PRN16__ = 86;
+	required uint32 PRN15__ = 87;
+	required uint32 PRN14__ = 88;
+	required uint32 PRN13__ = 89;
+	required uint32 PRN12__ = 90;
+	required uint32 PRN11__ = 91;
+	required uint32 PRN10__ = 92;
+	required uint32 PRN09__ = 93;
+	required uint32 PRN08__ = 94;
+	required uint32 PRN07__ = 95;
+	required uint32 PRN06__ = 96;
+	required uint32 PRN05__ = 97;
+	required uint32 PRN04__ = 98;
+	required uint32 PRN03__ = 99;
+	required uint32 PRNStatus02__ = 100;
+	required double RangeResiduals02__m = 101;
+	required double SNR02__dB = 102;
+	required double Azimuth02__rad = 103;
+	required double Elevation02__rad = 104;
+	required uint32 PRN02__ = 105;
+	required uint32 PRNStatus01__ = 106;
+	required double SNR01__dB = 107;
+	required double Azimuth01__rad = 108;
+	required double Elevation01__rad = 109;
+	required uint32 PRN01__ = 110;
+	required uint32 NumberOfSVs___ = 111;
+	required uint32 SID__ = 112;
+	required uint32 Frame__ = 113;
+	required sint32 RangeResidualMode__ = 114;
+}
+
+message sGpscBrc_PsDelHiPrecRapidUpdate {
+	required double LongitudeDelta__s_deg = 1;
+	required double LatitudeDelta__s_deg = 2;
+	required double TimeDelta__sec = 3;
+	required uint32 SequenceID___ = 4;
+}
+
+message sGpscBrc_DirectionData {
+	required double Drift_B00_B07__m_s = 1;
+	required double Drift_B08_B15__m_s = 2;
+	required uint32 Sequence__ = 3;
+	required double Set__rad = 4;
+	required double SpeedThroughWater__m_s = 5;
+	required double Heading__rad = 6;
+	required double SpeedOverGround__m_s = 7;
+	required double CourseOverGround__rad = 8;
+	required uint32 SID__ = 9;
+	required uint32 Set_COG_HeadingRef__ = 10;
+	required uint32 Frame__ = 11;
+	required uint32 DataMode__ = 12;
+}
+
+message sCmccBrc_CameraCenterInfo {
+	required sint32 CameraUserOffset__cm = 1;
+	required uint32 CameraUserAngle__ = 2;
+	required uint32 CameraTimestamp__ms = 3;
+	required uint32 CameraSpeed__mm_s = 4;
+	required uint32 CameraControllerState__ = 5;
+}
+
+message sCmccBrc_CameraCenterData {
+	required uint32 CamSwatMessActivated__ = 1;
+	required uint32 CameraProgramCtrl__ = 2;
+	required uint32 CameraInitializationReq__ = 3;
+	required uint32 CameraShutter__ = 4;
+	required uint32 CameraGain__ = 5;
+	required uint32 CameraAutoGainShutter__ = 6;
+	required double CameraCalibOffset__mm = 7;
+	required double CameraCalibHeading__deg = 8;
+	required uint32 CameraRowsBetwWheels__rows = 9;
+	required uint32 CameraNumberOfRows__rows = 10;
+	required uint32 CameraMinorDistance__cm = 11;
+	required uint32 CameraMainTargetDistance__cm = 12;
+	required uint32 CameraTargetHeight__cm = 13;
+	required uint32 CameraTargetWidth__cm = 14;
+	required uint32 CameraDebugSetting__ = 15;
+	required uint32 CameraThreshold__ = 16;
+	required uint32 CameraAngle__deg = 17;
+	required uint32 CameraHeight__cm = 18;
+	required uint32 CameraTrackingProgram__ = 19;
+	required uint32 CameraDataContent_sel__ = 20;
+}
+
+message sCscsVbccAlarm {
+	required uint32 AlarmStatus__ = 1;
+	required uint32 AlarmMsgCounter__ = 2;
+	required uint32 AlarmId__ = 3;
+}
+
+message sCsccBrc_CameraCenterSteerInfo {
+	required sint32 CameraDebugInfo__ = 1;
+	required double CameraHeading__deg = 2;
+	required double CameraOffset__mm = 3;
+	required uint32 CameraQuality__ = 4;
+	required uint32 CameraSteerInfo_sel__ = 5;
+}
+
+message sCsccBrc_CameraCenterData {
+	required uint32 SteerOutputConfidence1__ = 1;
+	required uint32 CheckByte__ = 2;
+	required uint32 Distance4Cast_SVE__ = 3;
+	required uint32 CrossSection4Cast_SVE__ = 4;
+	required uint32 Distance_SVE__ = 5;
+	required uint32 CrossSectionArea_SVE__ = 6;
+	required uint32 FPS__ = 7;
+	required uint32 Angle_Tracking__ = 8;
+	required uint32 Offset_Tracking__ = 9;
+	required uint32 SteerOutputConfidence__ = 10;
+	required uint32 CsXcBrc_CameraDataSel__ = 11;
+}
+
+message sAtpsVbccAlarm {
+	required uint32 AlarmMsgCounter__ = 1;
+	required uint32 AlarmStatus__ = 2;
+	required uint32 AlarmId__ = 3;
+}
+
+message sCoecVpdc_GyroOffset {
+	required uint32 Dev_Coec_GyroOffset__mdeg_sec = 1;
+}
+
+message s3dgcBrc_Inclination {
+	required uint32 MessageCounter_4__ = 1;
+	required double PitchInclinationAngle__deg = 2;
+	required double RollInclinationAngle__deg = 3;
+	required uint32 StatusRollInclination__bool = 4;
+	required uint32 StatusPitchInclination__bool = 5;
+}
+
+message s3dgcBrc_SerNo {
+	required uint32 SoftwareVersion__ = 1;
+	required uint32 ProductionMonth__ = 2;
+	required uint32 ProductionDate__ = 3;
+	required uint32 ModuleSerialNumber__ = 4;
+	required uint32 MechanicalVersion__ = 5;
+	required uint32 HardwareVersion__ = 6;
+}
+
+message s3dgcBrc_InclinationAcc {
+	required uint32 MessageCounter_5__ = 1;
+	required double PitchInclinationAngleAcc__deg = 2;
+	required double RollInclinationAngleAcc__deg = 3;
+	required uint32 StatusRollInclinationAcc__bool = 4;
+	required uint32 StatusPitchInclinationAcc__bool = 5;
+}
+
+message sNavcCoec_Dev23_FDM {
+	required uint32 Dev_Navc_T_FDM_Write__ms = 1;
+	required uint32 Dev_Navc_T_FDM_Read__ms = 2;
+}
+
+message sNavcCoec_Dev22_Display {
+	required uint32 Dev_Navc_T_DPL__msec = 1;
+}
+
+message sCoecNavc_Display_Config_GPII {
+	required uint32 Dev_Coec_SetDelayTime_NVWTread__ = 1;
+	required uint32 EnableDevMessage__ = 2;
+}
+
+message sTersBrc_TermAlive {
+	required uint32 ModuleStatus__ = 1;
+	required uint32 ModuleAliveMsgCounter__ = 2;
+	required uint32 SwVersionLow__ = 3;
+	required uint32 SwVersionMiddle__ = 4;
+	required uint32 SwVersionHigh__ = 5;
+}
+
+message sVpdsTermcAlarm {
+	required uint32 AlarmMsgCounter__ = 1;
+	required uint32 AlarmStatus__ = 2;
+	required uint32 AlarmId__ = 3;
+}
+
+message sAtpcBrc_MachineWorkingHours {
+	required uint32 WorkingHours__sec = 1;
+}
+
+message sNavcCoec_Dev04_Control2 {
+	required uint32 Dev_Navc_Ctrl_SystemState__ = 1;
+	required uint32 Dev_Navc_Ctrl_MachineType__ = 2;
+	required uint32 Dev_Navc_BediTaste__ = 3;
+	required uint32 Dev_Navc_Ctrl_CalibrationCmd__ = 4;
+	required uint32 Dev_Navc_Ctrl_FactContourSmooth__ = 5;
+}
+
+message sNavcCoec_Dev03_Control1 {
+	required uint32 Dev_Navc_Ctrl_RefLineCourse__muerad = 1;
+	required uint32 Dev_Navc_Ctrl_NavGuideCtrl__ = 2;
+	required uint32 Dev_Navc_Ctrl_RefLineCmd__ = 3;
+	required uint32 Dev_Navc_Ctrl_RefLineCtrl__ = 4;
+	required uint32 Dev_Navc_Ctrl_NavFunction__ = 5;
+	required uint32 Dev_Navc_Ctrl_ContourRecMode__ = 6;
+	required uint32 Dev_Navc_Ctrl_ShiftWidth__mm = 7;
+	required uint32 Dev_Navc_Ctrl_ShiftCmd__ = 8;
+	required uint32 Dev_Navc_Ctrl_NavCtrl__ = 9;
+}
+
+message sNavcCoec_Dev10_Track2 {
+	required sint32 Dev_Navc_TrackRangeRel__ = 1;
+	required uint32 Dev_Navc_State_TraceDir__ = 2;
+	required uint32 Dev_Navc_MachineHeading__0_1_mrad = 3;
+}
+
+message sNavcCoec_Dev07_Status2 {
+	required uint32 Dev_Navc_Contour_NumberOfPoints__ = 1;
+	required uint32 Dev_Navc_FctTr_TrackSmoothing__ = 2;
+	required uint32 Dev_Navc_FctTr_TrackShifting__ = 3;
+	required uint32 Dev_Navc_FctTr_TrackNew__ = 4;
+	required uint32 Dev_Navc_FctTr_TrackControl__ = 5;
+	required uint32 Dev_Navc_FctTr_TrackChange__ = 6;
+	required uint32 Dev_Navc_FctTr_LocSearch_Init__ = 7;
+	required uint32 Dev_Navc_FctTr_LocSearch_BerRel__ = 8;
+	required uint32 Dev_Navc_FctTr_GlobSearch__ = 9;
+	required uint32 Dev_Navc_State_RefLineCourse_Out__muerad = 10;
+	required uint32 Dev_Navc_State_CalibrationXAngle__ = 11;
+	required double Dev_Navc_XAngleOffset_out__deg = 12;
+}
+
+message sNavcCoec_Dev08_LocalPosition {
+	required sint32 Dev_Navc_Position_Y__mm = 1;
+	required sint32 Dev_Navc_Position_X__mm = 2;
+}
+
+message sNavcCoec_Dev05_Status {
+	required uint32 Dev_Navc_State_SearchContour__ = 1;
+	required uint32 Dev_Navc_State_GpsAccuracyWarn__ = 2;
+	required uint32 Dev_Navc_State_WarnRefLineRec__ = 3;
+	required uint32 Dev_Navc_State_GpsState__ = 4;
+	required sint32 Dev_Navc_State_RefLineShiftValu__ = 5;
+	required uint32 Dev_Navc_State_RefLineRecState__ = 6;
+	required uint32 Dev_Navc_State_NavState__ = 7;
+	required uint32 Dev_Navc_State_GuidanceState__ = 8;
+	required uint32 Dev_Navc_State_GpsAccuracy__ = 9;
+	required uint32 Dev_Navc_State_ContourRecState__ = 10;
+}
+
+message sNavcCoec_Dev02_Parameter {
+	required double Dev_Navc_Par_OffsLon_CenterOfRot__mm = 1;
+	required double Dev_Navc_Par_AntennaOffset_Lon__mm = 2;
+	required double Dev_Navc_Par_AntennaOffset_Lat__mm = 3;
+	required uint32 Dev_Navc_Par_ThreshCurveRadius__dm = 4;
+	required uint32 Dev_Navc_Par_ThresholdGpsAccur__cm = 5;
+	required uint32 Dev_Navc_Par_EnableThreshGpsAcc__ = 6;
+	required sint32 Dev_Navc_Par_SensivityOnTrack__ = 7;
+	required double Dev_Navc_Par_ImplementOffsetLong__mm = 8;
+	required double Dev_Navc_Par_Antenna_Height__mm = 9;
+	required double Dev_Navc_Par_AxisDistance__mm = 10;
+	required double Dev_Navc_Par_ImplementOffsetLate__mm = 11;
+	required double Dev_Navc_Par_ImplementWidth__mm = 12;
+	required sint32 Dev_Navc_Par_DistFrAxisImpl__cm = 13;
+	required uint32 Dev_Navc_ModeSignal_Par__ = 14;
+}
+
+message sGpscRtcc_CanRs232Receive {
+	required uint32 DataReceive_Byte7__ = 1;
+	required uint32 DataReceive_Byte6__ = 2;
+	required uint32 DataReceive_Byte5__ = 3;
+	required uint32 DataReceive_Byte4__ = 4;
+	required uint32 DataReceive_Byte3__ = 5;
+	required uint32 DataReceive_Byte2__ = 6;
+	required uint32 DataReceive_Byte1__ = 7;
+	required uint32 ValidBytesReceive__ = 8;
+	required uint32 PacketNumberReceive__ = 9;
+}
+
+message sRtccGpsc_CanRs232Transmit {
+	required uint32 DataTransmit_Byte7__ = 1;
+	required uint32 DataTransmit_Byte6__ = 2;
+	required uint32 DataTransmit_Byte5__ = 3;
+	required uint32 DataTransmit_Byte4__ = 4;
+	required uint32 DataTransmit_Byte3__ = 5;
+	required uint32 DataTransmit_Byte2__ = 6;
+	required uint32 DataTransmit_Byte1__ = 7;
+	required uint32 ValidBytesTransmit__ = 8;
+	required uint32 PacketNumberTransmit__ = 9;
+}
+
+message sRtccGpsc_CanRs232ControlCommand {
+	required uint32 PortSelection__ = 1;
+	required uint32 StopBits__ = 2;
+	required uint32 Parity__ = 3;
+	required uint32 BitLen__ = 4;
+	required uint32 BaudRate__ = 5;
+	required uint32 TransferStatus__ = 6;
+}
+
+message sAtpcIsoc_GMS {
+	required uint32 SteeringSystemReadiness__ = 1;
+	required uint32 SteeringInputPositionStatus__ = 2;
+	required uint32 RequestResetCommandStatus__ = 3;
+	required uint32 MechanicalSystemLockout__ = 4;
+	required double EstimatedCurvature__km_1 = 5;
+}
+
+message sIsocAtpc_GSC {
+	required uint32 CurvatureCommandStatus__ = 1;
+	required double CurvatureCommand__km_1 = 2;
+}
+
+message sEymsBrc_EymmALARM {
+}
+
+message sEymsBrc_EymmAlive {
+	required double NavigationEstimatedWorkingWidth__m = 1;
+	required uint32 ModuleAliveMsgCounter__ = 2;
+	required uint32 ModuleStatus__ = 3;
+}
+
+message sEybcBrc_EybmTotalCountValues {
+	required uint32 Modebyte_TotalCountValues__ = 1;
+	required double TotalCountYieldDryMass__t = 2;
+	required double TotalCountYield__t = 3;
+	required double TotalCountDistWheelRoad__km = 4;
+	required double TotalCountDistWheelField__km = 5;
+	required double TotalCountDistWheel__km = 6;
+	required double TotalCountFuelRoad__l = 7;
+	required double TotalCountFuelField__l = 8;
+	required double TotalCountFuel__l = 9;
+	required double TotalCountChopperHours__h = 10;
+	required double TotalCountThreshingHours__h = 11;
+	required double TotalCountEngine2OpHours__h = 12;
+	required double TotalCountEngine1OpHours__h = 13;
+	required double TotalCountConcentrateDosing__L = 14;
+	required double TotalCountWaterDosing__L = 15;
+}
+
+message sEybcBrc_EybmPerformanceData {
+	required uint32 Modebyte_PerformanceData__ = 1;
+	required double CropDelayYield__sec = 2;
+	required uint32 CropSelection__ = 3;
+	required uint32 NumOfSegmentsActVal__ = 4;
+	required uint32 NumOfSegmentsMaxVal__ = 5;
+	required double MaxWorkingWidth__m = 6;
+	required double YieldCalibrationFactor__ = 7;
+	required double EngineFuelConsumption__l_h = 8;
+	required double SpecificFruitWeight__g_l = 9;
+	required double MoistureActVal__perc = 10;
+	required double GrainTemperature__deg_C = 11;
+	required double YieldPerformance__t_h = 12;
+}
+
+message sEybcBrc_EybmMachineStatus {
+	required uint32 YieldCalibStatus__ = 1;
+	required uint32 StrawChopperStatus__ = 2;
+	required uint32 MachineStatus_ReverseDrive__ = 3;
+	required uint32 MachineStatus_EngineRunning__ = 4;
+	required uint32 RoadTravelSwitch__ = 5;
+	required uint32 HeaderStatus__ = 6;
+	required uint32 MainDriveStatus__ = 7;
+	required uint32 WorkingPositionStatus__ = 8;
+}
+
+message sEybcBrc_EybmMachineData {
+	required uint32 ConfigMachineNumber__ = 1;
+	required uint32 ConfigMachineType_CH__ = 2;
+	required double VehicleSpeed__km_h = 3;
+	required double EngineRpmSignalActVal__rpm = 4;
+	required double CacActualValueLowermatic__ = 5;
+	required uint32 Modebyte_MachineData__ = 6;
+}
+
+message sNavcCoec_Dev06_StatusM {
+	required uint32 Dev_Navc_CanTrig_Longitude__ = 1;
+	required uint32 Dev_Navc_StateM_InclineSensor__ = 2;
+	required uint32 Dev_Navc_StateM_ATP__ = 3;
+	required uint32 Dev_Navc_StateM_VPDM__ = 4;
+	required sint32 Dev_Navc_State_XCorrSpecSteer__cm = 5;
+}
+
+message sNavcCoec_Dev09_Track1 {
+	required sint32 Dev_Navc_TrackCurvature__1_100km = 1;
+	required sint32 Dev_Navc_TrackDirectionError__0_1_mrad = 2;
+	required sint32 Dev_Navc_XTrackError__ = 3;
+	required sint32 Dev_Navc_TrackNumber__ = 4;
+}
+
+message sGpscBrc_GNSSPseudoRNoise {
+	required uint32 Sequence_PseudoNoise__ = 1;
+	required uint32 Frame_PseudoNoise__ = 2;
+	required double STDMinorAxis_B8_B15__m = 3;
+	required double STDMinorAxis_B0_B7__m = 4;
+	required double STDMajorAxis__m = 5;
+	required double STDLongitudeError__m = 6;
+	required double STDLatitudeError__m = 7;
+	required double STDAltitudeError__m = 8;
+	required uint32 SID__ = 9;
+	required double RMSOfPositionUncertainty__m = 10;
+	required double OrientationMajorAxis__rad = 11;
+	required uint32 SizeOfBytesPseudoNoise__ = 12;
+}
+
+message sGpscBrc_GNSSPositionData {
+	required uint32 Frame_PosDat__ = 1;
+	required uint32 SizeOfBytes__ = 2;
+	required uint32 SequenceID__ = 3;
+	required double AgeOfDGNSSCorrections1__sec = 4;
+	required double AgeOfDGNSSCorrections2__sec = 5;
+	required double AltitudeHigh__m = 6;
+	required double AltitudeLow__m = 7;
+	required double GeoidalSeparation_B123__m = 8;
+	required double GeoidalSeparation_B4__m = 9;
+	required uint32 GNSS_Reserved1__ = 10;
+	required uint32 GNSSIntegrity__ = 11;
+	required uint32 GNSSMethod__ = 12;
+	required double HDOP__ = 13;
+	required double LatitudeHigh_B12__deg = 14;
+	required double LatitudeHigh_B34__deg = 15;
+	required double LatitudeLow__deg = 16;
+	required double LongitudeHigh_B1__deg = 17;
+	required double LongitudeHigh_B234__deg = 18;
+	required double LongitudeLow__deg = 19;
+	required uint32 NumberOfReferenceStations__ = 20;
+	required uint32 NumberOfSVs__ = 21;
+	required double PDOP__ = 22;
+	required uint32 PositionDate__day = 23;
+	required double PositionTime_B123__sec = 24;
+	required double PositionTime_B4__sec = 25;
+	required uint32 ReferenceStationID1__ = 26;
+	required uint32 ReferenceStationID2_BIT_0bis3__ = 27;
+	required uint32 ReferenceStationID2_BIT_4bis11__ = 28;
+	required uint32 RefrenceStationType1__ = 29;
+	required uint32 RefrenceStationType2__ = 30;
+	required uint32 TypeOfSystem__ = 31;
+	required uint32 Sequence_PosDat__ = 32;
+}
+
+message sAtptAtpcAtpCtrl {
+	required uint32 AtpCV_SetZeroPointWheelAngle__ = 1;
+	required uint32 AtpCV_SelectGuidanceSensor__ = 2;
+	required uint32 AtpCV_SearchCalGuidanceSensor__ = 3;
+	required uint32 AtpCV_MainSwitchATP__ = 4;
+	required uint32 AtpCtrlSet__ = 5;
+	required uint32 AtpCtrlSel__ = 6;
+}
+
+message sAtpcAtptAtpCtrl {
+	required uint32 AtpCV_SetZeroPointWheelAngle__ = 1;
+	required uint32 AtpCV_SelectGuidanceSensor__ = 2;
+	required uint32 AtpCV_SearchCalGuidanceSensor__ = 3;
+	required uint32 AtpCV_MainSwitchATP__ = 4;
+	required uint32 AtpCtrlState__ = 5;
+	required uint32 AtpCtrlSet__ = 6;
+	required uint32 AtpCtrlSel__ = 7;
+	required uint32 AtpCI_SetZeroPointWheelAngle__ = 8;
+	required uint32 AtpCI_SelectGuidanceSensor__ = 9;
+	required uint32 AtpCI_SearchCalGuidanceSensor__ = 10;
+	required uint32 AtpCI_MainSwitchATP__ = 11;
+}
+
+message sCm2cAtpc_GSC {
+	required double CurvatureCommand__km_1 = 1;
+	required uint32 CurvatureCommandStatus__ = 2;
+}
+
+message sCm2sBrc_Cm2mAlive {
+	required uint32 SwVersionLow__ = 1;
+	required uint32 SwVersionMiddle__ = 2;
+	required uint32 SwVersionHigh__ = 3;
+	required uint32 ModuleStatus__ = 4;
+	required uint32 ModuleAliveMsgCounter__ = 5;
+}
+
+message sCscsBrc_CscmAlive {
+	required uint32 SwVersionLow__ = 1;
+	required uint32 SwVersionMiddle__ = 2;
+	required uint32 SwVersionHigh__ = 3;
+	required uint32 ModuleStatus__ = 4;
+	required uint32 ModuleAliveMsgCounter__ = 5;
+}
+
+message s3dgcBrc_Data3 {
+	required double PitchRate__deg_sec = 1;
+	required double VerticalAcceleration__m_secsec = 2;
+	required sint32 StatusVerticalAcceleration__bool = 3;
+	required uint32 StatusPitchRate__bool = 4;
+	required uint32 MessageCounter_3__ = 5;
+}
+
+message sNavcBrc_MachineInfo {
+	required double Offset_Inclination_Y__rad = 1;
+	required double Offset_Inclination_X__rad = 2;
+	required uint32 MachineType__ = 3;
+	required sint32 Navc_TrackNumber__ = 4;
+}
+
+message sAtpcBrc_MachineData {
+	required uint32 ConfigMachineNumber__ = 1;
+	required uint32 SteeringInterfaceVersion__ = 2;
+	required uint32 Reserved_1_byte__ = 3;
+	required uint32 ConfigMachineType__ = 4;
+}
+
+message sCbbcTrmcIndication {
+	required uint32 IndicationNtripCasterConnectCnt__ = 1;
+	required uint32 IndicationGPSReference__ = 2;
+	required uint32 IndicationStatusCommand__ = 3;
+	required uint32 IndicationSimState__ = 4;
+	required uint32 IndicationSignalQuality__ = 5;
+	required uint32 IndicationOutboxState__ = 6;
+	required uint32 IndicationNtripState__ = 7;
+	required uint32 IndicationNetworkState__ = 8;
+	required uint32 IndicationModemState__ = 9;
+	required uint32 IndicationGpsCorrPckCnt__ = 10;
+	required uint32 IndicationExprBoxState__ = 11;
+	required uint32 IndicationCanviewState__ = 12;
+}
+
+message sAtpcCoec_DevDiag03 {
+	required sint32 DDP_E_ClcValveSlider__ = 1;
+	required uint32 DDP_C_ATPSaftyState__ = 2;
+	required uint32 DDP_D_StateAntennaBracketSensor__ = 3;
+	required uint32 DDP_D_GrainTankSwitch__ = 4;
+	required uint32 DDP_C_SeatSwitchStateDelayedSafe__ = 5;
+	required uint32 DDP_C_RoadTravelSwitchSafe__ = 6;
+	required uint32 DDP_C_MainDriveStatusSafe__ = 7;
+	required uint32 DDP_C_AtpActivatButtonSafety__ = 8;
+	required uint32 DDP_B_num_detect_row_distance__ = 9;
+	required uint32 DDP_B_Current_Row_Distance__mV = 10;
+	required uint32 DDP_B_Range_Adj_Threshold__mV = 11;
+	required sint32 DDP_10_PressureSensorState__ = 12;
+	required sint32 DDP_10_PressureSensor__bar = 13;
+	required uint32 DDP_2_PID_active__ = 14;
+	required double DDP_2_Ki_PID__ = 15;
+	required double DDP_2_Kd_PID__ = 16;
+	required double DDP_2_Kp_PID_with_sensitivity__ = 17;
+	required uint32 DDP_3_SafetyValve_left__ = 18;
+	required sint32 DDP_B_Calculated_deviation__mV = 19;
+	required double DDP_3_steering_left_pwm__perc = 20;
+	required sint32 DDP_3_steering_left_current_des__mA = 21;
+	required sint32 DDP_3_steering_left_current_act__mA = 22;
+	required uint32 DDP_5_PowerSupply__mV = 23;
+	required double DDP_5_vehicleSpeed__km_h = 24;
+	required uint32 DDP_5_stLaserRight__ = 25;
+	required uint32 DDP_5_stLaserLeft__ = 26;
+	required uint32 DDP_A_DynSignal_7__ = 27;
+	required uint32 DDP_A_DynSignal_6__ = 28;
+	required uint32 DDP_A_DynSignal_5__ = 29;
+	required uint32 DDP_D_SelectedGuidanceSensor__ = 30;
+	required uint32 DDP_D_AntennaBracket_Position__mV = 31;
+	required uint32 DDP_5_StateValve_right_left__ = 32;
+	required uint32 DevPkt_packetnumber_03__ = 33;
+	required double DDP_1_zpi_kx_rho_dyn__1_km = 34;
+	required uint32 DDP_6_ConfigISO__ = 35;
+	required double DDP_1_zpi_kx_rho_stat__1_km = 36;
+	required double DDP_1_u_zpi_kp__1_km = 37;
+	required double DDP_1_u_zpi_integr__1_km = 38;
+	required uint32 DDP_0_AtpSwitch__ = 39;
+	required double DDP_4_vehicleSpeed__km_h = 40;
+	required uint32 DDP_4_stDriveDirStatus__ = 41;
+	required uint32 DDP_4_CoATP_state__ = 42;
+	required uint32 DDP_4_ActiveProgram__ = 43;
+	required double DDP_4_EngineRpm__rpm = 44;
+	required uint32 DDP_7_TrackCtrl_Active__ = 45;
+	required uint32 DDP_9_DTCmask_safetyValve__ = 46;
+	required uint32 DDP_0_AtpSafetyCheckRelease__ = 47;
+	required uint32 DDP_0_AtpSystem_OK__ = 48;
+	required double DDP_0_CurvatureCmd_in__1_km = 49;
+	required double DDP_0_estimated_curvature__1_km = 50;
+	required double DDP_0_SteeringWheelRot__ = 51;
+}
+
+message sAtpcCoec_DevDiag02 {
+	required uint32 DDP_E_PVEDProgNeeded__ = 1;
+	required uint32 DDP_E_FastSteeringStatus__ = 2;
+	required uint32 DDP_E_ActualFSMode__ = 3;
+	required uint32 DDP_D_TimerUp__ = 4;
+	required uint32 DDP_D_TimerDown__ = 5;
+	required sint32 DDP_D_ActualCurrent__mA = 6;
+	required uint32 DDP_D_DiagLastOutputError__ = 7;
+	required uint32 DDP_D_ConfigAntennaBracket__ = 8;
+	required uint32 DDP_D_CoordinatorState__ = 9;
+	required uint32 DDP_C_SC_WheelAngle__ = 10;
+	required uint32 DDP_C_SC_SpeedInd__ = 11;
+	required uint32 DDP_C_SC_SignalPlausibility__ = 12;
+	required sint32 DDP_C_SC_Debug_Verstellgeschw__ = 13;
+	required double DDP_2_Kp_PID_without_sensitivity__ = 14;
+	required double DDP_2_Kd_PD__ = 15;
+	required double DDP_2_Kp_PD__ = 16;
+	required uint32 DDP_6_CurvCmdStatus_CAM__ = 17;
+	required uint32 DDP_3_SafetyValve_right__ = 18;
+	required uint32 DDP_B_PeakRight_detected__ = 19;
+	required uint32 DDP_B_PeakLeft_detected__ = 20;
+	required sint32 DDP_3_steering_right_current_des__mA = 21;
+	required double DDP_3_steering_right_pwm__perc = 22;
+	required sint32 DDP_3_steering_right_current_act__mA = 23;
+	required uint32 DDP_B_ZeroPoint_TouchSensorRight__mV = 24;
+	required sint32 DDP_B_virt_ZeroPoint_T_SensRight__mV = 25;
+	required sint32 DDP_B_virt_ZeroPoint_T_SensLeft__mV = 26;
+	required uint32 DDP_5_steeringWheelActive__ = 27;
+	required uint32 DDP_5_CurvCmdStatus_NAV__ = 28;
+	required uint32 DDP_5_CurvCmdStatus_ISO__ = 29;
+	required uint32 DDP_5_CurvCmdStatus_CAM__ = 30;
+	required uint32 DDP_5_CoATP_state__ = 31;
+	required uint32 DDP_5_CGC__ = 32;
+	required uint32 DDP_A_DynSignal_1__ = 33;
+	required uint32 DDP_A_DynSignal_0__ = 34;
+	required uint32 DDP_A_OUT_A4__ = 35;
+	required uint32 DevPkt_packetnumber_02__ = 36;
+	required uint32 DDP_6_CurvCmdStatus_NAV__ = 37;
+	required uint32 DDP_6_stDriveDirStatus__ = 38;
+	required double DDP_6_VehicleSpeed__km_h = 39;
+	required uint32 DDP_6_CurvCmdStatus_ISO__ = 40;
+	required uint32 DDP_6_CoATP_state__ = 41;
+	required double DDP_1_w_rho_stat_zpi__1_km = 42;
+	required double DDP_1_w_rho_stat_vf__1_km = 43;
+	required double DDP_1_w_rho_dyn_vf__1_km = 44;
+	required uint32 DDP_A_DynSignal_4__ = 45;
+	required uint32 DDP_A_DynSignal_3__ = 46;
+	required uint32 DDP_A_DynSignal_2__ = 47;
+	required uint32 DDP_5_ActivationButton__ = 48;
+	required uint32 DDP_4_steeringWheelState__ = 49;
+	required uint32 DDP_4_steeringWheelActive__ = 50;
+	required uint32 DDP_4_ActivationButton__ = 51;
+	required uint32 DDP_4_CGC__ = 52;
+	required uint32 DDP_4_CurvCmdStatus_CAM__ = 53;
+	required uint32 DDP_4_CurvCmdStatus_NAV__ = 54;
+	required uint32 DDP_4_SelectedGuidanceSensor__ = 55;
+	required uint32 DDP_7_TrackCtrl_Release__ = 56;
+	required uint32 DDP_7_CoATP_state__ = 57;
+	required double DDP_7_vehicleSpeed__km_h = 58;
+	required uint32 DDP_7_stDriveDirStatus__ = 59;
+	required uint32 DDP_0_SteeringCmdStatus__ = 60;
+	required uint32 DDP_0_CurrentMode__ = 61;
+	required uint32 DDP_0_SelectedDevice__ = 62;
+	required uint32 DDP_0_ActiveProgram__ = 63;
+	required uint32 DDP_0_checkstate__ = 64;
+	required uint32 DDP_0_diagnostic_bitmask__ = 65;
+}
+
+message sAtpcCoec_DevDiag01 {
+	required uint32 DDP_E_FSConfigured__ = 1;
+	required uint32 DDP_E_Switch45__ = 2;
+	required uint32 DDP_E_SelectedFSMode__ = 3;
+	required uint32 DDP_D_StateAntennaBracketCtrl__ = 4;
+	required double DDP_D_DesiredDutyCycle__perc = 5;
+	required uint32 DDP_D_DTC_0x110F_OverloadDown__ = 6;
+	required uint32 DDP_D_DTC_0x110E_OverloadUp__ = 7;
+	required uint32 DDP_D_DTC_0x110D_Uf__ = 8;
+	required uint32 DDP_D_DTC_0x110C_ScUb__ = 9;
+	required uint32 DDP_D_DTC_0x110B_ScGnd__ = 10;
+	required uint32 DDP_D_DTC_0x110A_Nc__ = 11;
+	required double DDP_C_ValueSim__ = 12;
+	required double DDP_C_ValueReal__ = 13;
+	required uint32 DDP_C_StateValve__ = 14;
+	required uint32 DDP_C_FailureHydraulic__ = 15;
+	required uint32 DDP_C_ExternelReset__ = 16;
+	required double DDP_2_I_value__ = 17;
+	required double DDP_2_D_value__ = 18;
+	required double DDP_2_e_phi_bahn__ = 19;
+	required uint32 DDP_3_WheelAngleSensor_voltage__mV = 20;
+	required double DDP_3_y_rho_stat__1_km = 21;
+	required double DDP_3_w_rho_stat__1_km = 22;
+	required uint32 DDP_9_DTC_0x6F5__ = 23;
+	required uint32 DDP_9_DTC_0x693__ = 24;
+	required uint32 DDP_9_DTC_0x692__ = 25;
+	required uint32 DDP_9_DTC_0x68A__ = 26;
+	required uint32 DDP_9_DTC_0x684__ = 27;
+	required uint32 DDP_9_DTC_0x683__ = 28;
+	required uint32 DDP_9_DTC_0x67C__ = 29;
+	required uint32 DDP_9_DTC_0x67B__ = 30;
+	required uint32 DDP_9_DTC_0x67A__ = 31;
+	required uint32 DDP_9_DTC_0x679__ = 32;
+	required uint32 DDP_9_DTC_0x678__ = 33;
+	required uint32 DDP_9_DTC_0x677__ = 34;
+	required uint32 DDP_9_DTC_0x676__ = 35;
+	required uint32 DDP_9_DTC_0x675__ = 36;
+	required uint32 DDP_9_DTC_0x674__ = 37;
+	required uint32 DDP_9_DTC_0x673__ = 38;
+	required uint32 DDP_9_DTC_0x672__ = 39;
+	required uint32 DDP_9_DTC_0x670__ = 40;
+	required uint32 DDP_B_GuidanceSensor_internal__ = 41;
+	required uint32 DDP_B_ZeroPoint_TouchSensorLeft__mV = 42;
+	required uint32 DDP_B_TouchSensorRight_voltage__mV = 43;
+	required uint32 DDP_B_TouchSensorLeft_voltage__mV = 44;
+	required uint32 DDP_5_stMainDriveStatus__ = 45;
+	required uint32 DDP_5_stDriveDirStatus__ = 46;
+	required uint32 DDP_5_StateSensor__ = 47;
+	required uint32 DDP_5_SelectedGuidanceSensor__ = 48;
+	required uint32 DDP_5_SeatSwitch__ = 49;
+	required uint32 DDP_5_LaserRightActive__ = 50;
+	required uint32 DDP_5_ConfigISO__ = 51;
+	required uint32 DDP_5_AtpMainSwitch__ = 52;
+	required uint32 DDP_A_OUT_A1__ = 53;
+	required uint32 DDP_3_PID_active__ = 54;
+	required uint32 DDP_3_status_aktorik__ = 55;
+	required uint32 DDP_6_SelectedGuidanceSensor__ = 56;
+	required uint32 DDP_6_RoadTravelSwitch__ = 57;
+	required uint32 DDP_6_CGS__ = 58;
+	required double DDP_1_zpi_enable__bit = 59;
+	required double DDP_1_y_rho_stat_filt__1_km = 60;
+	required double DDP_1_y_rho_dyn_filt__1_km = 61;
+	required double DDP_1_w_rho_dyn_filt__1_km = 62;
+	required uint32 DDP_6_ATP_Enabled_State_EHL__ = 63;
+	required uint32 DDP_A_OUT_A3__ = 64;
+	required double DDP_0_CurvatureCmd_out__1_km = 65;
+	required uint32 DDP_0_CurvatureCmdStatus__ = 66;
+	required uint32 DDP_0_pvedcl_release__ = 67;
+	required uint32 DDP_0_safety_valve_enable__ = 68;
+	required uint32 DevPkt_packetnumber_01__ = 69;
+	required uint32 DDP_6_ATP_ActiveStateEHL__ = 70;
+	required uint32 DDP_A_OUT_A2__ = 71;
+	required uint32 DDP_4_stMachinemanagement__ = 72;
+	required uint32 DDP_4_SeatSwitch__ = 73;
+	required uint32 DDP_4_ConfigATP__ = 74;
+	required uint32 DDP_4_SafetyValveCheckState__ = 75;
+	required uint32 DDP_4_StatePved__ = 76;
+	required uint32 DDP_4_AtpMainSwitch_diagnostic__ = 77;
+	required uint32 DDP_4_AtpMainSwitch__ = 78;
+	required uint32 DDP_7_stDeactivationAutoSteer__ = 79;
+	required uint32 DDP_7_stActivationAutoSteer__ = 80;
+	required uint32 DDP_7_stGuidanceSensorEnable__ = 81;
+	required uint32 DDP_7_stVehicleEnable__ = 82;
+	required uint32 DDP_7_stAuToPilotEnable__ = 83;
+	required uint32 DDP_7_stSensorPreCalc__ = 84;
+	required double DDP_0_estimated_curvature_deg__deg = 85;
+	required uint32 DDP_0_safety_internal_state__ = 86;
+}
+
+message sVbccBrc_AlarmMonitoringStatus {
+	required uint32 AlarmMonitoringStatus__ = 1;
+	required uint32 AlarmMonitoringCounter__ = 2;
+}
+
+message sNavcBrc_NavState {
+	required sint32 Navc_TrackDirectionError__ = 1;
+	required sint32 Navc_XTrackError__ = 2;
+	required uint32 Navc_TC_CurCmd_onTrack__ = 3;
+	required uint32 Navc_State_GuidanceState__ = 4;
+	required uint32 Navc_State_GpsState__ = 5;
+	required uint32 Navc_Ctrl_NavFunction__ = 6;
+	required uint32 Navc_Contour_NumberOfPoints__ = 7;
+}
+
+message sAtpcBrc_SpecialSteeringState3 {
+	required double SteeringCrabSteerAngleDegree__deg = 1;
+	required uint32 SteeringPoleLinePos__perc = 2;
+	required uint32 SteeringMode__ = 3;
+	required double ActualCrabSteerAngleDegree__deg = 4;
+}
+
+message sCoecBrc_Dev_SensorParameter {
+}
+
+message sCoecVpdc_ConfigVPDM {
+	required uint32 EnableDevMessage__ = 1;
+	required uint32 SensorSignalBridging__ = 2;
+	required uint32 SelectSensor__ = 3;
+}
+
+message sVpdcBrc_VirtualCogSogData {
+	required double NMEA_SpeedOverGround__m_s = 1;
+	required uint32 NMEA_SequenceID__ = 2;
+	required uint32 NMEA_Reserved2__ = 3;
+	required uint32 NMEA_Reserved1__ = 4;
+	required uint32 NMEA_DirectionReference__ = 5;
+	required double NMEA_CourseOverGround__rad = 6;
+}
+
+message sVpdcBrc_InclineSensorData {
+	required uint32 StartPattern__ = 1;
+	required double XAngle__deg = 2;
+	required uint32 CurrentNumber__ = 3;
+	required uint32 CRCChecksum__ = 4;
+	required double YAngle__deg = 5;
+}
+
+message s3dgcBrc_Data2 {
+	required double RollRate__deg_sec = 1;
+	required double LateralAcceleration__m_secsec = 2;
+	required uint32 StatusLateralAcceleration__bool = 3;
+	required uint32 StatusRollRate__bool = 4;
+	required uint32 MessageCounter_2__ = 5;
+}
+
+message s3dgcBrc_Data1 {
+	required double Temperature__deg_cel = 1;
+	required uint32 StatusLongitudinalAcceleration__bool = 2;
+	required uint32 StatusTemperature__bool = 3;
+	required uint32 StatusYawRate__bool = 4;
+	required double LongitudinalAcceleration__m_secsec = 5;
+	required uint32 MessageCounter_1__ = 6;
+	required double YawRate__deg_sec = 7;
+}
+
+message s3dgsBrc_3dgmAlive {
+	required uint32 SwVersionLow__ = 1;
+	required uint32 SwVersionMiddle__ = 2;
+	required uint32 SwVersionHigh__ = 3;
+	required uint32 ModuleStatus__ = 4;
+	required uint32 ModuleAliveMsgCounter__ = 5;
+}
+
+message sVpdsBrc_VpdmAlive {
+	required uint32 SwVersionLow__ = 1;
+	required uint32 SwVersionMiddle__ = 2;
+	required uint32 SwVersionHigh__ = 3;
+	required uint32 ModuleStatus__ = 4;
+	required uint32 ModuleAliveMsgCounter__ = 5;
+}
+
+message sNavcCoec_Dev11_TrackContr {
+	required sint32 Dev_Navc_TC_Empty__ = 1;
+	required sint32 Dev_Navc_TC_Integrator__cdeg = 2;
+	required sint32 Dev_Navc_TC_Heading_Cmd__cdeg = 3;
+	required uint32 Dev_Navc_TC_State__ = 4;
+}
+
+message sNavcCoec_Dev19_DiagTime_2 {
+	required uint32 Dev_Navc_T_NC_FF_Contour__micros = 1;
+	required uint32 Dev_Navc_T_NC_FF_XTrack__micros = 2;
+	required uint32 Dev_Navc_T_NC_FF_ABContour__micros = 3;
+	required uint32 Dev_Navc_T_NC_FF_AB__micros = 4;
+}
+
+message sGpscRtcc_CanRs232ControlComRe {
+	required uint32 TransferStatusRe__ = 1;
+	required uint32 BaudRateRe__ = 2;
+	required uint32 BitLenRe__ = 3;
+	required uint32 ParityRe__ = 4;
+	required uint32 PortSelectionRe__ = 5;
+	required uint32 StopBitsRe__ = 6;
+}
+
+message sNavcBrc_ConfigAntenna {
+	required uint32 Wheelbase__mm = 1;
+	required uint32 AntennaLongitudinalOffset__mm = 2;
+	required uint32 AntennaLateralOffset__mm = 3;
+	required uint32 AntennaHeight__mm = 4;
+}
+
+message s3dgsVbccAlarm {
+	required uint32 AlarmStatus__ = 1;
+	required uint32 AlarmId__ = 2;
+}
+
+message s3dgcBrc_STW_DataZ {
+	required uint32 Inclination_Z_Status__ = 1;
+	required double Inclination_Z__rad = 2;
+	required uint32 Acceleration_Z_Status__ = 3;
+	required double Acceleration_Z__m_s2 = 4;
+	required uint32 Turnrate_Z_Status__ = 5;
+	required double Turnrate_Z__rad_sec = 6;
+}
+
+message s3dgcBrc_STW_DataY {
+	required uint32 Inclination_Y_Status__ = 1;
+	required double Inclination_Y__rad = 2;
+	required uint32 Acceleration_Y_Status__ = 3;
+	required double Acceleration_Y__m_s2 = 4;
+	required uint32 Turnrate_Y_Status__ = 5;
+	required double Turnrate_Y__rad_sec = 6;
+}
+
+message s3dgcBrc_STW_DataX {
+	required uint32 Temperature_STW__deg_cel = 1;
+	required uint32 Temperature_Status__ = 2;
+	required uint32 Inclination_X_Status__ = 3;
+	required double Inclination_X__rad = 4;
+	required uint32 Turnrate_X_Status__ = 5;
+	required uint32 Acceleration_X_Status__ = 6;
+	required double Acceleration_X__m_s2 = 7;
+	required double Turnrate_X__rad_sec = 8;
+}
+
+message sNavcCoec_Dev18_DiagTime_1 {
+	required uint32 Dev_Navc_State_SensivityOnTrack__ = 1;
+	required uint32 Dev_Navc_State_SensivityOnMerge__ = 2;
+}
+
+message sNavcCoec_Dev17_DiagTime_0 {
+	required uint32 Dev_Navc_T_nvwThread__ms = 1;
+	required uint32 Dev_Navc_T_NC__micros = 2;
+	required uint32 Dev_Navc_T_navcalc__micros = 3;
+	required uint32 Dev_Navc_T_navThread__ms = 4;
+}
+
+message sNavcCoec_DevStat_9_last_pgn {
+}
+
+message sNavcCoec_Dev21_DiagTime_4 {
+	required uint32 Dev_Navc_T_Res4__micros = 1;
+	required uint32 Dev_Navc_T_Res3__micros = 2;
+	required uint32 Dev_Navc_T_Res2__micros = 3;
+	required uint32 Dev_Navc_T_Res1__micros = 4;
+}
+
+message sNavcCoec_Dev20_DiagTime_3 {
+	required uint32 Dev_Navc_T_NC_TrackTrace__micros = 1;
+	required uint32 Dev_Navc_T_NC_FF_S_Verschieb__micros = 2;
+	required uint32 Dev_Navc_T_NC_FF_S_Schlaufe__micros = 3;
+	required uint32 Dev_Navc_T_NC_FF_S_Glaett__micros = 4;
+}
+
+message sNavcCoec_Dev01_System {
+	required uint32 Dev_Navc_Version_Terminal__ = 1;
+	required double Dev_Navc_Model_TimeAlive__sekunden = 2;
+	required uint32 Dev_Navc_Version_NavCalc__ = 3;
+}
+
+message sVpdcNavc_GPSStatusData {
+	required uint32 VehicleDirection__ = 1;
+	required double AgeOfDGNSSCorrections1__sec = 2;
+	required double HDOP__ = 3;
+	required uint32 NumberOfSVs__ = 4;
+	required double STDofMajorAxis__m = 5;
+	required uint32 GNSSMethod__ = 6;
+}
+
+message sVpdcBrc_GyroSensorData {
+	required double TurnRate__deg_sec = 1;
+	required double Curvature__1_km = 2;
+	required double GyroSmoothedHeading__deg = 3;
+}
+
+message sVpdcBrc_VirtualVehiclePosition {
+	required double Latitude__deg = 1;
+	required double Longitude__deg = 2;
+}
+
+message sVpdcNavc_FctDiagTERM {
+	required uint32 FctDiagTERM__ = 1;
+}
+
+message sNavcVpdc_FctDiagTERM {
+	required uint32 TERM_x_track_error_SetValue__ = 1;
+	required uint32 TERM_x_track_error__mm = 2;
+	required uint32 TERM_tSTDv_SetValue2__ = 3;
+	required uint32 TERM_frame_pos__ = 4;
+	required uint32 TERM_velocity_SetValue2__ = 5;
+	required uint32 TERM_velocity_SetValue1__ = 6;
+	required double TERM_track_direction_error__deg = 7;
+	required uint32 TERM_threshold_STD_value__mm = 8;
+	required uint32 TERM_threshold_STD__ = 9;
+	required uint32 TERM_tde_SetValue__ = 10;
+}
+
+message sVpdcCoec_DevStat3 {
+	required uint32 DevStat3_Signal1__ = 1;
+	required uint32 DevStat3_Signal0__ = 2;
+}
+
+message sVpdcCoec_DevStat4 {
+	required uint32 DevStat4_Signal1__ = 1;
+	required uint32 DevStat4_Signal0__ = 2;
+}
+
+message sVpdcCoec_DevStat5 {
+	required uint32 DevStat5_Signal1__ = 1;
+	required uint32 DevStat5_Signal0__ = 2;
+}
+
+message sNavcVpdc_PositionZeroPoint {
+	required double LongitudeZeroPoint__deg = 1;
+	required double LatitudeZeroPoint__deg = 2;
+}
+
+message sAtpcBrc_AtpStatus {
+	required uint32 AtpIsoDeviceAvailable__ = 1;
+	required uint32 CabinPostion__ = 2;
+	required double EstimatedCurvature__km_1 = 3;
+	required uint32 AtpCameraSensorAvailable__ = 4;
+	required uint32 AtpCirculationLockValveRequest__ = 5;
+	required uint32 AtpSteeringAutoPilotActive__ = 6;
+	required uint32 AtpActiveGuidanceSensor__ = 7;
+	required uint32 AtpLaserSensorAvailable__ = 8;
+	required uint32 AtpTouchSensorAvailable__ = 9;
+	required uint32 AtpCoordinatorState__ = 10;
+	required uint32 AtpGPSSensorAvailable__ = 11;
+}
+
+message sAtpsBrc_AtpmAlive {
+	required uint32 Reserved_2_byte__ = 1;
+	required uint32 FunctionalityIdent__ = 2;
+	required uint32 SwVersionLow__ = 3;
+	required uint32 SwVersionMiddle__ = 4;
+	required uint32 SwVersionHigh__ = 5;
+	required uint32 ModuleStatus__ = 6;
+	required uint32 ModuleAliveMsgCounter__ = 7;
+}
+
+message sAtpcBrc_WheelBasedSpeed {
+	required double WheelBasedSpeed__km_h = 1;
+	required double WheelBasedDistance__m = 2;
+	required uint32 MaxTimeOfTractorPower__min = 3;
+	required uint32 WheelBasedDirection__ = 4;
+	required uint32 KeySwitchState__ = 5;
+	required uint32 StartStopState__ = 6;
+}
+
+message sAtpcNavc_Data {
+	required uint32 Reserved_4_byte__ = 1;
+	required uint32 AutoTurnCtrl__ = 2;
+	required uint32 Startsign_Ctrl__ = 3;
+	required uint32 CRCChecksum_Ctrl__ = 4;
+	required uint32 AtpActivationButton__ = 5;
+	required uint32 SequenceNumber_Ctrl__ = 6;
+}
+
+message sGpscBrc_J1939TimeDate {
+	required double Seconds__s = 1;
+	required uint32 Minutes__min = 2;
+	required uint32 Hours__h = 3;
+	required uint32 Month__month = 4;
+	required double Day__day = 5;
+	required uint32 Year__year = 6;
+	required uint32 LocalMinuteOffset__min = 7;
+	required uint32 LocalHourOffset__h = 8;
+}
+
+message sGpscBrc_GNSSPositionRapidUpdate {
+	required double Latitude__deg = 1;
+	required double Longitude__deg = 2;
+}
+
+message sNavcAtpc_GSC {
+	required uint32 SequenceNumber__ = 1;
+	required uint32 Reserved_2_byte__ = 2;
+	required uint32 Reserved_6_bit__ = 3;
+	required uint32 CRCChecksum__ = 4;
+	required uint32 Startsign__ = 5;
+	required double CurvatureCommand__km_1 = 6;
+	required uint32 CurvatureCommandStatus__ = 7;
+}
+
+message sAtpcNavc_GMS {
+	required uint32 Startsign__ = 1;
+	required uint32 CRCChecksum__ = 2;
+	required uint32 SequenceNumber__ = 3;
+	required uint32 Reserved_2_byte__ = 4;
+	required double EstimatedCurvature__km_1 = 5;
+	required uint32 RequestResetCommandStatus__ = 6;
+	required uint32 SteeringInputPositionStatus__ = 7;
+	required uint32 SteeringSystemReadiness__ = 8;
+	required uint32 MechanicalSystemLockout__ = 9;
+}
+
+message sGpscBrc_J1939VehiDirSpeed {
+	required double Pitch__degr = 1;
+	required double Navigation_BasedVehicleSpeed__km_h = 2;
+	required double CompassBearing__degr = 3;
+	required double Altitude__m = 4;
+}
+
+message sGpscBrc_J1939VehiclePosition {
+	required double VehPosLatitude__degr = 1;
+	required double VehPosLongitude__degr = 2;
+}
+
+message sGpscBrc_GNSSCogSogData {
+	required double NMEA_SpeedOverGround__m_s = 1;
+	required uint32 NMEA_SequenceID__ = 2;
+	required uint32 NMEA_Reserved2__ = 3;
+	required uint32 NMEA_Reserved1__ = 4;
+	required uint32 NMEA_DirectionReference__ = 5;
+	required double NMEA_CourseOverGround__rad = 6;
+}
+
+message sCascBrc_SteeringWheel {
+	required double SteeringWheelRotation__ = 1;
+	required double SteeringWheelAngle__deg = 2;
+}
+
+message sSdvcBrc_TimeReport {
+	required uint32 TimeStampRollOver__minutes = 1;
+	required uint32 TimeStamp__ms = 2;
+}
+
+message sSdvcBrc_OperationStatus {
+	required uint32 LPESG_Status__ = 1;
+	required uint32 HPESG_Status__ = 2;
+	required uint32 LpJoystickStatus__ = 3;
+	required uint32 HpJoystickStatus__ = 4;
+	required uint32 ActiveProgram__ = 5;
+	required uint32 SelectedDevice__ = 6;
+	required uint32 CurrentMode__ = 7;
+}
+
+message sSdvcBrc_Status {
+	required uint32 StatusByte7_8__ = 1;
+	required uint32 StatusByte5_6__ = 2;
+	required uint32 StatusByte3_4__ = 3;
+	required uint32 StatusByte1_2__ = 4;
+}
+
+message sSdvcSdnc_GuidanceSystemCmdCtrl {
+	required uint32 MechSysLockout__ = 1;
+	required uint32 MachCanExecCmd__ = 2;
+	required uint32 SteeringInputPosition_Status__ = 3;
+	required uint32 ReqResCmd_Status__ = 4;
+	required double EstimatedCurvature__km_1 = 5;
+}
+
+message sSdncSdvc_GuidanceSystemCmdCtrl {
+	required uint32 SteeringCommandStatus__ = 1;
+	required double CurvatureCommand__km_1 = 2;
+}
+
+message sSdvcSdvt_ProgramCtrl {
+	required uint32 LPESG_Status_X_FB1__ = 1;
+	required uint32 HPESG_Status_X_FB1__ = 2;
+	required uint32 LpJoystickStatus_X_FB1__ = 3;
+	required uint32 HpJoystickStatus_X_FB1__ = 4;
+	required uint32 ActiveProgramNumber__ = 5;
+	required sint32 RequestedProgramNumber__ = 6;
+	required uint32 XID_Sdvc_Ctrl__ = 7;
+}
+
+message sSdvtSdvc_ProgramCtrl {
+	required uint32 Command__ = 1;
+	required uint32 ProgramNumber__ = 2;
+	required uint32 XID_Sdvt_Ctrl__ = 3;
+}
+
+message sSdvcSdcc_ConfigParam {
+	required uint32 ErrorCodeDetails_X_FB4__ = 1;
+	required uint32 ErrorSeverity__ = 2;
+	required uint32 ErrorCode_X_FB4__ = 3;
+	required uint32 BufferIndex_X_FB4__ = 4;
+	required uint32 CurrentModeResponse__ = 5;
+	required uint32 CommitStatus__ = 6;
+	required uint32 RestoreDefaultsResponse__ = 7;
+	required uint32 ParameterValue_X_FA3__ = 8;
+	required uint32 ParameterIndex_X_FA3__ = 9;
+	required uint32 ParameterValue_X_FA1__ = 10;
+	required uint32 ParameterIndex_X_FA1__ = 11;
+	required uint32 XID_Sdvc_Config__ = 12;
+}
+
+message sSdccSdvc_ConfigParam {
+	required uint32 CheckValue_X_FA8__ = 1;
+	required uint32 CheckValue_X_FA6__ = 2;
+	required uint32 ParameterIndex_X_FA2__ = 3;
+	required uint32 CheckValue_X_FA4__ = 4;
+	required uint32 OperationStatus__ = 5;
+	required uint32 StartStatus__ = 6;
+	required double RequestedSpoolPosition__mm = 7;
+	required uint32 ParameterValue_X_FA2__ = 8;
+	required uint32 ParameterIndex_X_FA0__ = 9;
+	required uint32 BufferIndex_X_FB3__ = 10;
+	required uint32 XID_Sdcc_Config__ = 11;
+}
+
+message sSdbcBrc_VehicleSpeed {
+	required double WheelBasedSpeed__km_h = 1;
+}
+
